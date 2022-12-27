@@ -1,0 +1,20 @@
+[user]
+	name = Sakshi Aggarwal
+	email = 81718060+sakshiagrwal@users.noreply.github.com
+	signingkey = ssh-sakshi AAAAC3NzaC1lZDI1NTE5AAAAID/l6Yi9GMuGJjmHcntZfujdE0kCtg5Lkt1ZcJLeVZP+ sakshi@RyzenSeven
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[pull]
+	rebase = false
+[core]
+	editor = nano
+[init]
+	defaultBranch = master
+[merge]
+	log = true
+[tag]
+	gpgsign = true
+[color]
+	ui = auto
