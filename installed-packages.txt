@@ -1,0 +1,59 @@
+   -\|/-    - Name                                      Id                                        Version            Available Source
+-----------------------------------------------------------------------------------------------------------------------
+7-Zip 22.01 (x64)                         7zip.7zip                                 22.01                        winget
+Spotube version 2.5.0+15                  80B901C8-D6FE-494E-8AF7-A2BD440E8644_is1  2.5.0+15                     
+CCleaner                                  Piriform.CCleaner                         6.06.10144                   winget
+Git                                       Git.Git                                   2.38.1             2.39.0    winget
+GNU Privacy Guard                         GnuPG.GnuPG                               2.3.8              2.4.0     winget
+Google Chrome                             Google.Chrome                             108.0.5359.125               winget
+Gpg4win (4.0.4)                           GnuPG.Gpg4win                             4.0.4              4.1.0     winget
+IObit Unlocker                            IObit Unlocker_is1                        1.3.0.11                     
+IntelliJ IDEA 2022.3.1                    JetBrains.IntelliJIDEA.Ultimate           2022.3.1                     winget
+Internet Download Manager                 Tonec.InternetDownloadManager             6.41.6                       winget
+IrfanView 4.60 (64-bit)                   IrfanSkiljan.IrfanView                    4.60                         winget
+K-Lite Codec Pack 17.3.0 Full             KLiteCodecPack_is1                        17.3.0                       
+Microsoft Edge Update                     Microsoft Edge Update                     1.3.171.37                   
+Microsoft Edge WebView2 Runtime           Microsoft.EdgeWebView2Runtime             108.0.1462.54                winget
+App Installer                             Microsoft.DesktopAppInstaller_8wekyb3d8b… 1.18.2691.0                  
+Snip & Sketch                             Microsoft.ScreenSketch_8wekyb3d8bbwe      10.2008.2277.0               
+Windows Calculator                        Microsoft.WindowsCalculator_8wekyb3d8bbwe 11.2210.0.0                  
+Microsoft Store                           Microsoft.WindowsStore_8wekyb3d8bbwe      11910.1002.5.0               
+Windows Terminal                          Microsoft.WindowsTerminal                 1.15.3465.0                  winget
+Windows Package Manager Source (winget)   Microsoft.Winget.Source_8wekyb3d8bbwe     2022.1226.2305.409           
+NVIDIA Control Panel                      NVIDIACorp.NVIDIAControlPanel_56jybvy8sc… 8.1.963.0                    
+Notepad++ (64-bit x64)                    Notepad++.Notepad++                       8.4.7              8.4.8     winget
+ProtonVPN                                 ProtonTechnologies.ProtonVPN              2.3.1                        winget
+PyCharm 2022.3                            JetBrains.PyCharm.Professional            2022.3                       winget
+StartIsBack++                             StartIsBack.StartIsBack                   2.9.17                       winget
+qBittorrent 4.4.5                         qBittorrent.qBittorrent                   4.4.5              4.5.0     winget
+Microsoft Visual C++ 2013 x64 Additional… {010792BA-551A-3AC0-A7EF-0FAB4156C382}    12.0.40664                   
+Python Launcher                           {0E6EEAC9-4913-4C2F-B7D2-761B27C35D7C}    3.11.7966.0                  
+Microsoft Visual C++ 2010  x64 Redistrib… Microsoft.VCRedist.2010.x64               10.0.40219                   winget
+Microsoft Visual C++ 2012 x64 Additional… {37B8F9C7-03FB-3253-8781-2517C99D7C00}    11.0.61135                   
+Microsoft Visual C++ 2022 X64 Additional… {38624EB5-356D-4B08-8357-C33D89A5C0C5}    14.32.31326                  
+Microsoft Visual C++ 2022 X86 Minimum Ru… {46E11E7F-01E1-44D0-BB86-C67342D253DD}    14.32.31326                  
+Microsoft Visual Studio 2010 Tools for O… {47C2CCDB-7A04-3797-992B-A84D3E90258F}    10.0.60833                   
+Microsoft Visual C++ 2013 x64 Minimum Ru… {53CF6934-A98D-3D84-9146-FC4EDF3D5641}    12.0.40664                   
+Telegram Desktop                          Telegram.TelegramDesktop                  4.4.1                        winget
+Microsoft Visual C++ 2008 Redistributabl… Microsoft.VCRedist.2008.x64               9.0.30729.7523               winget
+Revo Uninstaller Pro 5.0.7                RevoUninstaller.RevoUninstallerPro        5.0.7                        winget
+Microsoft Visual C++ 2005 Redistributable Microsoft.VCRedist.2005.x86               8.0.61187                    winget
+Node.js                                   OpenJS.NodeJS.LTS                         18.12.1                      winget
+Python 3.11.0 (64-bit)                    {7f8381ad-2e42-4432-8de5-c7beebe1009f}    3.11.150.0                   
+Microsoft Visual C++ 2013 x86 Minimum Ru… {8122DAB1-ED4D-3676-BB0A-CA368196543E}    12.0.40664                   
+ProtonVPNTap                              {87BDF456-9882-44E6-8FFC-F73B83E42EAD}    1.1.4                        
+Microsoft Visual C++ 2008 Redistributabl… Microsoft.VCRedist.2008.x86               9.0.30729.7523               winget
+Microsoft Visual C++ 2022 X86 Additional… {A250E750-DB3F-40C1-8460-8EF77C7582DA}    14.32.31326                  
+Microsoft Visual C++ 2012 x86 Additional… {B175520C-86A2-35A7-8619-86DC379688B9}    11.0.61135                   
+ProtonVPNTun                              {B1EBF050-CC3E-45B0-9DE5-339C6241F3DA}    0.13.1                       
+NVIDIA Graphics Driver 473.81             {B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_D… 473.81                       
+Microsoft Visual C++ 2012 x86 Minimum Ru… {BD95A8CD-1D9F-35AD-981A-3E7925026EBB}    11.0.61135                   
+Microsoft Visual Basic/C++ Runtime (x86)  {C5E3A69D-D391-45A6-A8FB-00B01E2B010D}    1.1.0                        
+Microsoft Visual C++ 2022 X64 Minimum Ru… {C96241EA-9900-4FE8-85B3-1E238D509DF6}    14.32.31326                  
+Microsoft Visual C++ 2012 x64 Minimum Ru… {CF2BEA3C-26EA-32F8-AA9B-331F7E34BA97}    11.0.61135                   
+Microsoft Visual C++ 2013 x86 Additional… {D401961D-3A20-3AC7-943B-6139D5BD490A}    12.0.40664                   
+Java(TM) SE Development Kit 19.0.1 (64-b… Oracle.JDK.19                             19.0.1.0                     winget
+Microsoft Visual Studio Code              Microsoft.VisualStudioCode                1.74.2                       winget
+Microsoft Visual C++ 2010  x86 Redistrib… Microsoft.VCRedist.2010.x86               10.0.40219                   winget
+Microsoft Visual C++ 2005 Redistributabl… {ad8a2fa1-06e7-4b0d-927d-6e54b3d31028}    8.0.61186                    
+Microsoft Windows Desktop Runtime - 6.0.… Microsoft.DotNet.DesktopRuntime.6         6.0.11             6.0.12    winget
