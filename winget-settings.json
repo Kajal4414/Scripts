@@ -1,8 +1,25 @@
 {
     "$schema": "https://aka.ms/winget-settings.schema.json",
 
-    // For documentation on these settings, see: https://aka.ms/winget-settings
-    // "source": {
-    //    "autoUpdateIntervalInMinutes": 5
-    // },
+    "Visual": {
+        "progressBar": "accent"
+    },
+    "Logging": {
+        "level": "verbose"
+    },
+    "InstallBehavior": {
+        "ignoreWarnings": true,
+        "disableInstallNotes": true
+    },
+    "UninstallBehavior": {
+        "purgePortablePackage": true
+    },
+    "Network": {
+        "downloader": "do"
+    },
+    "Experimental": {
+        "dependencies": true,
+        "directMSI": true,
+        "zipInstall": true
+    }
 }
