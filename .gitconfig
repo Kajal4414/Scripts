@@ -1,9 +1,9 @@
 [user]
 	name = Sakshi Aggarwal
 	email = 81718060+sakshiagrwal@users.noreply.github.com
-	signingkey = ssh-sakshi AAAAC3NzaC1lZDI1NTE5AAAAID/l6Yi9GMuGJjmHcntZfujdE0kCtg5Lkt1ZcJLeVZP+ sakshi@RyzenSeven
+	signingkey = 6D8DEF354ED78DE805938A9D95A33FD984777F70
 [gpg]
-	format = ssh
+	program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
 [commit]
 	gpgsign = true
 [pull]
@@ -14,7 +14,3 @@
 	defaultBranch = master
 [merge]
 	log = true
-[tag]
-	gpgsign = true
-[color]
-	ui = auto
