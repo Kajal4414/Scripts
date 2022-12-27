@@ -6,9 +6,9 @@ echo Checking if VLC is already installed...
 reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\VLC media player" /v DisplayName >nul 2>&1
 if %errorlevel% == 1 (
   echo VLC is not installed. Installing...
-  powershell -Command "& { (New-Object Net.WebClient).DownloadFile('https://download.videolan.org/vlc/3.0.11/win64/vlc-3.0.11-win64.exe', 'vlc-installer.exe') }"
-  move vlc-installer.exe "C:\Software"
-  "C:\Software\vlc-installer.exe" /S
+  powershell -Command "& { (New-Object Net.WebClient).DownloadFile('https://get.videolan.org/vlc/3.0.18/win64/vlc-3.0.18-win64.exe', 'vlc-3.0.18-win64.exe') }"
+  move vlc-3.0.18-win64.exe "C:\Software"
+  "C:\Software\vlc-3.0.18-win64.exe" /S
 ) else (
   echo VLC is already installed. Skipping installation.
 )
