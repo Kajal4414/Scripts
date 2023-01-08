@@ -1,4 +1,4 @@
-#### To delete the directory `C:\Program Files\ModifiableWindowsApps` using a `.bat` script, you can use the following command:
+**1.** To delete the directory `C:\Program Files\ModifiableWindowsApps` using a `.bat` script, you can use the following command:
 
 ```
 rd "C:\Program Files\ModifiableWindowsApps" /s /q
@@ -40,3 +40,28 @@ icacls "C:\Program Files\ModifiableWindowsApps" /grant:r *S-1-1-0:F /t
 ```
 
 Try running the delete script again after completing these steps.
+
+---
+
+**2.** This script delete the following directories:
+
+```
+rd /s %windir%\temp
+rd /s %windir%\Prefetch
+rd /s %userprofile%\AppData\Local\Temp
+rd /s %userprofile%\Recent
+rd /s %userprofile%\Searches
+exit
+```
+
+The `%windir%` and `%userprofile%` variables are system variables that refer to the Windows directory and the current user's profile directory, respectively.
+
+For example, if the Windows directory is `C:\Windows` and the current user's profile directory is `C:\Users\JohnDoe`, the script will delete the following directories:
+
+> - C:\Windows\temp
+> - C:\Windows\Prefetch
+> - C:\Users\JohnDoe\AppData\Local\Temp
+> - C:\Users\JohnDoe\Recent
+> - C:\Users\JohnDoe\Searches
+
+The `rd` command stands for `remove directory`, and the `/s` flag tells the command to delete the directory and all of its subdirectories and files.
