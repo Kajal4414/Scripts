@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Check if the commit message already contains "Change-Id:"
+if ! grep -q "Change-Id:" "$1"; then
+  # If not, add "Change-Id: <commit hash>" to the commit message
+  echo "Change-Id: $(git rev-parse HEAD)" >> "$1"
+fi
