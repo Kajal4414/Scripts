@@ -28,10 +28,13 @@ Add the following content to the [file](../main/prepare-commit-msg):
 ```sh
 #!/bin/sh
 
-# Check if the commit message already contains "Change-Id:"
+# Generate a new change ID using the current commit hash and the committer email address
+change_id="Change-Id: I$(git rev-parse HEAD | openssl sha1 | sed 's/^.* //')"
+
+# Check if the commit message already contains a change ID
 if ! grep -q "Change-Id:" "$1"; then
-  # If not, add "Change-Id: <commit hash>" to the commit message
-  echo "Change-Id: $(git rev-parse HEAD)" >> "$1"
+  # If not, add the generated change ID to the commit message
+  echo "$change_id" >> "$1"
 fi
 ```
 
