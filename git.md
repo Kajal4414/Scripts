@@ -1,6 +1,29 @@
 # Git Commit Hook to Add Change-Id
 
-Create a new [file](../main/prepare-commit-msg) named `prepare-commit-msg` in the `.git/hooks` directory of your repository.
+Create a new [file](../main/prepare-commit-msg) named `prepare-commit-msg` in the `.git/hooks` directory of your repository:
+
+```sh
+# Linux
+touch .git/hooks/prepare-commit-msg
+
+# Windows
+type nul > .git/hooks/prepare-commit-msg
+```
+
+Open the file using a text editor:
+
+```sh
+# GNU Nano
+nano .git/hooks/prepare-commit-msg
+
+# Visual Studio Code
+code .git/hooks/prepare-commit-msg
+
+# Windows Notepad
+notepad .git/hooks/prepare-commit-msg
+```
+
+Add the following content to the [file](../main/prepare-commit-msg):
 
 ```sh
 #!/bin/sh
@@ -16,10 +39,10 @@ Make the prepare-commit-msg file executable by running the following command:
 
 ```sh
 # Linux
-chmod +x .git/hooks/prepare-commit-msg
+chmod u+x .git/hooks/prepare-commit-msg
 
 # Windows
-attrib +x prepare-commit-msg
+attrib +x .git/hooks/prepare-commit-msg
 ```
 
-You can add this as a code block in your readme.md file and it will be easy for others to understand and can also use it in their projects.
+_Now, every time you run git commit, the prepare-commit-msg hook will run and add a unique Change-Id to the commit message, based on the current commit's hash._
