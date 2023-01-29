@@ -1,6 +1,6 @@
 **1.** To delete the directory `C:\Program Files\ModifiableWindowsApps` using a `.bat` script, you can use the following command:
 
-```
+```sh
 rd "C:\Program Files\ModifiableWindowsApps" /s /q
 ```
 
@@ -8,7 +8,7 @@ This command will delete the directory and all of its subdirectories and files. 
 
 Here is an example `.bat` script that demonstrates how to use this command:
 
-```
+```sh
 @echo off
 
 rd "C:\Program Files\ModifiableWindowsApps" /s /q
@@ -27,14 +27,14 @@ If you are getting an `Access is denied` error when you try to delete the direct
 - Open the Command Prompt as an administrator.
 - Type the following command and press Enter:
 
-```
+```sh
 :: This will give you ownership of the directory and all of its subdirectories and files.
 takeown /f "C:\Program Files\ModifiableWindowsApps" /r /d y
 ```
 
 - Type the following command and press Enter:
 
-```
+```sh
 :: This will give full control permissions to the directory and all of its subdirectories and files.
 icacls "C:\Program Files\ModifiableWindowsApps" /grant:r *S-1-1-0:F /t
 ```
@@ -45,7 +45,7 @@ Try running the delete script again after completing these steps.
 
 **2.** This script delete the following directories:
 
-```
+```sh
 rd /s %windir%\temp
 rd /s %windir%\Prefetch
 rd /s %userprofile%\AppData\Local\Temp
