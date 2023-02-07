@@ -5,7 +5,7 @@ set GITCONFIG_FILE=C:\Users\Admin\.gitconfig
 set MINTYRC_FILE=C:\Users\Admin\.minttyrc
 
 :: Git related commands
-echo git push -u origin new # Push new branch "new" to remote repository "origin" and set it as default branch for future pushes>> %HISTORY_FILE%
+echo git push -u origin new # Push new branch "new" to remote repository "origin" and set it as default branch for future pushes> %HISTORY_FILE%
 echo git push -f origin new # Force push the branch "new" to remote repository "origin">> %HISTORY_FILE%
 echo git commit -s -m "file: massage" # Commit changes in the repository with the commit message "file: massage" and sign it with your GPG key>> %HISTORY_FILE%
 echo git commit --amend --no-edit # Amend the latest commit in the repository without modifying the commit message>> %HISTORY_FILE%
