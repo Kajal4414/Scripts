@@ -1,8 +1,8 @@
 @echo off
 
-set HISTORY_FILE=C:\Users\Admin\.bash_history
-set GITCONFIG_FILE=C:\Users\Admin\.gitconfig
-set MINTYRC_FILE=C:\Users\Admin\.minttyrc
+set HISTORY_FILE=%userprofile%\.bash_history
+set GITCONFIG_FILE=%userprofile%\.gitconfig
+set MINTYRC_FILE=%userprofile%\.minttyrc
 
 :: Git related commands
 echo git push -u origin new # Push new branch "new" to remote repository "origin" and set it as default branch for future pushes> %HISTORY_FILE%
