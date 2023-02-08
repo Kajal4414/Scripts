@@ -2,12 +2,17 @@
 
 Create a new [file](./prepare-commit-msg) named `prepare-commit-msg` in the `.git/hooks` directory of your repository:
 
+If you want to use this [hook](./prepare-commit-msg) **globally**, place it in the `C:\Program Files\Git\mingw64\share\git-core\templates\hooks` directory:
+
 ```sh
 # Linux
 touch .git/hooks/prepare-commit-msg
 
 # Windows
 type nul > .git/hooks/prepare-commit-msg
+
+# Windows Global
+type nul > C:/Program Files/Git/mingw64/share/git-core/templates/hooks/prepare-commit-msg
 ```
 
 Open the file using a text editor:
@@ -21,6 +26,9 @@ code .git/hooks/prepare-commit-msg
 
 # Windows Notepad
 notepad .git/hooks/prepare-commit-msg
+
+# Windows Global
+notepad C:/Program Files/Git/mingw64/share/git-core/templates/hooks/prepare-commit-msg
 ```
 
 Add the following content to the [file](./prepare-commit-msg):
