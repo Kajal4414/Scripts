@@ -1,6 +1,6 @@
 # Git Commit Hook to Add Change-Id
 
-Create a new [file](../main/prepare-commit-msg) named `prepare-commit-msg` in the `.git/hooks` directory of your repository:
+Create a new [file](./prepare-commit-msg) named `prepare-commit-msg` in the `.git/hooks` directory of your repository:
 
 ```sh
 # Linux
@@ -23,7 +23,7 @@ code .git/hooks/prepare-commit-msg
 notepad .git/hooks/prepare-commit-msg
 ```
 
-Add the following content to the [file](../main/prepare-commit-msg):
+Add the following content to the [file](./prepare-commit-msg):
 
 ```sh
 #!/bin/sh
