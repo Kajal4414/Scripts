@@ -40,9 +40,14 @@ Add the following content to the [file](./prepare-commit-msg):
 change_id="Change-Id: I$(git rev-parse HEAD | openssl sha1 | sed 's/^.* //')"
 
 # Check if the commit message already contains a change ID
-if ! grep -q "Change-Id:" "$1"; then
-  # If not, add the generated change ID to the commit message
-  echo "$change_id" >> "$1"
+if ! grep -q "^Change-Id:" "$1"; then
+  # If the commit message contains a "Signed-off-by" line, add the change ID before it
+  if grep -q "^Signed-off-by:" "$1"; then
+    sed -i "s/^Signed-off-by:/$change_id\n&/" "$1"
+  else
+    # If not, add the change ID to the end of the commit message
+    echo "$change_id" >> "$1"
+  fi
 fi
 ```
 
