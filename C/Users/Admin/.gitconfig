@@ -9,3 +9,30 @@
 [core]
 	editor = notepad
 	autocrlf = false
+	untrackedCache = true
+	whitespace = -trailing-space
+[alias]
+	aa = add --all
+	b = branch -v
+	bd = branch -d
+	bD = branch -D
+	br = branch
+	ci = commit
+	cim = commit -m
+	cima = commit -am
+	clr = rm -r --cached
+	co = checkout
+	cp = cherry-pick -x
+	d = diff -w
+	dc = diff --cached
+	nb = checkout -b
+	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset' -20
+	oups = commit --amend --no-edit
+	r = remote -v
+	rh = reset --hard
+	st = status -sb
+	t = tag -l
+	unstage = reset HEAD
+	uncommit = reset --soft HEAD^
+	pushfl = push --force-with-lease
+	pushflnv = push --force-with-lease --no-verify
