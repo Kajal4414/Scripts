@@ -7,7 +7,7 @@
 
 [gpg]
 	# GnuPG Configuration
-	program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe # Path to GnuPG program
+	program = C:/Program Files (x86)/GnuPG/bin/gpg.exe # Path to GnuPG program
 
 [commit]
 	# Commit Configuration
@@ -19,7 +19,7 @@
 
 [core]
 	# Core Configuration
-	editor = notepad # Default text editor to use
+	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin # Default text editor to use
 	autocrlf = false # Control end-of-line conversion
 	untrackedCache = true # Enable Git's untracked cache
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol # Specify whitespace issues to be fixed during Git operations
