@@ -32,11 +32,13 @@ if "%choice%" == "1" (
   set email=%user1_email%
   set username=%user1_username%
   set signingkey=%user1_signingkey%
+  set user=%user1_username%
 ) else (
   rem Get the email, username and GPG signing key for user 2
   set email=%user2_email%
   set username=%user2_username%
   set signingkey=%user2_signingkey%
+  set user=%user2_username%
 )
 
 rem Create the .gitconfig file
@@ -52,5 +54,5 @@ echo [core]>> %USERPROFILE%\.gitconfig
 echo 	autocrlf = false>> %USERPROFILE%\.gitconfig
 echo 	editor = notepad>> %USERPROFILE%\.gitconfig
 
-echo .gitconfig file created successfully!
+echo .gitconfig file for %user% has been successfully created in %USERPROFILE%\.gitconfig!
 timeout /t 5
