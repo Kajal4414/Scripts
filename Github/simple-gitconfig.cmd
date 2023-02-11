@@ -55,7 +55,7 @@ echo [commit]>> %USERPROFILE%\.gitconfig
 echo 	gpgsign = true>> %USERPROFILE%\.gitconfig
 echo [core]>> %USERPROFILE%\.gitconfig
 echo 	autocrlf = false>> %USERPROFILE%\.gitconfig
-echo 	editor = notepad>> %USERPROFILE%\.gitconfig
+echo 	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin>> %USERPROFILE%\.gitconfig
 
 echo The .gitconfig file has been successfully created for %user% in %USERPROFILE%
 timeout /t 5
