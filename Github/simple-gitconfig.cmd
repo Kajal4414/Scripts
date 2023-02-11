@@ -26,9 +26,9 @@ if not "%choice%" == "1" if not "%choice%" == "2" (
 rem Delete the existing .gitconfig file if it exists
 if exist %USERPROFILE%\.gitconfig (
     del %USERPROFILE%\.gitconfig
-    echo .gitconfig file deleted.
+    echo Deleted existing .gitconfig file from %USERPROFILE%
     ) else (
-    echo no .gitconfig file.
+    echo No existing .gitconfig file found in %USERPROFILE%
 )
 
 rem Set the email, username, and GPG signing key based on the user's choice
@@ -57,5 +57,5 @@ echo [core]>> %USERPROFILE%\.gitconfig
 echo 	autocrlf = false>> %USERPROFILE%\.gitconfig
 echo 	editor = notepad>> %USERPROFILE%\.gitconfig
 
-echo .gitconfig file for %user% has been successfully created in %USERPROFILE%\.gitconfig!
+echo The .gitconfig file has been successfully created for %user% in %USERPROFILE%
 timeout /t 5
