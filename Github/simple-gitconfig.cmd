@@ -13,32 +13,35 @@ set user2_signingkey=6EB51B3E1C6B549F
 rem Define the GPG executable path for both users
 set gpg_program=C:/Program Files (x86)/GnuPG/bin/gpg.exe
 
-rem Get the choice of user from the user
 :start
-set /p choice=Enter the number of the user you want to add (1 for Deepak, 2 for Sakshi): 
+rem Prompt the user for the number of the user they want to add
+set /p choice=Enter the number of the user you want to add (1 for %user1_username%, 2 for %user2_username%):
 
+rem Validate the user input
 if not "%choice%" == "1" if not "%choice%" == "2" (
-  echo Invalid choice. Please enter either 1 or 2.
-  goto start
+    echo Invalid choice. Please enter either 1 or 2.
+    goto start
 )
 
+rem Delete the existing .gitconfig file if it exists
 if exist %USERPROFILE%\.gitconfig (
-  rem Delete the existing .gitconfig file
-  del %USERPROFILE%\.gitconfig
+    del %USERPROFILE%\.gitconfig
+    echo .gitconfig file deleted.
+    ) else (
+    echo no .gitconfig file.
 )
 
+rem Set the email, username, and GPG signing key based on the user's choice
 if "%choice%" == "1" (
-  rem Get the email, username and GPG signing key for user 1
-  set email=%user1_email%
-  set username=%user1_username%
-  set signingkey=%user1_signingkey%
-  set user=%user1_username%
-) else (
-  rem Get the email, username and GPG signing key for user 2
-  set email=%user2_email%
-  set username=%user2_username%
-  set signingkey=%user2_signingkey%
-  set user=%user2_username%
+    set email=%user1_email%
+    set username=%user1_username%
+    set signingkey=%user1_signingkey%
+    set user=%user1_username%
+    ) else (
+    set email=%user2_email%
+    set username=%user2_username%
+    set signingkey=%user2_signingkey%
+    set user=%user2_username%
 )
 
 rem Create the .gitconfig file
