@@ -15,13 +15,14 @@
 
 [init]
 	# Initial Configuration
-	defaultBranch = master # Default branch name when initializing a new repository
+	defaultBranch = main # Default branch name when initializing a new repository
 
 [core]
 	# Core Configuration
+	autocrlf = false # End of lines conversion
 	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin # Default text editor to use
 	autocrlf = false # Control end-of-line conversion
-	untrackedCache = true # Enable Git's untracked cache
+	untrackedCache = true # Speed up the status command
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol # Specify whitespace issues to be fixed during Git operations
 	pager = delta # Use delta as the default pager program
 
