@@ -57,5 +57,11 @@ echo [core]>> %USERPROFILE%\.gitconfig
 echo 	autocrlf = false>> %USERPROFILE%\.gitconfig
 echo 	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin>> %USERPROFILE%\.gitconfig
 
+rem Create the .minttyrc file
+echo Columns=120> %USERPROFILE%\.minttyrc
+echo Rows=25>> %USERPROFILE%\.minttyrc
+echo ThemeFile=flat-ui>> %USERPROFILE%\.minttyrc
+echo Font=Cascadia Mono>> %USERPROFILE%\.minttyrc
+
 echo The .gitconfig file has been successfully created for %user% in %USERPROFILE%
 timeout /t 5
