@@ -15,20 +15,12 @@ set gpg_program=C:/Program Files (x86)/GnuPG/bin/gpg.exe
 
 :start
 rem Prompt the user for the number of the user they want to add
-set /p choice=Enter the number of the user you want to add (1 for %user1_username%, 2 for %user2_username%):
+set /p choice=Enter the number of the user you want to add (1 for %user1_username% or 2 for %user2_username%):
 
 rem Validate the user input
 if not "%choice%" == "1" if not "%choice%" == "2" (
     echo Invalid choice. Please enter either 1 or 2.
     goto start
-)
-
-rem Delete the existing .gitconfig file if it exists
-if exist %USERPROFILE%\.gitconfig (
-    del %USERPROFILE%\.gitconfig
-    echo Deleted existing .gitconfig file from %USERPROFILE%
-    ) else (
-    echo No existing .gitconfig file found in %USERPROFILE%
 )
 
 rem Set the email, username, and GPG signing key based on the user's choice
@@ -63,5 +55,5 @@ echo Rows=25>> %USERPROFILE%\.minttyrc
 echo ThemeFile=flat-ui>> %USERPROFILE%\.minttyrc
 echo Font=Cascadia Mono>> %USERPROFILE%\.minttyrc
 
-echo The .gitconfig file has been successfully created for %user% in %USERPROFILE%
-timeout /t 5
+echo The .gitconfig and .minttyrc files have been successfully created for %user% in %USERPROFILE%
+pause
