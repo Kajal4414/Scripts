@@ -6,7 +6,7 @@ set user1_username=Sneha Sharma
 set user2_email=81718060+sakshiagrwal@users.noreply.github.com
 set user2_username=Sakshi Aggarwal
 
-rem Define the signing key for both users
+rem Define the GPG signing key for both users
 set user1_signingkey=6EB51B3E1C6B549F
 set user2_signingkey=6EB51B3E1C6B549F
 
@@ -14,7 +14,13 @@ rem Define the GPG executable path for both users
 set gpg_program=C:/Program Files (x86)/GnuPG/bin/gpg.exe
 
 rem Get the choice of user from the user
+:start
 set /p choice=Enter the number of the user you want to add (1 for Deepak, 2 for Sakshi): 
+
+if not "%choice%" == "1" if not "%choice%" == "2" (
+  echo Invalid choice. Please enter either 1 or 2.
+  goto start
+)
 
 if exist %USERPROFILE%\.gitconfig (
   rem Delete the existing .gitconfig file
@@ -47,3 +53,4 @@ echo 	autocrlf = false>> %USERPROFILE%\.gitconfig
 echo 	editor = notepad>> %USERPROFILE%\.gitconfig
 
 echo .gitconfig file created successfully!
+timeout /t 5
