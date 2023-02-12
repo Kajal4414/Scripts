@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="Windows-1252"?>
 <NotepadPlus>
 	<LexerStyles>
 		<LexerType name="java" desc="Java" ext="">
@@ -524,6 +524,7 @@
 		</LexerType>
 	</LexerStyles>
 	<GlobalStyles>
+		<!-- Attention : Don't modify the name of styleID="0" -->
 		<WidgetStyle name="Global override" styleID="0" fgColor="F8F8F2" bgColor="282A36" fontName="Consolas" fontStyle="0" fontSize="10" />
 		<WidgetStyle name="Default Style" styleID="32" fgColor="F8F8F2" bgColor="282A36" fontName="Consolas" fontStyle="0" fontSize="10" />
 		<WidgetStyle name="Indent guideline style" styleID="37" fgColor="6272A4" bgColor="282A36" fontName="" fontStyle="0" fontSize="" />
@@ -543,6 +544,5 @@
 		<WidgetStyle name="Tags match highlighting" styleID="27" bgColor="BD93F9" fgColor="FFCAB0" fontStyle="0" />
 		<WidgetStyle name="Smart HighLighting" styleID="29" bgColor="8BE9FD" fgColor="F8F8F2" fontSize="" fontStyle="1" />
 		<WidgetStyle name="Active tab focused indicator" styleID="0" fgColor="FF5555" fontStyle="0" />
-		<WidgetStyle name="EOL custom color" styleID="0" fgColor="DADADA" />
 	</GlobalStyles>
 </NotepadPlus>
