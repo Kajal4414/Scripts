@@ -15,6 +15,12 @@ type nul > .git/hooks/prepare-commit-msg
 type nul > C:/Program Files/Git/mingw64/share/git-core/templates/hooks/prepare-commit-msg
 ```
 
+or
+
+```
+curl -Lo .git/hooks/commit-msg https://gerrit-review.googlesource.com/tools/hooks/commit-msg
+```
+
 Open the file using a text editor:
 
 ```sh
