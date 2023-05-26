@@ -1,5 +1,5 @@
 [Unit]
-Description=Set the battery charge threshold
+Description=Persist the battery charging threshold after 80%
 After=multi-user.target
 StartLimitBurst=0
 
