@@ -13,3 +13,5 @@
 - #### _[Install PyCharm](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)_
 
 - #### _[Install Proton VPN](https://protonvpn.com/support/official-linux-vpn-mint/)_
+
+- #### _[Install Telegram Desktop](https://desktop.telegram.org/)_ `sudo tar -xf tsetup*.tar.xz -C /opt/`
