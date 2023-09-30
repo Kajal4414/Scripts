@@ -11,3 +11,5 @@
 - #### _[Install IntelliJ IDEA](https://www.jetbrains.com/help/idea/installation-guide.html#standalone)_
  
 - #### _[Install PyCharm](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)_
+
+- #### _[Install Proton VPN](https://protonvpn.com/support/official-linux-vpn-mint/)_
