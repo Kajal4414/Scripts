@@ -15,3 +15,5 @@
 - #### _[Install Proton VPN](https://protonvpn.com/support/official-linux-vpn-mint/)_
 
 - #### _[Install Telegram Desktop](https://desktop.telegram.org/)_ `sudo tar -xf tsetup*.tar.xz -C /opt/`
+
+- #### _CUSTOM-ICONS: `/usr/share/applications` and `/home/sakshi/.local/share/applications`_
