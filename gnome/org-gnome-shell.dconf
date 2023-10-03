@@ -1,189 +1,245 @@
-[Connections]
-first-run=false
+[/]
+command-history=['gnome-screenshot --delay=5']
+disable-user-extensions=false
+disabled-extensions=['widgets@aylur', 'just-another-search-bar@xelad0m', 'azclock@azclock.gitlab.com', 'rounded-window-corners@yilozt', 'mediacontrols@cliffniff.github.com', 'search-light@icedman.github.com', 'tophat@fflewddur.github.io', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'openweather-extension@jenslody.de', 'background-logo@fedorahosted.org', 'quick-settings-avatar@d-go', 'forge@jmmaranan.com']
+enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'arcmenu@arcmenu.com', 'just-perfection-desktop@just-perfection', 'blur-my-shell@aunetx', 'dash-to-panel@jderose9.github.com', 'gsconnect@andyholmes.github.io', 'appindicatorsupport@rgcjonas.gmail.com', 'Vitals@CoreCoding.com', 'quick-settings-tweaks@qwreey', 'space-bar@luchrioh', 'show-desktop-button@amivaleo', 'quick-settings-avatar@d-go']
+favorite-apps=['firefox.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Photos.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Software.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Settings.desktop']
+welcome-dialog-last-shown-version='44.1'
 
-[Totem]
-active-plugins=['vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'rotation', 'recent', 'movie-properties', 'open-directory', 'mpris', 'autoload-subtitles', 'apple-trailers']
-subtitle-encoding='UTF-8'
+[extensions/arcmenu]
+apps-show-extra-details=false
+arc-menu-icon=20
+button-item-icon-size='Small'
+button-padding=2
+custom-menu-button-icon='/home/lsteamrnd/.local/share/gnome-shell/extensions/arcmenu@arcmenu.com/icons/hicolor/16x16/actions/icon-apps-grid-plus02-symbolic.svg'
+custom-menu-button-icon-size=30.0
+distro-icon=19
+enable-clock-widget-unity=false
+enable-weather-widget-unity=false
+extra-categories=[(0, false), (1, false), (2, false), (3, true), (4, false)]
+force-menu-location='BottomCentered'
+highlight-search-result-terms=true
+left-panel-width=175
+menu-arrow-rise=(false, 0)
+menu-background-color='rgba(48,48,49,0.98)'
+menu-border-color='rgb(60,60,60)'
+menu-button-appearance='Icon'
+menu-button-border-color=(false, 'transparent')
+menu-button-border-radius=(true, 10)
+menu-button-border-width=(true, 2)
+menu-button-icon='Menu_Icon'
+menu-button-position-offset=10
+menu-font-size=10
+menu-foreground-color='rgb(223,223,223)'
+menu-height=600
+menu-item-active-bg-color='rgb(25,98,163)'
+menu-item-active-fg-color='rgb(255,255,255)'
+menu-item-category-icon-size='Small'
+menu-item-grid-icon-size='Medium'
+menu-item-hover-bg-color='rgb(21,83,158)'
+menu-item-hover-fg-color='rgb(255,255,255)'
+menu-item-icon-size='Medium'
+menu-layout='Unity'
+menu-separator-color='rgba(255,255,255,0.1)'
+menu-width-adjustment=-175
+misc-item-icon-size='Small'
+override-menu-theme=false
+pinned-app-list=['Firefox', 'firefox', 'firefox.desktop', 'Calendar', 'org.gnome.Calendar', 'org.gnome.Calendar.desktop', 'Contacts', 'org.gnome.Contacts', 'org.gnome.Contacts.desktop', 'Files', 'org.gnome.Nautilus', 'org.gnome.Nautilus.desktop', 'Disk Usage Analyzer', '', 'org.gnome.baobab.desktop', 'Document Viewer', '', 'org.gnome.Evince.desktop', 'Software', '', 'org.gnome.Software.desktop', 'Image Viewer', '', 'org.gnome.eog.desktop', 'Weather', '', 'org.gnome.Weather.desktop', 'Cheese', '', 'org.gnome.Cheese.desktop']
+prefs-visible-page=0
+quicklinks-item-icon-size='ExtraSmall'
+recently-installed-apps=['htop.desktop', 'code.desktop', 'org.gnome.FileRoller.desktop']
+right-panel-width=200
+runner-font-size=10
+runner-menu-width=590
+runner-position='Centered'
+runner-search-display-style='Grid'
+runner-show-frequent-apps=true
+search-entry-border-radius=(true, 25)
+search-provider-open-windows=true
+search-provider-recent-files=true
+show-search-result-details=false
+unity-extra-buttons=[['Home', 'user-home-symbolic', 'ArcMenu_Home'], ['Documents', '. GThemedIcon folder-documents-symbolic folder-symbolic folder-documents folder', 'ArcMenu_Documents'], ['Downloads', '. GThemedIcon folder-download-symbolic folder-symbolic folder-download folder', 'ArcMenu_Downloads'], ['Files', 'org.gnome.Nautilus', 'org.gnome.Nautilus.desktop'], ['Separator', 'list-remove-symbolic', 'ArcMenu_Separator'], ['Log Out...', 'system-log-out-symbolic', 'ArcMenu_LogOut'], ['Lock', 'changes-prevent-symbolic', 'ArcMenu_Lock']]
 
-[Weather]
-window-height=424
-window-maximized=false
-window-width=992
+[extensions/blur-my-shell]
+hacks-level=3
 
-[baobab/ui]
-is-maximized=false
-window-size=(960, 600)
+[extensions/blur-my-shell/applications]
+blur=true
+enable-all=true
 
-[boxes]
-first-run=false
-view='icon-view'
-window-maximized=true
+[extensions/dash-to-panel]
+animate-appicon-hover=false
+animate-appicon-hover-animation-convexity={'RIPPLE': 2.0, 'PLANK': 1.0, 'SIMPLE': 0.0}
+animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
+animate-appicon-hover-animation-type='SIMPLE'
+appicon-margin=0
+appicon-padding=8
+available-monitors=[0]
+dot-color-dominant=false
+dot-color-override=false
+dot-color-unfocused-different=false
+dot-position='BOTTOM'
+dot-size=4
+dot-style-focused='DOTS'
+dot-style-unfocused='DOTS'
+focus-highlight=false
+hide-overview-on-startup=true
+hotkeys-overlay-combo='TEMPORARILY'
+leftbox-padding=4
+leftbox-size=12
+panel-anchors='{"0":"MIDDLE"}'
+panel-element-positions='{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"centerBox","visible":false,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
+panel-lengths='{"0":100}'
+panel-positions='{"0":"BOTTOM"}'
+panel-sizes='{"0":38}'
+preview-middle-click-close=false
+primary-monitor=0
+secondarymenu-contains-appmenu=true
+secondarymenu-contains-showdetails=false
+show-appmenu=false
+show-running-apps=true
+status-icon-padding=4
+stockgs-keep-dash=false
+stockgs-keep-top-panel=false
+taskbar-locked=true
+trans-dynamic-anim-target=0.80000000000000004
+trans-dynamic-behavior='MAXIMIZED_WINDOWS'
+trans-dynamic-distance=10
+trans-panel-opacity=0.80000000000000004
+trans-use-custom-bg=false
+trans-use-custom-gradient=false
+trans-use-custom-opacity=true
+trans-use-dynamic-opacity=true
+tray-padding=4
+tray-size=12
+window-preview-fixed-x=true
+window-preview-fixed-y=false
+window-preview-show-title=false
+window-preview-size=120
+window-preview-title-position='TOP'
 
-[calculator]
-accuracy=9
-angle-units='degrees'
-base=10
-button-mode='basic'
-number-format='automatic'
-show-thousands=false
-show-zeroes=false
-source-currency=''
-source-units='degree'
-target-currency=''
-target-units='radian'
-window-maximized=false
-window-size=(349, 492)
-word-size=64
+[extensions/forge]
+css-last-update=uint32 37
+css-updated='1685950929207'
+focus-border-toggle=true
+tiling-mode-enabled=false
+window-gap-hidden-on-single=true
 
-[calendar]
-active-view='month'
-window-maximized=false
-window-size=(592, 600)
+[extensions/forge/keybindings]
+con-split-horizontal=['<Super>z']
+con-split-layout-toggle=['<Super>g']
+con-split-vertical=['<Super>v']
+con-stacked-layout-toggle=['<Shift><Super>s']
+con-tabbed-layout-toggle=['<Shift><Super>t']
+con-tabbed-showtab-decoration-toggle=['<Control><Alt>y']
+focus-border-toggle=['<Super>x']
+prefs-tiling-toggle=['<Super>w']
+window-focus-down=['<Super>j']
+window-focus-left=['<Super>h']
+window-focus-right=['<Super>l']
+window-focus-up=['<Super>k']
+window-gap-size-decrease=['<Control><Super>minus']
+window-gap-size-increase=['<Control><Super>plus']
+window-move-down=['<Shift><Super>j']
+window-move-left=['<Shift><Super>h']
+window-move-right=['<Shift><Super>l']
+window-move-up=['<Shift><Super>k']
+window-resize-bottom-decrease=['<Shift><Control><Super>i']
+window-resize-bottom-increase=['<Control><Super>u']
+window-resize-left-decrease=['<Shift><Control><Super>o']
+window-resize-left-increase=['<Control><Super>y']
+window-resize-right-decrease=['<Shift><Control><Super>y']
+window-resize-right-increase=['<Control><Super>o']
+window-resize-top-decrease=['<Shift><Control><Super>u']
+window-resize-top-increase=['<Control><Super>i']
+window-snap-center=['<Control><Alt>c']
+window-snap-one-third-left=['<Control><Alt>d']
+window-snap-one-third-right=['<Control><Alt>g']
+window-snap-two-third-left=['<Control><Alt>e']
+window-snap-two-third-right=['<Control><Alt>t']
+window-swap-down=['<Control><Super>j']
+window-swap-last-active=['<Super>Return']
+window-swap-left=['<Control><Super>h']
+window-swap-right=['<Control><Super>l']
+window-swap-up=['<Control><Super>k']
+window-toggle-always-float=['<Shift><Super>c']
+window-toggle-float=['<Super>c']
+workspace-active-tile-toggle=['<Shift><Super>w']
 
-[cheese]
-burst-delay=1000
-camera='USB2.0 VGA UVC WebCam (V4L2)'
-photo-x-resolution=640
-photo-y-resolution=480
-video-x-resolution=640
-video-y-resolution=480
-
-[control-center]
-last-panel='wifi'
-window-state=(1263, 810, false)
-
-[desktop/app-folders]
-folder-children=['Utilities', 'YaST']
-
-[desktop/app-folders/folders/Utilities]
-apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop']
-categories=['X-GNOME-Utilities']
-name='X-GNOME-Utilities.directory'
-translate=true
-
-[desktop/app-folders/folders/YaST]
-categories=['X-SuSE-YaST']
-name='suse-yast.directory'
-translate=true
-
-[desktop/background]
-color-shading-type='solid'
-picture-options='zoom'
-picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
-picture-uri-dark='file:///usr/share/backgrounds/gnome/blobs-d.svg'
-primary-color='#241f31'
-secondary-color='#000000'
-
-[desktop/input-sources]
-current=uint32 0
-sources=[('xkb', 'us')]
-xkb-options=@as []
-
-[desktop/interface]
-clock-format='12h'
-color-scheme='prefer-dark'
-cursor-theme='Gruvbox_Cursors_Light'
-font-antialiasing='grayscale'
-font-hinting='slight'
-gtk-theme='Gruvbox-Dark-BL'
-icon-theme='Gruvbox-Dark'
-toolkit-accessibility=false
-
-[desktop/notifications]
-application-children=['org-freedesktop-problems-applet', 'org-gnome-software', 'org-gnome-terminal', 'org-gnome-totem']
-
-[desktop/notifications/application/org-freedesktop-problems-applet]
-application-id='org.freedesktop.problems.applet.desktop'
-
-[desktop/notifications/application/org-gnome-software]
-application-id='org.gnome.Software.desktop'
-
-[desktop/notifications/application/org-gnome-terminal]
-application-id='org.gnome.Terminal.desktop'
-
-[desktop/notifications/application/org-gnome-totem]
-application-id='org.gnome.Totem.desktop'
-
-[desktop/peripherals/touchpad]
-two-finger-scrolling-enabled=true
-
-[desktop/privacy]
-old-files-age=uint32 1
-recent-files-max-age=-1
-remember-recent-files=false
-remove-old-temp-files=true
-remove-old-trash-files=true
-report-technical-problems=false
-
-[desktop/screensaver]
-color-shading-type='solid'
-picture-options='zoom'
-picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
-primary-color='#241f31'
-secondary-color='#000000'
-
-[desktop/search-providers]
-sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
-
-[desktop/session]
-idle-delay=uint32 300
-
-[desktop/wm/preferences]
-button-layout='appmenu:minimize,maximize,close'
-
-[evolution-data-server]
-migrated=true
-
-[gnome-system-monitor]
-current-tab='resources'
-maximized=false
-network-total-in-bits=false
-show-dependencies=false
-show-whose-processes='user'
-window-state=(1017, 702, 104, 104)
-
-[gnome-system-monitor/disktreenew]
-col-6-visible=true
-col-6-width=0
-
-[login-screen]
-enable-fingerprint-authentication=true
-enable-password-authentication=true
-enable-smartcard-authentication=false
-
-[mutter]
-center-new-windows=true
-
-[nautilus/compression]
-default-compression-format='zip'
-
-[nautilus/preferences]
-default-folder-viewer='icon-view'
-migrated-gtk-settings=true
-search-filter-time-type='last_modified'
-
-[nautilus/window-state]
-initial-size=(1040, 655)
-
-[shell]
-app-picker-layout=[{'org.bleachbit.BleachBit.desktop': <{'position': <0>}>, 'org.gnome.Contacts.desktop': <{'position': <1>}>, 'org.gnome.Weather.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.fedoraproject.MediaWriter.desktop': <{'position': <5>}>, 'org.gnome.Totem.desktop': <{'position': <6>}>, 'org.gnome.Calculator.desktop': <{'position': <7>}>, 'org.gnome.Loupe.desktop': <{'position': <8>}>, 'simple-scan.desktop': <{'position': <9>}>, 'libreoffice-calc.desktop': <{'position': <10>}>, 'libreoffice-impress.desktop': <{'position': <11>}>, 'org.gnome.Boxes.desktop': <{'position': <12>}>, 'libreoffice-writer.desktop': <{'position': <13>}>, 'Utilities': <{'position': <14>}>, 'vlc.desktop': <{'position': <15>}>, 'org.gnome.Rhythmbox3.desktop': <{'position': <16>}>, 'yelp.desktop': <{'position': <17>}>, 'org.gnome.TextEditor.desktop': <{'position': <18>}>, 'org.gnome.Calendar.desktop': <{'position': <19>}>, 'code.desktop': <{'position': <20>}>}]
-favorite-apps=['firefox.desktop', 'google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Settings.desktop', 'code.desktop']
-welcome-dialog-last-shown-version='45.beta.1'
-
-[shell/weather]
-automatic-location=true
-locations=@av []
-
-[shell/world-clocks]
-locations=@av []
-
-[software]
-check-timestamp=int64 1696316814
-first-run=false
-flatpak-purge-timestamp=int64 1696323935
-
-[system/location]
+[extensions/gsconnect]
 enabled=false
+id='efb87ccd-394e-437e-938b-06683b6eae90'
+name='fedora'
 
-[tweaks]
-show-extensions-notice=false
+[extensions/just-perfection]
+activities-button=false
+panel=true
+startup-status=0
+theme=false
+
+[extensions/openweather]
+menu-alignment=56.25
+position-in-panel='left'
+show-comment-in-panel=false
+
+[extensions/quick-settings-tweaks]
+add-dnd-quick-toggle-enabled=false
+add-unsafe-quick-toggle-enabled=false
+datemenu-remove-media-control=true
+datemenu-remove-notifications=true
+disable-adjust-content-border-radius=true
+disable-remove-shadow=true
+input-always-show=true
+last-unsafe-state=false
+list-buttons='[{"name":"SystemItem","label":null,"visible":true},{"name":"OutputStreamSlider","label":null,"visible":true},{"name":"InputStreamSlider","label":null,"visible":false},{"name":"BrightnessItem","label":null,"visible":false},{"name":"NMWiredToggle","label":"Wired","visible":true},{"name":"NMWirelessToggle","label":null,"visible":false},{"name":"NMModemToggle","label":null,"visible":false},{"name":"NMBluetoothToggle","label":null,"visible":false},{"name":"NMVpnToggle","label":null,"visible":false},{"name":"BluetoothToggle","label":"Bluetooth","visible":false},{"name":"PowerProfilesToggle","label":"Power Mode","visible":true},{"name":"NightLightToggle","label":"Night Light","visible":true},{"name":"DarkModeToggle","label":"Dark Style","visible":true},{"name":"RfkillToggle","label":"Airplane Mode","visible":false},{"name":"RotationToggle","label":"Auto Rotate","visible":false},{"name":"ServiceToggle","label":"GSConnect","visible":true},{"name":"BackgroundAppsToggle","label":"No Background Apps","visible":false},{"name":"MediaSection","label":null,"visible":false},{"name":"Notifications","label":null,"visible":true},{"name":"St_BoxLayout","label":null,"visible":true}]'
+media-control-compact-mode=true
+media-control-enabled=true
+notifications-integrated=true
+notifications-position='bottom'
+notifications-use-native-controls=true
+user-removed-buttons=@as []
+volume-mixer-enabled=true
+volume-mixer-position='bottom'
+
+[extensions/show-desktop-button]
+panel-position='RIGHT'
+
+[extensions/space-bar/appearance]
+active-workspace-background-color='rgb(40,40,40)'
+active-workspace-font-weight='600'
+active-workspace-text-color='rgb(250,189,47)'
+empty-workspace-border-width=0
+empty-workspace-font-weight='600'
+inactive-workspace-border-width=0
+inactive-workspace-border-width-active=true
+inactive-workspace-font-weight='600'
+inactive-workspace-text-color='rgb(251,241,199)'
+workspace-margin=4
+workspaces-bar-padding=4
+
+[extensions/space-bar/behavior]
+position='left'
+position-index=1
+scroll-wheel='workspaces-bar'
+smart-workspace-names=false
+
+[extensions/user-theme]
+name='Gruvbox-Dark-BL-MOD'
+
+[extensions/vitals]
+fixed-widths=false
+hide-icons=false
+hide-zeros=true
+hot-sensors=['_memory_usage_', '_system_load_1m_', '__network-rx_max__', '_processor_core_0_']
+position-in-panel=2
+show-battery=true
+show-temperature=true
+show-voltage=true
+use-higher-precision=true
+
+[weather]
+automatic-location=true
+locations=[<(uint32 2, <('New York City, Central Park', 'KNYC', false, [(0.71180344078725644, -1.2909618758762367)], @a(dd) [])>)>]
+
+[world-clocks]
+locations=[<(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>, <(uint32 2, <('Beijing', 'ZBAA', true, [(0.69696814214530467, 2.0295270260429752)], [(0.69689057971334611, 2.0313596217575696)])>)>]
