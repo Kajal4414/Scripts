@@ -81,3 +81,5 @@
 ### [VLC media player](https://www.videolan.org)
 
 ### [Winpinator](https://winpinator.swisz.cz/download.html)
+
+### [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
