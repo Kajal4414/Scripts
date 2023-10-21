@@ -37,6 +37,19 @@
 ### [Microsoft Visual Studio Code](https://code.visualstudio.com/download)
 
 - [Alternative](https://github.com/VSCodium/vscodium)
+  - ### [Extensions](https://marketplace.visualstudio.com)
+    - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+    - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+    - [Language Support for Java](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+    - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+    - [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools)
+    - [Markdown Lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+    - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+    - [Pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint)
+    - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+    - [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
+    - [XML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml)
+    - [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 
 ### [Mozila Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)
 
