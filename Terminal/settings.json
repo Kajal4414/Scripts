@@ -32,9 +32,24 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
-        "defaults": {},
+        "defaults": 
+        {
+            "colorScheme": "Tango Dark",
+            "font": 
+            {
+                "face": "JetBrains Mono",
+                "size": 9.0
+            },
+            "opacity": 95
+        },
         "list": 
         [
             {
@@ -266,5 +281,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "themes": []
 }
