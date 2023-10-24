@@ -68,23 +68,23 @@
 - ###### _[Alternative - VSCodium](https://github.com/VSCodium/vscodium)_
 
 <details>
-  <summary><h5><i>Visual Studio Code Extensions</i></h5></summary>
+  <summary><h4><i><a href="https://marketplace.visualstudio.com">Extensions</a></i></h4></summary>
   <ul>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions">GitHub Actions</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.java">Language Support for Java</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme">Material Icon Theme</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools">Makefile Tools</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint">Markdown Lint</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell">PowerShell</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.pylint">Pylint</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote SSH</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml">XML</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML</a></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions">GitHub Actions</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=redhat.java">Language Support for Java</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme">Material Icon Theme</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools">Makefile Tools</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint">Markdown Lint</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell">PowerShell</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.pylint">Pylint</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote SSH</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml">XML</a></i></h5></li>
+    <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML</a></i></h5></li>
   </ul>
 </details>
 
