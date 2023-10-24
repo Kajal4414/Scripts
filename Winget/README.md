@@ -8,7 +8,7 @@
 
 ### [BleachBit](https://github.com/bleachbit/bleachbit)
 
-- [Alternative](https://github.com/builtbybel/CleanmgrPlus)
+- [Alternative - CleanmgrPlus](https://github.com/builtbybel/CleanmgrPlus)
 
 ### [Calculator](https://apps.microsoft.com/detail/windows-calculator/9WZDNCRFHVN5?hl=en-in&gl=IN)
 
@@ -16,7 +16,7 @@
 
 ### [Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)
 
-- [Alternative](https://github.com/Alex313031/Thorium-Win)
+- [Alternative - Thorium-Win](https://github.com/Alex313031/Thorium-Win)
 
 ### [Gpg4win](https://www.gpg4win.org)
 
@@ -26,7 +26,8 @@
 
 ### [Internet Download Manager](https://www.internetdownloadmanager.com)
 
-- [Alternative](https://www.freedownloadmanager.org)
+- [IDM Activator](https://github.com/J2TEAM/idm-trial-reset)
+- [Alternative - FDM](https://www.freedownloadmanager.org)
 
 ### [Java SE Development Kit](https://www.oracle.com/in/java/technologies/downloads/#jdk21-windows)
 
@@ -36,8 +37,8 @@
 
 ### [Microsoft Visual Studio Code](https://code.visualstudio.com/download)
 
-- [Alternative](https://github.com/VSCodium/vscodium)
-  - ### [Extensions](https://marketplace.visualstudio.com)
+- [Alternative - VSCodium](https://github.com/VSCodium/vscodium)
+  - ### [Visual Studio Code Extensions](https://marketplace.visualstudio.com)
     - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
     - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
     - [Language Support for Java](https://marketplace.visualstudio.com/items?itemName=redhat.java)
@@ -80,7 +81,7 @@
 
 ### [Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)
 
-- [Alternative](https://desktop.telegram.org)
+- [Alternative - Portable Version](https://desktop.telegram.org)
 
 ### [VLC media player](https://www.videolan.org)
 
