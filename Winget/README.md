@@ -1,46 +1,74 @@
-### [7-Zip](https://www.7-zip.org)
+#### _[7-Zip](https://www.7-zip.org)_
 
-### [AMD Software](https://www.amd.com/en/support/apu/amd-ryzen-processors/amd-ryzen-5-mobile-processors-radeon-vega-graphics/amd-ryzen-5-1)
+#
 
-- [Driver Installation](https://docs.atlasos.net/getting-started/post-installation/drivers/gpu/amd)
+#### _[AMD Software](https://www.amd.com/en/support/apu/amd-ryzen-processors/amd-ryzen-5-mobile-processors-radeon-vega-graphics/amd-ryzen-5-1)_
 
-### [App Installer](https://apps.microsoft.com/detail/app-installer/9NBLGGH4NNS1?hl=en-in&gl=IN)
+- ###### _[Driver Installation](https://docs.atlasos.net/getting-started/post-installation/drivers/gpu/amd)_
 
-### [BleachBit](https://github.com/bleachbit/bleachbit)
+#
 
-- [Alternative - CleanmgrPlus](https://github.com/builtbybel/CleanmgrPlus)
+#### _[App Installer](https://apps.microsoft.com/detail/app-installer/9NBLGGH4NNS1?hl=en-in&gl=IN)_
 
-### [Calculator](https://apps.microsoft.com/detail/windows-calculator/9WZDNCRFHVN5?hl=en-in&gl=IN)
+#
 
-### [Git](https://git-scm.com)
+#### _[BleachBit](https://github.com/bleachbit/bleachbit)_
 
-### [Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)
+- ###### _[Alternative - CleanmgrPlus](https://github.com/builtbybel/CleanmgrPlus)_
 
-- [Alternative - Thorium-Win](https://github.com/Alex313031/Thorium-Win)
+#
 
-### [Gpg4win](https://www.gpg4win.org)
+#### _[Calculator](https://apps.microsoft.com/detail/windows-calculator/9WZDNCRFHVN5?hl=en-in&gl=IN)_
 
-### [HEIF Image Extensions](https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG?hl=en-in&gl=IN)
+#
 
-### [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)
+#### _[Git](https://git-scm.com)_
 
-### [Internet Download Manager](https://www.internetdownloadmanager.com)
+#
 
-- [IDM Activator](https://github.com/J2TEAM/idm-trial-reset)
-- [Alternative - FDM](https://www.freedownloadmanager.org)
+#### _[Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)_
 
-### [Java SE Development Kit](https://www.oracle.com/in/java/technologies/downloads/#jdk21-windows)
+- ###### _[Alternative - Thorium-Win](https://github.com/Alex313031/Thorium-Win)_
 
-### [K-Lite Codec Pack](https://codecguide.com/download_k-lite_codec_pack_full.htm)
+#
 
-### [Microsoft Visual C++](https://github.com/abbodi1406/vcredist)
+#### _[Gpg4win](https://www.gpg4win.org)_
 
-### [Microsoft Visual Studio Code](https://code.visualstudio.com/download)
+#
 
-- [Alternative - VSCodium](https://github.com/VSCodium/vscodium)
+#### _[HEIF Image Extensions](https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG?hl=en-in&gl=IN)_
+
+#
+
+#### _[IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)_
+
+#
+
+#### _[Internet Download Manager](https://www.internetdownloadmanager.com)_
+
+- ###### _[IDM Activator](https://github.com/J2TEAM/idm-trial-reset)_
+- ###### _[Alternative - FDM](https://www.freedownloadmanager.org)_
+
+#
+
+#### _[Java SE Development Kit](https://www.oracle.com/in/java/technologies/downloads/#jdk21-windows)_
+
+#
+
+#### _[K-Lite Codec Pack](https://codecguide.com/download_k-lite_codec_pack_full.htm)_
+
+#
+
+#### _[Microsoft Visual C++](https://github.com/abbodi1406/vcredist)_
+
+#
+
+#### _[Microsoft Visual Studio Code](https://code.visualstudio.com/download)_
+
+- ###### _[Alternative - VSCodium](https://github.com/VSCodium/vscodium)_
 
 <details>
-  <summary>Visual Studio Code Extensions</summary>
+  <summary><h5><i>Visual Studio Code Extensions</i></h5></summary>
   <ul>
     <li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a></li>
     <li><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a></li>
@@ -60,43 +88,75 @@
   </ul>
 </details>
 
-### [Mozila Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)
+#
 
-- [Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)
-- [Firefox Theme](https://github.com/datguypiko/Firefox-Mod-Blur)
+#### _[Mozila Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)_
 
-### [MyAsus](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)
+- ###### _[Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)_
+- ###### _[Firefox Theme](https://github.com/datguypiko/Firefox-Mod-Blur)_
 
-### [Node.js](https://nodejs.org/en)
+#
 
-### [Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)
+#### _[MyAsus](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)_
 
-### [Obsidian](https://obsidian.md)
+#
 
-### [Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh)
+#### _[Node.js](https://nodejs.org/en)_
 
-- [Installation](https://ohmyposh.dev/docs/installation/windows)
+#
 
-### [Proton VPN](https://protonvpn.com/download-windows)
+#### _[Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)_
 
-### [PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)
+#
 
-### [Python](https://www.python.org/downloads)
+#### _[Obsidian](https://obsidian.md)_
 
-### [qBittorrent](https://www.qbittorrent.org)
+#
 
-### [Revo Uninstaller Pro](https://www.revouninstaller.com/revo-uninstaller-free-download)
+#### _[Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh)_
 
-### [StartAllBack](https://www.startallback.com)
+- ###### _[Installation](https://ohmyposh.dev/docs/installation/windows)_
 
-- [Activator](https://github.com/sakshiagrwal/SAB)
+#
 
-### [Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)
+#### _[Proton VPN](https://protonvpn.com/download-windows)_
 
-- [Alternative - Portable Version](https://desktop.telegram.org)
+#
 
-### [VLC media player](https://www.videolan.org)
+#### _[PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)_
 
-### [Winpinator](https://winpinator.swisz.cz/download.html)
+#
 
-### [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
+#### _[Python](https://www.python.org/downloads)_
+
+#
+
+#### _[qBittorrent](https://www.qbittorrent.org)_
+
+#
+
+#### _[Revo Uninstaller Pro](https://www.revouninstaller.com/revo-uninstaller-free-download)_
+
+#
+
+#### _[StartAllBack](https://www.startallback.com)_
+
+- ###### _[Activator](https://github.com/sakshiagrwal/SAB)_
+
+#
+
+#### _[Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)_
+
+- ###### _[Alternative - Portable Version](https://desktop.telegram.org)_
+
+#
+
+#### _[VLC media player](https://www.videolan.org)_
+
+#
+
+#### _[Winpinator](https://winpinator.swisz.cz/download.html)_
+
+#
+
+#### _[YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)_
