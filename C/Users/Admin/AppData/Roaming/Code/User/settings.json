@@ -1,0 +1,13 @@
+{
+    "workbench.startupEditor": "none",
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.fontSize": 12,
+    "workbench.iconTheme": "material-icon-theme"
+}
