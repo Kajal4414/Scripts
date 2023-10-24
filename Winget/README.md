@@ -47,9 +47,11 @@
     <li><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions">GitHub Actions</a></li>
     <li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.java">Language Support for Java</a></li>
     <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme">Material Icon Theme</a></li>
     <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools">Makefile Tools</a></li>
     <li><a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint">Markdown Lint</a></li>
     <li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell">PowerShell</a></li>
     <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.pylint">Pylint</a></li>
     <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a></li>
     <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote SSH</a></li>
