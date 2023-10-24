@@ -38,19 +38,25 @@
 ### [Microsoft Visual Studio Code](https://code.visualstudio.com/download)
 
 - [Alternative - VSCodium](https://github.com/VSCodium/vscodium)
-  - ### [Visual Studio Code Extensions](https://marketplace.visualstudio.com)
-    - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-    - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-    - [Language Support for Java](https://marketplace.visualstudio.com/items?itemName=redhat.java)
-    - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-    - [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools)
-    - [Markdown Lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
-    - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-    - [Pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint)
-    - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-    - [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
-    - [XML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml)
-    - [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+
+<details>
+  <summary>Visual Studio Code Extensions</summary>
+  <ul>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions">GitHub Actions</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.java">Language Support for Java</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools">Makefile Tools</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint">Markdown Lint</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.pylint">Pylint</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote SSH</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml">XML</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML</a></li>
+  </ul>
+</details>
 
 ### [Mozila Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)
 
