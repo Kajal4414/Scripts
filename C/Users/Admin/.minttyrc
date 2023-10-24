@@ -1,4 +1,6 @@
-Columns=120
-Rows=25
 ThemeFile=flat-ui
-Font=Cascadia Mono
+Transparency=low
+Columns=120
+Rows=30
+Font=MesloLGM Nerd Font
+FontWeight=400
