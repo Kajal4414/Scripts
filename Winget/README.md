@@ -65,6 +65,10 @@
 
 ### [Obsidian](https://obsidian.md)
 
+### [Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh)
+
+- [Installation](https://ohmyposh.dev/docs/installation/windows)
+
 ### [Proton VPN](https://protonvpn.com/download-windows)
 
 ### [PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)
