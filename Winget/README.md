@@ -74,6 +74,10 @@
 
 ### [Revo Uninstaller Pro](https://www.revouninstaller.com/revo-uninstaller-free-download)
 
+### [StartAllBack](https://www.startallback.com)
+
+- [Activator](https://github.com/sakshiagrwal/SAB)
+
 ### [Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)
 
 - [Alternative](https://desktop.telegram.org)
