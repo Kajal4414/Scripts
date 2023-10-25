@@ -137,7 +137,7 @@
 
 #### _26. [Revo Uninstaller Pro](https://www.revouninstaller.com/revo-uninstaller-free-download)_
 
-- ###### _[Activator](./Extra/revouninstallerpro5.lic)_
+- ###### _[Activator](../Extra/revouninstallerpro5.lic)_
 <!-- Copy "revouninstallerpro5.lic" to the following path: "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\" -->
 
 #
