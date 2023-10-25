@@ -107,6 +107,8 @@
 
 #### _19. [Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)_
 
+- ###### _[Catppuccin Theme](https://github.com/catppuccin/notepad-plus-plus/blob/main/catppuccin-mocha.xml)_
+
 #
 
 #### _20. [Obsidian](https://obsidian.md)_
