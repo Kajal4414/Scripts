@@ -17,3 +17,11 @@
 - #### _[Install Telegram Desktop](https://desktop.telegram.org/)_ `sudo tar -xf tsetup*.tar.xz -C /opt/`
 
 - #### _CUSTOM-ICONS: `/usr/share/applications` and `/home/sakshi/.local/share/applications`_
+  - `/usr/share/applications`	Available to all users on the system ( system-wide ).
+  - `/home/sakshi/.local/share/applications` Only available to the user who created them ( user-specific ).
+
+| Header 1 | :Header 2: | :-Header 3:- |
+|---|---|---|
+| Cell 1 | Cell 2 | Cell 3 |
+| Cell 4 | Cell 5 | Cell 6 |
+|--- |---|--- |
