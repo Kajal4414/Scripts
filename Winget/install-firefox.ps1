@@ -26,7 +26,7 @@ function Get-SHA512($file) {
     return $ret
 }
 
-function Fetch-SHA512($source, $file_name) {
+function Read-SHA512($source, $file_name) {
     try {
         $response = $web_client.DownloadString($source)
     }
@@ -51,13 +51,13 @@ function Fetch-SHA512($source, $file_name) {
     return $null
 }
 
-function Is-Admin() {
+function Test-Admin() {
     $current_principal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
     return $current_principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
 
 function main() {
-    if (-not (Is-Admin)) {
+    if (-not (Test-Admin)) {
         Write-Host "error: administrator privileges required"
         return 1
     }
@@ -128,7 +128,7 @@ function main() {
 
     if (-not $skip_hash_check) {
         $local_SHA512 = (Get-SHA512 -file $setup_file).Hash
-        $remote_SHA512 = Fetch-SHA512 -source $hash_source -file_name "win64/$lang/Firefox Setup $remote_version.exe"
+        $remote_SHA512 = Read-SHA512 -source $hash_source -file_name "win64/$lang/Firefox Setup $remote_version.exe"
 
         if ($local_SHA512 -ne $remote_SHA512) {
             Write-Host "error: hash mismatch"
