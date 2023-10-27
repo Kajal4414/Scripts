@@ -29,7 +29,8 @@ function Get-SHA512($file) {
 function Fetch-SHA512($source, $file_name) {
     try {
         $response = $web_client.DownloadString($source)
-    } catch [System.Management.Automation.MethodInvocationException] {
+    }
+    catch [System.Management.Automation.MethodInvocationException] {
         Write-Host "error: unable to fetch hash data, consider -skip_hash_check"
         exit 1
     }
@@ -66,17 +67,20 @@ function main() {
     try {
         # not available on Windows 7 by default
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls2
-    } catch {
+    }
+    catch {
         try {
             [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls
-        } catch {
+        }
+        catch {
             # ignore
         }
     }
 
     try {
         $response = $web_client.DownloadString("https://product-details.mozilla.org/1.0/firefox_versions.json")
-    } catch [System.Management.Automation.MethodInvocationException] {
+    }
+    catch [System.Management.Automation.MethodInvocationException] {
         Write-Host "error: failed to fetch json data, check internet connection and try again"
         return 1
     }
@@ -88,7 +92,8 @@ function main() {
         $product = "devedition/"
         $folder_name = "Firefox Developer Edition"
         $remote_version = $firefox["FIREFOX_DEVEDITION"]
-    } else {
+    }
+    else {
         $product = ""
         $folder_name = "Mozilla Firefox"
         $remote_version = $firefox["LATEST_FIREFOX_VERSION"]
@@ -111,7 +116,8 @@ function main() {
 
             if ($force) {
                 Write-Host "warning: -force specified, proceeding anyway"
-            } else {
+            }
+            else {
                 return 1
             }
         }
@@ -135,7 +141,8 @@ function main() {
 
     try {
         Start-Process -FilePath $setup_file -ArgumentList "/S /MaintenanceService=false" -Wait
-    } Catch [System.InvalidOperationException] {
+    }
+    Catch [System.InvalidOperationException] {
         Write-Host "error: failed to download setup file"
         return 1
     }
