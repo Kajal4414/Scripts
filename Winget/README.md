@@ -8,28 +8,6 @@
 # _Code Editors and IDEs_
   - ### _[Visual Studio Code](https://code.visualstudio.com/download)_
     - #### _[Alternative - VSCodium](https://github.com/VSCodium/vscodium)_
-
-    - <details>
-        <summary><h4><i><a href="https://marketplace.visualstudio.com">Extensions</a></i></h4></summary>
-        <ul>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions">GitHub Actions</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=redhat.java">Language Support for Java</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme">Material Icon Theme</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools">Makefile Tools</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint">Markdown Lint</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell">PowerShell</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.pylint">Pylint</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote SSH</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml">XML</a></i></h5></li>
-          <li><h5><i><a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML</a></i></h5></li>
-        </ul>
-      </details>
-
   - ### _[IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)_
     - #### _[Installation Guide](https://www.jetbrains.com/help/idea/installation-guide.html#standalone)_
   - ### _[PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)_
@@ -37,7 +15,7 @@
   - ### _[Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)_
     - #### _[Catppuccin Theme](https://github.com/catppuccin/notepad-plus-plus/blob/main/catppuccin-mocha.xml)_
   - ### _[Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh)_
-    - #### _[Installation](https://ohmyposh.dev/docs/installation/windows)_
+    - #### _[Installation Guide](https://ohmyposh.dev/docs/installation/windows)_
 
 # _Development Tools_
   - ### _[Git](https://git-scm.com)_
@@ -50,7 +28,7 @@
 # _Download Managers_
   - ### _[Internet Download Manager](https://www.internetdownloadmanager.com)_
     - #### _[Activator](https://github.com/J2TEAM/idm-trial-reset)_
-  - ### _[Alternative - FDM](https://www.freedownloadmanager.org)_
+  - ### _[Free Download Manager](https://www.freedownloadmanager.org)_
   - ### _[qBittorrent](https://www.qbittorrent.org)_
 
 # _Media Players_
@@ -62,7 +40,10 @@
   - ### _[Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)_
     - #### _[Alternative - Portable Version](https://desktop.telegram.org)_
     - #### _[Alternative - MaterialYou](https://github.com/kukuruzka165/materialgram)_
-    - #### _[Telegram for Linux](https://telegram.org/dl/desktop/linux) `sudo tar -xf tsetup*.tar.xz -C /opt/`_
+    #### _Note: Recommended installation directory for linux_
+    ```
+    sudo tar -xf tsetup*.tar.xz -C /opt/
+    ```
   - ### _[Indirect](https://github.com/huynhsontung/Indirect)_
 
 # _Miscellaneous_
@@ -80,7 +61,10 @@
   - ### _[Proton VPN](https://protonvpn.com/download-windows)_
     - #### _[Installation Guide](https://protonvpn.com/support/official-linux-vpn-mint/)_
   - ### _[Revo Uninstaller Pro](https://www.revouninstaller.com/revo-uninstaller-free-download)_
-    - #### _For activation, download the [revouninstallerpro5.lic](../Extra/revouninstallerpro5.lic) file and copy it to the following path: `C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\`_
+    #### _For activation, download the [revouninstallerpro5.lic](../Extra/revouninstallerpro5.lic) file and copy it to the following path:_
+    ```
+    C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\
+    ```
   - ### _[StartAllBack](https://www.startallback.com)_
     - #### _[Activator](https://github.com/sakshiagrwal/SAB)_
   - ### _[Winpinator](https://winpinator.swisz.cz/download.html)_
