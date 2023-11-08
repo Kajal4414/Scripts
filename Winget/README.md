@@ -31,7 +31,9 @@
       </details>
 
   - ### _[IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)_
+    - #### _[Installation Guide](https://www.jetbrains.com/help/idea/installation-guide.html#standalone)_
   - ### _[PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)_
+    - #### _[Installation Guide](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)_
   - ### _[Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)_
     - #### _[Catppuccin Theme](https://github.com/catppuccin/notepad-plus-plus/blob/main/catppuccin-mocha.xml)_
   - ### _[Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh)_
@@ -60,6 +62,7 @@
   - ### _[Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)_
     - #### _[Alternative - Portable Version](https://desktop.telegram.org)_
     - #### _[Alternative - MaterialYou](https://github.com/kukuruzka165/materialgram)_
+    - #### _[Telegram for Linux](https://telegram.org/dl/desktop/linux) `sudo tar -xf tsetup*.tar.xz -C /opt/`_
   - ### _[Indirect](https://github.com/huynhsontung/Indirect)_
 
 # _Miscellaneous_
@@ -75,6 +78,7 @@
   - ### _[MyAsus](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)_
   - ### _[Obsidian](https://obsidian.md)_
   - ### _[Proton VPN](https://protonvpn.com/download-windows)_
+    - #### _[Installation Guide](https://protonvpn.com/support/official-linux-vpn-mint/)_
   - ### _[Revo Uninstaller Pro](https://www.revouninstaller.com/revo-uninstaller-free-download)_
     - #### _For activation, download the [revouninstallerpro5.lic](../Extra/revouninstallerpro5.lic) file and copy it to the following path: `C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\`_
   - ### _[StartAllBack](https://www.startallback.com)_
