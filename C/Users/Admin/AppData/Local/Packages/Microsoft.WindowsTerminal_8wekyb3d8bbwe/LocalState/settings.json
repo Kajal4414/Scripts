@@ -29,6 +29,7 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "initialRows": 27,
     "newTabMenu": [
         {
             "type": "remainingProfiles"
@@ -38,7 +39,7 @@
         "defaults": {
             "colorScheme": "Catppuccin Mocha",
             "font": {
-                "face": "MesloLGL Nerd Font",
+                "face": "JetBrains Mono",
                 "size": 9
             },
             "opacity": 95
