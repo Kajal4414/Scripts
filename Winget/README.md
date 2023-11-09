@@ -8,14 +8,18 @@
 # _Code Editors and IDEs_
   - ### _[Visual Studio Code](https://code.visualstudio.com/download)_
     - #### _[Alternative - VSCodium](https://github.com/VSCodium/vscodium)_
+    - #### _[Settings](../C/Users/Admin/AppData/Roaming/Code/User/settings.json)_
   - ### _[IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)_
     - #### _[Installation Guide](https://www.jetbrains.com/help/idea/installation-guide.html#standalone)_
   - ### _[PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)_
     - #### _[Installation Guide](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)_
   - ### _[Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)_
     - #### _[Catppuccin Theme](https://github.com/catppuccin/notepad-plus-plus/blob/main/catppuccin-mocha.xml)_
+    - #### _[Twilight Theme](https://github.com/notepad-plus-plus/notepad-plus-plus/blob/master/PowerEditor/installer/themes/Twilight.xml)_
   - ### _[Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh)_
     - #### _[Installation Guide](https://ohmyposh.dev/docs/installation/windows)_
+  - ### _[Terminal](https://github.com/microsoft/terminal)_
+    - #### _[Settings](../C/Users/Admin/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json)_
 
 # _Development Tools_
   - ### _[Git](https://git-scm.com)_
@@ -53,10 +57,12 @@
     - #### _[Installation Guide](https://docs.atlasos.net/getting-started/post-installation/drivers/gpu/amd)_
   - ### _[BleachBit](https://github.com/bleachbit/bleachbit)_
     - #### _[Alternative - CleanmgrPlus](https://github.com/builtbybel/CleanmgrPlus)_
+  - ### _[Bulk Crap Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)_
   - ### _[Calculator](https://apps.microsoft.com/detail/windows-calculator/9WZDNCRFHVN5?hl=en-in&gl=IN)_
   - ### _[ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica)_
   - ### _[HEIF Image Extensions](https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG?hl=en-in&gl=IN)_
   - ### _[MyAsus](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)_
+  - ### _[Notepad](https://apps.microsoft.com/detail/windows-notepad/9MSMLRH6LZF3)_
   - ### _[Obsidian](https://obsidian.md)_
   - ### _[Proton VPN](https://protonvpn.com/download-windows)_
     - #### _[Installation Guide](https://protonvpn.com/support/official-linux-vpn-mint/)_
