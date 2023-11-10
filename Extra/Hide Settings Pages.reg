@@ -1,4 +1,5 @@
 Windows Registry Editor Version 5.00
 
+; https://github.com/Atlas-OS/Atlas/blob/main/src/playbook/Configuration/tweaks/qol/set-hidden-settings-pages.yml#L8-L14
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
-"SettingsPageVisibility"=dword:00000001
+"SettingsPageVisibility"="hide:recovery;autoplay;usb;maps;maps-downloadmaps;findmydevice;privacy;privacy-speechtyping;privacy-speech;privacy-feedback;privacy-activityhistory;search-permissions;privacy-location;privacy-general;sync;printers;cortana-windowssearch;mobile-devices;mobile-devices-addphone;backup;"
