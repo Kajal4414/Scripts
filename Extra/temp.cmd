@@ -1,52 +1,58 @@
 @echo off
 
-if exist "%programfiles%\ModifiableWindowsApps" (
-	echo Deleting the ModifiableWindowsApps directory...
-	takeown /F "%programfiles%\ModifiableWindowsApps" /R /D Y
-	icacls "%programfiles%\ModifiableWindowsApps" /grant administrators:F /T
-	rmdir /S /Q "%programfiles%\ModifiableWindowsApps"
-	pause
+if exist "%ProgramFiles%\ModifiableWindowsApps" (
+    echo Deleting the ModifiableWindowsApps directory...
+    takeown /F "%ProgramFiles%\ModifiableWindowsApps" /R /D Y
+    icacls "%ProgramFiles%\ModifiableWindowsApps" /grant administrators:F /T
+    rmdir /S /Q "%ProgramFiles%\ModifiableWindowsApps"
+    pause
 )
 
-if exist "%userprofile%\AppData\Local\Temp" (
-	echo Deleting the AppData\Local\Temp directory...
-	rmdir /S /Q "%userprofile%\AppData\Local\Temp"
-	pause
+if exist "%UserProfile%\AppData\Local\Temp" (
+    echo Deleting the AppData\Local\Temp directory...
+    rmdir /S /Q "%UserProfile%\AppData\Local\Temp"
+    pause
 )
 
-if exist "%userprofile%\Recent" (
+if exist "%UserProfile%\Recent" (
     echo Deleting the Recent directory...
-    rmdir /S /Q "%userprofile%\Recent"
+    rmdir /S /Q "%UserProfile%\Recent"
     pause
 )
 
-if exist "%userprofile%\Searches" (
+if exist "%UserProfile%\Searches" (
     echo Deleting the Searches directory...
-    rmdir /S /Q "%userprofile%\Searches"
+    rmdir /S /Q "%UserProfile%\Searches"
     pause
 )
 
-if exist "%userprofile%\Favorites" (
+if exist "%UserProfile%\Favorites" (
     echo Deleting the Favorites directory...
-    rmdir /S /Q "%userprofile%\Favorites"
+    rmdir /S /Q "%UserProfile%\Favorites"
     pause
 )
 
-if exist "%windir%\AppReadiness" (
+if exist "%Public%\Desktop" (
+    echo Deleting the Desktop directory...
+    rmdir /S /Q "%Public%\Desktop"
+    pause
+)
+
+if exist "%WinDir%\AppReadiness" (
     echo Deleting the AppReadiness directory...
-    rmdir /S /Q "%windir%\AppReadiness"
+    rmdir /S /Q "%WinDir%\AppReadiness"
     pause
 )
 
-if exist "%windir%\temp" (
+if exist "%WinDir%\temp" (
     echo Deleting the temp directory...
-    rmdir /S /Q "%windir%\temp"
+    rmdir /S /Q "%WinDir%\temp"
     pause
 )
 
-if exist "%windir%\Prefetch" (
+if exist "%WinDir%\Prefetch" (
     echo Deleting the Prefetch directory...
-    rmdir /S /Q "%windir%\Prefetch"
+    rmdir /S /Q "%WinDir%\Prefetch"
     pause
 )
 
