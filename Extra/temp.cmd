@@ -3,14 +3,14 @@
 if exist "%programfiles%\ModifiableWindowsApps" (
     echo Deleting the ModifiableWindowsApps directory...
     takeown /F "%programfiles%\ModifiableWindowsApps" /R /D Y
-	  icacls "%programfiles%\ModifiableWindowsApps" /grant administrators:F /T
+    icacls "%programfiles%\ModifiableWindowsApps" /grant administrators:F /T
     rmdir /S /Q "%programfiles%\ModifiableWindowsApps"
     pause
 )
 
 if exist "%userprofile%\AppData\Local\Temp" (
     echo Deleting the AppData\Local\Temp directory...
-    rmdir /S "%userprofile%\AppData\Local\Temp"
+    rmdir /S /Q "%userprofile%\AppData\Local\Temp"
     pause
 )
 
@@ -26,21 +26,21 @@ if exist "%userprofile%\Searches" (
     pause
 )
 
-if exist "%windir%\AppRed" (
-    echo Deleting the AppRed directory...
-    rmdir /S "%windir%\AppRed"
+if exist "%windir%\AppReadiness" (
+    echo Deleting the AppReadiness directory...
+    rmdir /S /Q "%windir%\AppReadiness"
     pause
 )
 
 if exist "%windir%\temp" (
     echo Deleting the temp directory...
-    rmdir /S "%windir%\temp"
+    rmdir /S /Q "%windir%\temp"
     pause
 )
 
 if exist "%windir%\Prefetch" (
     echo Deleting the Prefetch directory...
-    rmdir /S "%windir%\Prefetch"
+    rmdir /S /Q "%windir%\Prefetch"
     pause
 )
 
