@@ -29,17 +29,21 @@ If you are getting an `Access is denied` error when you try to delete the direct
 
 ```sh
 :: This will give you ownership of the directory and all of its subdirectories and files.
-takeown /f "C:\Program Files\ModifiableWindowsApps" /r /d y
+takeown /F "%programfiles%\ModifiableWindowsApps" /R /D Y
 ```
 
 - Type the following command and press Enter:
 
 ```sh
 :: This will give full control permissions to the directory and all of its subdirectories and files.
-icacls "C:\Program Files\ModifiableWindowsApps" /grant:r *S-1-1-0:F /t
+icacls "%programfiles%\ModifiableWindowsApps" /grant administrators:F /T
 ```
 
 Try running the delete script again after completing these steps.
+
+```sh
+rmdir /S /Q "%programfiles%\ModifiableWindowsApps"
+```
 
 ---
 
