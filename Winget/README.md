@@ -41,8 +41,8 @@
 
 # _Media Players_
   - ### _[K-Lite Codec Pack](https://codecguide.com/download_k-lite_codec_pack_full.htm)_
-  - ### _[Screenbox](https://github.com/huynhsontung/Screenbox)_
   - ### _[VLC media player](https://www.videolan.org)_
+  - ### _[Screenbox](https://github.com/huynhsontung/Screenbox)_
 
 # _Messaging_
   - ### _[Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)_
@@ -52,7 +52,7 @@
     ```
     sudo tar -xf tsetup*.tar.xz -C /opt/
     ```
-  - ### _[Indirect](https://github.com/huynhsontung/Indirect)_
+  - ### _[Indirect - Instagram DM Client](https://github.com/huynhsontung/Indirect)_
 
 # _Miscellaneous_
   - ### _[7-Zip](https://www.7-zip.org)_
@@ -70,6 +70,8 @@
   - ### _[MyAsus](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)_
   - ### _[Notepad](https://apps.microsoft.com/detail/windows-notepad/9MSMLRH6LZF3)_
   - ### _[Obsidian](https://obsidian.md)_
+  - ### _[Process Explorer](https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer)_
+    - #### _[Configure Process Explorer](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#replace-task-manager-with-process-explorer)_
   - ### _[Proton VPN](https://protonvpn.com/download-windows)_
     - #### _[Installation Guide - Linux](https://protonvpn.com/support/official-linux-vpn-mint/)_
   - ### _[Revo Uninstaller Pro](https://www.revouninstaller.com/revo-uninstaller-free-download)_
