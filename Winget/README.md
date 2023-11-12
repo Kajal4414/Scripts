@@ -25,9 +25,13 @@
   - ### _[Git](https://git-scm.com)_
   - ### _[Gpg4win](https://www.gpg4win.org)_
   - ### _[JDK 21](https://www.oracle.com/in/java/technologies/downloads/#jdk21-windows)_
-  - ### _[Visual C++](https://github.com/abbodi1406/vcredist)_
   - ### _[Node.js](https://nodejs.org/en)_
   - ### _[Python](https://www.python.org/downloads)_
+
+# _Runtimes_
+  - ### _[Visual C++ Redist](https://github.com/abbodi1406/vcredist)_
+  - ### _[WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2)_
+  - ### _[DirectX Redist](https://www.microsoft.com/en-gb/download/details.aspx?id=8109)_
 
 # _Download Managers_
   - ### _[Internet Download Manager](https://www.internetdownloadmanager.com)_
