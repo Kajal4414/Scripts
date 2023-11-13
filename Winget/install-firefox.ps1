@@ -2,6 +2,7 @@ param(
     [switch]$force,
     [switch]$skip_hash_check,
     [switch]$developer_edition,
+    [switch]$enterprise_edition,
     [string]$lang = "en-GB",
     [string]$version
 )
@@ -29,8 +30,7 @@ function Get-SHA512($file) {
 function Read-SHA512($source, $file_name) {
     try {
         $response = $web_client.DownloadString($source)
-    }
-    catch [System.Management.Automation.MethodInvocationException] {
+    } catch [System.Management.Automation.MethodInvocationException] {
         Write-Host "error: unable to fetch hash data, consider -skip_hash_check"
         exit 1
     }
@@ -67,33 +67,33 @@ function main() {
     try {
         # not available on Windows 7 by default
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls2
-    }
-    catch {
+    } catch {
         try {
             [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls
-        }
-        catch {
+        } catch {
             # ignore
         }
     }
 
     try {
         $response = $web_client.DownloadString("https://product-details.mozilla.org/1.0/firefox_versions.json")
-    }
-    catch [System.Management.Automation.MethodInvocationException] {
+    } catch [System.Management.Automation.MethodInvocationException] {
         Write-Host "error: failed to fetch json data, check internet connection and try again"
         return 1
     }
 
     $firefox = $serializer.DeserializeObject($response)
-    $setup_file = "$Env:temp\FirefoxSetup.exe"
+    $setup_file = "$($Env:temp)\FirefoxSetup.exe"
 
     if ($developer_edition) {
         $product = "devedition/"
         $folder_name = "Firefox Developer Edition"
         $remote_version = $firefox["FIREFOX_DEVEDITION"]
-    }
-    else {
+    } elseif ($enterprise_edition) {
+        $product = ""
+        $folder_name = "Mozilla Firefox"
+        $remote_version = $firefox["FIREFOX_ESR"]
+    } else {
         $product = ""
         $folder_name = "Mozilla Firefox"
         $remote_version = $firefox["LATEST_FIREFOX_VERSION"]
@@ -103,32 +103,31 @@ function main() {
         $remote_version = $version
     }
 
-    $download_url = "http://releases.mozilla.org/pub/${product}firefox/releases/$remote_version/win64/$lang/Firefox%20Setup%20$remote_version.exe"
-    $install_dir = "C:\Program Files\$folder_name"
-    $hash_source = "https://ftp.mozilla.org/pub/${product}firefox/releases/$remote_version/SHA512SUMS"
+    $download_url = "http://releases.mozilla.org/pub/$($product)firefox/releases/$($remote_version)/win64/$($lang)/Firefox%20Setup%20$($remote_version).exe"
+    $install_dir = "C:\Program Files\$($folder_name)"
+    $hash_source = "https://ftp.mozilla.org/pub/$($product)firefox/releases/$($remote_version)/SHA512SUMS"
 
     # check if currently installed version is already latest
-    if (Test-Path "$install_dir\firefox.exe" -PathType Leaf) {
-        $local_version = ([string](& "$install_dir\firefox.exe" --version | more)).Split()[2]
+    if (Test-Path "$($install_dir)\firefox.exe" -PathType Leaf) {
+        $local_version = ([string](& "$($install_dir)\firefox.exe" --version | more)).Split()[2]
 
         if ($local_version -eq $remote_version) {
             Write-Host "info: $($folder_name) $($remote_version) already installed"
 
             if ($force) {
                 Write-Host "warning: -force specified, proceeding anyway"
-            }
-            else {
+            } else {
                 return 1
             }
         }
     }
 
-    Write-Host "info: downloading firefox $remote_version setup"
+    Write-Host "info: downloading firefox $($remote_version) setup"
     $web_client.DownloadFile($download_url, $setup_file)
 
     if (-not $skip_hash_check) {
         $local_SHA512 = (Get-SHA512 -file $setup_file).Hash
-        $remote_SHA512 = Read-SHA512 -source $hash_source -file_name "win64/$lang/Firefox Setup $remote_version.exe"
+        $remote_SHA512 = Fetch-SHA512 -source $hash_source -file_name "win64/$($lang)/Firefox Setup $($remote_version).exe"
 
         if ($local_SHA512 -ne $remote_SHA512) {
             Write-Host "error: hash mismatch"
@@ -141,8 +140,7 @@ function main() {
 
     try {
         Start-Process -FilePath $setup_file -ArgumentList "/S /MaintenanceService=false" -Wait
-    }
-    Catch [System.InvalidOperationException] {
+    } Catch [System.InvalidOperationException] {
         Write-Host "error: failed to download setup file"
         return 1
     }
@@ -166,14 +164,14 @@ function main() {
     )
 
     foreach ($file in $remove_files) {
-        $file = "$install_dir\$file"
+        $file = "$($install_dir)\$($file)"
         if (Test-Path $file -PathType Leaf) {
             Remove-Item $file
         }
     }
 
     # create policies.json
-    (New-Item -Path "$install_dir" -Name "distribution" -ItemType "directory" -Force) 2>&1 > $null
+    (New-Item -Path "$($install_dir)" -Name "distribution" -ItemType "directory" -Force) 2>&1 > $null
 
     $policies = Convert-To-Json(@{
             policies = @{
@@ -207,9 +205,9 @@ defaultPref(`"browser.tabs.tabmanager.enabled`", false)`
 lockPref(`"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`", false)`
 lockPref(`"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`", false)"
 
-    Set-Content -Path "$install_dir\distribution\policies.json" -Value ($policies)
-    [System.IO.File]::WriteAllText("$install_dir\defaults\pref\autoconfig.js", ($autoconfig), [System.Text.Encoding]::ASCII)
-    Set-Content -Path "$install_dir\firefox.cfg" -Value ($firefox_config)
+    Set-Content -Path "$($install_dir)\distribution\policies.json" -Value $($policies)
+    [System.IO.File]::WriteAllText("$($install_dir)\defaults\pref\autoconfig.js", $($autoconfig), [System.Text.Encoding]::ASCII)
+    Set-Content -Path "$install_dir\firefox.cfg" -Value $($firefox_config)
 
     Write-Host "info: release notes: https:/www.mozilla.org/en-US/firefox/$($remote_version)/releasenotes"
 
