@@ -1,4 +1,11 @@
 @echo off
+
+:: Check if the script is running as SYSTEM user (S-1-5-18)
+whoami /user | find "S-1-5-18" >NUL 2>&1 || (
+    call RunAsTI.cmd "%~f0" %*
+    exit /b
+)
+
 echo Starting cleanup script...
 
 :: Delete ModifiableWindowsApps directory with takeown and icacls commands
