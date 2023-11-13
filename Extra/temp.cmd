@@ -2,15 +2,14 @@
 
 :: Check for administrator privileges
 net session >NUL 2>&1
-if %errorLevel% == 0 (
-    echo Administrator privileges confirmed.
-) else (
+if %errorLevel% neq 0 (
     echo Please run the script as an administrator.
     pause
     exit /b
 )
 
 echo Starting cleanup script...
+echo.
 
 :: Delete ModifiableWindowsApps directory with 'takeown' (Take ownership of the directory) and 'icacls' (Grant administrators full control) commands
 if exist "%ProgramFiles%\ModifiableWindowsApps" (
@@ -37,7 +36,7 @@ for %%D in (
 ) do (
     if exist %%D (
         echo Deleting the "%%~D" directory...
-        RD /S /Q "%%~D"
+        RD /S /Q "%%~D" 2>NUL
         echo.
     )
 )
