@@ -1,5 +1,8 @@
 # _Browsers_
   - ### _[Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)_
+    ```sh
+    powershell iex(irm https://raw.githubusercontent.com/amitxv/PC-Tuning/main/bin/scripts/install-firefox.ps1)
+    ```
     - #### _[Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)_
     - #### _[Firefox Theme](https://github.com/datguypiko/Firefox-Mod-Blur)_
   - ### _[Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)_
