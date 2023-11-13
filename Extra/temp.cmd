@@ -1,8 +1,12 @@
 @echo off
 
-:: Check if the script is running as SYSTEM user (S-1-5-18)
-whoami /user | find "S-1-5-18" >NUL 2>&1 || (
-    call RunAsTI.cmd "%~f0" %*
+:: Check for administrator privileges
+net session >nul 2>&1
+if %errorLevel% == 0 (
+    echo Administrator privileges confirmed.
+) else (
+    echo Please run the script as an administrator.
+    pause
     exit /b
 )
 
@@ -39,7 +43,7 @@ for %%D in (
 ) do (
     if exist %%D (
         echo Deleting the "%%~D" directory...
-        rmdir /S /Q "%%~D"
+        RD /S /Q "%%~D"
         echo.
     )
 )
