@@ -2,8 +2,8 @@
 
 if exist "%ProgramFiles%\ModifiableWindowsApps" (
     echo Deleting the "%ProgramFiles%\ModifiableWindowsApps" directory...
-    takeown /F "%ProgramFiles%\ModifiableWindowsApps" /R /D Y
-    icacls "%ProgramFiles%\ModifiableWindowsApps" /grant administrators:F /T
+    takeown /F "%ProgramFiles%\ModifiableWindowsApps" /R /D Y >NUL 2>&1
+    icacls "%ProgramFiles%\ModifiableWindowsApps" /grant administrators:F /T >NUL 2>&1
     rmdir /S /Q "%ProgramFiles%\ModifiableWindowsApps"
     echo.
 )
