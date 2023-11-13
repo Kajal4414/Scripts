@@ -1,7 +1,7 @@
 @echo off
 
 :: Check for administrator privileges
-net session >nul 2>&1
+net session >NUL 2>&1
 if %errorLevel% == 0 (
     echo Administrator privileges confirmed.
 ) else (
@@ -12,18 +12,12 @@ if %errorLevel% == 0 (
 
 echo Starting cleanup script...
 
-:: Delete ModifiableWindowsApps directory with takeown and icacls commands
+:: Delete ModifiableWindowsApps directory with 'takeown' (Take ownership of the directory) and 'icacls' (Grant administrators full control) commands
 if exist "%ProgramFiles%\ModifiableWindowsApps" (
     echo Deleting the "%ProgramFiles%\ModifiableWindowsApps" directory...
-    
-    :: Take ownership of the directory
     takeown /F "%ProgramFiles%\ModifiableWindowsApps" /R /D Y >NUL 2>&1
-    
-    :: Grant administrators full control
     icacls "%ProgramFiles%\ModifiableWindowsApps" /grant administrators:F /T >NUL 2>&1
-    
-    :: Remove the directory
-    rmdir /S /Q "%ProgramFiles%\ModifiableWindowsApps"
+    RD /S /Q "%ProgramFiles%\ModifiableWindowsApps"
     echo.
 )
 
