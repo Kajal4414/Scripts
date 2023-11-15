@@ -4,12 +4,11 @@
 net session >NUL 2>&1
 if %errorLevel% neq 0 (
     echo Please run the script as an administrator.
-    pause
+    echo.
+    echo Press any key to exit...
+    pause >NUL
     exit /b
 )
-
-echo Starting cleanup script...
-echo.
 
 :: Delete ModifiableWindowsApps directory with 'takeown' (Take ownership of the directory) and 'icacls' (Grant administrators full control) commands
 if exist "%ProgramFiles%\ModifiableWindowsApps" (
@@ -41,6 +40,5 @@ for %%D in (
     )
 )
 
-echo The script has completed successfully.
-echo.
-pause
+echo Press any key to exit...
+pause >NUL
