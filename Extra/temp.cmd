@@ -1,18 +1,11 @@
-:: rmdir "C:\Windows\temp\*"
 @echo off
 
-:: Check for administrator privileges
-net session >NUL 2>&1
-if %errorLevel% neq 0 (
-    echo Please run the script as an administrator.
-    echo.
-    echo Press any key to exit...
-    pause >NUL
-    exit /b
-)
-
-:: Delete ModifiableWindowsApps directory with 'takeown' (Take ownership of the directory) and 'icacls' (Grant administrators full control) commands
+:: Delete ModifiableWindowsApps directory with 'takeown' and 'icacls' commands.
 if exist "%ProgramFiles%\ModifiableWindowsApps" (
+	whoami /user | find /i "S-1-5-18" >NUL 2>&1 || (
+	call RunAsTI.cmd "%~f0" %*
+	exit /b
+	)
     echo Deleting the "%ProgramFiles%\ModifiableWindowsApps" directory...
     takeown /F "%ProgramFiles%\ModifiableWindowsApps" /R /D Y >NUL 2>&1
     icacls "%ProgramFiles%\ModifiableWindowsApps" /grant administrators:F /T >NUL 2>&1
@@ -20,8 +13,7 @@ if exist "%ProgramFiles%\ModifiableWindowsApps" (
     echo.
 )
 
-:: Delete other directories
-:: Add more if statements for additional directories as needed
+:: Delete other directories ($ rmdir "C:\Windows\temp\*").
 for %%D in (
     "%UserProfile%\AppData\Local\Temp"
     "%UserProfile%\.vscode\cli"
@@ -33,6 +25,7 @@ for %%D in (
     "%WinDir%\AppReadiness"
     "%WinDir%\Prefetch"
 ) do (
+	:: Add more if statements for additional directories as needed.
     if exist %%D (
         echo Deleting the "%%~D" directory...
         RD /S /Q "%%~D" 2>NUL
