@@ -27,7 +27,7 @@ function Get-SHA512($file) {
     return $ret
 }
 
-function Read-SHA512($source, $file_name) {
+function Fetch-SHA512($source, $file_name) {
     try {
         $response = $web_client.DownloadString($source)
     } catch [System.Management.Automation.MethodInvocationException] {
@@ -51,13 +51,13 @@ function Read-SHA512($source, $file_name) {
     return $null
 }
 
-function Test-Admin() {
+function Is-Admin() {
     $current_principal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
     return $current_principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
 
 function main() {
-    if (-not (Test-Admin)) {
+    if (-not (Is-Admin)) {
         Write-Host "error: administrator privileges required"
         return 1
     }
