@@ -1,5 +1,7 @@
 # _Browsers_
   - ### _[Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)_
+    - #### _[Installation Script](./install-firefox.ps1)_
+      ###### _Note: Run PowerShell or Terminal as administrator (Not CMD)_ `.\install-firefox.ps1`
     - #### _[Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)_
     - #### _[Firefox Mod Blur](https://github.com/datguypiko/Firefox-Mod-Blur)_
   - ### _[Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)_
@@ -47,13 +49,13 @@
 # _Office_
   - ### _[Office 365 ProPlus - English US Offline Setup](https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/O365ProPlusRetail.img)_
     - #### _[Activation Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts) - MAS’s Ohook method can activate it._
-    - #### _[Docs](https://massgrave.dev/office_c2r_links.html)_
+    - #### _[MAS Docs](https://massgrave.dev/office_c2r_links.html)_
 
 # _Messaging_
   - ### _[Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)_
     - #### _[Alternative - Portable Version](https://desktop.telegram.org)_
     - #### _[Alternative - MaterialYou](https://github.com/kukuruzka165/materialgram)_
-      _**Note: Recommended installation directory for linux**_ `sudo tar -xf tsetup*.tar.xz -C /opt/`
+      ###### _Note: Recommended installation directory for linux_ `sudo tar -xf tsetup*.tar.xz -C /opt/`
   - ### _[Indirect - Instagram DM Client](https://github.com/huynhsontung/Indirect)_
 
 # _Miscellaneous_
@@ -77,10 +79,10 @@
   - ### _[Proton VPN](https://protonvpn.com/download-windows)_
     - #### _[Installation Guide - Linux](https://protonvpn.com/support/official-linux-vpn-mint/)_
   - ### _[Revo Uninstaller Pro](https://www.revouninstaller.com/revo-uninstaller-free-download)_
-      _**For activation, download the [revouninstallerpro5.lic](../Extra/revouninstallerpro5.lic) file and copy it to the following path:**_ `C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\`
+    ###### _For activation, download the [revouninstallerpro5.lic](../Extra/revouninstallerpro5.lic) file and copy it to the following path:_ `C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\`
   - ### _[StartAllBack](https://www.startallback.com)_
     - #### _[SAB - Activation Script](https://github.com/sakshiagrwal/SAB)_
   - ### _[StartIsBack++](https://www.startisback.com/#download-tab)_
-      _**For activation, download the [msimg32.dll](../Extra/msimg32.dll) file and copy it to the following path:**_ `C:\Program Files (x86)\StartIsBack\`
+    ###### _For activation, download the [msimg32.dll](../Extra/msimg32.dll) file and copy it to the following path:_ `C:\Program Files (x86)\StartIsBack\`
   - ### _[Winpinator](https://winpinator.swisz.cz/download.html)_
   - ### _[YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)_
