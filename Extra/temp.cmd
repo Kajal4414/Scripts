@@ -4,6 +4,7 @@
 net session >NUL 2>&1
 if %errorLevel% equ 0 (
     :: Run this part if script has administrator privileges
+    :: Delete ModifiableWindowsApps directory with 'takeown' (Take ownership of the directory) and 'icacls' (Grant administrators full control) commands
     if exist "%ProgramFiles%\ModifiableWindowsApps" (
         echo Deleting the "%ProgramFiles%\ModifiableWindowsApps" directory...
         takeown /F "%ProgramFiles%\ModifiableWindowsApps" /R /D Y >NUL 2>&1
@@ -13,6 +14,7 @@ if %errorLevel% equ 0 (
     )
 ) else (
     :: Run this part if script does not have administrator privileges
+    :: Delete other directories
     for %%D in (
         "%UserProfile%\AppData\Local\Temp"
         "%UserProfile%\.vscode\cli"
@@ -24,10 +26,10 @@ if %errorLevel% equ 0 (
         "%WinDir%\AppReadiness"
         "%WinDir%\Prefetch"
     ) do (
+        :: Add more if statements for additional directories as needed
         if exist %%D (
             echo Deleting the "%%~D" directory...
             RD /S /Q "%%~D" 2>NUL
-            echo.
             echo.
         )
     )
