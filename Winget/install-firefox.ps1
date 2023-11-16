@@ -1,4 +1,4 @@
-param(
+param (
     [switch]$force,
     [switch]$skip_hash_check,
     [switch]$developer_edition,
@@ -19,11 +19,11 @@ function Convert-To-Json($item) {
 
 function Get-SHA512($file) {
     $hash = [System.BitConverter]::ToString($hash_algorithm.ComputeHash([System.IO.File]::ReadAllBytes($file)))
-    $ret = @{"Algorithm" = "SHA512"
-        "Path"           = $file
-        "Hash"           = $hash.Replace("-", "")
+    $ret = @{
+        "Algorithm" = "SHA512"
+        "Path"      = $file
+        "Hash"      = $hash.Replace("-", "")
     }
-
     return $ret
 }
 
@@ -62,16 +62,15 @@ function main() {
         return 1
     }
 
-    # silently try to enforce Tls
-
+    # Silently try to enforce Tls
     try {
-        # not available on Windows 7 by default
-        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls2
+        # Not available on Windows 7 by default
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     } catch {
         try {
             [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls
         } catch {
-            # ignore
+            # Ignore
         }
     }
 
@@ -107,7 +106,7 @@ function main() {
     $install_dir = "C:\Program Files\$($folder_name)"
     $hash_source = "https://ftp.mozilla.org/pub/$($product)firefox/releases/$($remote_version)/SHA512SUMS"
 
-    # check if currently installed version is already latest
+    # Check if currently installed version is already the latest
     if (Test-Path "$($install_dir)\firefox.exe" -PathType Leaf) {
         $local_version = ([string](& "$($install_dir)\firefox.exe" --version | more)).Split()[2]
 
@@ -170,18 +169,21 @@ function main() {
         }
     }
 
-    # create policies.json
+    # Create policies.json
     (New-Item -Path "$($install_dir)" -Name "distribution" -ItemType "directory" -Force) 2>&1 > $null
 
     $policies = Convert-To-Json(@{
-            policies = @{
-                DisableAppUpdate     = $true
-                OverrideFirstRunPage = ""
-                Extensions           = @{
-                    Install = @("https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/11423598-latest.xpi", "https://addons.mozilla.org/firefox/downloads/file/4177101/fastforwardteam-0.2334.xpi")
-                }
+        policies = @{
+            DisableAppUpdate     = $true
+            OverrideFirstRunPage = ""
+            Extensions           = @{
+                Install = @(
+                    "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/11423598-latest.xpi",
+                    "https://addons.mozilla.org/firefox/downloads/file/4177101/fastforwardteam-0.2334.xpi"
+                )
             }
-        })
+        }
+    })
 
     $autoconfig = @(
         "pref(`"general.config.filename`", `"firefox.cfg`");",
@@ -189,21 +191,21 @@ function main() {
     ) -join "`n"
 
     $firefox_config =
-    "`r`ndefaultPref(`"app.shield.optoutstudies.enabled`", false)`
-defaultPref(`"datareporting.healthreport.uploadEnabled`", false)`
-defaultPref(`"browser.newtabpage.activity-stream.feeds.section.topstories`", false)`
-defaultPref(`"browser.newtabpage.activity-stream.feeds.topsites`", false)`
-defaultPref(`"dom.security.https_only_mode`", true)`
-defaultPref(`"browser.uidensity`", 1)`
-defaultPref(`"full-screen-api.transition-duration.enter`", `"0 0`")`
-defaultPref(`"full-screen-api.transition-duration.leave`", `"0 0`")`
-defaultPref(`"full-screen-api.warning.timeout`", 0)`
-defaultPref(`"nglayout.enable_drag_images`", false)`
-defaultPref(`"reader.parse-on-load.enabled`", false)`
-defaultPref(`"browser.tabs.firefox-view`", false)`
-defaultPref(`"browser.tabs.tabmanager.enabled`", false)`
-lockPref(`"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`", false)`
-lockPref(`"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`", false)"
+        "`r`ndefaultPref(`"app.shield.optoutstudies.enabled`", false)`
+        defaultPref(`"datareporting.healthreport.uploadEnabled`", false)`
+        defaultPref(`"browser.newtabpage.activity-stream.feeds.section.topstories`", false)`
+        defaultPref(`"browser.newtabpage.activity-stream.feeds.topsites`", false)`
+        defaultPref(`"dom.security.https_only_mode`", true)`
+        defaultPref(`"browser.uidensity`", 1)`
+        defaultPref(`"full-screen-api.transition-duration.enter`", `"0 0`")`
+        defaultPref(`"full-screen-api.transition-duration.leave`", `"0 0`")`
+        defaultPref(`"full-screen-api.warning.timeout`", 0)`
+        defaultPref(`"nglayout.enable_drag_images`", false)`
+        defaultPref(`"reader.parse-on-load.enabled`", false)`
+        defaultPref(`"browser.tabs.firefox-view`", false)`
+        defaultPref(`"browser.tabs.tabmanager.enabled`", false)`
+        lockPref(`"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`", false)`
+        lockPref(`"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`", false)"
 
     Set-Content -Path "$($install_dir)\distribution\policies.json" -Value $($policies)
     [System.IO.File]::WriteAllText("$($install_dir)\defaults\pref\autoconfig.js", $($autoconfig), [System.Text.Encoding]::ASCII)
@@ -214,4 +216,4 @@ lockPref(`"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`",
     return 0
 }
 
-exit main
+exit (main)
