@@ -44,6 +44,11 @@
   - ### _[VLC media player](https://www.videolan.org)_
   - ### _[Screenbox](https://github.com/huynhsontung/Screenbox)_
 
+# _Office_
+  - ### _[Office 365 ProPlus - English US Offline Setup](https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/O365ProPlusRetail.img)_
+    - #### _[Activation Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts) - MAS’s Ohook method can activate it._
+    - #### _[Docs](https://massgrave.dev/office_c2r_links.html)_
+
 # _Messaging_
   - ### _[Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)_
     - #### _[Alternative - Portable Version](https://desktop.telegram.org)_
