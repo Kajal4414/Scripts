@@ -1,3 +1,4 @@
+:: rmdir "C:\Windows\temp\*"
 @echo off
 
 :: Check for administrator privileges
@@ -30,12 +31,12 @@ for %%D in (
     "%UserProfile%\Saved Games"
     "%Public%\Desktop"
     "%WinDir%\AppReadiness"
-    "%WinDir%\temp"
     "%WinDir%\Prefetch"
 ) do (
     if exist %%D (
         echo Deleting the "%%~D" directory...
         RD /S /Q "%%~D" 2>NUL
+        echo.
         echo.
     )
 )
