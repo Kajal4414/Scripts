@@ -1,12 +1,8 @@
 # _Browsers_
   - ### _[Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)_
-    ```sh
-    powershell iex(irm https://raw.githubusercontent.com/amitxv/PC-Tuning/main/bin/scripts/install-firefox.ps1)
-    ```
     - #### _[Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)_
-    - #### _[Firefox Theme](https://github.com/datguypiko/Firefox-Mod-Blur)_
+    - #### _[Firefox Mod Blur](https://github.com/datguypiko/Firefox-Mod-Blur)_
   - ### _[Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)_
-    - #### _[~~Alternative - Thorium-Win~~](https://github.com/Alex313031/Thorium-Win)_
 
 # _Code Editors and IDEs_
   - ### _[Visual Studio Code](https://code.visualstudio.com/download)_
@@ -21,7 +17,7 @@
     - #### _[Twilight Theme](https://github.com/notepad-plus-plus/notepad-plus-plus/blob/master/PowerEditor/installer/themes/Twilight.xml)_
   - ### _[Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh)_
     - #### _[Installation Guide - Windows](https://ohmyposh.dev/docs/installation/windows)_
-  - ### _[Terminal](https://github.com/microsoft/terminal)_
+  - ### _[Windows Terminal](https://github.com/microsoft/terminal)_
     - #### _[Settings](../C/Users/Admin/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json)_
 
 # _Development Tools_
@@ -38,7 +34,8 @@
 
 # _Download Managers_
   - ### _[Internet Download Manager](https://www.internetdownloadmanager.com)_
-    - #### _[Activator](https://github.com/J2TEAM/idm-trial-reset)_
+    - #### _[IDM Activation Script](https://github.com/WindowsAddict/IDM-Activation-Script)_
+    - #### _[IDM Trial Reset](https://github.com/J2TEAM/idm-trial-reset)_
   - ### _[Free Download Manager](https://www.freedownloadmanager.org)_
   - ### _[qBittorrent](https://www.qbittorrent.org)_
 
@@ -51,10 +48,7 @@
   - ### _[Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)_
     - #### _[Alternative - Portable Version](https://desktop.telegram.org)_
     - #### _[Alternative - MaterialYou](https://github.com/kukuruzka165/materialgram)_
-    #### _Note: Recommended installation directory for linux_
-    ```
-    sudo tar -xf tsetup*.tar.xz -C /opt/
-    ```
+      _**Note: Recommended installation directory for linux**_ `sudo tar -xf tsetup*.tar.xz -C /opt/`
   - ### _[Indirect - Instagram DM Client](https://github.com/huynhsontung/Indirect)_
 
 # _Miscellaneous_
@@ -78,16 +72,10 @@
   - ### _[Proton VPN](https://protonvpn.com/download-windows)_
     - #### _[Installation Guide - Linux](https://protonvpn.com/support/official-linux-vpn-mint/)_
   - ### _[Revo Uninstaller Pro](https://www.revouninstaller.com/revo-uninstaller-free-download)_
-    #### _For activation, download the [revouninstallerpro5.lic](../Extra/revouninstallerpro5.lic) file and copy it to the following path:_
-    ```
-    C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\
-    ```
+      _**For activation, download the [revouninstallerpro5.lic](../Extra/revouninstallerpro5.lic) file and copy it to the following path:**_ `C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\`
   - ### _[StartAllBack](https://www.startallback.com)_
-    - #### _[Activator](https://github.com/sakshiagrwal/SAB)_
+    - #### _[SAB - Activation Script](https://github.com/sakshiagrwal/SAB)_
   - ### _[StartIsBack++](https://www.startisback.com/#download-tab)_
-    #### _For activation, download the [msimg32.dll](../Extra/msimg32.dll) file and copy it to the following path:_
-    ```
-    C:\Program Files (x86)\StartIsBack\
-    ```
+      _**For activation, download the [msimg32.dll](../Extra/msimg32.dll) file and copy it to the following path:**_ `C:\Program Files (x86)\StartIsBack\`
   - ### _[Winpinator](https://winpinator.swisz.cz/download.html)_
   - ### _[YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)_
