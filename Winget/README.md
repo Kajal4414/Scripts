@@ -3,7 +3,7 @@
     - #### _[Installation Script](./install-firefox.ps1)_
       ###### _Note: Run PowerShell or Terminal as administrator (Not CMD)_
       ```ps1
-      # Set execution policy to be able to run scripts only in the current PowerShell session
+      # Set execution policy to be able to run script only in the current PowerShell session
       Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 
       # Run script
@@ -54,7 +54,7 @@
   - ### _[Screenbox](https://github.com/huynhsontung/Screenbox)_
 
 # _Office_
-  - ### _[Office 365 ProPlus - English US Offline Setup](https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/O365ProPlusRetail.img)_
+  - ### _[Office 365 ProPlus - <sub><sup>English US Offline Setup</sup></sub>](https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/O365ProPlusRetail.img)_
     - #### _[Activation Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts) - MAS’s Ohook method can activate it._
     - #### _[MAS Docs](https://massgrave.dev/office_c2r_links.html)_
 
@@ -87,10 +87,16 @@
   - ### _[Proton VPN](https://protonvpn.com/download-windows)_
     - #### _[Installation Guide - Linux](https://protonvpn.com/support/official-linux-vpn-mint/)_
   - ### _[Revo Uninstaller Pro](https://www.revouninstaller.com/revo-uninstaller-free-download)_
-    ###### _For activation, download the [revouninstallerpro5.lic](../Extra/revouninstallerpro5.lic) file and copy it to the following path:_ `C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\`
+    ###### _For activation, download the [revouninstallerpro5.lic](../Extra/revouninstallerpro5.lic) file and copy it to the following path:_
+    ```ps1
+    C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\
+    ```
   - ### _[StartAllBack](https://www.startallback.com)_
     - #### _[SAB - Activation Script](https://github.com/sakshiagrwal/SAB)_
   - ### _[StartIsBack++](https://www.startisback.com/#download-tab)_
-    ###### _For activation, download the [msimg32.dll](../Extra/msimg32.dll) file and copy it to the following path:_ `C:\Program Files (x86)\StartIsBack\`
+    ###### _For activation, download the [msimg32.dll](../Extra/msimg32.dll) file and copy it to the following path:_
+    ```ps1
+    C:\Program Files (x86)\StartIsBack\
+    ```
   - ### _[Winpinator](https://winpinator.swisz.cz/download.html)_
   - ### _[YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)_
