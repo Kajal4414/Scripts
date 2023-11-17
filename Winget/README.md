@@ -1,7 +1,14 @@
 # _Browsers_
   - ### _[Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)_
     - #### _[Installation Script](./install-firefox.ps1)_
-      ###### _Note: Run PowerShell or Terminal as administrator (Not CMD)_ `.\install-firefox.ps1`
+      ###### _Note: Run PowerShell or Terminal as administrator (Not CMD)_
+      ```ps1
+      # Set execution policy to be able to run scripts only in the current PowerShell session
+      Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+
+      # Run script
+      .\install-firefox.ps1
+      ```
     - #### _[Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)_
     - #### _[Firefox Mod Blur](https://github.com/datguypiko/Firefox-Mod-Blur)_
   - ### _[Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)_
