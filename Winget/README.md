@@ -62,6 +62,7 @@
   - ### _[7-Zip](https://www.7-zip.org)_
     - #### _[Configure 7-Zip](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#install-7-zip)_
   - ### _[App Installer](https://apps.microsoft.com/detail/app-installer/9NBLGGH4NNS1?hl=en-in&gl=IN)_
+    - #### _[GitHub](https://github.com/microsoft/winget-cli/releases)_
   - ### _[AMD Software](https://www.amd.com/en/support/apu/amd-ryzen-processors/amd-ryzen-5-mobile-processors-radeon-vega-graphics/amd-ryzen-5-1)_
     - #### _[Installation Guide](https://docs.atlasos.net/getting-started/post-installation/drivers/gpu/amd)_
     - #### _[Alternative Guide](https://github.com/amitxv/PC-Tuning/blob/main/docs/configure-amd.md)_
