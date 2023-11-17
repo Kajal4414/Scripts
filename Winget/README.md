@@ -3,7 +3,7 @@
     - #### [Installation Script](./install-firefox.ps1)
       ###### Note: Run PowerShell or Terminal as an administrator (not CMD), then copy and paste the code below and press 'Enter'.
       ```ps1
-      # Set execution policy to be able to run script only in the current PowerShell session
+      # Set the execution policy to enable running the script only within the current PowerShell session
       Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 
       # Run script
