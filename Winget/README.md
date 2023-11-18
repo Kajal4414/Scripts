@@ -3,8 +3,8 @@
     - #### [Installation Script](./install-firefox.ps1)
       ###### Note: Run PowerShell or Terminal as an administrator (not CMD), then copy and paste the code below and press 'Enter'.
       ```ps1
-      # Set the execution policy to enable running the script only within the current PowerShell session
-      Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+      # Set execution policy for this session only
+      Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
       # Run script
       .\install-firefox.ps1
@@ -12,6 +12,7 @@
     - #### [Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)
     - #### [Firefox Mod Blur](https://github.com/datguypiko/Firefox-Mod-Blur)
   - ### [Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)
+    - #### [Catppuccin Mocha](https://chromewebstore.google.com/detail/catppuccin-chrome-theme-m/bkkmolkhemgaeaeggcmfbghljjjoofoh) <!--https://github.com/catppuccin/chrome-->
 
 # Code Editors and IDEs
   - ### [Visual Studio Code](https://code.visualstudio.com/download)
@@ -52,9 +53,10 @@
   - ### [K-Lite Codec Pack](https://codecguide.com/download_k-lite_codec_pack_full.htm)
   - ### [VLC media player](https://www.videolan.org)
   - ### [Screenbox](https://github.com/huynhsontung/Screenbox)
+  - ### [PV Photo Viewer](../Extra/PV%20v0.1.exe) <!-- https://github.com/davidly/PV -->
 
 # Office
-  - ### [Office 365 ProPlus](https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/O365ProPlusRetail.img) <!--English US Offline Setup-->
+  - ### [Office 365 ProPlus](https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/O365ProPlusRetail.img) <!-- Office 365 ProPlus English US x86-64 Offline -->
     - #### [Microsoft Activation Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)
       ###### Microsoft Activation Scripts 'Ohook' method can activate it.
     - #### [Microsoft Activation Scripts Docs](https://massgrave.dev/office_c2r_links.html)
@@ -80,10 +82,11 @@
   - ### [BleachBit](https://github.com/bleachbit/bleachbit)
     - #### [Alternative - CleanmgrPlus](https://github.com/builtbybel/CleanmgrPlus)
   - ### [Bulk Crap Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)
-  - ### [Calculator](https://apps.microsoft.com/detail/windows-calculator/9WZDNCRFHVN5?hl=en-in&gl=IN)
+  - ### [Calculator](https://apps.microsoft.com/detail/windows-calculator/9WZDNCRFHVN5?hl=en-in&gl=IN) <!-- https://github.com/microsoft/calculator -->
+    - #### [Parsify Desktop](https://github.com/parsify-dev/desktop)
   - ### [ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica)
-  - ### [HEIF Image Extensions](https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG?hl=en-in&gl=IN)
-  - ### [MyAsus](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)
+  - ### [~~HEIF Image Extensions~~](https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG?hl=en-in&gl=IN)
+  - ### [~~MyAsus~~](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)
   - ### [Notepad](https://apps.microsoft.com/detail/windows-notepad/9MSMLRH6LZF3)
   - ### [Obsidian](https://obsidian.md)
   - ### [Process Explorer](https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer)
