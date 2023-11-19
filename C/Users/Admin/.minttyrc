@@ -1,7 +1,6 @@
 ThemeFile=mocha
-Transparency=low
-Font=JetBrains Mono Medium
-FontWeight=500
+Transparency=5
+Font=JetBrains Mono
+FontHeight=8
 Columns=120
 Rows=30
-FontHeight=8
