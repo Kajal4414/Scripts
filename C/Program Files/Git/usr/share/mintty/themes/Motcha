@@ -1,0 +1,21 @@
+# color palettes: https://github.com/catppuccin/catppuccin
+
+BackgroundColour=17,17,27
+ForegroundColour=216,222,233
+CursorColour=216,222,233
+Black=59,66,82
+BoldBlack=76,86,106
+Red=243,139,168
+BoldRed=235,160,172
+Green=166,227,161
+BoldGreen=163,190,140
+Yellow=249,226,175
+BoldYellow=235,203,139
+Blue=137,180,250
+BoldBlue=129,161,193
+Magenta=145,194,231
+BoldMagenta=203,166,247
+Cyan=116,199,236
+BoldCyan=143,188,187
+White=229,233,240
+BoldWhite=236,239,244
