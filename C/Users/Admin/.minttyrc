@@ -1,6 +1,7 @@
-ThemeFile=flat-ui
+ThemeFile=mocha
 Transparency=low
+Font=JetBrains Mono Medium
+FontWeight=500
 Columns=120
 Rows=30
-Font=MesloLGM Nerd Font
-FontWeight=400
+FontHeight=8
