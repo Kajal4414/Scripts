@@ -1,6 +1,5 @@
 {
     "$schema": "https://aka.ms/winget-settings.schema.json",
-
     "Visual": {
         "progressBar": "accent"
     },

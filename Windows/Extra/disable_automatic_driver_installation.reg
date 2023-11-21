@@ -1,6 +1,6 @@
 ﻿Windows Registry Editor Version 5.00
 
-; Exclude drivers from Windows Update
+; Exclude drivers from Windows Update (Home edition not supported)
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Update]
 "ExcludeWUDriversInQualityUpdate"=dword:00000001
