@@ -14,8 +14,8 @@ DEFAULT_URL = (
     "aakanksha-singh-clap-press-meet/aakanksha-singh-"
     "clap-press-meet1.jpg"
 )
-DEFAULT_NUM_IMAGES = 2
-HEAVY_S = "━" * 150
+DEFAULT_NUM_IMAGES = "A"  # Setting default number of images to 'A' for all
+HEAVY_S = "━" * 125
 CHUNK_SIZE = 1024
 TIMEOUT = 5
 
@@ -34,16 +34,22 @@ def check_internet():
         return False
 
 
-# Check for internet connection
+# Display message for no internet connection and exit if not connected
 if not check_internet():
     print(f"{Fore.RED}No internet connection{Style.RESET_ALL}")
     sys.exit(1)
 
-# Input for the image URL
+# Display defaults
+print(HEAVY_S)
+print(f"{Style.BRIGHT}Default URL: {Style.RESET_ALL}{DEFAULT_URL}")
+print(f"{Style.BRIGHT}Default Number of images: {Style.RESET_ALL}All")
+print(HEAVY_S)
+print()
+
+# Prompt for image URL input
 url_prompt = (
-    f"{Fore.YELLOW}Enter the full URL of the first image "
-    f"{Style.RESET_ALL}{Fore.GREEN}(Press enter for default: {DEFAULT_URL}): "
-    f"{Style.RESET_ALL}"
+    f"{Style.BRIGHT}Enter the full URL of the first image "
+    f"(Press enter for default): {Style.RESET_ALL}"
 )
 full_url = input(url_prompt) or DEFAULT_URL
 
@@ -52,44 +58,28 @@ if not (
     full_url.startswith("https://")
     and (full_url.lower().endswith(".jpg") or full_url.lower().endswith(".png"))
 ):
+    print()
     print(f"{Fore.RED}Invalid or unsupported image URL{Style.RESET_ALL}")
     sys.exit(1)
 
-# Input for the number of images to download
+# Prompt for the number of images to download
 num_images_prompt = (
-    f"{Fore.YELLOW}How many images would you like to download? "
-    f"{Style.RESET_ALL}{Fore.GREEN}"
-    f"(Press enter for default: {DEFAULT_NUM_IMAGES}, 'A' for all): {Style.RESET_ALL}"
+    f"{Style.BRIGHT}How many images would you like to download? "
+    f"(Press enter for default): {Style.RESET_ALL}"
 )
 num_images_input = input(num_images_prompt).strip()
+print()
 
-# Set the number of images to download
-if num_images_input.lower() == "a":
+# Set the number of images to download based on user input
+if num_images_input.lower() == "a" or num_images_input == "":
     num_images = float("inf")  # Set to infinity for all images
 else:
-    num_images_str = num_images_input or str(DEFAULT_NUM_IMAGES)
-    if not num_images_str.isdigit() or int(num_images_str) <= 0:
+    if not num_images_input.isdigit() or int(num_images_input) <= 0:
         print(f"{Fore.RED}Invalid number of images{Style.RESET_ALL}")
         sys.exit(1)
-    num_images = int(num_images_str)
+    num_images = int(num_images_input)
 
-# Display selected options
-print()
-print(HEAVY_S)
-print(
-    f"{Fore.YELLOW}Image URL: {Style.RESET_ALL}{Fore.GREEN}{full_url}{Style.RESET_ALL}"
-)
-
-num_images_display = "All" if num_images_input.lower() == "a" else num_images
-print(
-    f"{Fore.YELLOW}Number of images to download: "
-    f"{Style.RESET_ALL}{Fore.GREEN}{num_images_display}{Style.RESET_ALL}"
-)
-
-print()
-print(HEAVY_S)
-
-# Parse URL and extract necessary information
+# Extract information from the image URL
 parsed_url = urlparse(full_url)
 site_url = (
     f"{parsed_url.scheme}://{parsed_url.netloc}{os.path.dirname(parsed_url.path)}/"
@@ -100,6 +90,8 @@ folder_name = (
     .title()
 )
 file_name_match = re.search(r"(\d+)\.(jpg|png)$", full_url)
+
+# Check if image number can be extracted from the URL
 if file_name_match:
     file_number = int(file_name_match.group(1))
     file_extension = file_name_match.group(2)
@@ -149,8 +141,8 @@ try:
 
                 if file_size == 0:
                     print(
-                        f"{file_name_format}"
-                        f"{Fore.RED} - Unable to get file size. Skipping...{Style.RESET_ALL}"
+                        f"{file_name_format}{Fore.RED} - Unable to get file size. "
+                        f"Skipping...{Style.RESET_ALL}"
                     )
                     continue
 
@@ -166,8 +158,8 @@ try:
                             # Display download progress
                             percent = min(int((DOWNLOAD_SIZE / file_size) * 100), 100)
                             print(
-                                f"{file_name_format}"
-                                f"{Fore.GREEN} - Downloaded {percent}%{Style.RESET_ALL}",
+                                f"{file_name_format}{Fore.GREEN} - Downloaded "
+                                f"{percent}%{Style.RESET_ALL}",
                                 end="\r",
                             )
 
@@ -188,9 +180,8 @@ try:
         download_info = f"{NUM_DOWNLOADED} out of {num_images} images"
 
     print(
-        f"{Fore.BLUE}Downloaded {download_info} at "
-        f"'{os.path.abspath(folder_name)}' - "
-        f"Total downloaded size: {TOTAL_SIZE/CHUNK_SIZE/CHUNK_SIZE:.2f} MB{Style.RESET_ALL}"
+        f"{Fore.BLUE}Downloaded {download_info} at '{os.path.abspath(folder_name)}' - Total "
+        f"downloaded size: {TOTAL_SIZE/CHUNK_SIZE/CHUNK_SIZE:.2f} MB{Style.RESET_ALL}"
     )
 
 except KeyboardInterrupt:
