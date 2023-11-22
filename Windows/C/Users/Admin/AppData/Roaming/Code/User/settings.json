@@ -1,13 +1,44 @@
 {
-    "workbench.startupEditor": "none",
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
-    "files.trimTrailingWhitespace": true,
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "editor.fontFamily": "'Maple Mono', 'monospace', monospace",
+    "editor.fontSize": 12,
     "terminal.integrated.fontSize": 12,
-    "workbench.iconTheme": "material-icon-theme"
+    "debug.console.fontSize": 12,
+    "scm.inputFontSize": 12,
+    "markdown.preview.fontSize": 12,
+    "chat.editor.fontSize": 12,
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "material-icon-theme",
+    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    "redhat.telemetry.enabled": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.semanticHighlighting.enabled": true,
+    "terminal.integrated.minimumContrastRatio": 1,
+    "explorer.confirmDelete": false,
+    "editor.formatOnSave": true,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.enabled": false,
+    "editor.minimap.side": "left",
+    "extensions.autoUpdate": false,
+    "terminal.explorerKind": "both",
+    "telemetry.telemetryLevel": "off",
+    "terminal.sourceControlRepositoriesKind": "both",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    }
 }
