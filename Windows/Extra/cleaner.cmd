@@ -23,8 +23,10 @@ for %%D in (
     "%UserProfile%\.vscode\cli"
     "%UserProfile%\AppData\Local\Temp"
     "%UserProfile%\AppData\Local\D3DSCache"
+    "%UserProfile%\AppData\Local\fontconfig"
     "%UserProfile%\AppData\Local\npm-cache"
     "%UserProfile%\AppData\Local\PeerDistRepub"
+    "%UserProfile%\AppData\Local\pip"
     "%UserProfile%\AppData\Local\pylint"
     "%UserProfile%\AppData\Local\VirtualStore"
     "%UserProfile%\AppData\LocalLow\AMD"
@@ -44,5 +46,6 @@ for %%D in (
 )
 
 echo.
-echo Press any key to exit...
-pause >NUL
+echo Exiting in 3 seconds...
+timeout /t 3 >NUL
+exit

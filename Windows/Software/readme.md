@@ -11,7 +11,7 @@
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
     # Run script
-    .\install-firefox.ps1
+    .\install_firefox.ps1
     ```
 
   - #### [Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)
