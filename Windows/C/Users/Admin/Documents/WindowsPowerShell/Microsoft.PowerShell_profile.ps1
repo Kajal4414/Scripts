@@ -1,2 +1,2 @@
-# oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/jandedobbeleer.omp.json' | Invoke-Expression
-oh-my-posh init pwsh | Invoke-Expression
+# https://ohmyposh.dev/docs/installation/customize
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/1_shell.omp.json" | Invoke-Expression

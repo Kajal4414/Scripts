@@ -1,6 +1,6 @@
 ThemeFile=mocha
 Transparency=5
-Font=JetBrains Mono
+Font=JetBrainsMono NFM
 Columns=120
 Rows=30
-FontHeight=8
+FontHeight=9

@@ -1,6 +1,6 @@
 {
     "workbench.colorTheme": "Catppuccin Mocha",
-    "editor.fontFamily": "'Maple Mono', 'monospace', monospace",
+    "editor.fontFamily": "'JetBrainsMono NFM', 'JetBrains Mono', 'Maple Mono'",
     "editor.fontSize": 12,
     "terminal.integrated.fontSize": 12,
     "debug.console.fontSize": 12,

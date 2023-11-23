@@ -1,3 +1,3 @@
-# eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/jandedobbeleer.omp.json)"
-# eval "$(oh-my-posh init bash --config ~/jandedobbeleer.omp.json)"
-eval "$(oh-my-posh init bash)"
+# https://ohmyposh.dev/docs/installation/customize
+# eval "$(oh-my-posh init bash --config "$USERPROFILE\AppData\Local\Programs\oh-my-posh\themes\jandedobbeleer.omp.json")"
+eval "$(oh-my-posh init bash --config "$POSH_THEMES_PATH\1_shell.omp.json")"
