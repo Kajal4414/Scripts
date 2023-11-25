@@ -6,7 +6,7 @@ curl -Lo .git/hooks/commit-msg https://gerrit-review.googlesource.com/tools/hook
 
 ## OR
 
-1. Create a new [file](../../Windows/C/Program%20Files/Git/mingw64/share/git-core/templates/hooks/prepare-commit-msg) named `prepare-commit-msg` in the `.git/hooks` directory of your repository:
+1. Create a new [file](../C/Program%20Files/Git/mingw64/share/git-core/templates/hooks/prepare-commit-msg) named `prepare-commit-msg` in the `.git/hooks` directory of your repository:
 
    ```sh
    # Linux

@@ -24,7 +24,7 @@
 
 - ### [Visual Studio Code](https://code.visualstudio.com/download)
   - #### [Alternative - VSCodium](https://github.com/VSCodium/vscodium)
-  - #### [Settings](../../Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json)
+  - #### [Settings](../C/Users/Admin/AppData/Roaming/Code/User/settings.json)
 - ### [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)
   - #### [Installation Guide - Linux](https://www.jetbrains.com/help/idea/installation-guide.html#9a778ae1)
 - ### [PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)
@@ -35,7 +35,7 @@
 - ### [Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh)
   - #### [Installation Guide - Windows](https://ohmyposh.dev/docs/installation/windows)
 - ### [Windows Terminal](https://github.com/microsoft/terminal)
-  - #### [Settings](../../Windows/C/Users/Admin/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json)
+  - #### [Settings](../C/Users/Admin/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json)
 
 # Development Tools
 
