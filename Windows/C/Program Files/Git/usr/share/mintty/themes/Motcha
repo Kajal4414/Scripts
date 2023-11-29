@@ -1,6 +1,6 @@
-# color palettes: https://github.com/catppuccin/catppuccin
+# Mintty Catppuccin Motcha Theme
 
-BackgroundColour=17,17,27
+BackgroundColour=30,30,46
 ForegroundColour=205,214,244
 CursorColour=205,214,244
 Black=17,17,27

@@ -1,17 +1,4 @@
 {
-  "catppuccin.accentColor": "pink",
-  "catppuccin.colorOverrides": {
-    "mocha": {
-      "base": "#000000",
-      "crust": "#020202",
-      "mantle": "#010101"
-    }
-  },
-  "catppuccin.customUIColors": {
-    "mocha": {
-      "statusBar.foreground": "accent"
-    }
-  },
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
   },
@@ -32,9 +19,8 @@
   },
   "chat.editor.fontSize": 12,
   "debug.console.fontSize": 12,
-  "editor.fontFamily": "'JetBrainsMono NFM', 'JetBrains Mono', 'Maple Mono'",
+  "editor.fontFamily": "'JetBrains Mono', 'Maple Mono'",
   "editor.fontSize": 12,
-  "editor.minimap.side": "left",
   "editor.semanticHighlighting.enabled": true,
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.verticalScrollbarSize": 0,
@@ -52,10 +38,10 @@
   "security.workspace.trust.untrustedFiles": "newWindow",
   "telemetry.telemetryLevel": "off",
   "terminal.explorerKind": "both",
+  "terminal.integrated.fontFamily": "JetBrainsMono NFM",
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.minimumContrastRatio": 1,
   "terminal.sourceControlRepositoriesKind": "both",
-  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none"
 }
