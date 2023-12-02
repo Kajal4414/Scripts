@@ -1,4 +1,3 @@
-# Software download URLs
 $softwareURLs = @{
     "7-Zip"                = "https://www.7-zip.org/a/7z2301-x64.exe"
     "BleachBit"            = "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
@@ -15,34 +14,25 @@ $softwareURLs = @{
     "Youtube Downloader"   = "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
 }
 
-# Download path
 $downloadFolder = "$Env:UserProfile\Downloads"
 
-# Function to download software if it doesn't exist with progress bar
 function DownloadSoftware {
-    param(
-        [string]$appName,
-        [string]$appURL
-    )
+    param($appName, $appURL)
 
     $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName`_Installer.exe"
 
-    if (-not (Test-Path -Path $filePath)) {
+    if (!(Test-Path -Path $filePath)) {
         Write-Host "Downloading $appName..."
 
         try {
             $webRequest = [System.Net.WebRequest]::Create($appURL)
-            $webRequest.Method = "GET"
-
             $response = $webRequest.GetResponse()
             $stream = $response.GetResponseStream()
-            $bufferSize = 8192
-            $buffer = New-Object Byte[] $bufferSize
-            $totalBytes = [int]$response.ContentLength
-            $bytesRead = 0
-
             $fileStream = [System.IO.File]::Create($filePath)
 
+            $bufferSize = 8192
+            $buffer = New-Object Byte[] $bufferSize
+            $bytesRead = 0
             $bytesInMegabyte = 1MB
 
             do {
@@ -51,8 +41,8 @@ function DownloadSoftware {
                 $bytesRead += $read
 
                 $megabytesDownloaded = $bytesRead / $bytesInMegabyte
-                $totalMegabytes = $totalBytes / $bytesInMegabyte
-                $percentComplete = ($bytesRead / $totalBytes) * 100
+                $totalMegabytes = $response.ContentLength / $bytesInMegabyte
+                $percentComplete = ($bytesRead / $response.ContentLength) * 100
 
                 $status = "Downloaded {0:F2} MB of {1:F2} MB" -f $megabytesDownloaded, $totalMegabytes
                 Write-Progress -Activity "Downloading $appName" -Status $status -PercentComplete $percentComplete
@@ -64,13 +54,11 @@ function DownloadSoftware {
         }
         catch {
             Write-Host "Error occurred while downloading ${appName}: $_"
-            # Handle exceptions here (e.g., clean up resources, log errors, etc.)
             if ($fileStream) { $fileStream.Close() }
             if ($stream) { $stream.Close() }
             if ($response) { $response.Close() }
         }
         finally {
-            # Always ensure resources are properly disposed of
             if ($fileStream) { $fileStream.Dispose() }
             if ($stream) { $stream.Dispose() }
             if ($response) { $response.Dispose() }
@@ -81,11 +69,9 @@ function DownloadSoftware {
     }
 }
 
-# Function to install software
 function InstallSoftware {
-    param(
-        [string]$appName
-    )
+    param($appName)
+
     $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName`_Installer.exe"
     if (Test-Path -Path $installerPath) {
         Write-Host "Installing $appName..."
@@ -93,7 +79,6 @@ function InstallSoftware {
     }
 }
 
-# Download and install software
 foreach ($app in $softwareURLs.GetEnumerator()) {
     DownloadSoftware -appName $app.Key -appURL $app.Value
     # InstallSoftware -appName $app.Key
