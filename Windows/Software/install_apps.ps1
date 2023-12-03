@@ -140,6 +140,38 @@ function PromptForInputWithDefault($message, $defaultValue) {
 if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
     $configureVSCode = PromptForInputWithDefault "Do you want to configure Visual Studio Code settings?" "n"
     if ($configureVSCode -eq "y") {
+        Write-Host "Installing extensions..." -ForegroundColor Yellow
+        $extensions = @(
+            "Catppuccino.catppuccino-vsc",
+            "Catppuccino.catppuccino-vsc-icons",
+            "dbaeumer.vscode-eslint",
+            "eamodio.gitlens",
+            "esbenp.prettier-vscode",
+            "GitHub.github-vscode-theme",
+            "jock.svg",
+            "ms-python.black-formatter",
+            "ms-python.pylint",
+            "ms-python.python",
+            "ms-python.vscode-pylance",
+            "ms-vscode.makefile-tools",
+            "ms-vscode.powershell",
+            "PKief.material-icon-theme",
+            "redhat.java",
+            "redhat.vscode-xml",
+            "redhat.vscode-yaml",
+            "ritwickdey.LiveServer",
+            "shd101wyy.markdown-preview-enhanced",
+            "VisualStudioExptTeam.intellicode-api-usage-examples",
+            "VisualStudioExptTeam.vscodeintellicode",
+            "vscjava.vscode-java-debug",
+            "vscjava.vscode-java-dependency",
+            "vscjava.vscode-java-pack",
+            "vscjava.vscode-java-test"
+        )
+        foreach ($extension in $extensions) {
+            code --install-extension $extension
+        }
+
         Write-Host "Configuring Visual Studio Code settings..." -ForegroundColor Cyan
         Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json" -OutFile "$vsCodeSettingsDirectory\settings.json"
     }
