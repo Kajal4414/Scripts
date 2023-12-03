@@ -142,8 +142,8 @@ if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
     if ($configureVSCode -eq "y") {
         Write-Host "Installing extensions..." -ForegroundColor Yellow
         $extensions = @(
-            "Catppuccino.catppuccino-vsc",
-            "Catppuccino.catppuccino-vsc-icons",
+            "Catppuccin.catppuccin-vsc",
+            "Catppuccin.catppuccin-vsc-icons",
             "dbaeumer.vscode-eslint",
             "eamodio.gitlens",
             "esbenp.prettier-vscode",
@@ -166,7 +166,8 @@ if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
             "vscjava.vscode-java-debug",
             "vscjava.vscode-java-dependency",
             "vscjava.vscode-java-pack",
-            "vscjava.vscode-java-test"
+            "vscjava.vscode-java-test",
+            "vscjava.vscode-maven"
         )
         foreach ($extension in $extensions) {
             code --install-extension $extension
