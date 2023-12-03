@@ -1,71 +1,31 @@
 $softwareURLs = @{
-    "7-Zip"                = @{
-        "DownloadURL" = "https://www.7-zip.org/a/7z2301-x64.exe"
-        "LocalPath"   = "C:\Program Files\7-Zip"
-    }
-    "BleachBit"            = @{
-        "DownloadURL" = "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
-        "LocalPath"   = "C:\Program Files (x86)\BleachBit"
-    }
-    "Chrome"               = @{
-        "DownloadURL" = "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
-        "LocalPath"   = "C:\Program Files\Google\Chrome"
-    }
-    "Git"                  = @{
-        "DownloadURL" = "https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe"
-        "LocalPath"   = "C:\Program Files\Git"
-    }
-    "IDM"                  = @{
-        "DownloadURL" = "https://mirror2.internetdownloadmanager.com/idman642build2.exe?v=lt&filename=idman642build2.exe"
-        "LocalPath"   = "C:\Program Files (x86)\Internet Download Manager"
-    }
-    "K-Lite Codec Pack"    = @{
-        "DownloadURL" = "https://files2.codecguide.com/K-Lite_Codec_Pack_1794_Full.exe"
-        "LocalPath"   = "C:\Program Files (x86)\K-Lite Codec Pack"
-    }
-    "Notepad++"            = @{
-        "DownloadURL" = "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.6.Installer.x64.exe"
-        "LocalPath"   = "C:\Program Files\Notepad++"
-    }
-    "ProtonVPN"            = @{
-        "DownloadURL" = "https://protonvpn.com/download/ProtonVPN_v3.2.7.exe"
-        "LocalPath"   = "C:\Program Files\Proton\VPN"
-    }
-    "Revo Uninstaller Pro" = @{
-        "DownloadURL" = "https://download.revouninstaller.com/download/RevoUninProSetup.exe"
-        "LocalPath"   = "C:\Program Files\VS Revo Group\Revo Uninstaller Pro"
-    }
-    "StartIsBack"          = @{
-        "DownloadURL" = "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
-        "LocalPath"   = "C:\Program Files (x86)\StartIsBack"
-    }
-    "Telegram"             = @{
-        "DownloadURL" = "https://telegram.org/dl/desktop/win64"
-        "LocalPath"   = "$Env:UserProfile\AppData\Roaming\Telegram Desktop"
-    }
-    "VLC"                  = @{
-        "DownloadURL" = "https://mirror.kku.ac.th/videolan/vlc/3.0.20/win64/vlc-3.0.20-win64.exe"
-        "LocalPath"   = "C:\Program Files\VideoLAN\VLC"
-    }
-    "Youtube Downloader"   = @{
-        "DownloadURL" = "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
-        "LocalPath"   = "C:\Program Files\Youtube Downloader"
-    }
+    "7-Zip"                = "https://www.7-zip.org/a/7z2301-x64.exe"
+    "BleachBit"            = "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
+    "Chrome"               = "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
+    "Git"                  = "https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe"
+    "IDM"                  = "https://mirror2.internetdownloadmanager.com/idman642build2.exe?v=lt&filename=idman642build2.exe"
+    "K-Lite Codec Pack"    = "https://files2.codecguide.com/K-Lite_Codec_Pack_1794_Full.exe"
+    "Notepad++"            = "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.6.Installer.x64.exe"
+    "ProtonVPN"            = "https://protonvpn.com/download/ProtonVPN_v3.2.7.exe"
+    "Revo Uninstaller Pro" = "https://download.revouninstaller.com/download/RevoUninProSetup.exe"
+    "StartIsBack"          = "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
+    "Telegram"             = "https://telegram.org/dl/desktop/win64"
+    "VLC"                  = "https://mirror.kku.ac.th/videolan/vlc/3.0.20/win64/vlc-3.0.20-win64.exe"
+    "Youtube Downloader"   = "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
 }
 
 $downloadFolder = "$Env:UserProfile\Downloads"
 
 function DownloadSoftware {
-    param($appName, $appData)
+    param($appName, $appURL)
 
-    $downloadURL = $appData["DownloadURL"]
     $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName`_Installer.exe"
 
     if (!(Test-Path -Path $filePath)) {
-        Write-Host "Downloading $appName..." -ForegroundColor Cyan
+        Write-Host "Downloading $appName..."
 
         try {
-            $webRequest = [System.Net.WebRequest]::Create($downloadURL)
+            $webRequest = [System.Net.WebRequest]::Create($appURL)
             $response = $webRequest.GetResponse()
             $stream = $response.GetResponseStream()
             $fileStream = [System.IO.File]::Create($filePath)
@@ -105,39 +65,24 @@ function DownloadSoftware {
         }
     }
     else {
-        Write-Host "$appName already exists. Skipping download." -ForegroundColor Yellow
+        Write-Host "$appName already exists. Skipping download."
     }
 }
 
 function InstallSoftware {
-    param($appName, $appData)
+    param($appName)
 
-    $localPath = $appData["LocalPath"]
-    $installed = $false
-
-    if (Test-Path -Path $localPath) {
-        $installed = $true
-    }
-    else {
-        $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName`_Installer.exe"
-        if (Test-Path -Path $installerPath) {
-            Write-Host "Installing $appName..."
-            Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
-            $installed = $true
-        }
-    }
-
-    if ($installed) {
-        Write-Host "$appName is already installed. Skipping Installation." -ForegroundColor Yellow
+    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName`_Installer.exe"
+    if (Test-Path -Path $installerPath) {
+        Write-Host "Installing $appName..."
+        Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
     }
 }
 
 foreach ($app in $softwareURLs.GetEnumerator()) {
-    $appName = $app.Key
-    $appData = $app.Value
-
-    DownloadSoftware -appName $appName -appData $appData
-    InstallSoftware -appName $appName -appData $appData
+    DownloadSoftware -appName $app.Key -appURL $app.Value
+    # InstallSoftware -appName $app.Key
 }
 
-Write-Host "`nSetup completed." -ForegroundColor Green
+Write-Host "Setup completed."
+Pause
