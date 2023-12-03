@@ -22,7 +22,7 @@ function DownloadSoftware {
     $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName`_Installer.exe"
 
     if (!(Test-Path -Path $filePath)) {
-        Write-Host "Downloading $appName..."
+        Write-Host "Downloading $appName..." -ForegroundColor Cyan
 
         try {
             $webRequest = [System.Net.WebRequest]::Create($appURL)
@@ -65,7 +65,7 @@ function DownloadSoftware {
         }
     }
     else {
-        Write-Host "$appName already exists. Skipping download."
+        Write-Host "$appName already exists. Skipping download." -ForegroundColor Yellow
     }
 }
 
@@ -74,7 +74,7 @@ function InstallSoftware {
 
     $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName`_Installer.exe"
     if (Test-Path -Path $installerPath) {
-        Write-Host "Installing $appName..."
+        Write-Host "Installing $appName..." -ForegroundColor Cyan
         Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
     }
 }
@@ -84,5 +84,5 @@ foreach ($app in $softwareURLs.GetEnumerator()) {
     # InstallSoftware -appName $app.Key
 }
 
-Write-Host "Setup completed."
+Write-Host "`nSetup completed." -ForegroundColor Green
 Pause
