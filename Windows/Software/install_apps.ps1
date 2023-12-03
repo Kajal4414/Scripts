@@ -1,3 +1,4 @@
+# Define software URLs
 $softwareURLs = @{
     "7-Zip v23.01 x64"                 = "https://www.7-zip.org/a/7z2301-x64.exe"
     "BleachBit v4.6.0 x64"             = "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
@@ -20,25 +21,29 @@ $softwareURLs = @{
     "Youtube Downloader v1.10.8 x64"   = "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
 }
 
+# Define download folder
 $downloadFolder = "$Env:UserProfile\Downloads"
 
+# Function to download software
 function DownloadSoftware {
     param($appName, $appURL)
 
-    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName`_Installer.exe"
+    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
 
     if (Test-Path -Path $filePath) {
-        Write-Host "$appName already exists. Skipping download." -ForegroundColor Yellow
+        Write-Host "Skipped: '$appName' already exists." -ForegroundColor Yellow
         return
     }
 
+    $fileName = Join-Path -Path $downloadFolder -ChildPath "$appName.exe"
+
     try {
-        Write-Host "Downloading $appName..." -ForegroundColor Cyan
+        Write-Host "Downloading '$appName'..." -ForegroundColor Cyan
 
         $webRequest = [System.Net.WebRequest]::Create($appURL)
         $response = $webRequest.GetResponse()
         $stream = $response.GetResponseStream()
-        $fileStream = [System.IO.File]::Create($filePath)
+        $fileStream = [System.IO.File]::Create($fileName)
 
         $bufferSize = 8192
         $buffer = New-Object Byte[] $bufferSize
@@ -63,77 +68,101 @@ function DownloadSoftware {
         $response.Close()
     }
     catch {
-        Write-Host "Error occurred while downloading ${appName}: $_" -ForegroundColor Red
+        Write-Host "Error downloading '$appName' $_" -ForegroundColor Red
     }
     finally {
-        $fileStream?.Close()
-        $stream?.Close()
-        $response?.Close()
-        $fileStream?.Dispose()
-        $stream?.Dispose()
-        $response?.Dispose()
+        if ($fileStream) { $fileStream.Close() }
+        if ($stream) { $stream.Close() }
+        if ($response) { $response.Close() }
+        if ($fileStream) { $fileStream.Dispose() }
+        if ($stream) { $stream.Dispose() }
+        if ($response) { $response.Dispose() }
     }
 }
 
+# Function to install software
 function InstallSoftware {
     param($appName)
 
-    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName`_Installer.exe"
-    if (-not (Test-Path -Path $installerPath)) {
-        Write-Host "$appName installer not found. Skipping installation." -ForegroundColor Yellow
+    if ($appName -like "Youtube Downloader*") {
+        Write-Host "Preparing installer for '$appName.zip'..." -ForegroundColor Cyan
+        Rename-Item -Path "$downloadFolder\$appName.exe" -NewName "$downloadFolder\$appName.zip"
+        Write-Host "Extracting '$appName.zip' installer to C:\Program Files\YoutubeDownloader..." -ForegroundColor Cyan
+        Expand-Archive -Path "$downloadFolder\$appName.zip" -DestinationPath "C:\Program Files\YoutubeDownloader"
         return
     }
 
-    Write-Host "Installing $appName..." -ForegroundColor Cyan
+    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.exe"
+    if (-not (Test-Path -Path $installerPath)) {
+        Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
+        return
+    }
+
+    Write-Host "Installing '$appName.exe'..." -ForegroundColor Cyan
     Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
 }
 
+# Loop through software URLs, download, and install
 foreach ($app in $softwareURLs.GetEnumerator()) {
-    if ($app.Key -eq "Youtube Downloader v1.10.8 x64") {
-        Expand-Archive -Path $installerPath -DestinationPath "C:\Program Files\YoutubeDownloader\"
-    }
-    else {
-        DownloadSoftware -appName $app.Key -appURL $app.Value
-        InstallSoftware -appName $app.Key
-    }
+    DownloadSoftware -appName $app.Key -appURL $app.Value
+    InstallSoftware -appName $app.Key
 }
 
+# Directories for specific software
 $idmDirectory = "C:\Program Files (x86)\Internet Download Manager"
 $startIsBackDirectory = "C:\Program Files (x86)\StartIsBack"
 $vsCodeSettingsDirectory = "$Env:UserProfile\AppData\Roaming\Code\User"
 $revoUninstallerDirectory = "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro"
 
+# Function to ask for input with default value and re-ask for incorrect input
+function PromptForInputWithDefault($message, $defaultValue) {
+    $userInput = ""
+    while ($userInput -ne "y" -and $userInput -ne "n") {
+        $userInput = Read-Host "$message (y/n, default: '$defaultValue')"
+        if ($userInput -ne "y" -and $userInput -ne "n" -and $userInput -ne "") {
+            Write-Host "Invalid input. Please enter 'y' or 'n'." -ForegroundColor Red
+        }
+        elseif ($userInput -eq "") {
+            $userInput = $defaultValue
+        }
+    }
+    return $userInput
+}
+
+# Configure Visual Studio Code settings if directory exists
 if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
-    $configureVSCode = Read-Host "Do you want to configure Visual Studio Code settings? (y/n)"
-    if ($configureVSCode -eq "y" -or $configureVSCode -eq "Y") {
-        Write-Host "Visual Studio Code setting configuring..."
+    $configureVSCode = PromptForInputWithDefault "Do you want to configure Visual Studio Code settings?" "n"
+    if ($configureVSCode -eq "y") {
+        Write-Host "Configuring Visual Studio Code settings..." -ForegroundColor Cyan
         Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json" -OutFile "$vsCodeSettingsDirectory\settings.json"
     }
 }
 
+# Activate Revo Uninstaller Pro if directory exists
 if (Test-Path -Path $revoUninstallerDirectory -PathType Container) {
-    $activateRevoUninstaller = Read-Host "Do you want to activate Revo Uninstaller Pro? (y/n)"
-    if ($activateRevoUninstaller -eq "y" -or $activateRevoUninstaller -eq "Y") {
-        Write-Host "Revo Uninstaller Pro activation..."
+    $activateRevoUninstaller = PromptForInputWithDefault "Do you want to activate Revo Uninstaller Pro?" "n"
+    if ($activateRevoUninstaller -eq "y") {
+        Write-Host "Activating Revo Uninstaller Pro..." -ForegroundColor Cyan
         Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/revouninstallerpro5.lic" -OutFile "$revoUninstallerDirectory\revouninstallerpro5.lic"
     }
 }
 
+# Activate StartIsBack++ if directory exists
 if (Test-Path -Path $startIsBackDirectory -PathType Container) {
-    $activateStartIsBack = Read-Host "Do you want to activate StartIsBack++? (y/n)"
-    if ($activateStartIsBack -eq "y" -or $activateStartIsBack -eq "Y") {
-        Write-Host "StartIsBack++ activation..."
+    $activateStartIsBack = PromptForInputWithDefault "Do you want to activate StartIsBack++?" "n"
+    if ($activateStartIsBack -eq "y") {
+        Write-Host "Activating StartIsBack++..." -ForegroundColor Cyan
         Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/msimg32.dll" -OutFile "$startIsBackDirectory\msimg32.dll"
     }
 }
 
+# Activate Internet Download Manager if directory exists
 if (Test-Path -Path $idmDirectory -PathType Container) {
-    $activateIDM = Read-Host "Do you want to activate Internet Download Manager? (y/n)"
-    if ($activateIDM -eq "y" -or $activateIDM -eq "Y") {
-        Write-Host "Internet Download Manager activation script..."
+    $activateIDM = PromptForInputWithDefault "Do you want to activate Internet Download Manager?" "n"
+    if ($activateIDM -eq "y") {
+        Write-Host "Activating Internet Download Manager..." -ForegroundColor Cyan
         Invoke-RestMethod -Uri "https://massgrave.dev/ias" | Invoke-Expression
     }
 }
 
 Write-Host "`nSetup completed." -ForegroundColor Green
-Pause
