@@ -1,5 +1,11 @@
 """
-Ragalahari Downloader
+Ragalahari Image Downloader Script
+
+This script allows users to download images from a specified URL. It checks for an active
+internet connection, validates image URLs, and downloads the images to a designated folder.
+
+Author: Sakshi
+Date: 02-12-2023
 """
 
 import os
@@ -14,18 +20,18 @@ DEFAULT_URL = (
     "aakanksha-singh-clap-press-meet/aakanksha-singh-"
     "clap-press-meet1.jpg"
 )
-DEFAULT_NUM_IMAGES = "A"  # Setting default number of images to 'A' for all
-HEAVY_S = "━" * 125
+DEFAULT_NUM_IMAGES = "A"
+SEPARATOR_LINE = "━" * 125
 CHUNK_SIZE = 1024
 TIMEOUT = 5
 
 
 def check_internet():
     """
-    Checks if there is an active internet connection by making a request to Google's homepage.
+    Checks for an active internet connection by making a request to Google's homepage.
 
     Returns:
-    True if an internet connection is available, False otherwise.
+    bool: True if an internet connection is available, False otherwise.
     """
     try:
         requests.get("http://www.google.com", timeout=TIMEOUT)
@@ -34,156 +40,185 @@ def check_internet():
         return False
 
 
-# Display message for no internet connection and exit if not connected
-if not check_internet():
-    print(f"{Fore.RED}No internet connection{Style.RESET_ALL}")
-    sys.exit(1)
+def get_user_input(prompt, default):
+    """
+    Get user input with a provided prompt and default value.
 
-# Display defaults
-print(HEAVY_S)
-print(f"{Style.BRIGHT}Default URL: {Style.RESET_ALL}{DEFAULT_URL}")
-print(f"{Style.BRIGHT}Default Number of images: {Style.RESET_ALL}All")
-print(HEAVY_S)
-print()
+    Args:
+    prompt (str): The message prompt.
+    default (str): The default value.
 
-# Prompt for image URL input
-url_prompt = (
-    f"{Style.BRIGHT}Enter the full URL of the first image "
-    f"(Press enter for default): {Style.RESET_ALL}"
-)
-full_url = input(url_prompt) or DEFAULT_URL
+    Returns:
+    str: User input or default value if no input is provided.
+    """
+    user_input = input(prompt)
+    return user_input if user_input else default
 
-# Validate the image URL
-if not (
-    full_url.startswith("https://")
-    and (full_url.lower().endswith(".jpg") or full_url.lower().endswith(".png"))
-):
-    print()
-    print(f"{Fore.RED}Invalid or unsupported image URL{Style.RESET_ALL}")
-    sys.exit(1)
 
-# Prompt for the number of images to download
-num_images_prompt = (
-    f"{Style.BRIGHT}How many images would you like to download? "
-    f"(Press enter for default): {Style.RESET_ALL}"
-)
-num_images_input = input(num_images_prompt).strip()
-print()
+def validate_image_url(url):
+    """
+    Validate if the given URL is a supported image format (jpg or png) over HTTPS.
 
-# Set the number of images to download based on user input
-if num_images_input.lower() == "a" or num_images_input == "":
-    num_images = float("inf")  # Set to infinity for all images
-else:
-    if not num_images_input.isdigit() or int(num_images_input) <= 0:
-        print(f"{Fore.RED}Invalid number of images{Style.RESET_ALL}")
-        sys.exit(1)
-    num_images = int(num_images_input)
+    Args:
+    url (str): The URL to validate.
 
-# Extract information from the image URL
-parsed_url = urlparse(full_url)
-site_url = (
-    f"{parsed_url.scheme}://{parsed_url.netloc}{os.path.dirname(parsed_url.path)}/"
-)
-folder_name = (
-    re.sub(r"\d*$", "", os.path.splitext(os.path.basename(parsed_url.path))[0])
-    .replace("-", " ")
-    .title()
-)
-file_name_match = re.search(r"(\d+)\.(jpg|png)$", full_url)
-
-# Check if image number can be extracted from the URL
-if file_name_match:
-    file_number = int(file_name_match.group(1))
-    file_extension = file_name_match.group(2)
-    file_name = os.path.splitext(os.path.basename(full_url))[0][
-        : -len(str(file_number))
-    ]
-else:
-    print(f"{Fore.RED}Couldn't extract image number from URL{Style.RESET_ALL}")
-    sys.exit(1)
-
-# Download the images
-NUM_DOWNLOADED = TOTAL_SIZE = 0
-i = 1
-
-try:
-    while i <= num_images:
-        file_name_format = f"{file_name}{file_number + i - 1}.{file_extension}"
-        file_path = os.path.join(folder_name, file_name_format)
-
-        # Create folder if it doesn't exist
-        if not os.path.exists(folder_name):
-            os.makedirs(folder_name)
-            print(f"{Fore.GREEN}Folder '{folder_name}' created{Style.RESET_ALL}")
-            print()
-
-        # Skip if image already exists
-        if os.path.exists(file_path):
-            print(
-                f"{file_name_format}{Fore.YELLOW} - already exists. Skipping...{Style.RESET_ALL}"
-            )
-            i += 1
-            continue
-
-        # Get the file URL and start downloading
-        file_url = f"{site_url}{file_name_format}"
-        try:
-            with requests.get(file_url, stream=True, timeout=TIMEOUT) as response:
-                if response.status_code == 404:
-                    print(
-                        f"{Fore.YELLOW}No more images available. "
-                        f"Stopping download.{Style.RESET_ALL}"
-                    )
-                    break
-
-                response.raise_for_status()
-                file_size = int(response.headers.get("content-length") or 0)
-
-                if file_size == 0:
-                    print(
-                        f"{file_name_format}{Fore.RED} - Unable to get file size. "
-                        f"Skipping...{Style.RESET_ALL}"
-                    )
-                    continue
-
-                # Download the file
-                DOWNLOAD_SIZE = 0
-                with open(file_path, "wb") as file:
-                    for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
-                        if chunk:
-                            file.write(chunk)
-                            DOWNLOAD_SIZE += len(chunk)
-                            TOTAL_SIZE += len(chunk)
-
-                            # Display download progress
-                            percent = min(int((DOWNLOAD_SIZE / file_size) * 100), 100)
-                            print(
-                                f"{file_name_format}{Fore.GREEN} - Downloaded "
-                                f"{percent}%{Style.RESET_ALL}",
-                                end="\r",
-                            )
-
-                print()
-                NUM_DOWNLOADED += 1
-                i += 1
-        except requests.exceptions.RequestException:
-            print(
-                f"{file_name_format}{Fore.RED} - Not Found for URL: {file_url}{Style.RESET_ALL}"
-            )
-            break
-
-    # Display download information
-    print()
-    if num_images_input.lower() == "a":
-        download_info = f"All images of '{folder_name}'"
-    else:
-        download_info = f"{NUM_DOWNLOADED} out of {num_images} images"
-
-    print(
-        f"{Fore.BLUE}Downloaded {download_info} at '{os.path.abspath(folder_name)}' - Total "
-        f"downloaded size: {TOTAL_SIZE/CHUNK_SIZE/CHUNK_SIZE:.2f} MB{Style.RESET_ALL}"
+    Returns:
+    bool: True if the URL is valid, False otherwise.
+    """
+    return url.startswith("https://") and (
+        url.lower().endswith(".jpg") or url.lower().endswith(".png")
     )
 
-except KeyboardInterrupt:
-    print()
-    print(f"\n{Fore.RED}Download interrupted by user{Style.RESET_ALL}")
+
+def main():
+    """
+    Main function to run the image downloading script.
+    """
+    if not check_internet():
+        print(f"{Fore.RED}No internet connection{Style.RESET_ALL}")
+        sys.exit(1)
+
+    print(SEPARATOR_LINE)
+    print(f"{Style.BRIGHT}Default URL: {Style.RESET_ALL}{DEFAULT_URL}")
+    print(f"{Style.BRIGHT}Default Number of images: {Style.RESET_ALL}All")
+    print(SEPARATOR_LINE)
+
+    # Prompt for the URL of the first image
+    while True:
+        url_prompt = (
+            f"{Style.BRIGHT}Enter the full URL of the first image "
+            f"(Press enter for default): {Style.RESET_ALL}"
+        )
+        full_url = get_user_input(url_prompt, DEFAULT_URL)
+
+        if not validate_image_url(full_url):
+            print("\n" + f"{Fore.RED}Invalid or unsupported image URL{Style.RESET_ALL}")
+        else:
+            break
+
+    # Prompt for the number of images to download
+    while True:
+        num_images_prompt = (
+            f"{Style.BRIGHT}How many images would you like to download? "
+            f"(Press enter for default): {Style.RESET_ALL}"
+        )
+        num_images_input = input(num_images_prompt).strip()
+        print()
+
+        if num_images_input.lower() == "a" or num_images_input == "":
+            num_images = float("inf")
+            break
+        else:
+            if not num_images_input.isdigit() or int(num_images_input) <= 0:
+                print(f"{Fore.RED}Invalid number of images{Style.RESET_ALL}")
+            else:
+                num_images = int(num_images_input)
+                break
+
+    parsed_url = urlparse(full_url)
+    site_url = (
+        f"{parsed_url.scheme}://{parsed_url.netloc}{os.path.dirname(parsed_url.path)}/"
+    )
+    folder_name = (
+        re.sub(r"\d*$", "", os.path.splitext(os.path.basename(parsed_url.path))[0])
+        .replace("-", " ")
+        .title()
+    )
+    file_name_match = re.search(r"(\d+)\.(jpg|png)$", full_url)
+
+    if file_name_match:
+        file_number = int(file_name_match.group(1))
+        file_extension = file_name_match.group(2)
+        file_name = os.path.splitext(os.path.basename(full_url))[0][
+            : -len(str(file_number))
+        ]
+    else:
+        print(f"{Fore.RED}Couldn't extract image number from URL{Style.RESET_ALL}")
+        sys.exit(1)
+
+    num_downloaded = total_size = 0
+    i = 1
+
+    try:
+        while i <= num_images:
+            file_name_format = f"{file_name}{file_number + i - 1}.{file_extension}"
+            file_path = os.path.join(folder_name, file_name_format)
+
+            if not os.path.exists(folder_name):
+                os.makedirs(folder_name)
+                print(f"{Fore.GREEN}Folder '{folder_name}' created{Style.RESET_ALL}")
+                print()
+
+            if os.path.exists(file_path):
+                print(
+                    f"{file_name_format}{Fore.YELLOW} - already exists. "
+                    f"Skipping...{Style.RESET_ALL}"
+                )
+                i += 1
+                continue
+
+            file_url = f"{site_url}{file_name_format}"
+            try:
+                with requests.get(file_url, stream=True, timeout=TIMEOUT) as response:
+                    if response.status_code == 404:
+                        print(
+                            f"{Fore.YELLOW}No more images available. "
+                            f"Stopping download.{Style.RESET_ALL}"
+                        )
+                        break
+
+                    response.raise_for_status()
+                    file_size = int(response.headers.get("content-length") or 0)
+
+                    if file_size == 0:
+                        print(
+                            f"{file_name_format}{Fore.RED} - Unable to get file size. "
+                            f"Skipping...{Style.RESET_ALL}"
+                        )
+                        continue
+
+                    download_size = 0
+                    with open(file_path, "wb") as file:
+                        for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
+                            if chunk:
+                                file.write(chunk)
+                                download_size += len(chunk)
+                                total_size += len(chunk)
+
+                                percent = min(
+                                    int((download_size / file_size) * 100), 100
+                                )
+                                print(
+                                    f"{file_name_format}{Fore.GREEN} - Downloaded "
+                                    f"{percent}%{Style.RESET_ALL}",
+                                    end="\r",
+                                )
+
+                    print()
+                    num_downloaded += 1
+                    i += 1
+            except requests.exceptions.RequestException as e:
+                print(
+                    f"{file_name_format}{Fore.RED} - {e.__class__.__name__} for URL: "
+                    f"{file_url}{Style.RESET_ALL}"
+                )
+                break
+
+        print()
+        if num_images_input.lower() == "a":
+            download_info = f"All images of '{folder_name}'"
+        else:
+            download_info = f"{num_downloaded} out of {num_images} images"
+
+        print(
+            f"{Fore.BLUE}Downloaded {download_info} at '{os.path.abspath(folder_name)}' - "
+            f"Total downloaded size: {total_size/CHUNK_SIZE/CHUNK_SIZE:.2f} MB{Style.RESET_ALL}"
+        )
+
+    except KeyboardInterrupt:
+        print()
+        print(f"\n{Fore.RED}Download interrupted by user{Style.RESET_ALL}")
+
+
+if __name__ == "__main__":
+    main()
