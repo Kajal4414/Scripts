@@ -1,48 +1,52 @@
 param (
     [switch]$force,
-    [switch]$skip_hash_check,
+    [switch]$skipHashCheck,
     [string]$lang = "en-GB",
     [string]$version
 )
 
+# Load necessary assemblies
 Add-Type -AssemblyName System.Web.Extensions
 
-$web_client = New-Object System.Net.WebClient
+# Create required objects
+$webClient = New-Object System.Net.WebClient
 $serializer = New-Object System.Web.Script.Serialization.JavaScriptSerializer
-$hash_algorithm = New-Object -TypeName System.Security.Cryptography.SHA512CryptoServiceProvider
+$hashAlgorithm = New-Object -TypeName System.Security.Cryptography.SHA512CryptoServiceProvider
 
-function Convert-To-Json($item) {
+# Function to convert an item to JSON
+function ConvertToJson($item) {
     return $serializer.Serialize($item)
 }
 
-function Get-SHA512($file) {
-    $hash = [System.BitConverter]::ToString($hash_algorithm.ComputeHash([System.IO.File]::ReadAllBytes($file)))
-    $ret = @{
+# Function to calculate SHA512 hash of a file
+function GetSHA512($file) {
+    $hash = [System.BitConverter]::ToString($hashAlgorithm.ComputeHash([System.IO.File]::ReadAllBytes($file)))
+    return @{
         "Algorithm" = "SHA512"
         "Path"      = $file
         "Hash"      = $hash.Replace("-", "")
     }
-    return $ret
 }
 
-function Get-SHA512Hash($source, $file_name) {
+# Function to retrieve SHA512 hash from a source
+function GetSHA512Hash($source, $fileName) {
     try {
-        $response = $web_client.DownloadString($source)
+        $response = $webClient.DownloadString($source)
     }
     catch [System.Management.Automation.MethodInvocationException] {
-        $host.UI.WriteErrorLine("Error: Unable to fetch hash data from $source. Consider using -skip_hash_check.")
+        Write-Host "Error: Unable to fetch hash data from $source. Consider using -skipHashCheck." -ForegroundColor Red
         exit 1
     }
 
-    $response = $response.split("`n")
+    $response = $response -split "`n"
 
     foreach ($line in $response) {
-        $split_line = $line.Split(" ", 2)
-        $hash = $split_line[0]
-        $current_file_name = $split_line[1].Trim()
+        $splitLine = $line.Split(" ", 2)
+        $hash = $splitLine[0]
+        $currentFileName = $splitLine[1].Trim()
 
-        if ($null -ne $hash -and $null -ne $current_file_name) {
-            if ($current_file_name -eq $file_name) {
+        if ($null -ne $hash -and $null -ne $currentFileName) {
+            if ($currentFileName -eq $fileName) {
                 return $hash
             }
         }
@@ -50,33 +54,37 @@ function Get-SHA512Hash($source, $file_name) {
     return $null
 }
 
+# Function to pause and wait for user input
 function PauseNull {
     Write-Host "Press any key to exit... " -NoNewline
     $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
     exit
 }
 
-function Test-Admin() {
-    $current_principal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
-    return $current_principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+# Function to check for admin privileges
+function TestAdmin {
+    $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+    return $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
 
-function main() {
+# Main function
+function main {
     Write-Host "Starting Firefox installation process...`n"
-    if (-not (Test-Admin)) {
-        $host.UI.WriteErrorLine("Error: Administrator privileges required.")
+
+    if (-not (TestAdmin)) {
+        Write-Host "Error: Administrator privileges required." -ForegroundColor Red
         PauseNull
     }
 
     # Attempt to enforce TLS protocol
     try {
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        Write-Host "Info: TLS protocol set to TLS 1.2"
+        Write-Host "Info: TLS protocol set to TLS 1.2" -ForegroundColor Green
     }
     catch {
         try {
             [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls
-            Write-Host "Info: TLS protocol set to TLS 1.0"
+            Write-Host "Info: TLS protocol set to TLS 1.0" -ForegroundColor Green
         }
         catch {
             Write-Warning "Warning: Unable to set TLS protocol. Your Windows version may not support this protocol."
@@ -84,27 +92,27 @@ function main() {
     }
 
     try {
-        $response = $web_client.DownloadString("https://product-details.mozilla.org/1.0/firefox_versions.json")
-        Write-Host "Info: Successfully fetched JSON data."
+        $response = $webClient.DownloadString("https://product-details.mozilla.org/1.0/firefox_versions.json")
+        Write-Host "Info: Successfully fetched JSON data." -ForegroundColor Green
     }
     catch [System.Management.Automation.MethodInvocationException] {
-        $host.UI.WriteErrorLine("Error: Failed to fetch JSON data. Check internet connection and try again.")
+        Write-Host "Error: Failed to fetch JSON data. Check internet connection and try again." -ForegroundColor Red
         PauseNull
     }
 
     # Determine download URL based on provided or latest version
     $firefox = $serializer.DeserializeObject($response)
-    $remote_version = if ($version) { $version } else { $firefox["LATEST_FIREFOX_VERSION"] }
-    $download_url = "https://releases.mozilla.org/pub/firefox/releases/$remote_version/win64/$lang/Firefox%20Setup%20$remote_version.exe"
-    $install_dir = "$Env:PROGRAMFILES\Mozilla Firefox"
-    $hash_source = "https://ftp.mozilla.org/pub/firefox/releases/$remote_version/SHA512SUMS"
+    $remoteVersion = if ($version) { $version } else { $firefox["LATEST_FIREFOX_VERSION"] }
+    $downloadUrl = "https://releases.mozilla.org/pub/firefox/releases/$remoteVersion/win64/$lang/Firefox%20Setup%20$remoteVersion.exe"
+    $installDir = "$Env:PROGRAMFILES\Mozilla Firefox"
+    $hashSource = "https://ftp.mozilla.org/pub/firefox/releases/$remoteVersion/SHA512SUMS"
 
     # Check if the current version is already installed
-    if (Test-Path "$install_dir\firefox.exe" -PathType Leaf) {
-        $local_version = (Get-Item "$install_dir\firefox.exe").VersionInfo.ProductVersion
+    if (Test-Path "$installDir\firefox.exe" -PathType Leaf) {
+        $localVersion = (Get-Item "$installDir\firefox.exe").VersionInfo.ProductVersion
 
-        if ($local_version -eq $remote_version) {
-            Write-Host "Info: Mozilla Firefox $remote_version is already installed."
+        if ($localVersion -eq $remoteVersion) {
+            Write-Host "Info: Mozilla Firefox $remoteVersion is already installed." -ForegroundColor Green
 
             if ($force) {
                 Write-Warning "Warning: -force specified, proceeding anyway."
@@ -116,46 +124,46 @@ function main() {
     }
 
     # Download Firefox setup file
-    Write-Host "Info: Downloading Mozilla Firefox $remote_version setup..."
-    $setup_file = "$Env:TEMP\Firefox Setup $remote_version.exe"
-    $web_client.DownloadFile($download_url, $setup_file)
+    Write-Host "Info: Downloading Mozilla Firefox $remoteVersion setup..." -ForegroundColor Green
+    $setupFile = "$Env:TEMP\Firefox Setup $remoteVersion.exe"
+    $webClient.DownloadFile($downloadUrl, $setupFile)
 
     # Verify hash if not skipping hash check
-    if (-not $skip_hash_check) {
-        $local_SHA512 = (Get-SHA512 -file $setup_file).Hash
-        $remote_SHA512 = Get-SHA512Hash -source $hash_source -file_name "win64/$lang/Firefox Setup $remote_version.exe"
+    if (-not $skipHashCheck) {
+        $localSHA512 = (GetSHA512 -file $setupFile).Hash
+        $remoteSHA512 = GetSHA512Hash -source $hashSource -fileName "win64/$lang/Firefox Setup $remoteVersion.exe"
 
-        if ($local_SHA512 -ne $remote_SHA512) {
-            $host.UI.WriteErrorLine("Error: The hash of the downloaded file does not match the expected hash.")
+        if ($localSHA512 -ne $remoteSHA512) {
+            Write-Host "Error: The hash of the downloaded file does not match the expected hash." -ForegroundColor Red
             PauseNull
         }
         else {
-            Write-Host "Info: Hash verification successful. The downloaded file matches the expected hash."
+            Write-Host "Info: Hash verification successful. The downloaded file matches the expected hash." -ForegroundColor Green
         }
     }
 
     # Installation process
-    Write-Host "Info: Installing Mozilla Firefox..."
+    Write-Host "Info: Installing Mozilla Firefox..." -ForegroundColor Green
     Stop-Process -Name "firefox" -ErrorAction SilentlyContinue
 
     try {
-        Start-Process -FilePath $setup_file -ArgumentList "/S /MaintenanceService=false" -Wait
-        Write-Host "Info: Installation of Mozilla Firefox completed successfully."
+        Start-Process -FilePath $setupFile -ArgumentList "/S /MaintenanceService=false" -Wait
+        Write-Host "Info: Installation of Mozilla Firefox completed successfully." -ForegroundColor Green
     }
     catch [System.InvalidOperationException] {
-        $host.UI.WriteErrorLine("Error: Failed to download the setup file.")
+        Write-Host "Error: Failed to download the setup file." -ForegroundColor Red
         PauseNull
     }
 
-    Write-Host "`nRemoving unnecessary files..."
+    Write-Host "`nRemoving unnecessary files..." -ForegroundColor Green
     # Remove Firefox setup file
-    if (Test-Path $setup_file -PathType Leaf) {
-        Write-Host "Info: Removing Firefox Setup $remote_version.exe"
-        Remove-Item $setup_file
+    if (Test-Path $setupFile -PathType Leaf) {
+        Write-Host "Info: Removing Firefox Setup $remoteVersion.exe" -ForegroundColor Green
+        Remove-Item $setupFile
     }
 
     # Remove specific files
-    $remove_files = @(
+    $removeFiles = @(
         "crashreporter.exe",
         "crashreporter.ini",
         "defaultagent.ini",
@@ -169,20 +177,20 @@ function main() {
         "update-settings.ini"
     )
 
-    foreach ($file in $remove_files) {
-        $filePath = "$install_dir\$file"
+    foreach ($file in $removeFiles) {
+        $filePath = "$installDir\$file"
         if (Test-Path $filePath -PathType Leaf) {
-            Write-Host "Info: Removing file: $file"
+            Write-Host "Info: Removing file: $file" -ForegroundColor Green
             Remove-Item $filePath
         }
     }
 
     # Configuration settings
-    Write-Host "`nConfiguring Mozilla Firefox settings..."
+    Write-Host "`nConfiguring Mozilla Firefox settings..." -ForegroundColor Green
     # Create policies.json
-    Write-Host "Info: Created policies.json at '$install_dir\distribution\policies.json'"
-    (New-Item -Path "$install_dir" -Name "distribution" -ItemType "directory" -Force) 2>&1 > $null
-    $policies = Convert-To-Json(@{
+    Write-Host "Info: Created policies.json at '$installDir\distribution\policies.json'" -ForegroundColor Green
+    (New-Item -Path "$installDir" -Name "distribution" -ItemType "directory" -Force) > $null
+    $policies = ConvertToJson(@{
             policies = @{
                 DisableAppUpdate     = $true
                 OverrideFirstRunPage = ""
@@ -195,15 +203,15 @@ function main() {
         })
 
     # Create autoconfig.js
-    Write-Host "Info: Created autoconfig.js at '$install_dir\defaults\pref\autoconfig.js'"
-    $autoconfig = @"
+    Write-Host "Info: Created autoconfig.js at '$installDir\defaults\pref\autoconfig.js'" -ForegroundColor Green
+    $autoConfig = @"
 pref("general.config.filename", "firefox.cfg");
 pref("general.config.obscure_value", 0);
 "@
 
     # Create firefox.cfg
-    Write-Host "Info: Created firefox.cfg at '$install_dir\firefox.cfg'"
-    $firefox_config = @"
+    Write-Host "Info: Created firefox.cfg at '$installDir\firefox.cfg'" -ForegroundColor Green
+    $firefoxConfig = @"
 defaultPref("app.shield.optoutstudies.enabled", false)
 defaultPref("datareporting.healthreport.uploadEnabled", false)
 defaultPref("browser.newtabpage.activity-stream.feeds.section.topstories", false)
@@ -222,10 +230,10 @@ lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", f
 "@
 
     # Write configuration files
-    Set-Content -Path "$install_dir\distribution\policies.json" -Value $policies
-    Set-Content -Path "$install_dir\defaults\pref\autoconfig.js" -Value $autoconfig
-    Set-Content -Path "$install_dir\firefox.cfg" -Value $firefox_config
-    Write-Host "`nRelease notes: https://www.mozilla.org/en-US/firefox/$remote_version/releasenotes"
+    Set-Content -Path "$installDir\distribution\policies.json" -Value $policies
+    Set-Content -Path "$installDir\defaults\pref\autoconfig.js" -Value $autoConfig
+    Set-Content -Path "$installDir\firefox.cfg" -Value $firefoxConfig
+    Write-Host "`nRelease notes: https://www.mozilla.org/en-US/firefox/$remoteVersion/releasenotes" -ForegroundColor Green
     return 0
 }
 
