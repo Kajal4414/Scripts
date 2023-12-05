@@ -35,7 +35,8 @@ function CheckIfInstalled {
     $installedApps = $x64Apps.DisplayName + $x86Apps.DisplayName  # Combine all display names
 
     foreach ($installedApp in $installedApps) {
-        if ($installedApp -like "*$appNamePrefix*") {  # Check if the app name is contained within any display name
+        if ($installedApp -like "*$appNamePrefix*") {
+            # Check if the app name is contained within any display name
             return $true
         }
     }
@@ -154,7 +155,8 @@ foreach ($app in $softwareURLs.GetEnumerator()) {
     if (-not (CheckIfInstalled -appName $appName)) {
         DownloadSoftware -appName $appName -appURL $appURL
         InstallSoftware -appName $appName
-    } else {
+    }
+    else {
         Write-Host "'$appName' is already installed." -ForegroundColor Yellow
     }
 }
