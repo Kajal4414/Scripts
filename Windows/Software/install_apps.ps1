@@ -137,8 +137,8 @@ function IsAppInstalled {
     param($appName, $appVersion)
 
     # Get installed applications from registry with DisplayVersion info
-    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
-    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayVersion
+    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayVersion
 
     # Check if the app with specified version exists in installed apps list
     if ($x64Apps.DisplayVersion -contains $appVersion -or $x86Apps.DisplayVersion -contains $appVersion) {
