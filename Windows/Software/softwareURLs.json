@@ -68,6 +68,7 @@
     {
         "appName": "Revo Uninstaller Pro",
         "version": "5.2.1",
+        "licUrl": "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/revouninstallerpro5.lic",
         "url": "https://download.revouninstaller.com/download/RevoUninProSetup.exe"
     },
     {
@@ -84,6 +85,7 @@
     {
         "appName": "Microsoft Visual Studio Code",
         "version": "1.84.2",
+        "jsnUrl": "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json",
         "url": "https://az764295.vo.msecnd.net/stable/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/VSCodeSetup-x64-1.84.2.exe",
         "extensions": [
             "Catppuccin.catppuccin-vsc",

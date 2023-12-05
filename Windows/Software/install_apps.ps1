@@ -106,7 +106,8 @@ function InstallSoftware {
         try {
             Expand-Archive -Path "$downloadFolder\$appName" -DestinationPath "C:\Program Files\YoutubeDownloader" -Force
             Write-Host "Installation of '$appName' extracted to C:\Program Files\YoutubeDownloader successfully." -ForegroundColor Green
-        } catch {
+        }
+        catch {
             Write-Host "Error occurred while extracting '$appName' installer: $_" -ForegroundColor Red
         }
         return
@@ -122,7 +123,8 @@ function InstallSoftware {
     try {
         Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait -ErrorAction Stop
         Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
-    } catch {
+    }
+    catch {
         Write-Host "Error occurred while installing '$appName': $_" -ForegroundColor Red
     }
 }
@@ -173,6 +175,7 @@ function PromptForInputWithDefault($message, $defaultValue) {
 
 # Configuring VS Code settings if directory exists
 $vsCodeExtensions = ($softwareURLs | Where-Object { $_.appName -eq "Microsoft Visual Studio Code" }).extensions
+$vsCodeSettingsUrl = ($softwareURLs | Where-Object { $_.appName -eq "Microsoft Visual Studio Code" }).jsnUrl
 if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
     $configureVSCode = PromptForInputWithDefault "Do you want to configure Visual Studio Code settings and install extensions?" "N"
     if ($configureVSCode -eq "y") {
@@ -180,25 +183,25 @@ if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
 
         # Loop through each extension and install it
         foreach ($extension in $vsCodeExtensions) {
-            # Install VS Code extension
             code --install-extension $extension
         }
 
         Write-Host "Configuring Visual Studio Code settings..." -ForegroundColor Cyan
 
         # Downloading settings file for VS Code
-        Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json" -OutFile "$vsCodeSettingsDirectory\settings.json"
+        Invoke-WebRequest -Uri $vsCodeSettingsUrl -OutFile "$vsCodeSettingsDirectory\settings.json"
     }
 }
 
 # Activating Revo Uninstaller Pro if directory exists
+$revoLicenseUrl = ($softwareURLs | Where-Object { $_.appName -eq "Revo Uninstaller Pro" }).licUrl
 if (Test-Path -Path $revoUninstallerDirectory -PathType Container) {
     $activateRevoUninstaller = PromptForInputWithDefault "Do you want to activate Revo Uninstaller Pro?" "N"
     if ($activateRevoUninstaller -eq "y") {
         Write-Host "Activating Revo Uninstaller Pro..." -ForegroundColor Cyan
 
         # Downloading license file for Revo Uninstaller Pro
-        Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/revouninstallerpro5.lic" -OutFile "$revoUninstallerDirectory\revouninstallerpro5.lic"
+        Invoke-WebRequest -Uri $revoLicenseUrl -OutFile "$revoUninstallerDirectory\revouninstallerpro5.lic"
     }
 }
 
