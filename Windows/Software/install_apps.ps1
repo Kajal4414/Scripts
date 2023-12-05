@@ -162,43 +162,14 @@ function PromptForInputWithDefault($message, $defaultValue) {
 }
 
 # Configuring VS Code settings if directory exists
+$vsCodeExtensions = ($softwareURLs | Where-Object { $_.appName -eq "Microsoft Visual Studio Code" }).extensions
 if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
     $configureVSCode = PromptForInputWithDefault "Do you want to configure Visual Studio Code settings and install extensions?" "N"
     if ($configureVSCode -eq "y") {
         Write-Host "Installing extensions for Visual Studio Code..." -ForegroundColor Yellow
 
-        # List of VS Code extensions to install
-        $extensions = @(
-            "Catppuccin.catppuccin-vsc",
-            "Catppuccin.catppuccin-vsc-icons",
-            "dbaeumer.vscode-eslint",
-            "eamodio.gitlens",
-            "esbenp.prettier-vscode",
-            "GitHub.github-vscode-theme",
-            "jock.svg",
-            "ms-python.black-formatter",
-            "ms-python.pylint",
-            "ms-python.python",
-            "ms-python.vscode-pylance",
-            "ms-vscode.makefile-tools",
-            "ms-vscode.powershell",
-            "PKief.material-icon-theme",
-            "redhat.java",
-            "redhat.vscode-xml",
-            "redhat.vscode-yaml",
-            "ritwickdey.LiveServer",
-            "shd101wyy.markdown-preview-enhanced",
-            "VisualStudioExptTeam.intellicode-api-usage-examples",
-            "VisualStudioExptTeam.vscodeintellicode",
-            "vscjava.vscode-java-debug",
-            "vscjava.vscode-java-dependency",
-            "vscjava.vscode-java-pack",
-            "vscjava.vscode-java-test",
-            "vscjava.vscode-maven"
-        )
-
         # Loop through each extension and install it
-        foreach ($extension in $extensions) {
+        foreach ($extension in $vsCodeExtensions) {
             # Install VS Code extension
             code --install-extension $extension
         }
@@ -222,24 +193,26 @@ if (Test-Path -Path $revoUninstallerDirectory -PathType Container) {
 }
 
 # Activating StartIsBack++ if directory exists
+$dllFileURL = ($softwareURLs | Where-Object { $_.appName -eq "StartIsBack++" }).dllUrl
 if (Test-Path -Path $startIsBackDirectory -PathType Container) {
     $activateStartIsBack = PromptForInputWithDefault "Do you want to activate StartIsBack++?" "N"
     if ($activateStartIsBack -eq "y") {
         Write-Host "Activating StartIsBack++..." -ForegroundColor Cyan
 
         # Downloading file to activate StartIsBack++
-        Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/msimg32.dll" -OutFile "$startIsBackDirectory\msimg32.dll"
+        Invoke-WebRequest -Uri $dllFileURL -OutFile "$startIsBackDirectory\msimg32.dll"
     }
 }
 
 # Activating Internet Download Manager if directory exists
+$idmActivationURL = ($softwareURLs | Where-Object { $_.appName -eq "Internet Download Manager" }).iasUrl
 if (Test-Path -Path $idmDirectory -PathType Container) {
     $activateIDM = PromptForInputWithDefault "Do you want to activate Internet Download Manager?" "N"
     if ($activateIDM -eq "y") {
         Write-Host "Activating Internet Download Manager..." -ForegroundColor Cyan
 
         # Activating IDM through a web request
-        Invoke-RestMethod -Uri "https://massgrave.dev/ias" | Invoke-Expression
+        Invoke-RestMethod -Uri $idmActivationURL | Invoke-Expression
     }
 }
 

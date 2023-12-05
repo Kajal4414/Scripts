@@ -22,6 +22,7 @@
     {
         "appName": "Internet Download Manager",
         "version": "6.42.2",
+        "iasUrl": "https://massgrave.dev/ias",
         "url": "https://mirror2.internetdownloadmanager.com/idman642build2.exe?v=lt&filename=idman642build2.exe"
     },
     {
@@ -72,6 +73,7 @@
     {
         "appName": "StartIsBack++",
         "version": "2.9.19",
+        "dllUrl": "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/msimg32.dll",
         "url": "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
     },
     {
@@ -82,7 +84,35 @@
     {
         "appName": "Microsoft Visual Studio Code",
         "version": "1.84.2",
-        "url": "https://az764295.vo.msecnd.net/stable/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/VSCodeSetup-x64-1.84.2.exe"
+        "url": "https://az764295.vo.msecnd.net/stable/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/VSCodeSetup-x64-1.84.2.exe",
+        "extensions": [
+            "Catppuccin.catppuccin-vsc",
+            "Catppuccin.catppuccin-vsc-icons",
+            "dbaeumer.vscode-eslint",
+            "eamodio.gitlens",
+            "esbenp.prettier-vscode",
+            "GitHub.github-vscode-theme",
+            "jock.svg",
+            "ms-python.black-formatter",
+            "ms-python.pylint",
+            "ms-python.python",
+            "ms-python.vscode-pylance",
+            "ms-vscode.makefile-tools",
+            "ms-vscode.powershell",
+            "PKief.material-icon-theme",
+            "redhat.java",
+            "redhat.vscode-xml",
+            "redhat.vscode-yaml",
+            "ritwickdey.LiveServer",
+            "shd101wyy.markdown-preview-enhanced",
+            "VisualStudioExptTeam.intellicode-api-usage-examples",
+            "VisualStudioExptTeam.vscodeintellicode",
+            "vscjava.vscode-java-debug",
+            "vscjava.vscode-java-dependency",
+            "vscjava.vscode-java-pack",
+            "vscjava.vscode-java-test",
+            "vscjava.vscode-maven"
+        ]
     },
     {
         "appName": "VLC media player",
