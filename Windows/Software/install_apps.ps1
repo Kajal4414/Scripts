@@ -1,4 +1,4 @@
-# Read software URLs from the JSON file (retuns: appName, version, url).
+# Read software URLs from the JSON file
 $softwareURLs = Get-Content -Path ".\Windows\Software\softwareURLs.json" | ConvertFrom-Json
 
 # Define download folder
@@ -18,10 +18,10 @@ function TestAdmin {
 }
 
 # Check for admin privileges
-# if (-not (TestAdmin)) {
-#     Write-Host "Error: Admin privileges required" -ForegroundColor Red
-#     PauseNull
-# }
+if (-not (TestAdmin)) {
+    Write-Host "Error: Admin privileges required" -ForegroundColor Red
+    PauseNull
+}
 
 # Function to download software
 function DownloadSoftware {
@@ -101,6 +101,7 @@ function InstallSoftware {
         return
     }
 
+    # Custom handling for certain apps like YouTube Downloader
     if ($appName -like "Youtube Downloader*") {
         Write-Host "Extracting '$appName' installer to C:\Program Files\YoutubeDownloader..." -ForegroundColor Cyan
         try {
@@ -113,12 +114,14 @@ function InstallSoftware {
         return
     }
 
+    # Check for installer path existence
     $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
     if (-not (Test-Path -Path $installerPath)) {
         Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
         return
     }
 
+    # Regular installation process
     Write-Host "Installing '$appName'" -ForegroundColor Cyan
     try {
         Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait -ErrorAction Stop
