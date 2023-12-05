@@ -113,7 +113,7 @@ function InstallSoftware {
         return
     }
 
-    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName"
+    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
     if (-not (Test-Path -Path $installerPath)) {
         Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
         return
