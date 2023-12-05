@@ -30,8 +30,10 @@ function CheckIfInstalled {
 
     $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
     $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+    
+    $appNamePrefix = $appName -replace 'v.*$' # Remove text after 'v' in $appName
 
-    if ($x64Apps.DisplayName -contains $appName -or $x86Apps.DisplayName -contains $appName) {
+    if ($x64Apps.DisplayName -contains "$appNamePrefix*" -or $x86Apps.DisplayName -contains "$appNamePrefix*") {
         return $true
     } else {
         return $false
