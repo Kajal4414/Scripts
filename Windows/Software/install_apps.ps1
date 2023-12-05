@@ -57,10 +57,10 @@ function TestAdmin {
 }
 
 # Check for admin privileges
-if (-not (TestAdmin)) {
-    Write-Host "Error: Admin privileges required" -ForegroundColor Red
-    PauseNull
-}
+# if (-not (TestAdmin)) {
+#     Write-Host "Error: Admin privileges required" -ForegroundColor Red
+#     PauseNull
+# }
 
 # Function to download software
 function DownloadSoftware {
@@ -157,7 +157,7 @@ foreach ($app in $softwareURLs.GetEnumerator()) {
         InstallSoftware -appName $appName
     }
     else {
-        Write-Host "'$appName' is already installed." -ForegroundColor Yellow
+        Write-Host "Skipping: '$appName' is already installed." -ForegroundColor Yellow
     }
 }
 
