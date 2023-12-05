@@ -11,7 +11,7 @@
     },
     {
         "appName": "Google Chrome",
-        "version": "Latest",
+        "version": "119.0.6045.200",
         "url": "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
     },
     {
@@ -66,17 +66,17 @@
     },
     {
         "appName": "Revo Uninstaller Pro",
-        "version": "Latest",
+        "version": "5.2.1",
         "url": "https://download.revouninstaller.com/download/RevoUninProSetup.exe"
     },
     {
         "appName": "StartIsBack++",
-        "version": "Latest",
+        "version": "2.9.19",
         "url": "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
     },
     {
         "appName": "Telegram",
-        "version": "Latest",
+        "version": "4.12.2",
         "url": "https://telegram.org/dl/desktop/win64"
     },
     {

@@ -20,7 +20,7 @@ function DownloadSoftware {
 
     # Check if the file already exists at the specified file path
     if (Test-Path -Path $filePath) {
-        Write-Host "Skipping: '$appName' already exists in the download folder." -ForegroundColor Yellow
+        Write-Host "Skipping downloading: '$appName' already exists in the download folder." -ForegroundColor Yellow
         return
     }
 
@@ -107,11 +107,11 @@ function IsAppInstalled {
     param($appName, $appVersion)
 
     # Get installed applications from registry with DisplayVersion info
-    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -eq $appName -and $_.DisplayVersion -eq $appVersion }
-    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -eq $appName -and $_.DisplayVersion -eq $appVersion }
+    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
 
     # Check if the app with specified version exists in installed apps list
-    if ($x64Apps -or $x86Apps) {
+    if ($x64Apps.DisplayVersion -contains $appVersion -or $x86Apps.DisplayVersion -contains $appVersion) {
         return $true
     }
     else {
@@ -120,7 +120,7 @@ function IsAppInstalled {
 }
 
 # Loop through software URLs, download, and install
-foreach ($app in $softwareURLs.GetEnumerator()) {
-    DownloadSoftware -appName $app.Key -appURL $app.Value
-    InstallSoftware -appName $app.Key
+foreach ($app in $softwareURLs) {
+    DownloadSoftware -appName $app.appName -appURL $app.url
+    InstallSoftware -appName $app.appName -appVersion $app.version
 }
