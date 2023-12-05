@@ -1,0 +1,129 @@
+[
+    {
+        "appName": "7-Zip",
+        "version": "23.01",
+        "url": "https://www.7-zip.org/a/7z2301-x64.exe"
+    },
+    {
+        "appName": "BleachBit",
+        "version": "4.6.0.2537",
+        "url": "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
+    },
+    {
+        "appName": "Google Chrome",
+        "version": "119.0.6045.200",
+        "url": "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
+    },
+    {
+        "appName": "Git",
+        "version": "2.43.0",
+        "url": "https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe"
+    },
+    {
+        "appName": "Internet Download Manager",
+        "version": "6.42.2",
+        "iasUrl": "https://massgrave.dev/ias",
+        "url": "https://mirror2.internetdownloadmanager.com/idman642build2.exe?v=lt&filename=idman642build2.exe"
+    },
+    {
+        "appName": "IntelliJ IDEA Community Edition",
+        "version": "232.10227.8",
+        "url": "https://download-cdn.jetbrains.com/idea/ideaIC-2023.2.5.exe"
+    },
+    {
+        "appName": "Java(TM) SE Development Kit",
+        "version": "21.0.1.0",
+        "url": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
+    },
+    {
+        "appName": "K-Lite Codec Pack",
+        "version": "17.9.4",
+        "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1794_Full.exe"
+    },
+    {
+        "appName": "Notepad++",
+        "version": "8.6",
+        "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.6.Installer.x64.exe"
+    },
+    {
+        "appName": "Proton VPN",
+        "version": "3.2.7",
+        "url": "https://protonvpn.com/download/ProtonVPN_v3.2.7.exe"
+    },
+    {
+        "appName": "Node.js",
+        "version": "20.10.0",
+        "url": "https://nodejs.org/dist/v20.10.0/node-v20.10.0-x64.msi"
+    },
+    {
+        "appName": "PyCharm Community Edition",
+        "version": "232.10227.11",
+        "url": "https://download-cdn.jetbrains.com/python/pycharm-community-2023.2.5.exe"
+    },
+    {
+        "appName": "Python",
+        "version": "3.12",
+        "url": "https://www.python.org/ftp/python/3.12.0/python-3.12.0-amd64.exe"
+    },
+    {
+        "appName": "Revo Uninstaller Pro",
+        "version": "5.2.1",
+        "licUrl": "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/revouninstallerpro5.lic",
+        "url": "https://download.revouninstaller.com/download/RevoUninProSetup.exe"
+    },
+    {
+        "appName": "StartIsBack++",
+        "version": "2.9.19",
+        "dllUrl": "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/msimg32.dll",
+        "url": "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
+    },
+    {
+        "appName": "Telegram",
+        "version": "4.12.2",
+        "url": "https://telegram.org/dl/desktop/win64"
+    },
+    {
+        "appName": "Microsoft Visual Studio Code",
+        "version": "1.84.2",
+        "jsnUrl": "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json",
+        "url": "https://az764295.vo.msecnd.net/stable/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/VSCodeSetup-x64-1.84.2.exe",
+        "extensions": [
+            "Catppuccin.catppuccin-vsc",
+            "Catppuccin.catppuccin-vsc-icons",
+            "dbaeumer.vscode-eslint",
+            "eamodio.gitlens",
+            "esbenp.prettier-vscode",
+            "GitHub.github-vscode-theme",
+            "jock.svg",
+            "ms-python.black-formatter",
+            "ms-python.pylint",
+            "ms-python.python",
+            "ms-python.vscode-pylance",
+            "ms-vscode.makefile-tools",
+            "ms-vscode.powershell",
+            "PKief.material-icon-theme",
+            "redhat.java",
+            "redhat.vscode-xml",
+            "redhat.vscode-yaml",
+            "ritwickdey.LiveServer",
+            "shd101wyy.markdown-preview-enhanced",
+            "VisualStudioExptTeam.intellicode-api-usage-examples",
+            "VisualStudioExptTeam.vscodeintellicode",
+            "vscjava.vscode-java-debug",
+            "vscjava.vscode-java-dependency",
+            "vscjava.vscode-java-pack",
+            "vscjava.vscode-java-test",
+            "vscjava.vscode-maven"
+        ]
+    },
+    {
+        "appName": "VLC media player",
+        "version": "3.0.20",
+        "url": "https://mirror.kku.ac.th/videolan/vlc/3.0.20/win64/vlc-3.0.20-win64.exe"
+    },
+    {
+        "appName": "Youtube Downloader",
+        "version": "1.10.8",
+        "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
+    }
+]
