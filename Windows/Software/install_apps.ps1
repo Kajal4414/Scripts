@@ -24,6 +24,20 @@ $softwareURLs = @{
 # Define download folder
 $downloadFolder = "$Env:UserProfile\Downloads"
 
+# Function to check if software is already installed
+function CheckIfInstalled {
+    param($appName)
+
+    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+
+    if ($x64Apps.DisplayName -contains $appName -or $x86Apps.DisplayName -contains $appName) {
+        return $true
+    } else {
+        return $false
+    }
+}
+
 # Function to pause and wait for user input
 function PauseNull {
     Write-Host "Press any key to exit... " -NoNewline
@@ -130,8 +144,15 @@ function InstallSoftware {
 
 # Loop through software URLs, download, and install
 foreach ($app in $softwareURLs.GetEnumerator()) {
-    DownloadSoftware -appName $app.Key -appURL $app.Value
-    InstallSoftware -appName $app.Key
+    $appName = $app.Key
+    $appURL = $app.Value
+
+    if (-not (CheckIfInstalled -appName $appName)) {
+        DownloadSoftware -appName $appName -appURL $appURL
+        InstallSoftware -appName $appName
+    } else {
+        Write-Host "'$appName' is already installed." -ForegroundColor Yellow
+    }
 }
 
 # Directories for specific software
