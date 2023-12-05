@@ -1,0 +1,116 @@
+[
+    {
+        "appName": "7-Zip",
+        "version": "v23.01",
+        "architecture": "x64",
+        "url": "https://www.7-zip.org/a/7z2301-x64.exe"
+    },
+    {
+        "appName": "BleachBit",
+        "version": "v4.6.0",
+        "architecture": "x64",
+        "url": "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
+    },
+    {
+        "appName": "Chrome",
+        "version": "vLatest",
+        "architecture": "x64",
+        "url": "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
+    },
+    {
+        "appName": "Git",
+        "version": "v2.43.0",
+        "architecture": "x64",
+        "url": "https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe"
+    },
+    {
+        "appName": "IDM",
+        "version": "v6.42 Build 2",
+        "architecture": "x86",
+        "url": "https://mirror2.internetdownloadmanager.com/idman642build2.exe?v=lt&filename=idman642build2.exe"
+    },
+    {
+        "appName": "IntelliJ IDEA",
+        "version": "v2023.2.5",
+        "architecture": "x64",
+        "url": "https://download-cdn.jetbrains.com/idea/ideaIC-2023.2.5.exe"
+    },
+    {
+        "appName": "JDK",
+        "version": "v21.0.1",
+        "architecture": "x64",
+        "url": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
+    },
+    {
+        "appName": "K-Lite Codec Pack",
+        "version": "v17.9.4",
+        "architecture": "x64",
+        "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1794_Full.exe"
+    },
+    {
+        "appName": "Notepad++",
+        "version": "v8.6",
+        "architecture": "x64",
+        "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.6.Installer.x64.exe"
+    },
+    {
+        "appName": "ProtonVPN",
+        "version": "v3.2.7",
+        "architecture": "x64",
+        "url": "https://protonvpn.com/download/ProtonVPN_v3.2.7.exe"
+    },
+    {
+        "appName": "Node.js",
+        "version": "v20.10.0",
+        "architecture": "x64",
+        "url": "https://nodejs.org/dist/v20.10.0/node-v20.10.0-x64.msi"
+    },
+    {
+        "appName": "PyCharm",
+        "version": "v2023.2.5",
+        "architecture": "x64",
+        "url": "https://download-cdn.jetbrains.com/python/pycharm-community-2023.2.5.exe"
+    },
+    {
+        "appName": "Python",
+        "version": "v3.12.0",
+        "architecture": "x64",
+        "url": "https://www.python.org/ftp/python/3.12.0/python-3.12.0-amd64.exe"
+    },
+    {
+        "appName": "Revo Uninstaller Pro",
+        "version": "vLatest",
+        "architecture": "x64",
+        "url": "https://download.revouninstaller.com/download/RevoUninProSetup.exe"
+    },
+    {
+        "appName": "StartIsBack",
+        "version": "vLatest",
+        "architecture": "x86",
+        "url": "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
+    },
+    {
+        "appName": "Telegram",
+        "version": "vLatest",
+        "architecture": "x64",
+        "url": "https://telegram.org/dl/desktop/win64"
+    },
+    {
+        "appName": "Visual Studio Code",
+        "version": "v1.84.2",
+        "architecture": "x64",
+        "url": "https://az764295.vo.msecnd.net/stable/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/VSCodeSetup-x64-1.84.2.exe"
+    },
+    {
+        "appName": "VLC",
+        "version": "v3.0.20",
+        "architecture": "x64",
+        "url": "https://mirror.kku.ac.th/videolan/vlc/3.0.20/win64/vlc-3.0.20-win64.exe"
+    },
+    {
+        "appName": "Youtube Downloader",
+        "version": "v1.10.8",
+        "architecture": "x64",
+        "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
+    }
+]
