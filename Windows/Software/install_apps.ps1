@@ -28,16 +28,18 @@ $downloadFolder = "$Env:UserProfile\Downloads"
 function CheckIfInstalled {
     param($appName)
 
-    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
-    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
-    
-    $appNamePrefix = $appName -replace 'v.*$' # Remove text after 'v' in $appName
+    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName
+    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName
 
-    if ($x64Apps.DisplayName -contains "$appNamePrefix*" -or $x86Apps.DisplayName -contains "$appNamePrefix*") {
-        return $true
-    } else {
-        return $false
+    $appNamePrefix = $appName -replace 'v.*$' # Remove text after 'v' in $appName
+    $installedApps = $x64Apps.DisplayName + $x86Apps.DisplayName  # Combine all display names
+
+    foreach ($installedApp in $installedApps) {
+        if ($installedApp -like "*$appNamePrefix*") {  # Check if the app name is contained within any display name
+            return $true
+        }
     }
+    return $false
 }
 
 # Function to pause and wait for user input
