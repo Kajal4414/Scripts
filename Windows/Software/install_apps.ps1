@@ -24,25 +24,6 @@ $softwareURLs = @{
 # Define download folder
 $downloadFolder = "$Env:UserProfile\Downloads"
 
-# Function to check if software is already installed
-function CheckIfInstalled {
-    param($appName)
-
-    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName
-    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName
-
-    $appNamePrefix = $appName -replace 'v.*$' # Remove text after 'v' in $appName
-    $installedApps = $x64Apps.DisplayName + $x86Apps.DisplayName  # Combine all display names
-
-    foreach ($installedApp in $installedApps) {
-        if ($installedApp -like "*$appNamePrefix*") {
-            # Check if the app name is contained within any display name
-            return $true
-        }
-    }
-    return $false
-}
-
 # Function to pause and wait for user input
 function PauseNull {
     Write-Host "Press any key to exit... " -NoNewline
@@ -57,10 +38,10 @@ function TestAdmin {
 }
 
 # Check for admin privileges
-# if (-not (TestAdmin)) {
-#     Write-Host "Error: Admin privileges required" -ForegroundColor Red
-#     PauseNull
-# }
+if (-not (TestAdmin)) {
+    Write-Host "Error: Admin privileges required" -ForegroundColor Red
+    PauseNull
+}
 
 # Function to download software
 function DownloadSoftware {
@@ -149,16 +130,8 @@ function InstallSoftware {
 
 # Loop through software URLs, download, and install
 foreach ($app in $softwareURLs.GetEnumerator()) {
-    $appName = $app.Key
-    $appURL = $app.Value
-
-    if (-not (CheckIfInstalled -appName $appName)) {
-        DownloadSoftware -appName $appName -appURL $appURL
-        InstallSoftware -appName $appName
-    }
-    else {
-        Write-Host "Skipping: '$appName' is already installed." -ForegroundColor Yellow
-    }
+    DownloadSoftware -appName $app.Key -appURL $app.Value
+    InstallSoftware -appName $app.Key
 }
 
 # Directories for specific software
