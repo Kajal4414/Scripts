@@ -18,10 +18,10 @@ function TestAdmin {
 }
 
 # Check for admin privileges
-if (-not (TestAdmin)) {
-    Write-Host "Error: Admin privileges required" -ForegroundColor Red
-    PauseNull
-}
+# if (-not (TestAdmin)) {
+#     Write-Host "Error: Admin privileges required" -ForegroundColor Red
+#     PauseNull
+# }
 
 # Function to download software
 function DownloadSoftware {
@@ -103,7 +103,12 @@ function InstallSoftware {
 
     if ($appName -like "Youtube Downloader*") {
         Write-Host "Extracting '$appName' installer to C:\Program Files\YoutubeDownloader..." -ForegroundColor Cyan
-        Expand-Archive -Path "$downloadFolder\$appName" -DestinationPath "C:\Program Files\YoutubeDownloader" -Force
+        try {
+            Expand-Archive -Path "$downloadFolder\$appName" -DestinationPath "C:\Program Files\YoutubeDownloader" -Force
+            Write-Host "Installation of '$appName' extracted to C:\Program Files\YoutubeDownloader successfully." -ForegroundColor Green
+        } catch {
+            Write-Host "Error occurred while extracting '$appName' installer: $_" -ForegroundColor Red
+        }
         return
     }
 
@@ -114,7 +119,12 @@ function InstallSoftware {
     }
 
     Write-Host "Installing '$appName'" -ForegroundColor Cyan
-    Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
+    try {
+        Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait -ErrorAction Stop
+        Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
+    } catch {
+        Write-Host "Error occurred while installing '$appName': $_" -ForegroundColor Red
+    }
 }
 
 # Function to check if the software is installed and the version matches
