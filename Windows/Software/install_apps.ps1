@@ -25,7 +25,13 @@ if (-not (TestAdmin)) {
 
 # Function to download software
 function DownloadSoftware {
-    param($appName, $appURL)
+    param($appName, $appURL, $appVersion)
+
+    # Check if the app is already installed with the same version
+    if (IsAppInstalled $appName $appVersion) {
+        Write-Host "Skipping download: '$appName' version '$appVersion' is already installed." -ForegroundColor Yellow
+        return
+    }
 
     # Get the file extension from the URL
     $fileExtension = [System.IO.Path]::GetExtension($appURL)
