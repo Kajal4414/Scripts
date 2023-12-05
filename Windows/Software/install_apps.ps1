@@ -1,4 +1,4 @@
-# Read software URLs from the JSON file
+# Read software URLs from the JSON file (retuns: appName, version, url).
 $softwareURLs = Get-Content -Path ".\Windows\Software\softwareURLs.json" | ConvertFrom-Json
 
 # Define download folder
