@@ -15,8 +15,11 @@ function PauseNull {
 function DownloadSoftware {
     param($appName, $appURL)
 
-    # Define the file path based on the download folder and software name
-    $filePath = Join-Path -Path $downloadFolder -ChildPath $appName
+    # Get the file extension from the URL
+    $fileExtension = [System.IO.Path]::GetExtension($appURL)
+
+    # Define the file path based on the download folder, software name, and file extension
+    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName$fileExtension"
 
     # Check if the file already exists at the specified file path
     if (Test-Path -Path $filePath) {
