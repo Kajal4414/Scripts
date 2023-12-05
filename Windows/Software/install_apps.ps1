@@ -18,10 +18,10 @@ function TestAdmin {
 }
 
 # Check for admin privileges
-if (-not (TestAdmin)) {
-    Write-Host "Error: Admin privileges required" -ForegroundColor Red
-    PauseNull
-}
+# if (-not (TestAdmin)) {
+#     Write-Host "Error: Admin privileges required" -ForegroundColor Red
+#     PauseNull
+# }
 
 # Function to download software
 function DownloadSoftware {
@@ -92,6 +92,12 @@ function DownloadSoftware {
 function InstallSoftware {
     param($appName)
 
+    # Check if the software is already installed
+    if (IsAppInstalled $appName) {
+        Write-Host "Skipping installation: '$appName' is already installed." -ForegroundColor Yellow
+        return
+    }
+
     if ($appName -like "Youtube Downloader*") {
         Write-Host "Extracting '$appName' installer to C:\Program Files\YoutubeDownloader..." -ForegroundColor Cyan
         Expand-Archive -Path "$downloadFolder\$appName" -DestinationPath "C:\Program Files\YoutubeDownloader" -Force
@@ -106,6 +112,22 @@ function InstallSoftware {
 
     Write-Host "Installing '$appName'" -ForegroundColor Cyan
     Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
+}
+
+# Function to check if the software is installed
+function IsAppInstalled {
+    param($appName)
+
+    # Get installed applications from registry
+    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName
+    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName
+
+    # Check if the app name exists in installed apps list
+    if (($x64Apps.DisplayName -contains $appName) -or ($x86Apps.DisplayName -contains $appName)) {
+        return $true
+    } else {
+        return $false
+    }
 }
 
 # Loop through software URLs, download, and install
