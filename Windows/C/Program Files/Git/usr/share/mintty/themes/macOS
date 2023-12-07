@@ -1,7 +1,7 @@
 # Mintty macOS-like Dark Theme
 
 ForegroundColour=255,255,255
-BackgroundColour=28,28,28
+BackgroundColour=32,32,32
 CursorColour=255,255,255
 Black=0,0,0
 BoldBlack=60,60,60
