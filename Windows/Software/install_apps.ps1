@@ -25,7 +25,13 @@ if (-not (TestAdmin)) {
 
 # Function to download software
 function DownloadSoftware {
-    param($appName, $appURL)
+    param($appName, $appURL, $appVersion)
+
+    # Check if the app is already installed with the same version
+    if (IsAppInstalled $appName $appVersion) {
+        Write-Host "Skipping download: '$appName' version '$appVersion' is already installed." -ForegroundColor Yellow
+        return
+    }
 
     # Get the file extension from the URL
     $fileExtension = [System.IO.Path]::GetExtension($appURL)
@@ -101,6 +107,7 @@ function InstallSoftware {
         return
     }
 
+    # Custom handling for certain apps like YouTube Downloader
     if ($appName -like "Youtube Downloader*") {
         Write-Host "Extracting '$appName' installer to C:\Program Files\YoutubeDownloader..." -ForegroundColor Cyan
         try {
@@ -113,12 +120,14 @@ function InstallSoftware {
         return
     }
 
-    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName"
+    # Check for installer path existence
+    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
     if (-not (Test-Path -Path $installerPath)) {
         Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
         return
     }
 
+    # Regular installation process
     Write-Host "Installing '$appName'" -ForegroundColor Cyan
     try {
         Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait -ErrorAction Stop
@@ -134,8 +143,8 @@ function IsAppInstalled {
     param($appName, $appVersion)
 
     # Get installed applications from registry with DisplayVersion info
-    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
-    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayVersion
+    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayVersion
 
     # Check if the app with specified version exists in installed apps list
     if ($x64Apps.DisplayVersion -contains $appVersion -or $x86Apps.DisplayVersion -contains $appVersion) {
