@@ -1,86 +1,86 @@
 {
-	"$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate": "2023-10-21T20:52:07.778-00:00",
-	"Sources": [
-		{
-			"Packages": [
-				{
-					"PackageIdentifier": "7zip.7zip"
-				},
-				{
-					"PackageIdentifier": "BleachBit.BleachBit"
-				},
-				{
-					"PackageIdentifier": "Git.Git"
-				},
-				{
-					"PackageIdentifier": "Google.Chrome"
-				},
-				{
-					"PackageIdentifier": "JetBrains.IntelliJIDEA.Community"
-				},
-				{
-					"PackageIdentifier": "Tonec.InternetDownloadManager"
-				},
-				{
-					"PackageIdentifier": "Mozilla.Firefox"
-				},
-				{
-					"PackageIdentifier": "Notepad++.Notepad++"
-				},
-				{
-					"PackageIdentifier": "VideoLAN.VLC"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VCRedist.2013.x64"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VCRedist.2010.x64"
-				},
-				{
-					"PackageIdentifier": "Python.Launcher"
-				},
-				{
-					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.7"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VCRedist.2008.x64"
-				},
-				{
-					"PackageIdentifier": "RevoUninstaller.RevoUninstallerPro"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VCRedist.2005.x86"
-				},
-				{
-					"PackageIdentifier": "Oracle.JDK.21"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VCRedist.2015+.x64"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VCRedist.2008.x86"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VisualStudioCode"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VCRedist.2010.x86"
-				},
-				{
-					"PackageIdentifier": "Microsoft.VCRedist.2012.x64"
-				},
-				{
-					"PackageIdentifier": "Python.Python.3.12"
-				}
-			],
-			"SourceDetails": {
-				"Argument": "https://cdn.winget.microsoft.com/cache",
-				"Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
-				"Name": "winget",
-				"Type": "Microsoft.PreIndexed.Package"
-			}
-		}
-	],
-	"WinGetVersion": "1.6.2771"
+    "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+    "CreationDate": "2023-10-21T20:52:07.778-00:00",
+    "Sources": [
+        {
+            "Packages": [
+                {
+                    "PackageIdentifier": "7zip.7zip"
+                },
+                {
+                    "PackageIdentifier": "BleachBit.BleachBit"
+                },
+                {
+                    "PackageIdentifier": "Git.Git"
+                },
+                {
+                    "PackageIdentifier": "Google.Chrome"
+                },
+                {
+                    "PackageIdentifier": "JetBrains.IntelliJIDEA.Community"
+                },
+                {
+                    "PackageIdentifier": "Tonec.InternetDownloadManager"
+                },
+                {
+                    "PackageIdentifier": "Mozilla.Firefox"
+                },
+                {
+                    "PackageIdentifier": "Notepad++.Notepad++"
+                },
+                {
+                    "PackageIdentifier": "VideoLAN.VLC"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2013.x64"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2010.x64"
+                },
+                {
+                    "PackageIdentifier": "Python.Launcher"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.7"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2008.x64"
+                },
+                {
+                    "PackageIdentifier": "RevoUninstaller.RevoUninstallerPro"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2005.x86"
+                },
+                {
+                    "PackageIdentifier": "Oracle.JDK.21"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2015+.x64"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2008.x86"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VisualStudioCode"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2010.x86"
+                },
+                {
+                    "PackageIdentifier": "Microsoft.VCRedist.2012.x64"
+                },
+                {
+                    "PackageIdentifier": "Python.Python.3.12"
+                }
+            ],
+            "SourceDetails": {
+                "Argument": "https://cdn.winget.microsoft.com/cache",
+                "Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+                "Name": "winget",
+                "Type": "Microsoft.PreIndexed.Package"
+            }
+        }
+    ],
+    "WinGetVersion": "1.6.2771"
 }

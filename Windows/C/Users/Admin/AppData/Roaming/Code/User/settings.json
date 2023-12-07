@@ -1,47 +1,47 @@
 {
-  "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
-  "chat.editor.fontSize": 12,
-  "debug.console.fontSize": 12,
-  "editor.fontFamily": "'JetBrains Mono', 'Maple Mono'",
-  "editor.fontSize": 12,
-  "editor.semanticHighlighting.enabled": true,
-  "editor.scrollbar.vertical": "hidden",
-  "editor.scrollbar.verticalScrollbarSize": 0,
-  "editor.formatOnSave": true,
-  "explorer.confirmDelete": false,
-  "extensions.autoUpdate": false,
-  "files.trimTrailingWhitespace": true,
-  "markdown-preview-enhanced.codeBlockTheme": "atom-dark.css",
-  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
-  "markdown.preview.fontSize": 12,
-  "redhat.telemetry.enabled": false,
-  "scm.inputFontSize": 12,
-  "security.workspace.trust.enabled": false,
-  "security.workspace.trust.startupPrompt": "never",
-  "security.workspace.trust.untrustedFiles": "newWindow",
-  "telemetry.telemetryLevel": "off",
-  "terminal.explorerKind": "both",
-  "terminal.integrated.fontFamily": "JetBrainsMono NFM",
-  "terminal.integrated.fontSize": 12,
-  "terminal.integrated.minimumContrastRatio": 1,
-  "terminal.sourceControlRepositoriesKind": "both",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "none"
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "chat.editor.fontSize": 12,
+    "debug.console.fontSize": 12,
+    "editor.fontFamily": "'JetBrains Mono', 'Maple Mono'",
+    "editor.fontSize": 12,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.formatOnSave": true,
+    "explorer.confirmDelete": false,
+    "extensions.autoUpdate": false,
+    "files.trimTrailingWhitespace": true,
+    "markdown-preview-enhanced.codeBlockTheme": "atom-dark.css",
+    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    "markdown.preview.fontSize": 12,
+    "redhat.telemetry.enabled": false,
+    "scm.inputFontSize": 12,
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "telemetry.telemetryLevel": "off",
+    "terminal.explorerKind": "both",
+    "terminal.integrated.fontFamily": "JetBrainsMono NFM",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.minimumContrastRatio": 1,
+    "terminal.sourceControlRepositoriesKind": "both",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "none"
 }
