@@ -88,10 +88,10 @@
         "jsnUrl": "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json",
         "url": "https://az764295.vo.msecnd.net/stable/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/VSCodeSetup-x64-1.84.2.exe",
         "extensions": [
+            "aaron-bond.better-comments",
             "astro-build.astro-vscode",
+            "BeardedBear.beardedtheme",
             "Blackboxapp.blackbox",
-            "Catppuccin.catppuccin-vsc",
-            "Catppuccin.catppuccin-vsc-icons",
             "Codeium.codeium",
             "dbaeumer.vscode-eslint",
             "eamodio.gitlens",

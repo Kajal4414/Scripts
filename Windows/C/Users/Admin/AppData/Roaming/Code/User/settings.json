@@ -19,7 +19,7 @@
     },
     "chat.editor.fontSize": 12,
     "debug.console.fontSize": 12,
-    "editor.fontFamily": "'JetBrains Mono', 'Maple Mono'",
+    "editor.fontFamily": "'JetBrains Mono'",
     "editor.fontSize": 12,
     "editor.semanticHighlighting.enabled": true,
     "editor.scrollbar.vertical": "hidden",
@@ -40,6 +40,8 @@
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.minimumContrastRatio": 1,
     "terminal.sourceControlRepositoriesKind": "both",
+    "update.mode": "manual",
+    "workbench.colorTheme": "Bearded Theme Black & Diamond",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none"
 }
