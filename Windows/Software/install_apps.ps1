@@ -101,6 +101,13 @@ function DownloadSoftware {
 function InstallSoftware {
     param($appName, $appVersion)
 
+    # Check for installer path existence
+    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
+    if (-not (Test-Path -Path $installerPath)) {
+        Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
+        return
+    }
+
     # Check if the software is already installed and the version matches
     if (IsAppInstalled $appName $appVersion) {
         Write-Host "Skipping installation: '$appName' version '$appVersion' is already installed." -ForegroundColor Yellow
@@ -109,8 +116,6 @@ function InstallSoftware {
 
     # Custom handling for certain apps like YouTube Downloader
     if ($appName -like "Youtube Downloader*") {
-        $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName"
-
         if (Test-Path -Path "C:\Program Files\YoutubeDownloader\YoutubeDownloader.exe" -PathType Leaf) {
             $installedVersion = (Get-Item "C:\Program Files\YoutubeDownloader\YoutubeDownloader.exe").VersionInfo.ProductVersion
             if ($installedVersion -eq $appVersion) {
@@ -130,13 +135,6 @@ function InstallSoftware {
         }
     }
     else {
-        # Check for installer path existence
-        $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName"
-        if (-not (Test-Path -Path $installerPath)) {
-            Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
-            return
-        }
-
         # Regular installation process
         Write-Host "Installing '$appName'" -ForegroundColor Cyan
         try {
