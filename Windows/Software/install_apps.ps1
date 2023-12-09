@@ -1,5 +1,5 @@
 # Read software URLs from the JSON file
-$softwareURLs = Get-Content -Path ".\Windows\Software\softwareURLs.json" | ConvertFrom-Json
+$softwareURLs = Get-Content -Path ".\Windows\Software\install_apps.json" | ConvertFrom-Json
 
 # Define download folder
 $downloadFolder = "$Env:UserProfile\Downloads"
@@ -109,6 +109,14 @@ function InstallSoftware {
 
     # Custom handling for certain apps like YouTube Downloader
     if ($appName -like "Youtube Downloader*") {
+        if (Test-Path -Path "C:\Program Files\YoutubeDownloader\YoutubeDownloader.exe" -PathType Leaf) {
+            $installedVersion = (Get-Item "C:\Program Files\YoutubeDownloader\YoutubeDownloader.exe").VersionInfo.ProductVersion
+            if ($installedVersion -eq $appVersion) {
+                Write-Host "Skipping Extracting: '$appName' version '$appVersion' is already installed." -ForegroundColor Yellow
+                return
+            }
+        }
+    
         Write-Host "Extracting '$appName' installer to C:\Program Files\YoutubeDownloader..." -ForegroundColor Cyan
         try {
             Expand-Archive -Path "$downloadFolder\$appName" -DestinationPath "C:\Program Files\YoutubeDownloader" -Force
@@ -130,7 +138,7 @@ function InstallSoftware {
     # Regular installation process
     Write-Host "Installing '$appName'" -ForegroundColor Cyan
     try {
-        Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait -ErrorAction Stop
+        Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
         Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
     }
     catch {
