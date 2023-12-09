@@ -109,6 +109,8 @@ function InstallSoftware {
 
     # Custom handling for certain apps like YouTube Downloader
     if ($appName -like "Youtube Downloader*") {
+        $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName"
+
         if (Test-Path -Path "C:\Program Files\YoutubeDownloader\YoutubeDownloader.exe" -PathType Leaf) {
             $installedVersion = (Get-Item "C:\Program Files\YoutubeDownloader\YoutubeDownloader.exe").VersionInfo.ProductVersion
             if ($installedVersion -eq $appVersion) {
@@ -116,33 +118,34 @@ function InstallSoftware {
                 return
             }
         }
-    
+
         Write-Host "Extracting '$appName' installer to C:\Program Files\YoutubeDownloader..." -ForegroundColor Cyan
         try {
-            Expand-Archive -Path "$downloadFolder\$appName" -DestinationPath "C:\Program Files\YoutubeDownloader" -Force
+            Expand-Archive -Path $installerPath -DestinationPath "C:\Program Files\YoutubeDownloader" -Force
             Write-Host "Installation of '$appName' extracted to C:\Program Files\YoutubeDownloader successfully." -ForegroundColor Green
         }
         catch {
             Write-Host "Error occurred while extracting '$appName' installer: $_" -ForegroundColor Red
+            return
         }
-        return
     }
+    else {
+        # Check for installer path existence
+        $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName"
+        if (-not (Test-Path -Path $installerPath)) {
+            Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
+            return
+        }
 
-    # Check for installer path existence
-    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
-    if (-not (Test-Path -Path $installerPath)) {
-        Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
-        return
-    }
-
-    # Regular installation process
-    Write-Host "Installing '$appName'" -ForegroundColor Cyan
-    try {
-        Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
-        Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
-    }
-    catch {
-        Write-Host "Error occurred while installing '$appName': $_" -ForegroundColor Red
+        # Regular installation process
+        Write-Host "Installing '$appName'" -ForegroundColor Cyan
+        try {
+            Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
+            Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
+        }
+        catch {
+            Write-Host "Error occurred while installing '$appName': $_" -ForegroundColor Red
+        }
     }
 }
 
