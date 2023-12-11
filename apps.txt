@@ -1,0 +1,53 @@
+DisplayName                                                        DisplayVersion
+-----------                                                        --------------
+7-Zip 23.01 (x64)                                                  23.01
+AMD Settings                                                       2023.1017.1604.1996
+AMD Software                                                       23.11.1
+BleachBit                                                          4.6.0.2537
+Brave                                                              120.1.61.101
+Git                                                                2.43.0
+GitHub (Chrome app)                                                1.0
+Google Chrome                                                      119.0.6045.200
+IntelliJ IDEA Community Edition 2023.2.5                           232.10227.8
+Internet Download Manager                                          6.42.2
+IObit Unlocker                                                     1.3.0.11
+Java(TM) SE Development Kit 21.0.1 (64-bit)                        21.0.1.0
+K-Lite Codec Pack 17.9.4 Full                                      17.9.4
+Microsoft Visual C++ 2005 Redistributable                          8.0.61001
+Microsoft Visual C++ 2005 Redistributable (x64)                    8.0.61000
+Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.6161     9.0.30729.6161
+Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161     9.0.30729.6161
+Microsoft Visual C++ 2010  x64 Redistributable - 10.0.40219        10.0.40219
+Microsoft Visual C++ 2010  x86 Redistributable - 10.0.40219        10.0.40219
+Microsoft Visual C++ 2012 Redistributable (x64) - 11.0.61030       11.0.61030.0
+Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030       11.0.61030.0
+Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.61030      11.0.61030
+Microsoft Visual C++ 2012 x64 Minimum Runtime - 11.0.61030         11.0.61030
+Microsoft Visual C++ 2012 x86 Additional Runtime - 11.0.61030      11.0.61030
+Microsoft Visual C++ 2012 x86 Minimum Runtime - 11.0.61030         11.0.61030
+Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.40664       12.0.40664.0
+Microsoft Visual C++ 2013 Redistributable (x86) - 12.0.40664       12.0.40664.0
+Microsoft Visual C++ 2013 x64 Additional Runtime - 12.0.40664      12.0.40664
+Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.40664         12.0.40664
+Microsoft Visual C++ 2013 x86 Additional Runtime - 12.0.40664      12.0.40664
+Microsoft Visual C++ 2013 x86 Minimum Runtime - 12.0.40664         12.0.40664
+Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.38.33130 14.38.33130.0
+Microsoft Visual C++ 2015-2022 Redistributable (x86) - 14.38.33130 14.38.33130.0
+Microsoft Visual C++ 2022 X64 Additional Runtime - 14.38.33130     14.38.33130
+Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.38.33130        14.38.33130
+Microsoft Visual C++ 2022 X86 Additional Runtime - 14.38.33130     14.38.33130
+Microsoft Visual C++ 2022 X86 Minimum Runtime - 14.38.33130        14.38.33130
+Microsoft Visual Studio Code                                       1.85.0
+Mozilla Firefox (x64 en-GB)                                        120.0.1
+Node.js                                                            20.9.0
+Notepad++ (64-bit x64)                                             8.6
+Proton VPN                                                         3.2.7
+PyCharm Community Edition 2023.2.5                                 232.10227.11
+Python 3.12.0 (64-bit)                                             3.12.150.0
+Python Launcher                                                    3.12.150.0
+Revo Uninstaller Pro 5.2.1                                         5.2.1
+StartIsBack++                                                      2.9.19
+UltraUXThemePatcher                                                4.4.1.0
+Telegram Desktop                                                   4.12.2
+VLC media player                                                   3.0.20
+YouTube (Chrome app)                                               1.0
