@@ -31,14 +31,25 @@ function DownloadSoftware {
     $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName.exe"
 
     try {
-        $isInstalled = IsAppInstalled -appName $appName -appVersion $appVersion
+        # Check if the app is already installed
+        $appInstalled = $false
+        $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+        $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+        $installedApps = ($x64Apps + $x86Apps) | Where-Object { $null -ne $_.DisplayName } | Sort-Object DisplayName -Unique
 
-        if (-not $isInstalled) {
+        foreach ($app in $installedApps) {
+            $escapedAppName = [Regex]::Escape($appName)
+            if ($app.DisplayName -match "^$escapedAppName" -and $app.DisplayVersion -eq $appVersion) {
+                Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
+                $appInstalled = $true
+                break
+            }
+        }
+
+        if (-not $appInstalled) {
             Write-Host "Downloading '$appName'..." -ForegroundColor Cyan
             # Download the software using cURL
             curl.exe -o $filePath -LS $appURL
-        } else {
-            Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
         }
     }
     catch {
@@ -50,45 +61,22 @@ function DownloadSoftware {
 function InstallSoftware {
     param($appName)
 
+    # Check for installer path existence
+    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
+    if (-not (Test-Path -Path $installerPath)) {
+        Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
+        return
+    }
+
+    # Regular installation process
+    Write-Host "Installing '$appName'" -ForegroundColor Cyan
     try {
-        $isInstalled = IsAppInstalled -appName $appName
-
-        if (-not $isInstalled) {
-            $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
-            if (-not (Test-Path -Path $installerPath)) {
-                Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
-                return
-            }
-
-            Write-Host "Installing '$appName'" -ForegroundColor Cyan
-            Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait -ErrorAction Stop
-            Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
-        }
-        else {
-            Write-Host "Skipping installation: $appName is already installed." -ForegroundColor Yellow
-        }
+        Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait -ErrorAction Stop
+        Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
     }
     catch {
         Write-Host "Error occurred while installing '$appName': $_" -ForegroundColor Red
     }
-}
-
-# Function to check if the app is installed
-function IsAppInstalled {
-    param($appName, $appVersion = $null)
-
-    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
-    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
-    $installedApps = ($x64Apps + $x86Apps) | Where-Object { $null -ne $_.DisplayName } | Sort-Object DisplayName -Unique
-
-    foreach ($app in $installedApps) {
-        $escapedAppName = [Regex]::Escape($appName)
-        if ($app.DisplayName -match "^$escapedAppName" -and ($null -eq $appVersion -or $app.DisplayVersion -eq $appVersion)) {
-            return $true
-        }
-    }
-
-    return $false
 }
 
 # Loop through software URLs, download, and install
