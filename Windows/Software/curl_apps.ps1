@@ -10,7 +10,7 @@ function DownloadFile {
     }
     else {
         Write-Host "`nDownloading: $outputFile from '$url'`n" -ForegroundColor Green
-        curl.exe -LS -o $outputFile $url
+        Add-Content -Path "$Env:UserProfile\Desktop\Scripts\Windows\Software\log.txt" -Value "$outputFile`t`t$url"
         Write-Host ("-" * 100) -ForegroundColor Green
     }
 }
