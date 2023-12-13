@@ -27,53 +27,52 @@ if (-not (TestAdmin)) {
 function DownloadSoftware {
     param($appName, $appURL, $appVersion)
 
-    # Define the file path based on the download folder, software name, and file extension
-    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName.exe"
+    # Get the file extension from the URL
+    $fileExtension = [System.IO.Path]::GetExtension($appURL)
+    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName$fileExtension"
 
     try {
         # Check if the app is already installed
-        $appInstalled = $false
-        $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
-        $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
-        $installedApps = ($x64Apps + $x86Apps) | Where-Object { $null -ne $_.DisplayName } | Sort-Object DisplayName -Unique
+        $installedApps = @(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -and $_.DisplayVersion })
 
         foreach ($app in $installedApps) {
             $escapedAppName = [Regex]::Escape($appName)
             if ($app.DisplayName -match "^$escapedAppName" -and $app.DisplayVersion -eq $appVersion) {
                 Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
-                return $false # Indicates that the download is skipped
+                return $false
             }
         }
 
         if (-not $appInstalled) {
             Write-Host "Downloading '$appName'..." -ForegroundColor Cyan
-            # Download the software using cURL
             curl.exe -o $filePath -LS $appURL
-            return $true # Indicates that the download is performed
+            return $filePath
         }
     }
     catch {
         Write-Host "Error occurred while downloading '$appName': $_" -ForegroundColor Red
     }
-    return $false # Indicates that an error occurred during the download process
+    return $false
 }
 
 # Function to install software
 function InstallSoftware {
-    param($appName)
+    param($filePath, $appName)
 
-    # Check for installer path existence
-    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
-    if (-not (Test-Path -Path $installerPath)) {
-        Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
-        return
-    }
-
-    # Regular installation process
-    Write-Host "Installing '$appName'" -ForegroundColor Cyan
     try {
-        Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait -ErrorAction Stop
-        Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
+        if (Test-Path $filePath) {
+            $extension = [System.IO.Path]::GetExtension($filePath)
+            Write-Host "Installing '$appName'" -ForegroundColor Cyan
+
+            if ($extension -eq ".exe") {
+                Start-Process -FilePath $filePath -WindowStyle Hidden -ArgumentList '/S' -Wait
+            }
+            elseif ($extension -eq ".msi") {
+                Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$filePath`" /qn" -Wait
+            }
+
+            Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
+        }
     }
     catch {
         Write-Host "Error occurred while installing '$appName': $_" -ForegroundColor Red
@@ -83,8 +82,8 @@ function InstallSoftware {
 # Loop through software URLs, download, and install
 foreach ($app in $softwareURLs) {
     $downloadResult = DownloadSoftware -appName $app.appName -appURL $app.url -appVersion $app.version
-    if ($downloadResult) {
-        InstallSoftware -appName $app.appName
+    if ($downloadResult -ne $false) {
+        InstallSoftware -filePath $downloadResult -appName $app.appName
     }
 }
 
