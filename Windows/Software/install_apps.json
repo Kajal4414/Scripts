@@ -47,13 +47,13 @@
     },
     {
         "appName": "Proton VPN",
-        "version": "3.2.7",
-        "url": "https://protonvpn.com/download/ProtonVPN_v3.2.7.exe"
+        "version": "3.2.8",
+        "url": "https://protonvpn.com/download/ProtonVPN_v3.2.8.exe"
     },
     {
         "appName": "Node.js",
-        "version": "20.10.0",
-        "url": "https://nodejs.org/dist/v20.10.0/node-v20.10.0-x64.msi"
+        "version": "21.4.0",
+        "url": "https://nodejs.org/download/release/latest/node-v21.4.0-x64.msi"
     },
     {
         "appName": "PyCharm Community Edition",
@@ -62,8 +62,8 @@
     },
     {
         "appName": "Python",
-        "version": "3.12",
-        "url": "https://www.python.org/ftp/python/3.12.0/python-3.12.0-amd64.exe"
+        "version": "3.12.150.0",
+        "url": "https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe"
     },
     {
         "appName": "Revo Uninstaller Pro",
@@ -78,15 +78,10 @@
         "url": "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
     },
     {
-        "appName": "Telegram",
-        "version": "4.12.2",
-        "url": "https://telegram.org/dl/desktop/win64"
-    },
-    {
         "appName": "Microsoft Visual Studio Code",
-        "version": "1.84.2",
+        "version": "1.85.0",
         "jsnUrl": "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json",
-        "url": "https://az764295.vo.msecnd.net/stable/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/VSCodeSetup-x64-1.84.2.exe",
+        "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
         "extensions": [
             "aaron-bond.better-comments",
             "astro-build.astro-vscode",
@@ -126,10 +121,5 @@
         "appName": "VLC media player",
         "version": "3.0.20",
         "url": "https://mirror.kku.ac.th/videolan/vlc/3.0.20/win64/vlc-3.0.20-win64.exe"
-    },
-    {
-        "appName": "Youtube Downloader",
-        "version": "1.10.8",
-        "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
     }
 ]

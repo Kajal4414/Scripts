@@ -27,32 +27,30 @@ if (-not (TestAdmin)) {
 function DownloadSoftware {
     param($appName, $appURL, $appVersion)
 
-    # Check if the app is already installed with the same version
-    if (IsAppInstalled $appName $appVersion) {
-        Write-Host "Skipping download: '$appName' version '$appVersion' is already installed." -ForegroundColor Yellow
-        return
-    }
-
-    # Get the file extension from the URL
-    $fileExtension = [System.IO.Path]::GetExtension($appURL)
-
     # Define the file path based on the download folder, software name, and file extension
-    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName$fileExtension"
+    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName.exe"
 
-    # Check if the file already exists at the specified file path
-    if (Test-Path -Path $filePath) {
-        Write-Host "Skipping downloading: '$appName' already exists in the download folder." -ForegroundColor Yellow
-        return
-    }
-
-    # Attempt to download the software
     try {
-        Write-Host "Downloading '$appName'..." -ForegroundColor Cyan
+        # Check if the app is already installed
+        $appInstalled = $false
+        $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+        $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion
+        $installedApps = ($x64Apps + $x86Apps) | Where-Object { $null -ne $_.DisplayName } | Sort-Object DisplayName -Unique
 
-        # Create a cURL request to the provided software URL
-        curl.exe -LS -o $filePath $appURL
+        foreach ($app in $installedApps) {
+            $escapedAppName = [Regex]::Escape($appName)
+            if ($app.DisplayName -match "^$escapedAppName" -and $app.DisplayVersion -eq $appVersion) {
+                Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
+                $appInstalled = $true
+                break
+            }
+        }
 
-        Write-Host "Downloaded '$appName' successfully." -ForegroundColor Green
+        if (-not $appInstalled) {
+            Write-Host "Downloading '$appName'..." -ForegroundColor Cyan
+            # Download the software using cURL
+            curl.exe -o $filePath -LS $appURL
+        }
     }
     catch {
         Write-Host "Error occurred while downloading '$appName': $_" -ForegroundColor Red
@@ -61,26 +59,7 @@ function DownloadSoftware {
 
 # Function to install software
 function InstallSoftware {
-    param($appName, $appVersion)
-
-    # Check if the software is already installed and the version matches
-    if (IsAppInstalled $appName $appVersion) {
-        Write-Host "Skipping installation: '$appName' version '$appVersion' is already installed." -ForegroundColor Yellow
-        return
-    }
-
-    # Custom handling for certain apps like YouTube Downloader
-    if ($appName -like "Youtube Downloader*") {
-        Write-Host "Extracting '$appName' installer to C:\Program Files\YoutubeDownloader..." -ForegroundColor Cyan
-        try {
-            Expand-Archive -Path "$downloadFolder\$appName" -DestinationPath "C:\Program Files\YoutubeDownloader" -Force
-            Write-Host "Installation of '$appName' extracted to C:\Program Files\YoutubeDownloader successfully." -ForegroundColor Green
-        }
-        catch {
-            Write-Host "Error occurred while extracting '$appName' installer: $_" -ForegroundColor Red
-        }
-        return
-    }
+    param($appName)
 
     # Check for installer path existence
     $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
@@ -100,34 +79,11 @@ function InstallSoftware {
     }
 }
 
-# Function to check if the software is installed and the version matches
-function IsAppInstalled {
-    param($appName, $appVersion)
-
-    # Get installed applications from registry with DisplayVersion info
-    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayVersion
-    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayVersion
-
-    # Check if the app with specified version exists in installed apps list
-    if ($x64Apps.DisplayVersion -contains $appVersion -or $x86Apps.DisplayVersion -contains $appVersion) {
-        return $true
-    }
-    else {
-        return $false
-    }
-}
-
 # Loop through software URLs, download, and install
 foreach ($app in $softwareURLs) {
-    DownloadSoftware -appName $app.appName -appURL $app.url
-    InstallSoftware -appName $app.appName -appVersion $app.version
+    DownloadSoftware -appName $app.appName -appURL $app.url -appVersion $app.version
+    InstallSoftware -appName $app.appName
 }
-
-# Directories for specific software
-$idmDirectory = "C:\Program Files (x86)\Internet Download Manager"
-$startIsBackDirectory = "C:\Program Files (x86)\StartIsBack"
-$vsCodeSettingsDirectory = "$Env:UserProfile\AppData\Roaming\Code\User"
-$revoUninstallerDirectory = "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro"
 
 # Function to prompt for input with default value
 function PromptForInputWithDefault($message, $defaultValue) {
@@ -144,10 +100,10 @@ function PromptForInputWithDefault($message, $defaultValue) {
     return $userInput
 }
 
-# Configuring VS Code settings if directory exists
+# Configuring VS Code
 $vsCodeExtensions = ($softwareURLs | Where-Object { $_.appName -eq "Microsoft Visual Studio Code" }).extensions
 $vsCodeSettingsUrl = ($softwareURLs | Where-Object { $_.appName -eq "Microsoft Visual Studio Code" }).jsnUrl
-if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
+if (Test-Path -Path "$Env:UserProfile\AppData\Roaming\Code\User" -PathType Container) {
     $configureVSCode = PromptForInputWithDefault "Do you want to configure Visual Studio Code settings and install extensions?" "N"
     if ($configureVSCode -eq "y") {
         Write-Host "Installing extensions for Visual Studio Code..." -ForegroundColor Yellow
@@ -160,37 +116,37 @@ if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
         Write-Host "Configuring Visual Studio Code settings..." -ForegroundColor Cyan
 
         # Downloading settings file for VS Code
-        Invoke-WebRequest -Uri $vsCodeSettingsUrl -OutFile "$vsCodeSettingsDirectory\settings.json"
+        curl.exe -o "$Env:UserProfile\AppData\Roaming\Code\User\settings.json" -LS $vsCodeSettingsUrl
     }
 }
 
-# Activating Revo Uninstaller Pro if directory exists
+# Activating Revo Uninstaller Pro
 $revoLicenseUrl = ($softwareURLs | Where-Object { $_.appName -eq "Revo Uninstaller Pro" }).licUrl
-if (Test-Path -Path $revoUninstallerDirectory -PathType Container) {
+if (Test-Path -Path "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro" -PathType Container) {
     $activateRevoUninstaller = PromptForInputWithDefault "Do you want to activate Revo Uninstaller Pro?" "N"
     if ($activateRevoUninstaller -eq "y") {
         Write-Host "Activating Revo Uninstaller Pro..." -ForegroundColor Cyan
 
         # Downloading license file for Revo Uninstaller Pro
-        Invoke-WebRequest -Uri $revoLicenseUrl -OutFile "$revoUninstallerDirectory\revouninstallerpro5.lic"
+        curl.exe -o "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\revouninstallerpro5.lic" -LS $revoLicenseUrl
     }
 }
 
-# Activating StartIsBack++ if directory exists
+# Activating StartIsBack++
 $dllFileURL = ($softwareURLs | Where-Object { $_.appName -eq "StartIsBack++" }).dllUrl
-if (Test-Path -Path $startIsBackDirectory -PathType Container) {
+if (Test-Path -Path "C:\Program Files (x86)\StartIsBack" -PathType Container) {
     $activateStartIsBack = PromptForInputWithDefault "Do you want to activate StartIsBack++?" "N"
     if ($activateStartIsBack -eq "y") {
         Write-Host "Activating StartIsBack++..." -ForegroundColor Cyan
 
         # Downloading file to activate StartIsBack++
-        Invoke-WebRequest -Uri $dllFileURL -OutFile "$startIsBackDirectory\msimg32.dll"
+        curl.exe -o "C:\Program Files (x86)\StartIsBack\msimg32.dll" -LS $dllFileURL
     }
 }
 
-# Activating Internet Download Manager if directory exists
+# Activating Internet Download Manager
 $idmActivationURL = ($softwareURLs | Where-Object { $_.appName -eq "Internet Download Manager" }).iasUrl
-if (Test-Path -Path $idmDirectory -PathType Container) {
+if (Test-Path -Path "C:\Program Files (x86)\Internet Download Manager" -PathType Container) {
     $activateIDM = PromptForInputWithDefault "Do you want to activate Internet Download Manager?" "N"
     if ($activateIDM -eq "y") {
         Write-Host "Activating Internet Download Manager..." -ForegroundColor Cyan
