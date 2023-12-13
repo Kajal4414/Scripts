@@ -41,8 +41,7 @@ function DownloadSoftware {
             $escapedAppName = [Regex]::Escape($appName)
             if ($app.DisplayName -match "^$escapedAppName" -and $app.DisplayVersion -eq $appVersion) {
                 Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
-                $appInstalled = $true
-                break
+                return $false # Indicates that the download is skipped
             }
         }
 
@@ -50,11 +49,13 @@ function DownloadSoftware {
             Write-Host "Downloading '$appName'..." -ForegroundColor Cyan
             # Download the software using cURL
             curl.exe -o $filePath -LS $appURL
+            return $true # Indicates that the download is performed
         }
     }
     catch {
         Write-Host "Error occurred while downloading '$appName': $_" -ForegroundColor Red
     }
+    return $false # Indicates that an error occurred during the download process
 }
 
 # Function to install software
@@ -81,8 +82,10 @@ function InstallSoftware {
 
 # Loop through software URLs, download, and install
 foreach ($app in $softwareURLs) {
-    DownloadSoftware -appName $app.appName -appURL $app.url -appVersion $app.version
-    InstallSoftware -appName $app.appName
+    $downloadResult = DownloadSoftware -appName $app.appName -appURL $app.url -appVersion $app.version
+    if ($downloadResult) {
+        InstallSoftware -appName $app.appName
+    }
 }
 
 # Function to prompt for input with default value
