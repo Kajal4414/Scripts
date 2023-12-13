@@ -49,51 +49,13 @@ function DownloadSoftware {
     try {
         Write-Host "Downloading '$appName'..." -ForegroundColor Cyan
 
-        # Create a web request to the provided software URL
-        $webRequest = [System.Net.WebRequest]::Create($appURL)
-        $response = $webRequest.GetResponse()
-        $stream = $response.GetResponseStream()
-        $fileStream = [System.IO.File]::Create($filePath)
-
-        # Define buffer settings for the download process
-        $bufferSize = 8192
-        $buffer = New-Object Byte[] $bufferSize
-        $bytesInMegabyte = 1MB
-        $bytesRead = 0
-
-        # Start downloading in chunks until the entire file is downloaded
-        do {
-            $read = $stream.Read($buffer, 0, $buffer.Length)
-            $fileStream.Write($buffer, 0, $read)
-            $bytesRead += $read
-
-            # Calculate download progress and display it
-            $megabytesDownloaded = $bytesRead / $bytesInMegabyte
-            $totalMegabytes = $response.ContentLength / $bytesInMegabyte
-            $percentComplete = ($bytesRead / $response.ContentLength) * 100
-
-            $status = "Downloaded {0:F2} MB of {1:F2} MB" -f $megabytesDownloaded, $totalMegabytes
-            Write-Progress -Activity "Downloading '$appName'" -Status $status -PercentComplete $percentComplete
-        } while ($read -gt 0)
-
-        # Close streams and response after download completion
-        $fileStream.Close()
-        $stream.Close()
-        $response.Close()
+        # Create a cURL request to the provided software URL
+        curl.exe -LS -o $filePath $appURL
 
         Write-Host "Downloaded '$appName' successfully." -ForegroundColor Green
     }
     catch {
         Write-Host "Error occurred while downloading '$appName': $_" -ForegroundColor Red
-    }
-    finally {
-        # Dispose resources in the finally block to ensure cleanup
-        $fileStream, $stream, $response | ForEach-Object {
-            if ($_ -ne $null) {
-                $_.Close()
-                $_.Dispose()
-            }
-        }
     }
 }
 
