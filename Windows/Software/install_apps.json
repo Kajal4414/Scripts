@@ -78,6 +78,11 @@
         "url": "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
     },
     {
+        "appName": "Telegram",
+        "version": "4.12.2.0",
+        "url": "https://telegram.org/dl/desktop/win64"
+    },
+    {
         "appName": "Microsoft Visual Studio Code",
         "version": "1.85.0",
         "jsnUrl": "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json",
@@ -121,5 +126,10 @@
         "appName": "VLC media player",
         "version": "3.0.20",
         "url": "https://mirror.kku.ac.th/videolan/vlc/3.0.20/win64/vlc-3.0.20-win64.exe"
+    },
+    {
+        "appName": "YoutubeDownloader",
+        "version": "1.10.8+00669e5aa42be10c1910d5220c9d3aa0ed5e4b14",
+        "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
     }
 ]

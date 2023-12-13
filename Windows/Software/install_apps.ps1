@@ -4,10 +4,14 @@ $softwareURLs = Get-Content -Path ".\Windows\Software\install_apps.json" | Conve
 # Define download folder
 $downloadFolder = "$Env:UserProfile\Downloads"
 
-# Function to pause and wait for user input
+# Function to display a countdown message for 5 seconds before exiting
 function PauseNull {
-    Write-Host "Press any key to exit... " -NoNewline
-    $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
+    $countdown = 5
+    while ($countdown -gt 0) {
+        Write-Host -NoNewline "Exiting in $countdown seconds...`r"
+        Start-Sleep -Seconds 1
+        $countdown--
+    }
     exit
 }
 
@@ -19,14 +23,12 @@ function TestAdmin {
 
 # Check for admin privileges
 if (-not (TestAdmin)) {
-    Write-Host "Error: Admin privileges required" -ForegroundColor Red
+    Write-Host "Error: Admin privileges required`n" -ForegroundColor Red
     PauseNull
 }
 
 # Function to download software
-function DownloadSoftware {
-    param($appName, $appURL, $appVersion)
-
+function DownloadSoftware($appName, $appURL, $appVersion) {
     # Get the file extension from the URL
     $fileExtension = [System.IO.Path]::GetExtension($appURL)
     $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName$fileExtension"
@@ -43,8 +45,28 @@ function DownloadSoftware {
             }
         }
 
+        # Additional checks for Telegram and YoutubeDownloader
+        if ($appName -eq "Telegram" -or $appName -eq "YoutubeDownloader") {
+            if ($appName -eq "Telegram") {
+                $appDirectory = "$Env:UserProfile\AppData\Roaming\Telegram Desktop"
+                $exeName = "telegram.exe"
+            }
+            elseif ($appName -eq "YoutubeDownloader") {
+                $appDirectory = "C:\Program Files\YoutubeDownloader"
+                $exeName = "YoutubeDownloader.exe"
+            }
+
+            if (Test-Path -Path $appDirectory -PathType Container) {
+                $appVersionInstalled = (Get-Item "$appDirectory\$exeName").VersionInfo.ProductVersion
+                if ($appVersionInstalled -eq $appVersion) {
+                    Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
+                    return $false
+                }
+            }
+        }
+
         if (-not $appInstalled) {
-            Write-Host "Downloading '$appName'..." -ForegroundColor Cyan
+            Write-Host "Downloading: $appName v$appVersion..." -ForegroundColor Cyan
             curl.exe -o $filePath -LS $appURL
             return $filePath
         }
@@ -56,9 +78,7 @@ function DownloadSoftware {
 }
 
 # Function to install software
-function InstallSoftware {
-    param($filePath, $appName)
-
+function InstallSoftware($filePath, $appName) {
     try {
         if (Test-Path $filePath) {
             $extension = [System.IO.Path]::GetExtension($filePath)
@@ -69,6 +89,9 @@ function InstallSoftware {
             }
             elseif ($extension -eq ".msi") {
                 Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$filePath`" /qn" -Wait
+            }
+            elseif ($extension -eq ".zip") {
+                Expand-Archive -LiteralPath $filePath "C:\Program Files\YoutubeDownloader" -Force
             }
 
             Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
