@@ -2,7 +2,7 @@
 $softwareList = @()
 
 # Load the existing JSON data, preserving all information
-$jsonPath = '../Windows/Software/software_list.json'
+$jsonPath = 'Windows/Software/install_apps.json'
 if (Test-Path $jsonPath) {
     $existingSoftwareList = Get-Content $jsonPath | ConvertFrom-Json
 }
@@ -83,9 +83,10 @@ $softwareList += [PSCustomObject]@{
 }
 
 $baseUrl = "https://nodejs.org/download/release/latest/"
+$nodeData = Get-ExistingData "Node.js"
 $softwareList += [PSCustomObject]@{
     appName = "Node.js"
-    version = Get-Version "Node.js"
+    version = $nodeData.version
     url     = "$baseUrl$((Invoke-WebRequest -Uri $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like 'node*x64.msi' } | Select-Object -First 1 -ExpandProperty Href)"
 }
 
@@ -97,9 +98,10 @@ $softwareList += [PSCustomObject]@{
     extensions = $vsCodeData.extensions
 }
 
+$nppData = Get-ExistingData "Notepad++"
 $softwareList += [PSCustomObject]@{
     appName = "Notepad++"
-    version = Get-Version "Notepad++"
+    version = $nppData.version
     url     = "$((Invoke-RestMethod -Uri 'https://api.github.com/repos/notepad-plus-plus/notepad-plus-plus/releases/latest').assets | Where-Object { $_.name -like 'npp*x64.exe' } | Select-Object -ExpandProperty browser_download_url)"
 }
 
@@ -128,7 +130,7 @@ $pyData = Get-ExistingData "Python"
 $softwareList += [PSCustomObject]@{
     appName = "Python"
     version = $pyData.version
-    url     = "$((Invoke-WebRequest -Uri 'https://www.python.org/downloads' -UseBasicParsing).Links | Where-Object { $_.Href -like '*amd64.exe' } | Select-Object -First 1 -ExpandProperty Href)"
+    url     = "$((Invoke-WebRequest -Uri 'https://www.python.org/downloads/' -UseBasicParsing).Links | Where-Object { $_.Href -like '*amd64.exe' } | Select-Object -First 1 -ExpandProperty Href)"
 }
 
 $revoData = Get-ExistingData "Revo Uninstaller Pro"
