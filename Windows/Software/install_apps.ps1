@@ -99,61 +99,60 @@ function PromptForInputWithDefault($message, $defaultValue) {
     return $userInput
 }
 
-# Configuring VS Code
-$vsCodeExtensions = ($softwareURLs | Where-Object { $_.appName -eq "Microsoft Visual Studio Code" }).extensions
-$vsCodeSettingsUrl = ($softwareURLs | Where-Object { $_.appName -eq "Microsoft Visual Studio Code" }).jsnUrl
-if (Test-Path -Path "$Env:UserProfile\AppData\Roaming\Code\User" -PathType Container) {
-    $configureVSCode = PromptForInputWithDefault "Do you want to configure Visual Studio Code settings and install extensions?" "N"
-    if ($configureVSCode -eq "y") {
-        LogMessage "Installing extensions for Visual Studio Code..." -ForegroundColor Yellow
+# Function to configure Visual Studio Code
+function ConfigureVSCode($extensions, $settingsUrl) {
+    try {
+        $vsCodeUserFolder = "$Env:UserProfile\AppData\Roaming\Code\User"
 
-        # Loop through each extension and install it
-        foreach ($extension in $vsCodeExtensions) {
-            code --install-extension $extension
+        if (Test-Path -Path $vsCodeUserFolder -PathType Container) {
+            $configureVSCode = PromptForInputWithDefault "Do you want to configure Visual Studio Code settings and install extensions?" "N"
+            if ($configureVSCode -eq "y") {
+                LogMessage "Installing extensions for Visual Studio Code..." -ForegroundColor Yellow
+
+                foreach ($extension in $extensions) {
+                    code --install-extension $extension
+                }
+
+                LogMessage "Configuring Visual Studio Code settings..." -ForegroundColor Cyan
+
+                curl.exe -o "$vsCodeUserFolder\settings.json" -LS $settingsUrl
+            }
         }
-
-        LogMessage "Configuring Visual Studio Code settings..." -ForegroundColor Cyan
-
-        # Downloading settings file for VS Code
-        curl.exe -o "$Env:UserProfile\AppData\Roaming\Code\User\settings.json" -LS $vsCodeSettingsUrl
+    }
+    catch {
+        LogMessage "Error occurred while configuring Visual Studio Code: $_" -ForegroundColor Red
     }
 }
 
-# Activating Revo Uninstaller Pro
-$revoLicenseUrl = ($softwareURLs | Where-Object { $_.appName -eq "Revo Uninstaller Pro" }).licUrl
-if (Test-Path -Path "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro" -PathType Container) {
-    $activateRevoUninstaller = PromptForInputWithDefault "Do you want to activate Revo Uninstaller Pro?" "N"
-    if ($activateRevoUninstaller -eq "y") {
-        LogMessage "Activating Revo Uninstaller Pro..." -ForegroundColor Cyan
+# Function to activate software
+function ActivateSoftware($appName, $targetPath, $fileUrl) {
+    try {
+        if (Test-Path -Path $targetPath -PathType Container) {
+            $activateSoftware = PromptForInputWithDefault "Do you want to activate $appName?" "N"
+            if ($activateSoftware -eq "y") {
+                LogMessage "Activating $appName..." -ForegroundColor Cyan
 
-        # Downloading license file for Revo Uninstaller Pro
-        curl.exe -o "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\revouninstallerpro5.lic" -LS $revoLicenseUrl
+                curl.exe -o "$targetPath\$fileUrl" -LS $fileUrl
+            }
+        }
+    }
+    catch {
+        LogMessage "Error occurred while activating $appName: $_" -ForegroundColor Red
     }
 }
 
-# Activating StartIsBack++
-$dllFileURL = ($softwareURLs | Where-Object { $_.appName -eq "StartIsBack++" }).dllUrl
-if (Test-Path -Path "C:\Program Files (x86)\StartIsBack" -PathType Container) {
-    $activateStartIsBack = PromptForInputWithDefault "Do you want to activate StartIsBack++?" "N"
-    if ($activateStartIsBack -eq "y") {
-        LogMessage "Activating StartIsBack++..." -ForegroundColor Cyan
+# Configure VS Code
+$vsCodeInfo = $softwareURLs | Where-Object { $_.appName -eq "Microsoft Visual Studio Code" }
+ConfigureVSCode -extensions $vsCodeInfo.extensions -settingsUrl $vsCodeInfo.jsnUrl
 
-        # Downloading file to activate StartIsBack++
-        curl.exe -o "C:\Program Files (x86)\StartIsBack\msimg32.dll" -LS $dllFileURL
-    }
-}
+# Activate Revo Uninstaller Pro
+ActivateSoftware -appName "Revo Uninstaller Pro" -targetPath "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro" -fileUrl ($softwareURLs | Where-Object { $_.appName -eq "Revo Uninstaller Pro" }).licUrl
 
-# Activating Internet Download Manager
-$idmActivationURL = ($softwareURLs | Where-Object { $_.appName -eq "Internet Download Manager" }).iasUrl
-if (Test-Path -Path "C:\Program Files (x86)\Internet Download Manager" -PathType Container) {
-    $activateIDM = PromptForInputWithDefault "Do you want to activate Internet Download Manager?" "N"
-    if ($activateIDM -eq "y") {
-        LogMessage "Activating Internet Download Manager..." -ForegroundColor Cyan
+# Activate StartIsBack++
+ActivateSoftware -appName "StartIsBack++" -targetPath "C:\Program Files (x86)\StartIsBack" -fileUrl ($softwareURLs | Where-Object { $_.appName -eq "StartIsBack++" }).dllUrl
 
-        # Activating IDM through a web request
-        Invoke-RestMethod -Uri $idmActivationURL | Invoke-Expression
-    }
-}
+# Activate Internet Download Manager
+ActivateSoftware -appName "Internet Download Manager" -targetPath "C:\Program Files (x86)\Internet Download Manager" -fileUrl ($softwareURLs | Where-Object { $_.appName -eq "Internet Download Manager" }).iasUrl
 
 LogMessage "`nSetup completed successfully." -ForegroundColor Green
 PauseNull
