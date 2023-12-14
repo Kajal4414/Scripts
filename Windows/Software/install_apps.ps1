@@ -32,9 +32,18 @@ function DownloadSoftware($appName, $appURL, $appVersion) {
 
         if (-not $appInstalled) {
             LogMessage "Downloading: $appName v$appVersion..." -ForegroundColor Cyan
-            curl.exe -o $filePath -LS $appURL
+            $result = curl.exe -o $filePath -LS $appURL
+            if ($LASTEXITCODE -ne 0) {
+                throw "Download failed for '$appName'. Exit code: $LASTEXITCODE"
+            }
             return $filePath
         }
+    }
+    catch [System.Net.WebException] {
+        LogMessage "Network issue encountered while downloading '$appName': $_" -ForegroundColor Red
+    }
+    catch [System.UnauthorizedAccessException] {
+        LogMessage "Access rights issue encountered while downloading '$appName': $_" -ForegroundColor Red
     }
     catch {
         LogMessage "Error occurred while downloading '$appName': $_" -ForegroundColor Red
