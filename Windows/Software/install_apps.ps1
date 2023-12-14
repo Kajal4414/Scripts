@@ -4,59 +4,18 @@ $softwareURLs = Get-Content -Path ".\Windows\Software\install_apps.json" | Conve
 # Define download folder
 $downloadFolder = "$Env:UserProfile\Downloads"
 
-# Function to display a countdown message for 5 seconds before exiting
-function PauseNull {
-    $countdown = 5
-    while ($countdown -gt 0) {
-        Write-Host -NoNewline "Exiting in $countdown seconds...`r"
-        Start-Sleep -Seconds 1
-        $countdown--
-    }
-    exit
-}
-
-# Check for admin privileges
-$currentPrincipal = [Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())
-if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Host "Error: Admin privileges required`n" -ForegroundColor Red
-    PauseNull
-}
-
 # Cache installed apps list
 $installedApps = @(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -and $_.DisplayVersion })
 
 # Function to download software
 function DownloadSoftware($appName, $appURL, $appVersion) {
-    # Get the file extension from the URL
-    $fileExtension = [System.IO.Path]::GetExtension($appURL)
-    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName$fileExtension"
+    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName$([System.IO.Path]::GetExtension($appURL))"
 
     try {
         foreach ($app in $installedApps) {
-            $escapedAppName = [Regex]::Escape($appName)
-            if ($app.DisplayName -match "^$escapedAppName" -and $app.DisplayVersion -eq $appVersion) {
+            if ($app.DisplayName -match "^$([Regex]::Escape($appName))" -and $app.DisplayVersion -eq $appVersion) {
                 Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
                 return $false
-            }
-        }
-
-        # Additional checks for Telegram and YoutubeDownloader
-        if ($appName -eq "Telegram" -or $appName -eq "YoutubeDownloader") {
-            if ($appName -eq "Telegram") {
-                $appDirectory = "$Env:UserProfile\AppData\Roaming\Telegram Desktop"
-                $exeName = "telegram.exe"
-            }
-            elseif ($appName -eq "YoutubeDownloader") {
-                $appDirectory = "C:\Program Files\YoutubeDownloader"
-                $exeName = "YoutubeDownloader.exe"
-            }
-
-            if (Test-Path -Path $appDirectory -PathType Container) {
-                $appVersionInstalled = (Get-Item "$appDirectory\$exeName").VersionInfo.ProductVersion
-                if ($appVersionInstalled -eq $appVersion) {
-                    Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
-                    return $false
-                }
             }
         }
 
@@ -76,9 +35,9 @@ function DownloadSoftware($appName, $appURL, $appVersion) {
 function InstallSoftware($filePath, $appName) {
     try {
         if (Test-Path $filePath) {
-            $extension = [System.IO.Path]::GetExtension($filePath)
             Write-Host "Installing '$appName'" -ForegroundColor Cyan
 
+            $extension = [System.IO.Path]::GetExtension($filePath)
             if ($extension -eq ".exe") {
                 Start-Process -FilePath $filePath -WindowStyle Hidden -ArgumentList '/S' -Wait
             }
