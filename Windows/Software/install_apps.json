@@ -1,146 +1,146 @@
 [
-    {
-        "appName": "7-Zip",
-        "version": "23.01",
-        "url": "https://www.7-zip.org/a/7z2301-x64.exe"
-    },
-    {
-        "appName": "BleachBit",
-        "version": "4.6.0.2537",
-        "url": "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
-    },
-    {
-        "appName": "Brave",
-        "version": "120.1.61.104",
-        "url": "https://github.com/brave/brave-browser/releases/download/v1.61.104/BraveBrowserStandaloneSetup.exe"
-    },
-    {
-        "appName": "Google Chrome",
-        "version": "119.0.6045.200",
-        "url": "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
-    },
-    {
-        "appName": "Git",
-        "version": "2.43.0",
-        "url": "https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe"
-    },
-    {
-        "appName": "Gpg4win",
-        "version": "4.2.0",
-        "url": "https://files.gpg4win.org/gpg4win-latest.exe"
-    },
-    {
-        "appName": "Internet Download Manager",
-        "version": "6.42.2",
-        "url": "https://mirror2.internetdownloadmanager.com/idman642build2.exe?v=lt\u0026amp;filename=idman642build2.exe"
-    },
-    {
-        "appName": "Java(TM) SE Development Kit",
-        "version": "21.0.1.0",
-        "url": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
-    },
-    {
-        "appName": "K-Lite Codec Pack",
-        "version": "18.0.0",
-        "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1800_Full.exe"
-    },
-    {
-        "appName": "Node.js",
-        "version": "21.4.0",
-        "url": "https://nodejs.org/download/release/latest/node-v21.4.0-x64.msi"
-    },
-    {
-        "appName": "Microsoft Visual Studio Code",
-        "version": "1.85.0",
-        "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
-        "extensions": [
-            "aaron-bond.better-comments",
-            "astro-build.astro-vscode",
-            "BeardedBear.beardedtheme",
-            "Blackboxapp.blackbox",
-            "Codeium.codeium",
-            "dbaeumer.vscode-eslint",
-            "eamodio.gitlens",
-            "esbenp.prettier-vscode",
-            "github.vscode-github-actions",
-            "hnw.vscode-auto-open-markdown-preview",
-            "jock.svg",
-            "ms-python.black-formatter",
-            "ms-python.pylint",
-            "ms-python.python",
-            "ms-python.vscode-pylance",
-            "ms-vscode.makefile-tools",
-            "ms-vscode.powershell",
-            "PKief.material-icon-theme",
-            "redhat.java",
-            "redhat.vscode-xml",
-            "redhat.vscode-yaml",
-            "ritwickdey.LiveServer",
-            "streetsidesoftware.code-spell-checker",
-            "TabNine.tabnine-vscode",
-            "usernamehw.errorlens",
-            "VisualStudioExptTeam.intellicode-api-usage-examples",
-            "VisualStudioExptTeam.vscodeintellicode",
-            "vscjava.vscode-java-debug",
-            "vscjava.vscode-java-dependency",
-            "vscjava.vscode-java-pack",
-            "vscjava.vscode-java-test",
-            "vscjava.vscode-maven"
-        ]
-    },
-    {
-        "appName": "Notepad++",
-        "version": "8.6",
-        "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.6.Installer.x64.exe"
-    },
-    {
-        "appName": "Obsidian",
-        "version": "1.4.16",
-        "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/Obsidian.1.4.16.exe"
-    },
-    {
-        "appName": "OhMyPosh",
-        "version": "19.2.1",
-        "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.2.1/install-amd64.exe"
-    },
-    {
-        "appName": "Proton VPN",
-        "version": "3.2.8",
-        "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.8.exe"
-    },
-    {
-        "appName": "Python",
-        "version": "3.12.150.0",
-        "url": "https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe"
-    },
-    {
-        "appName": "Revo Uninstaller Pro",
-        "version": "5.2.2",
-        "url": "https://download.revouninstaller.com/download/RevoUninProSetup.exe"
-    },
-    {
-        "appName": "StartAllBack",
-        "version": "3.7.1",
-        "url": "https://www.startallback.com/download.php"
-    },
-    {
-        "appName": "StartIsBack++",
-        "version": "2.9.19",
-        "url": "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
-    },
-    {
-        "appName": "Telegram",
-        "version": "4.12.2",
-        "url": "https://telegram.org/dl/desktop/win64"
-    },
-    {
-        "appName": "VLC media player",
-        "version": "3.0.20",
-        "url": "https://get.videolan.org/vlc/last/win64/vlc-3.0.20-win64.exe"
-    },
-    {
-        "appName": "YoutubeDownloader",
-        "version": "1.10.8+00669e5aa42be10c1910d5220c9d3aa0ed5e4b14",
-        "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
-    }
+  {
+    "appName": "7-Zip",
+    "version": "23.01",
+    "url": "https://www.7-zip.org/a/7z2301-x64.exe"
+  },
+  {
+    "appName": "BleachBit",
+    "version": "4.6.0.2537",
+    "url": "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
+  },
+  {
+    "appName": "Brave",
+    "version": "120.1.61.104",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.61.104/BraveBrowserStandaloneSetup.exe"
+  },
+  {
+    "appName": "Google Chrome",
+    "version": "119.0.6045.200",
+    "url": "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
+  },
+  {
+    "appName": "Git",
+    "version": "2.43.0",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe"
+  },
+  {
+    "appName": "Gpg4win",
+    "version": "4.2.0",
+    "url": "https://files.gpg4win.org/gpg4win-latest.exe"
+  },
+  {
+    "appName": "Internet Download Manager",
+    "version": "6.42.2",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build2.exe?v=lt&amp;filename=idman642build2.exe"
+  },
+  {
+    "appName": "Java(TM) SE Development Kit",
+    "version": "21.0.1.0",
+    "url": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
+  },
+  {
+    "appName": "K-Lite Codec Pack",
+    "version": "18.0.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1800_Full.exe"
+  },
+  {
+    "appName": "Node.js",
+    "version": "21.4.0",
+    "url": "https://nodejs.org/download/release/latest/node-v21.4.0-x64.msi"
+  },
+  {
+    "appName": "Microsoft Visual Studio Code",
+    "version": "1.85.0",
+    "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
+    "extensions": [
+      "aaron-bond.better-comments",
+      "astro-build.astro-vscode",
+      "BeardedBear.beardedtheme",
+      "Blackboxapp.blackbox",
+      "Codeium.codeium",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "esbenp.prettier-vscode",
+      "github.vscode-github-actions",
+      "hnw.vscode-auto-open-markdown-preview",
+      "jock.svg",
+      "ms-python.black-formatter",
+      "ms-python.pylint",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-vscode.makefile-tools",
+      "ms-vscode.powershell",
+      "PKief.material-icon-theme",
+      "redhat.java",
+      "redhat.vscode-xml",
+      "redhat.vscode-yaml",
+      "ritwickdey.LiveServer",
+      "streetsidesoftware.code-spell-checker",
+      "TabNine.tabnine-vscode",
+      "usernamehw.errorlens",
+      "VisualStudioExptTeam.intellicode-api-usage-examples",
+      "VisualStudioExptTeam.vscodeintellicode",
+      "vscjava.vscode-java-debug",
+      "vscjava.vscode-java-dependency",
+      "vscjava.vscode-java-pack",
+      "vscjava.vscode-java-test",
+      "vscjava.vscode-maven"
+    ]
+  },
+  {
+    "appName": "Notepad++",
+    "version": "8.6",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.6.Installer.x64.exe"
+  },
+  {
+    "appName": "Obsidian",
+    "version": "1.4.16",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/Obsidian.1.4.16.exe"
+  },
+  {
+    "appName": "OhMyPosh",
+    "version": "19.2.1",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.2.1/install-amd64.exe"
+  },
+  {
+    "appName": "Proton VPN",
+    "version": "3.2.8",
+    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.8.exe"
+  },
+  {
+    "appName": "Python",
+    "version": "3.12.150.0",
+    "url": "https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe"
+  },
+  {
+    "appName": "Revo Uninstaller Pro",
+    "version": "5.2.2",
+    "url": "https://download.revouninstaller.com/download/RevoUninProSetup.exe"
+  },
+  {
+    "appName": "StartAllBack",
+    "version": "3.7.1",
+    "url": "https://www.startallback.com/download.php"
+  },
+  {
+    "appName": "StartIsBack++",
+    "version": "2.9.19",
+    "url": "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
+  },
+  {
+    "appName": "Telegram",
+    "version": "4.12.2",
+    "url": "https://telegram.org/dl/desktop/win64"
+  },
+  {
+    "appName": "VLC media player",
+    "version": "3.0.20",
+    "url": "https://get.videolan.org/vlc/last/win64/vlc-3.0.20-win64.exe"
+  },
+  {
+    "appName": "YoutubeDownloader",
+    "version": "1.10.8+00669e5aa42be10c1910d5220c9d3aa0ed5e4b14",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
+  }
 ]
