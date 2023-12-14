@@ -15,14 +15,9 @@ function PauseNull {
     exit
 }
 
-# Function to check admin privileges
-function TestAdmin {
-    $currentPrincipal = [Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())
-    $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-}
-
 # Check for admin privileges
-if (-not (TestAdmin)) {
+$currentPrincipal = [Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())
+if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Host "Error: Admin privileges required`n" -ForegroundColor Red
     PauseNull
 }
