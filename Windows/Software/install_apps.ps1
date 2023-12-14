@@ -22,6 +22,9 @@ if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Adm
     PauseNull
 }
 
+# Cache installed apps list
+$installedApps = @(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -and $_.DisplayVersion })
+
 # Function to download software
 function DownloadSoftware($appName, $appURL, $appVersion) {
     # Get the file extension from the URL
@@ -29,9 +32,6 @@ function DownloadSoftware($appName, $appURL, $appVersion) {
     $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName$fileExtension"
 
     try {
-        # Check if the app is already installed
-        $installedApps = @(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -and $_.DisplayVersion })
-
         foreach ($app in $installedApps) {
             $escapedAppName = [Regex]::Escape($appName)
             if ($app.DisplayName -match "^$escapedAppName" -and $app.DisplayVersion -eq $appVersion) {
