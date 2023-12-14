@@ -4,10 +4,14 @@ $softwareURLs = Get-Content -Path ".\Windows\Software\install_apps.json" | Conve
 # Define download folder
 $downloadFolder = "$Env:UserProfile\Downloads"
 
-# Function to pause and wait for user input
+# Function to display a countdown message for 5 seconds before exiting
 function PauseNull {
-    Write-Host "Press any key to exit... " -NoNewline
-    $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
+    $countdown = 5
+    while ($countdown -gt 0) {
+        Write-Host -NoNewline "Exiting in $countdown seconds...`r"
+        Start-Sleep -Seconds 1
+        $countdown--
+    }
     exit
 }
 
@@ -19,162 +23,92 @@ function TestAdmin {
 
 # Check for admin privileges
 if (-not (TestAdmin)) {
-    Write-Host "Error: Admin privileges required" -ForegroundColor Red
+    Write-Host "Error: Admin privileges required`n" -ForegroundColor Red
     PauseNull
 }
 
 # Function to download software
-function DownloadSoftware {
-    param($appName, $appURL, $appVersion)
-
-    # Check if the app is already installed with the same version
-    if (IsAppInstalled $appName $appVersion) {
-        Write-Host "Skipping download: '$appName' version '$appVersion' is already installed." -ForegroundColor Yellow
-        return
-    }
-
+function DownloadSoftware($appName, $appURL, $appVersion) {
     # Get the file extension from the URL
     $fileExtension = [System.IO.Path]::GetExtension($appURL)
-
-    # Define the file path based on the download folder, software name, and file extension
     $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName$fileExtension"
 
-    # Check if the file already exists at the specified file path
-    if (Test-Path -Path $filePath) {
-        Write-Host "Skipping downloading: '$appName' already exists in the download folder." -ForegroundColor Yellow
-        return
-    }
-
-    # Attempt to download the software
     try {
-        Write-Host "Downloading '$appName'..." -ForegroundColor Cyan
+        # Check if the app is already installed
+        $installedApps = @(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -and $_.DisplayVersion })
 
-        # Create a web request to the provided software URL
-        $webRequest = [System.Net.WebRequest]::Create($appURL)
-        $response = $webRequest.GetResponse()
-        $stream = $response.GetResponseStream()
-        $fileStream = [System.IO.File]::Create($filePath)
+        foreach ($app in $installedApps) {
+            $escapedAppName = [Regex]::Escape($appName)
+            if ($app.DisplayName -match "^$escapedAppName" -and $app.DisplayVersion -eq $appVersion) {
+                Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
+                return $false
+            }
+        }
 
-        # Define buffer settings for the download process
-        $bufferSize = 8192
-        $buffer = New-Object Byte[] $bufferSize
-        $bytesInMegabyte = 1MB
-        $bytesRead = 0
+        # Additional checks for Telegram and YoutubeDownloader
+        if ($appName -eq "Telegram" -or $appName -eq "YoutubeDownloader") {
+            if ($appName -eq "Telegram") {
+                $appDirectory = "$Env:UserProfile\AppData\Roaming\Telegram Desktop"
+                $exeName = "telegram.exe"
+            }
+            elseif ($appName -eq "YoutubeDownloader") {
+                $appDirectory = "C:\Program Files\YoutubeDownloader"
+                $exeName = "YoutubeDownloader.exe"
+            }
 
-        # Start downloading in chunks until the entire file is downloaded
-        do {
-            $read = $stream.Read($buffer, 0, $buffer.Length)
-            $fileStream.Write($buffer, 0, $read)
-            $bytesRead += $read
+            if (Test-Path -Path $appDirectory -PathType Container) {
+                $appVersionInstalled = (Get-Item "$appDirectory\$exeName").VersionInfo.ProductVersion
+                if ($appVersionInstalled -eq $appVersion) {
+                    Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
+                    return $false
+                }
+            }
+        }
 
-            # Calculate download progress and display it
-            $megabytesDownloaded = $bytesRead / $bytesInMegabyte
-            $totalMegabytes = $response.ContentLength / $bytesInMegabyte
-            $percentComplete = ($bytesRead / $response.ContentLength) * 100
-
-            $status = "Downloaded {0:F2} MB of {1:F2} MB" -f $megabytesDownloaded, $totalMegabytes
-            Write-Progress -Activity "Downloading '$appName'" -Status $status -PercentComplete $percentComplete
-        } while ($read -gt 0)
-
-        # Close streams and response after download completion
-        $fileStream.Close()
-        $stream.Close()
-        $response.Close()
-
-        Write-Host "Downloaded '$appName' successfully." -ForegroundColor Green
+        if (-not $appInstalled) {
+            Write-Host "Downloading: $appName v$appVersion..." -ForegroundColor Cyan
+            curl.exe -o $filePath -LS $appURL
+            return $filePath
+        }
     }
     catch {
         Write-Host "Error occurred while downloading '$appName': $_" -ForegroundColor Red
     }
-    finally {
-        # Dispose resources in the finally block to ensure cleanup
-        $fileStream, $stream, $response | ForEach-Object {
-            if ($_ -ne $null) {
-                $_.Close()
-                $_.Dispose()
-            }
-        }
-    }
+    return $false
 }
 
 # Function to install software
-function InstallSoftware {
-    param($appName, $appVersion)
+function InstallSoftware($filePath, $appName) {
+    try {
+        if (Test-Path $filePath) {
+            $extension = [System.IO.Path]::GetExtension($filePath)
+            Write-Host "Installing '$appName'" -ForegroundColor Cyan
 
-    # Check for installer path existence
-    $installerPath = Join-Path -Path $downloadFolder -ChildPath "$appName.*"
-    if (-not (Test-Path -Path $installerPath)) {
-        Write-Host "Skipped: '$appName' installer not found." -ForegroundColor Yellow
-        return
-    }
-
-    # Check if the software is already installed and the version matches
-    if (IsAppInstalled $appName $appVersion) {
-        Write-Host "Skipping installation: '$appName' version '$appVersion' is already installed." -ForegroundColor Yellow
-        return
-    }
-
-    # Custom handling for certain apps like YouTube Downloader
-    if ($appName -like "Youtube Downloader*") {
-        if (Test-Path -Path "C:\Program Files\YoutubeDownloader\YoutubeDownloader.exe" -PathType Leaf) {
-            $installedVersion = (Get-Item "C:\Program Files\YoutubeDownloader\YoutubeDownloader.exe").VersionInfo.ProductVersion
-            if ($installedVersion -eq $appVersion) {
-                Write-Host "Skipping Extracting: '$appName' version '$appVersion' is already installed." -ForegroundColor Yellow
-                return
+            if ($extension -eq ".exe") {
+                Start-Process -FilePath $filePath -WindowStyle Hidden -ArgumentList '/S' -Wait
             }
-        }
+            elseif ($extension -eq ".msi") {
+                Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$filePath`" /qn" -Wait
+            }
+            elseif ($extension -eq ".zip") {
+                Expand-Archive -LiteralPath $filePath "C:\Program Files\YoutubeDownloader" -Force
+            }
 
-        Write-Host "Extracting '$appName' installer to C:\Program Files\YoutubeDownloader..." -ForegroundColor Cyan
-        try {
-            Expand-Archive -Path $installerPath -DestinationPath "C:\Program Files\YoutubeDownloader" -Force
-            Write-Host "Installation of '$appName' extracted to C:\Program Files\YoutubeDownloader successfully." -ForegroundColor Green
-        }
-        catch {
-            Write-Host "Error occurred while extracting '$appName' installer: $_" -ForegroundColor Red
-            return
-        }
-    }
-    else {
-        # Regular installation process
-        Write-Host "Installing '$appName'" -ForegroundColor Cyan
-        try {
-            Start-Process -FilePath $installerPath -ArgumentList "/S" -Wait
             Write-Host "Installation of '$appName' completed successfully." -ForegroundColor Green
         }
-        catch {
-            Write-Host "Error occurred while installing '$appName': $_" -ForegroundColor Red
-        }
     }
-}
-
-# Function to check if the software is installed and the version matches
-function IsAppInstalled {
-    param($appName, $appVersion)
-
-    # Get installed applications from registry with DisplayVersion info
-    $x64Apps = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayVersion
-    $x86Apps = Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayVersion
-
-    # Check if the app with specified version exists in installed apps list
-    if ($x64Apps.DisplayVersion -contains $appVersion -or $x86Apps.DisplayVersion -contains $appVersion) {
-        return $true
-    }
-    else {
-        return $false
+    catch {
+        Write-Host "Error occurred while installing '$appName': $_" -ForegroundColor Red
     }
 }
 
 # Loop through software URLs, download, and install
 foreach ($app in $softwareURLs) {
-    DownloadSoftware -appName $app.appName -appURL $app.url
-    InstallSoftware -appName $app.appName -appVersion $app.version
+    $downloadResult = DownloadSoftware -appName $app.appName -appURL $app.url -appVersion $app.version
+    if ($downloadResult -ne $false) {
+        InstallSoftware -filePath $downloadResult -appName $app.appName
+    }
 }
-
-# Directories for specific software
-$idmDirectory = "C:\Program Files (x86)\Internet Download Manager"
-$startIsBackDirectory = "C:\Program Files (x86)\StartIsBack"
-$vsCodeSettingsDirectory = "$Env:UserProfile\AppData\Roaming\Code\User"
-$revoUninstallerDirectory = "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro"
 
 # Function to prompt for input with default value
 function PromptForInputWithDefault($message, $defaultValue) {
@@ -191,10 +125,10 @@ function PromptForInputWithDefault($message, $defaultValue) {
     return $userInput
 }
 
-# Configuring VS Code settings if directory exists
+# Configuring VS Code
 $vsCodeExtensions = ($softwareURLs | Where-Object { $_.appName -eq "Microsoft Visual Studio Code" }).extensions
 $vsCodeSettingsUrl = ($softwareURLs | Where-Object { $_.appName -eq "Microsoft Visual Studio Code" }).jsnUrl
-if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
+if (Test-Path -Path "$Env:UserProfile\AppData\Roaming\Code\User" -PathType Container) {
     $configureVSCode = PromptForInputWithDefault "Do you want to configure Visual Studio Code settings and install extensions?" "N"
     if ($configureVSCode -eq "y") {
         Write-Host "Installing extensions for Visual Studio Code..." -ForegroundColor Yellow
@@ -207,37 +141,37 @@ if (Test-Path -Path $vsCodeSettingsDirectory -PathType Container) {
         Write-Host "Configuring Visual Studio Code settings..." -ForegroundColor Cyan
 
         # Downloading settings file for VS Code
-        Invoke-WebRequest -Uri $vsCodeSettingsUrl -OutFile "$vsCodeSettingsDirectory\settings.json"
+        curl.exe -o "$Env:UserProfile\AppData\Roaming\Code\User\settings.json" -LS $vsCodeSettingsUrl
     }
 }
 
-# Activating Revo Uninstaller Pro if directory exists
+# Activating Revo Uninstaller Pro
 $revoLicenseUrl = ($softwareURLs | Where-Object { $_.appName -eq "Revo Uninstaller Pro" }).licUrl
-if (Test-Path -Path $revoUninstallerDirectory -PathType Container) {
+if (Test-Path -Path "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro" -PathType Container) {
     $activateRevoUninstaller = PromptForInputWithDefault "Do you want to activate Revo Uninstaller Pro?" "N"
     if ($activateRevoUninstaller -eq "y") {
         Write-Host "Activating Revo Uninstaller Pro..." -ForegroundColor Cyan
 
         # Downloading license file for Revo Uninstaller Pro
-        Invoke-WebRequest -Uri $revoLicenseUrl -OutFile "$revoUninstallerDirectory\revouninstallerpro5.lic"
+        curl.exe -o "C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\revouninstallerpro5.lic" -LS $revoLicenseUrl
     }
 }
 
-# Activating StartIsBack++ if directory exists
+# Activating StartIsBack++
 $dllFileURL = ($softwareURLs | Where-Object { $_.appName -eq "StartIsBack++" }).dllUrl
-if (Test-Path -Path $startIsBackDirectory -PathType Container) {
+if (Test-Path -Path "C:\Program Files (x86)\StartIsBack" -PathType Container) {
     $activateStartIsBack = PromptForInputWithDefault "Do you want to activate StartIsBack++?" "N"
     if ($activateStartIsBack -eq "y") {
         Write-Host "Activating StartIsBack++..." -ForegroundColor Cyan
 
         # Downloading file to activate StartIsBack++
-        Invoke-WebRequest -Uri $dllFileURL -OutFile "$startIsBackDirectory\msimg32.dll"
+        curl.exe -o "C:\Program Files (x86)\StartIsBack\msimg32.dll" -LS $dllFileURL
     }
 }
 
-# Activating Internet Download Manager if directory exists
+# Activating Internet Download Manager
 $idmActivationURL = ($softwareURLs | Where-Object { $_.appName -eq "Internet Download Manager" }).iasUrl
-if (Test-Path -Path $idmDirectory -PathType Container) {
+if (Test-Path -Path "C:\Program Files (x86)\Internet Download Manager" -PathType Container) {
     $activateIDM = PromptForInputWithDefault "Do you want to activate Internet Download Manager?" "N"
     if ($activateIDM -eq "y") {
         Write-Host "Activating Internet Download Manager..." -ForegroundColor Cyan
