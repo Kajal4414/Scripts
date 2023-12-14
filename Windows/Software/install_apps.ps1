@@ -97,12 +97,11 @@ function InstallSoftware($filePath, $appName) {
     }
 }
 
-# Download and install software using parallel processing
-$softwareURLs | ForEach-Object -Parallel {
-    DownloadSoftware -appName $_.appName -appURL $_.url -appVersion $_.version
-} | ForEach-Object -Parallel {
-    if ($_ -ne $false) {
-        InstallSoftware -filePath $_ -appName $($softwareURLs.Where({$_.url -eq ($_.PSObject.Properties.Value)}).appName)
+# Download and install software using foreach loops
+foreach ($app in $softwareURLs) {
+    $downloadResult = DownloadSoftware -appName $app.appName -appURL $app.url -appVersion $app.version
+    if ($downloadResult -ne $false) {
+        InstallSoftware -filePath $downloadResult -appName $app.appName
     }
 }
 
