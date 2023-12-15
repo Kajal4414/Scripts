@@ -41,7 +41,7 @@
   },
   {
     "appName": "Java(TM) SE Development Kit",
-    "version": "21.0.1.0",
+    "version": "21.0.1",
     "url": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
   },
   {
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.85.0",
+    "version": "1.85.1",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "aaron-bond.better-comments",
@@ -115,17 +115,17 @@
   },
   {
     "appName": "Python",
-    "version": "3.12.150.0",
+    "version": "3.12.1",
     "url": "https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
     "version": "5.2.2",
-    "url": "https://download.revouninstaller.com/download/RevoUninProSetup.exe"
+    "url": "https://3f202bc8aeed5a1bc022-d2000d6089aeb75a1b2ca6b461e27754.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
   },
   {
     "appName": "StartAllBack",
-    "version": "3.7.1",
+    "version": "3.7.2",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -145,7 +145,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.10.8+00669e5aa42be10c1910d5220c9d3aa0ed5e4b14",
+    "version": "1.10.8",
     "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
   }
 ]
