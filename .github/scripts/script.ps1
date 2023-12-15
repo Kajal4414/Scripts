@@ -17,55 +17,79 @@ function Get-ExistingData($appName) {
 }
 
 # Update the software list with new URLs but keep the existing version and extensions
+
+
+# 7-Zip
 $baseUrl = "https://www.7-zip.org/"
-$7zipData = Get-ExistingData "7-Zip"
+
 $softwareList += [PSCustomObject]@{
     appName = "7-Zip"
-    version = $7zipData.version
-    url     = "$baseUrl$((Invoke-WebRequest -Uri $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like '*x64.exe' } | Select-Object -First 1 -ExpandProperty Href)"
+    version = ([regex]'Download 7-Zip ([\d.]+)').Match((Invoke-WebRequest $baseUrl -UseBasicParsing).Content).Groups[1].Value
+    url     = $baseUrl + ((Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like '*x64.exe' } | Select-Object -First 1 -ExpandProperty Href)
 }
 
+# BleachBit
 $baseUrl = "https://download.bleachbit.org/"
-$bleachBitData = Get-ExistingData "BleachBit"
+$finlUrl = (Invoke-WebRequest 'https://www.bleachbit.org/download/windows/' -UseBasicParsing).Links | Where-Object href -like '*BleachBit*.exe' | Select-Object -First 1
+
 $softwareList += [PSCustomObject]@{
     appName = "BleachBit"
-    version = $bleachBitData.version
-    url     = "$baseUrl$(((Invoke-WebRequest -Uri 'https://www.bleachbit.org/download/windows' -UseBasicParsing).Links | Where-Object { $_.Href -like '*.exe' } | Select-Object -First 1 -ExpandProperty Href) -replace '/download/file/t\?file=')"
+    version = $finlUrl.href -replace '.*BleachBit-([0-9.]+)-setup\.exe.*', '$1'
+    url     = $baseUrl + $finlUrl.Href.Split('=')[-1]
 }
 
-$braveData = Get-ExistingData "Brave"
+# Brave
+$baseUrl = "https://api.github.com/repos/brave/brave-browser/releases/latest"
+
 $softwareList += [PSCustomObject]@{
     appName = "Brave"
-    version = $braveData.version
-    url     = "$((Invoke-RestMethod -Uri 'https://api.github.com/repos/brave/brave-browser/releases/latest').assets | Where-Object { $_.name -eq 'BraveBrowserStandaloneSetup.exe' } | Select-Object -ExpandProperty browser_download_url)"
+    version = (Invoke-RestMethod $baseUrl).tag_name.TrimStart('v')
+    url     = (Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -eq 'BraveBrowserStandaloneSetup.exe' } | Select-Object -ExpandProperty browser_download_url
 }
 
-$chromeData = Get-ExistingData "Google Chrome"
+# Chrome
+$baseUrl = "https://chromiumdash.appspot.com/fetch_releases?channel=Stable&platform=Windows&num=1"
+
 $softwareList += [PSCustomObject]@{
     appName = "Google Chrome"
-    version = $chromeData.version
+    version = (Invoke-RestMethod $baseUrl).version
     url     = "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
 }
 
-$gitData = Get-ExistingData "Git"
+# Git
+$baseUrl = "https://api.github.com/repos/git-for-windows/git/releases/latest"
+
 $softwareList += [PSCustomObject]@{
     appName = "Git"
-    version = $gitData.version
-    url     = "$((Invoke-RestMethod -Uri 'https://api.github.com/repos/git-for-windows/git/releases/latest').assets | Where-Object { $_.name -like 'Git*64-bit.exe' } | Select-Object -ExpandProperty browser_download_url)"
+    version = (Invoke-RestMethod $baseUrl).tag_name -replace '^v(\d+\.\d+\.\d+).*', '$1'
+    url     = (Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -like 'Git*64-bit.exe' } | Select-Object -ExpandProperty browser_download_url
 }
 
-$gpgData = Get-ExistingData "Gpg4win"
+# Gpg4win
+$baseUrl = "https://files.gpg4win.org/"
+
 $softwareList += [PSCustomObject]@{
     appName = "Gpg4win"
-    version = $gpgData.version
-    url     = "https://files.gpg4win.org/gpg4win-latest.exe"
+    version = ((Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like '*en.txt' } | Select-Object -Last 1 -ExpandProperty Href) -replace '.*-(\d+\.\d+\.\d+).*', '$1'
+    url     = $baseUrl + 'gpg4win-latest.exe'
 }
 
-$idmData = Get-ExistingData "Internet Download Manager"
+# IDM
+$baseUrl = "https://www.internetdownloadmanager.com/"
+
 $softwareList += [PSCustomObject]@{
     appName = "Internet Download Manager"
-    version = $idmData.version
-    url     = "$((Invoke-WebRequest -Uri 'https://www.internetdownloadmanager.com' -UseBasicParsing).Links | Where-Object { $_.Href -like '*.exe' } | Select-Object -First 1 -ExpandProperty Href)"
+    version = if ((Invoke-WebRequest $baseUrl'news.html' -UseBasicParsing).Content -match 'new in version (\d+\.\d+) Build (\d+)') { $matches[1] + '.' + $matches[2] }
+    url     = (Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like '*.exe' } | Select-Object -First 1 -ExpandProperty Href
+}
+
+# IntelliJ IDEA
+$baseUrl = "https://data.services.jetbrains.com/products/releases?code=IIC&latest=true"
+
+$softwareList += [PSCustomObject]@{
+    appName = "IntelliJ IDEA Community Edition"
+    version = (Invoke-RestMethod -Uri $baseUrl).IIC.version
+    url     = ((Invoke-RestMethod -Uri $baseUrl).IIC | Select-Object -ExpandProperty downloads).windows.link
 }
 
 $javaData = Get-ExistingData "Java(TM) SE Development Kit"
