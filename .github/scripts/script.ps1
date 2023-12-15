@@ -167,6 +167,15 @@ $softwareList += [PSCustomObject]@{
     url     = $finlUrl.File.Url
 }
 
+# PyCharm
+$baseUrl = "https://data.services.jetbrains.com/products/releases?code=PCC&latest=true"
+
+$softwareList += [PSCustomObject]@{
+    appName = "PyCharm Community Edition"
+    version = (Invoke-RestMethod $baseUrl).PCC.version
+    url     = ((Invoke-RestMethod $baseUrl).PCC | Select-Object -ExpandProperty downloads).windows.link
+}
+
 # Python
 $baseUrl = "https://www.python.org/downloads/"
 
