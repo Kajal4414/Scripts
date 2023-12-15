@@ -5,8 +5,8 @@ on:
         - cron: "0 0 * * Sun"
     workflow_dispatch:
     push:
-        branches:
-            - main
+        paths:
+            - ".github/**"
 
 jobs:
     update_apps_list:
@@ -19,19 +19,15 @@ jobs:
             - name: Run PowerShell script
               shell: pwsh
               run: .github/scripts/script.ps1
-              #   Invoke-ScriptAnalyzer -Path .github/scripts/script.ps1 -Recurse -Outvariable issues
-              #     $errors   = $issues.Where({$_.Severity -eq 'Error'})
-              #   $warnings = $issues.Where({$_.Severity -eq 'Warning'})
-              #   if ($errors) {
-              #       Write-Error "There were $($errors.Count) errors and $($warnings.Count) warnings total." -ErrorAction Stop
-              #   } else {
-              #       Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
-              #   }
 
-            - name: Commit changes
+            - name: Commit and push changes
               run: |
-                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  git config user.name "github-actions[bot]"
-                  git add .
-                  git commit -m "Update install_apps.json"
-                  git push
+                  if ! git diff --quiet; then
+                      git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                      git config user.name "github-actions[bot]"
+                      git add .
+                      git commit -m "Update install_apps.json"
+                      git push
+                  else
+                      echo "::warning:: No changes to commit."
+                  fi
