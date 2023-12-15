@@ -25,7 +25,7 @@ $baseUrl = "https://www.7-zip.org/"
 $softwareList += [PSCustomObject]@{
     appName = "7-Zip"
     version = ([regex]'Download 7-Zip ([\d.]+)').Match((Invoke-WebRequest $baseUrl -UseBasicParsing).Content).Groups[1].Value
-    url     = $baseUrl + (Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like '*x64.exe' } | Select-Object -First 1 -ExpandProperty Href
+    url     = $baseUrl + ((Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like '*x64.exe' } | Select-Object -First 1 -ExpandProperty Href)
 }
 
 # BleachBit
@@ -116,7 +116,7 @@ $baseUrl = "https://nodejs.org/download/release/latest/"
 $softwareList += [PSCustomObject]@{
     appName = "Node.js"
     version = ((Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like 'node*x64.msi' } | Select-Object -First 1 -ExpandProperty Href) -replace '.*node-v(\d+\.\d+\.\d+).*', '$1'
-    url     = $baseUrl + (Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like 'node*x64.msi' } | Select-Object -First 1 -ExpandProperty Href
+    url     = $baseUrl + ((Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like 'node*x64.msi' } | Select-Object -First 1 -ExpandProperty Href)
 }
 
 # VS Code
@@ -204,13 +204,13 @@ $softwareList += [PSCustomObject]@{
 }
 
 # Telegram
-$baseUrl = "https://telegram.org/dl/desktop/win64"
-$finlUrl = (Invoke-WebRequest $baseUrl -MaximumRedirection 0 -UseBasicParsing -ErrorAction SilentlyContinue).Headers.Location
+# $baseUrl = "https://telegram.org/dl/desktop/win64"
+# $finlUrl = (Invoke-WebRequest $baseUrl -MaximumRedirection 0 -UseBasicParsing -ErrorAction SilentlyContinue).Headers.Location
 
 $softwareList += [PSCustomObject]@{
     appName = "Telegram"
-    version = $finlUrl -split 'tsetup-x64.' -split '.exe' | Select-Object -Index 1
-    url     = $finlUrl
+    version = "4.12.2"
+    url     = "https://telegram.org/dl/desktop/win64"
 }
 
 # VLC
@@ -219,7 +219,7 @@ $finlUrl = (Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { 
 
 $softwareList += [PSCustomObject]@{
     appName = "VLC media player"
-    version = $finlUrl
+    version = $finlUrl -replace 'vlc-(.*)-win64\.exe', '$1'
     url     = $baseUrl + $finlUrl
 }
 
