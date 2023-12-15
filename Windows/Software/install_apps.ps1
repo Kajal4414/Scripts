@@ -15,31 +15,23 @@ function PauseNull {
     exit
 }
 
-# Function to check admin privileges
-function TestAdmin {
-    $currentPrincipal = [Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())
-    $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-}
-
 # Check for admin privileges
-if (-not (TestAdmin)) {
+$currentPrincipal = [Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())
+if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Host "Error: Admin privileges required`n" -ForegroundColor Red
     PauseNull
 }
 
+# Cache installed apps list
+$installedApps = @(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -and $_.DisplayVersion })
+
 # Function to download software
 function DownloadSoftware($appName, $appURL, $appVersion) {
-    # Get the file extension from the URL
-    $fileExtension = [System.IO.Path]::GetExtension($appURL)
-    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName$fileExtension"
+    $filePath = Join-Path -Path $downloadFolder -ChildPath "$appName$([System.IO.Path]::GetExtension($appURL))"
 
     try {
-        # Check if the app is already installed
-        $installedApps = @(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -and $_.DisplayVersion })
-
         foreach ($app in $installedApps) {
-            $escapedAppName = [Regex]::Escape($appName)
-            if ($app.DisplayName -match "^$escapedAppName" -and $app.DisplayVersion -eq $appVersion) {
+            if ($app.DisplayName -match "^$([Regex]::Escape($appName))" -and $app.DisplayVersion -like "*$appVersion*") {
                 Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
                 return $false
             }
@@ -49,7 +41,7 @@ function DownloadSoftware($appName, $appURL, $appVersion) {
         if ($appName -eq "Telegram" -or $appName -eq "YoutubeDownloader") {
             if ($appName -eq "Telegram") {
                 $appDirectory = "$Env:UserProfile\AppData\Roaming\Telegram Desktop"
-                $exeName = "telegram.exe"
+                $exeName = "Telegram.exe"
             }
             elseif ($appName -eq "YoutubeDownloader") {
                 $appDirectory = "C:\Program Files\YoutubeDownloader"
@@ -58,7 +50,7 @@ function DownloadSoftware($appName, $appURL, $appVersion) {
 
             if (Test-Path -Path $appDirectory -PathType Container) {
                 $appVersionInstalled = (Get-Item "$appDirectory\$exeName").VersionInfo.ProductVersion
-                if ($appVersionInstalled -eq $appVersion) {
+                if ($appVersionInstalled -like "$appVersion*") {
                     Write-Host "Skipping download: $appName v$appVersion is already installed." -ForegroundColor Yellow
                     return $false
                 }
@@ -81,9 +73,9 @@ function DownloadSoftware($appName, $appURL, $appVersion) {
 function InstallSoftware($filePath, $appName) {
     try {
         if (Test-Path $filePath) {
-            $extension = [System.IO.Path]::GetExtension($filePath)
             Write-Host "Installing '$appName'" -ForegroundColor Cyan
 
+            $extension = [System.IO.Path]::GetExtension($filePath)
             if ($extension -eq ".exe") {
                 Start-Process -FilePath $filePath -WindowStyle Hidden -ArgumentList '/S' -Wait
             }
