@@ -14,8 +14,10 @@ function DownloadImage($url, $destinationFolder) {
     if (-not (Test-Path -Path $filePath)) {
         Write-Host "Downloading '$fileName'..."
         Invoke-WebRequest -Uri $url -OutFile $filePath -ErrorAction Stop
+        return "downloaded"
     } else {
         Write-Host "'$fileName' already exists." -ForegroundColor Yellow
+        return "skipped"
     }
 }
 
@@ -34,8 +36,13 @@ $numberOfImages = Get-NumberOfImages $totalImages
 $destinationFolder = Read-Host "Enter the destination folder name"
 if (-not (Test-Path -Path $destinationFolder)) { New-Item -ItemType Directory -Path $destinationFolder -Force | Out-Null }
 
+$downloadedCount = 0
+$skippedCount = 0
+
 foreach ($imageUrl in $imageUrls[0..($numberOfImages - 1)]) {
-    DownloadImage $imageUrl $destinationFolder
+    $status = DownloadImage $imageUrl $destinationFolder
+    if ($status -eq "downloaded") { $downloadedCount++ }
+    if ($status -eq "skipped") { $skippedCount++ }
 }
 
-Write-Host "`nDownloaded completed!" -ForegroundColor Green
+Write-Host "`nAll images downloaded at '$(Resolve-Path -Path $destinationFolder)', Total downloaded: $downloadedCount, Total skipped: $skippedCount" -ForegroundColor Green
