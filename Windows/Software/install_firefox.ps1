@@ -1,5 +1,10 @@
+param (
+    [string]$lang = "en-GB",
+    [string]$version
+)
+
 # Define the URLs for the setup file and the SHA512 hash file
-$firefoxSetupUrl = "https://releases.mozilla.org/pub/firefox/releases/120.0.1/win64/en-GB/Firefox%20Setup%20120.0.1.exe"
+$firefoxSetupUrl = "https://releases.mozilla.org/pub/firefox/releases/120.0.1/win64/$lang/Firefox%20Setup%20120.0.1.exe"
 $hashFileUrl = "https://ftp.mozilla.org/pub/firefox/releases/120.0.1/SHA512SUMS"
 
 # Define the path for the downloaded setup file
@@ -12,7 +17,7 @@ Invoke-WebRequest -Uri $firefoxSetupUrl -OutFile $firefoxSetupPath
 $hashFileContent = Invoke-RestMethod -Uri $hashFileUrl
 
 # Extract the hash for the setup file from the content
-$expectedHash = ($hashFileContent -split "`n" | Select-String -Pattern "win64/en-GB/Firefox Setup 120.0.1.exe").Line.Split(" ")[0].Trim()
+$expectedHash = ($hashFileContent -split "`n" | Select-String -Pattern "win64/$lang/Firefox Setup 120.0.1.exe").Line.Split(" ")[0].Trim()
 
 # Compute the SHA512 hash of the downloaded setup file
 $computedHash = (Get-FileHash -Path $firefoxSetupPath -Algorithm SHA512).Hash
@@ -21,8 +26,8 @@ $computedHash = (Get-FileHash -Path $firefoxSetupPath -Algorithm SHA512).Hash
 if ($computedHash -eq $expectedHash) {
     # If the hashes match, output a success message
     Write-Host "Hash matches the expected hash" -ForegroundColor Green
-    Write-Host "Computed Hash: " $computedHash -ForegroundColor Yellow
-    Write-Host "Expected Hash: " $expectedHash -ForegroundColor Blue
+    Write-Host "Remote Hash: " $computedHash -ForegroundColor Yellow
+    Write-Host "Local Hash: " $expectedHash -ForegroundColor Blue
 }
 else {
     # If the hashes do not match, output an error message
