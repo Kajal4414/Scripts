@@ -61,20 +61,16 @@ function PauseNull {
     exit
 }
 
-# Function to check for admin privileges
-function TestAdmin {
-    $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
-    return $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+# Check for admin privileges
+$currentPrincipal = [Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())
+if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+    Write-Host "Error: Administrator privileges required." -ForegroundColor Red
+    PauseNull
 }
 
 # Main function
 function main {
     Write-Host "Starting Firefox installation process...`n"
-
-    if (-not (TestAdmin)) {
-        Write-Host "Error: Administrator privileges required." -ForegroundColor Red
-        PauseNull
-    }
 
     # Attempt to enforce TLS protocol
     try {
@@ -187,8 +183,8 @@ function main {
 
     # Configuration settings
     Write-Host "`nConfiguring Mozilla Firefox settings..." -ForegroundColor Green
+
     # Create policies.json
-    Write-Host "Info: Created policies.json at '$installDir\distribution\policies.json'" -ForegroundColor Green
     (New-Item -Path "$installDir" -Name "distribution" -ItemType "directory" -Force) > $null
     $policies = ConvertToJson(@{
             policies = @{
@@ -203,14 +199,12 @@ function main {
         })
 
     # Create autoconfig.js
-    Write-Host "Info: Created autoconfig.js at '$installDir\defaults\pref\autoconfig.js'" -ForegroundColor Green
     $autoConfig = @"
 pref("general.config.filename", "firefox.cfg");
 pref("general.config.obscure_value", 0);
 "@
 
     # Create firefox.cfg
-    Write-Host "Info: Created firefox.cfg at '$installDir\firefox.cfg'" -ForegroundColor Green
     $firefoxConfig = @"
 defaultPref("app.shield.optoutstudies.enabled", false)
 defaultPref("datareporting.healthreport.uploadEnabled", false)
@@ -231,8 +225,14 @@ lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", f
 
     # Write configuration files
     Set-Content -Path "$installDir\distribution\policies.json" -Value $policies
+    Write-Host "Info: Created policies.json at '$installDir\distribution\policies.json'" -ForegroundColor Green
+
     Set-Content -Path "$installDir\defaults\pref\autoconfig.js" -Value $autoConfig
+    Write-Host "Info: Created autoconfig.js at '$installDir\defaults\pref\autoconfig.js'" -ForegroundColor Green
+
     Set-Content -Path "$installDir\firefox.cfg" -Value $firefoxConfig
+    Write-Host "Info: Created firefox.cfg at '$installDir\firefox.cfg'" -ForegroundColor Green
+
     Write-Host "`nRelease notes: https://www.mozilla.org/en-US/firefox/$remoteVersion/releasenotes" -ForegroundColor Green
     return 0
 }
