@@ -13,7 +13,7 @@ function DownloadImage($url, $destinationFolder) {
     $filePath = Join-Path $destinationFolder $fileName
     if (-not (Test-Path -Path $filePath)) {
         Write-Host "Downloading '$fileName'..."
-        Invoke-WebRequest -Uri $url -OutFile $filePath -ErrorAction Stop
+        $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri $url -OutFile $filePath -ErrorAction Stop
         return "downloaded"
     } else {
         Write-Host "'$fileName' already exists." -ForegroundColor Yellow
