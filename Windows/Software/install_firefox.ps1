@@ -143,41 +143,52 @@ function main {
     # Define policies.json content (https://mozilla.github.io/policy-templates)
     $policiesJson = @{
         "policies" = @{
-            "DisableTelemetry"         = $true
-            "DisableFirefoxStudies"    = $true
-            "DisablePocket"            = $true
-            "DisableFormHistory"       = $true
-            "DisableFirefoxAccounts"   = $true
-            "DisableSync"              = $true
-            "OverrideFirstRunPage"     = ""
-            "DisableAppUpdate"         = $true
-            "EnableTrackingProtection" = @{
+            "DisableTelemetry"            = $true
+            "DisableFirefoxStudies"       = $true
+            "DisablePocket"               = $true
+            "DisableFormHistory"          = $true
+            "DisableFirefoxAccounts"      = $true
+            "DisableFeedbackCommands"     = $true
+            "DisableSetDesktopBackground" = $true
+            "DisableSync"                 = $true
+            "OverrideFirstRunPage"        = ""
+            "DisableAppUpdate"            = $true
+            "DNSOverHTTPS"                = @{
+                "Enabled"     = $false
+                "ProviderURL" = ""
+                "Locked"      = $false
+            }
+            "EnableTrackingProtection"    = @{
                 "Value"  = $true
                 "Locked" = $true
             }
-            "Extensions"               = @{
-                "Install" = @(
+            "Extensions"                  = @{
+                "Install"   = @(
                     "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi",
                     "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
                     "https://addons.mozilla.org/firefox/downloads/latest/fastforwardteam/latest.xpi",
                     "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi"
                 )
+                "Uninstall" = @(
+                    "amazondotcom@search.mozilla.org",
+                    "ebay@search.mozilla.org"
+                )
             }
-            "PopupBlocking"            = @{
+            "PopupBlocking"               = @{
                 "Default" = $true
                 "Locked"  = $true
             }
-            "Cookies"                  = @{
+            "Cookies"                     = @{
                 "Behavior" = "reject-tracker"
                 "Locked"   = $true
             }
-            "DontCheckDefaultBrowser"  = $true
-            "NetworkPrediction"        = $false
-            "SearchSuggestEnabled"     = $false
-            "DisableSecurityBypass"    = @{
+            "DontCheckDefaultBrowser"     = $true
+            "NetworkPrediction"           = $false
+            "SearchSuggestEnabled"        = $false
+            "DisableSecurityBypass"       = @{
                 "SafeBrowsing" = $true
             }
-            "SanitizeOnShutdown"       = @{
+            "SanitizeOnShutdown"          = @{
                 "Cache"        = $true
                 "Downloads"    = $true
                 "FormData"     = $true
@@ -201,7 +212,7 @@ pref("general.config.obscure_value", 0);
 `nlockPref("app.shield.optoutstudies.enabled", false);
 lockPref("datareporting.healthreport.uploadEnabled", false);
 lockPref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
-lockPref("browser.newtabpage.activity-stream.feeds.topsites", false);
+lockPref("browser.newtabpage.activity-stream.feeds.topsites", true);
 lockPref("dom.security.https_only_mode", true);
 lockPref("browser.uidensity", 1);
 lockPref("full-screen-api.transition-duration.enter", "0 0");
@@ -241,7 +252,7 @@ lockPref("dom.push.enabled", false);
 "@
 
     # Convert policies to JSON and write to file
-    $policiesJson | ConvertTo-Json -Depth 5 -Compress | Set-Content -Path "$installDir\distribution\policies.json"
+    $policiesJson | ConvertTo-Json -Depth 5 | Set-Content -Path "$installDir\distribution\policies.json"
     Write-Host "Created: policies.json" -ForegroundColor Green
 
     # Write autoconfig.js
