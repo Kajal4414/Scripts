@@ -52,6 +52,7 @@ function main {
     $downloadUrl = "https://releases.mozilla.org/pub/firefox/releases/$remoteVersion/win64/$lang/Firefox%20Setup%20$remoteVersion.exe"
     $hashSource = "https://ftp.mozilla.org/pub/firefox/releases/$remoteVersion/SHA512SUMS"
     $installDir = "$Env:ProgramFiles\Mozilla Firefox"
+    $setupFile = "$Env:TEMP\Firefox Setup $remoteVersion.exe"
 
     # Check if the current version is already installed
     if (Test-Path "$installDir\firefox.exe" -PathType Leaf) {
@@ -71,8 +72,7 @@ function main {
 
     # Download Firefox setup file
     Write-Host "`nDownloading Mozilla Firefox v$remoteVersion setup..." -ForegroundColor Yellow
-    $setupFile = "$Env:TEMP\Firefox Setup $remoteVersion.exe"
-    $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri $downloadUrl -OutFile $setupFile
+    curl.exe -o $setupFile -S $downloadUrl
     Write-Host "Downloading successful." -ForegroundColor Green
 
     # Verify hash if not skipping hash check
@@ -141,15 +141,15 @@ function main {
     New-Item -Path $installDir -Name "distribution" -ItemType Directory -Force | Out-Null
 
     # Write policies.json
-    $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/policies.json" -OutFile "$installDir\distribution\policies.json"
+    curl.exe -O -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/policies.json"
     Write-Host "Created: policies.json" -ForegroundColor Green
 
     # Write autoconfig.js
-    $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/autoconfig.js" -OutFile "$installDir\defaults\pref\autoconfig.js"
+    curl.exe -O -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/autoconfig.js"
     Write-Host "Created: autoconfig.js" -ForegroundColor Green
 
     # Write firefox.cfg
-    $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/firefox.cfg" -OutFile "$installDir\firefox.cfg"
+    curl.exe -O -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/firefox.cfg"
     Write-Host "Created: firefox.cfg" -ForegroundColor Green
 
     # Display release notes URL
