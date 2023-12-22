@@ -140,127 +140,16 @@ function main {
     # Create 'distribution' folder for policies.json
     New-Item -Path $installDir -Name "distribution" -ItemType Directory -Force | Out-Null
 
-    # Define policies.json content (https://mozilla.github.io/policy-templates)
-    $policiesJson = @{
-        "policies" = @{
-            "DisableTelemetry"            = $true
-            "DisableFirefoxStudies"       = $true
-            "DisablePocket"               = $true
-            "DisableFormHistory"          = $true
-            "DisableFirefoxAccounts"      = $true
-            "DisableFeedbackCommands"     = $true
-            "DisableSetDesktopBackground" = $true
-            "DisableSync"                 = $true
-            "OverrideFirstRunPage"        = ""
-            "DisableAppUpdate"            = $true
-            "DNSOverHTTPS"                = @{
-                "Enabled"     = $false
-                "ProviderURL" = ""
-                "Locked"      = $false
-            }
-            "EnableTrackingProtection"    = @{
-                "Value"  = $true
-                "Locked" = $true
-            }
-            "Extensions"                  = @{
-                "Install"   = @(
-                    "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi",
-                    "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
-                    "https://addons.mozilla.org/firefox/downloads/latest/fastforwardteam/latest.xpi",
-                    "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi"
-                )
-                "Uninstall" = @(
-                    "amazondotcom@search.mozilla.org",
-                    "ebay@search.mozilla.org"
-                )
-            }
-            "PopupBlocking"               = @{
-                "Default" = $true
-                "Locked"  = $true
-            }
-            "Cookies"                     = @{
-                "Behavior" = "reject-tracker"
-                "Locked"   = $true
-            }
-            "DontCheckDefaultBrowser"     = $true
-            "NetworkPrediction"           = $false
-            "SearchSuggestEnabled"        = $false
-            "DisableSecurityBypass"       = @{
-                "SafeBrowsing" = $true
-            }
-            "SanitizeOnShutdown"          = @{
-                "Cache"        = $true
-                "Downloads"    = $true
-                "FormData"     = $true
-                "History"      = $true
-                "Sessions"     = $true
-                "SiteSettings" = $true
-                "OfflineApps"  = $true
-                "Locked"       = $true
-            }
-        }
-    }
-
-    # Define autoconfig.js content (https://support.mozilla.org/en-us/kb/customizing-firefox-using-autoconfig)
-    $autoConfig = @"
-pref("general.config.filename", "firefox.cfg");
-pref("general.config.obscure_value", 0);
-"@
-
-    # Define firefox.cfg content (https://support.mozilla.org/en-us/kb/about-config-editor-firefox)
-    $firefoxConfig = @"
-`nlockPref("app.shield.optoutstudies.enabled", false);
-lockPref("datareporting.healthreport.uploadEnabled", false);
-lockPref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
-lockPref("browser.newtabpage.activity-stream.feeds.topsites", true);
-lockPref("dom.security.https_only_mode", true);
-lockPref("browser.uidensity", 1);
-lockPref("full-screen-api.transition-duration.enter", "0 0");
-lockPref("full-screen-api.transition-duration.leave", "0 0");
-lockPref("full-screen-api.warning.timeout", 0);
-lockPref("nglayout.enable_drag_images", false);
-lockPref("reader.parse-on-load.enabled", false);
-lockPref("browser.tabs.firefox-view", false);
-lockPref("browser.tabs.tabmanager.enabled", false);
-lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
-lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
-lockPref("datareporting.healthreport.service.enabled", false);
-lockPref("datareporting.policy.dataSubmissionEnabled", false);
-lockPref("toolkit.telemetry.enabled", false);
-lockPref("toolkit.telemetry.unified", false);
-lockPref("toolkit.telemetry.archive.enabled", false);
-lockPref("toolkit.telemetry.newProfilePing.enabled", false);
-lockPref("toolkit.telemetry.shutdownPingSender.enabled", false);
-lockPref("toolkit.telemetry.updatePing.enabled", false);
-lockPref("toolkit.telemetry.bhrPing.enabled", false);
-lockPref("toolkit.telemetry.firstShutdownPing.enabled", false);
-lockPref("browser.ping-centre.telemetry", false);
-lockPref("extensions.pocket.enabled", false);
-lockPref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-lockPref("browser.newtabpage.activity-stream.telemetry", false);
-lockPref("browser.newtabpage.activity-stream.feeds.snippets", false);
-lockPref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
-lockPref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
-lockPref("network.predictor.enabled", false);
-lockPref("network.prefetch-next", false);
-lockPref("network.http.speculative-parallel-limit", 0);
-lockPref("browser.search.suggest.enabled", false);
-lockPref("browser.urlbar.suggest.searches", false);
-lockPref("extensions.getAddons.cache.enabled", false);
-lockPref("extensions.htmlaboutaddons.recommendations.enabled", false);
-lockPref("dom.push.enabled", false);
-"@
-
-    # Convert policies to JSON and write to file
-    $policiesJson | ConvertTo-Json -Depth 5 | Set-Content -Path "$installDir\distribution\policies.json"
+    # Write policies.json
+    $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/policies.json" -OutFile "$installDir\distribution\policies.json"
     Write-Host "Created: policies.json" -ForegroundColor Green
 
     # Write autoconfig.js
-    $autoConfig | Set-Content -Path "$installDir\defaults\pref\autoconfig.js"
+    $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/autoconfig.js" -OutFile "$installDir\defaults\pref\autoconfig.js"
     Write-Host "Created: autoconfig.js" -ForegroundColor Green
 
     # Write firefox.cfg
-    $firefoxConfig | Set-Content -Path "$installDir\firefox.cfg"
+    $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/firefox.cfg" -OutFile "$installDir\firefox.cfg"
     Write-Host "Created: firefox.cfg" -ForegroundColor Green
 
     # Display release notes URL
