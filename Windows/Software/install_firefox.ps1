@@ -142,15 +142,15 @@ function main {
     New-Item -Path $installDir -Name "distribution" -ItemType Directory -Force | Out-Null
 
     # Write policies.json
-    curl.exe -O -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/policies.json"
+    curl.exe -o "$installDir\distribution\policies.json" -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/policies.json"
     Write-Host "Created: policies.json" -ForegroundColor Green
 
     # Write autoconfig.js
-    curl.exe -O -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/autoconfig.js"
+    curl.exe -o "$installDir\defaults\pref\autoconfig.js" -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/autoconfig.js"
     Write-Host "Created: autoconfig.js" -ForegroundColor Green
 
     # Write firefox.cfg
-    curl.exe -O -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/firefox.cfg"
+    curl.exe -o "$installDir\firefox.cfg" -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/firefox.cfg"
     Write-Host "Created: firefox.cfg" -ForegroundColor Green
 
     # Display release notes URL
