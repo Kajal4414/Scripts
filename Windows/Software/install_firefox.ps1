@@ -120,6 +120,7 @@ function main {
         "default-browser-agent.exe",
         "maintenanceservice.exe",
         "maintenanceservice_installer.exe",
+        "minidump-analyzer.exe",
         "pingsender.exe",
         "updater.exe",
         "updater.ini",
