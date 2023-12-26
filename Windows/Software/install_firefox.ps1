@@ -23,16 +23,6 @@ if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Adm
 function main {
     Write-Host "Starting Firefox installation process..." -ForegroundColor Yellow
 
-    # Attempt to enforce TLS protocol
-    try {
-        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        Write-Host "TLS protocol set to 'TLS 1.2' for secure communications." -ForegroundColor Green
-    }
-    catch {
-        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls
-        Write-Warning "TLS protocol set to TLS 1.0, It is outdated and may pose security risks."
-    }
-
     # Attempt to fetch JSON data
     try {
         $response = Invoke-RestMethod -Uri "https://product-details.mozilla.org/1.0/firefox_versions.json"
