@@ -29,13 +29,8 @@ function main {
         Write-Host "TLS protocol set to 'TLS 1.2' for secure communications." -ForegroundColor Green
     }
     catch {
-        try {
-            [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls
-            Write-Warning "TLS protocol set to TLS 1.0, It is outdated and may pose security risks."
-        }
-        catch {
-            Write-Warning "Unable to set TLS protocol, Your Windows version may not support TLS."
-        }
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls
+        Write-Warning "TLS protocol set to TLS 1.0, It is outdated and may pose security risks."
     }
 
     # Attempt to fetch JSON data
