@@ -1,8 +1,14 @@
+# Set execution policy for this session only
+# Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+# Run script
+# .\install_firefox.ps1 -edition "Developer"
+
 param (
     [switch]$force,
     [switch]$skipHashCheck,
     [string]$lang = "en-GB",
-    [string]$edition, # .\install_firefox.ps1 -edition "Developer"
+    [string]$edition,
     [string]$version
 )
 
