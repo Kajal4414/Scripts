@@ -2,6 +2,7 @@ param (
     [switch]$force,
     [switch]$skipHashCheck,
     [string]$lang = "en-GB",
+    [string]$edition, # .\install_firefox.ps1 -edition "Developer"
     [string]$version
 )
 
@@ -26,6 +27,13 @@ function main {
     # Attempt to fetch JSON data
     try {
         $response = Invoke-RestMethod -Uri "https://product-details.mozilla.org/1.0/firefox_versions.json"
+        
+        switch ($edition) {
+        "Developer" { $remoteVersion = $json.FIREFOX_DEVEDITION }
+        "Enterprise" { $remoteVersion = $json.FIREFOX_ESR }
+        default { $remoteVersion = $json.LATEST_FIREFOX_VERSION }
+        }
+
     }
     catch {
         Write-Host "Failed to fetch JSON data: $_" -ForegroundColor Red
@@ -33,7 +41,7 @@ function main {
     }
 
     # Determine download URL based on provided or latest version
-    $remoteVersion = if ($version) { $version } else { $response.LATEST_FIREFOX_VERSION }
+    $remoteVersion = if ($version) { $version }
     $downloadUrl = "https://releases.mozilla.org/pub/firefox/releases/$remoteVersion/win64/$lang/Firefox%20Setup%20$remoteVersion.exe"
     $hashSource = "https://ftp.mozilla.org/pub/firefox/releases/$remoteVersion/SHA512SUMS"
     $installDir = "$Env:ProgramFiles\Mozilla Firefox"
