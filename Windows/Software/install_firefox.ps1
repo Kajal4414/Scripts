@@ -1,15 +1,9 @@
-# Set execution policy for this session only
-# Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-
-# Run script
-# .\install_firefox.ps1 -edition "Developer"
-
 param (
-    [switch]$force,
-    [switch]$skipHashCheck,
-    [string]$lang = "en-GB",
-    [string]$edition,
-    [string]$version
+    [switch]$force,  # Force installation without confirmation
+    [switch]$skipHashCheck,  # Skip SHA-512 hash verification
+    [string]$lang = "en-GB",  # Language for Firefox installation
+    [string]$edition,  # Edition of Firefox (e.g., Developer, Enterprise)
+    [string]$version  # Specific version of Firefox to install
 )
 
 # Function to pause and wait for user input
@@ -39,13 +33,17 @@ function main {
         PauseNull
     }
 
+    # Determine the version to download based on the specified edition
     $remoteVersion = switch ($edition) {
         "Developer" { $response.FIREFOX_DEVEDITION }
         "Enterprise" { $response.FIREFOX_ESR }
         default { $response.LATEST_FIREFOX_VERSION }
     }
 
+    # Use the specified version if provided, otherwise use the determined version
     $remoteVersion = if ($version) { $version } else { $remoteVersion }
+    
+    # Define download URL and file paths
     $downloadUrl = "https://releases.mozilla.org/pub/firefox/releases/$remoteVersion/win64/$lang/Firefox%20Setup%20$remoteVersion.exe"
     $hashSource = "https://ftp.mozilla.org/pub/firefox/releases/$remoteVersion/SHA512SUMS"
     $installDir = "$Env:ProgramFiles\Mozilla Firefox"
@@ -100,6 +98,7 @@ function main {
         PauseNull
     }
 
+    # Removing unnecessary files
     Write-Host "`nRemoving unnecessary files..." -ForegroundColor Yellow
 
     # Remove Firefox setup file
@@ -108,7 +107,7 @@ function main {
         Remove-Item $setupFile
     }
 
-    # Remove unnecessary files
+    # Remove other unnecessary files
     $removeFiles = @(
         "crashreporter.exe",
         "crashreporter.ini",
