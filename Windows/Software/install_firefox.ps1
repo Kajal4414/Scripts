@@ -66,7 +66,12 @@ function main {
     }
 
     # Download Firefox setup file
-    Write-Host "`nDownloading Mozilla Firefox v$remoteVersion setup..." -ForegroundColor Yellow
+    if ($edition) {
+        Write-Host "`nDownloading Mozilla Firefox $edition Edition v$remoteVersion setup..." -ForegroundColor Yellow
+    }
+    else {
+        Write-Host "`nDownloading Mozilla Firefox v$remoteVersion setup..." -ForegroundColor Yellow
+    }
     curl.exe -o $setupFile -S $downloadUrl
     Write-Host "Downloading successful." -ForegroundColor Green
 
