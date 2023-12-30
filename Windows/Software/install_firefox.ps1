@@ -39,14 +39,14 @@ function main {
         PauseNull
     }
 
-    # Determine the correct version based on the edition parameter
-    switch ($edition) {
-        "Developer" { $remoteVersion = $response.FIREFOX_DEVEDITION }
-        "Enterprise" { $remoteVersion = $response.FIREFOX_ESR }
-        default { $remoteVersion = $response.LATEST_FIREFOX_VERSION }
+    $latestVersion = $response.LATEST_FIREFOX_VERSION
+    $remoteVersion = switch ($edition) {
+        "Developer" { $response.FIREFOX_DEVEDITION }
+        "Enterprise" { $response.FIREFOX_ESR }
+        default { $latestVersion }
     }
 
-    $remoteVersion = if ($version) { $version } else { $response.LATEST_FIREFOX_VERSION }
+    $remoteVersion = if ($version) { $version } else { $remoteVersion }
     $downloadUrl = "https://releases.mozilla.org/pub/firefox/releases/$remoteVersion/win64/$lang/Firefox%20Setup%20$remoteVersion.exe"
     $hashSource = "https://ftp.mozilla.org/pub/firefox/releases/$remoteVersion/SHA512SUMS"
     $installDir = "$Env:ProgramFiles\Mozilla Firefox"
