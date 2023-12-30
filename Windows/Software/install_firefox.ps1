@@ -1,37 +1,36 @@
 param (
-    [switch]$force,  # Force installation without confirmation
-    [switch]$skipHashCheck,  # Skip SHA-512 hash verification
-    [string]$lang = "en-GB",  # Language for Firefox installation
-    [string]$edition,  # Edition of Firefox (e.g., Developer, Enterprise)
-    [string]$version  # Specific version of Firefox to install
+    [switch]$force,
+    [switch]$skipHashCheck,
+    [string]$lang = "en-GB",
+    [string]$edition,
+    [string]$version
 )
 
-# Function to pause and wait for user input
 function PauseNull {
     Write-Host "Press any key to exit... " -NoNewline
     $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
     exit
 }
 
-# Check for admin privileges
-$currentPrincipal = [Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())
-if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Host "Error: Administrator privileges required." -ForegroundColor Red
-    PauseNull
+function CheckAdmin {
+    $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+    return $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
 
-# Main script execution
-function main {
-    Write-Host "Starting Firefox installation process..." -ForegroundColor Yellow
-
-    # Attempt to fetch JSON data
+function FetchFirefoxVersion {
     try {
         $response = Invoke-RestMethod -Uri "https://product-details.mozilla.org/1.0/firefox_versions.json"
+        return $response
     }
     catch {
         Write-Host "Failed to fetch JSON data: $_" -ForegroundColor Red
         PauseNull
     }
+}
+
+# Main script execution
+function main {
+    Write-Host "Starting Firefox installation process..." -ForegroundColor Yellow
 
     # Determine the version to download based on the specified edition
     $remoteVersion = switch ($edition) {
