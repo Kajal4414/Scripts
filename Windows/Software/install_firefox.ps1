@@ -39,11 +39,10 @@ function main {
         PauseNull
     }
 
-    $latestVersion = $response.LATEST_FIREFOX_VERSION
     $remoteVersion = switch ($edition) {
         "Developer" { $response.FIREFOX_DEVEDITION }
         "Enterprise" { $response.FIREFOX_ESR }
-        default { $latestVersion }
+        default { $response.LATEST_FIREFOX_VERSION }
     }
 
     $remoteVersion = if ($version) { $version } else { $remoteVersion }
