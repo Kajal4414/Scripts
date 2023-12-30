@@ -2,6 +2,7 @@ param (
     [switch]$force,
     [switch]$skipHashCheck,
     [string]$lang = "en-GB",
+    [string]$edition,
     [string]$version
 )
 
@@ -13,7 +14,7 @@ function PauseNull {
 }
 
 # Check for admin privileges
-$currentPrincipal = [Security.Principal.WindowsPrincipal]::new([Security.Principal.WindowsIdentity]::GetCurrent())
+$currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Host "Error: Administrator privileges required." -ForegroundColor Red
     PauseNull
@@ -32,8 +33,17 @@ function main {
         PauseNull
     }
 
-    # Determine download URL based on provided or latest version
-    $remoteVersion = if ($version) { $version } else { $response.LATEST_FIREFOX_VERSION }
+    # Determine the version to download based on the specified edition
+    $remoteVersion = switch ($edition) {
+        "Developer" { $response.FIREFOX_DEVEDITION }
+        "Enterprise" { $response.FIREFOX_ESR }
+        default { $response.LATEST_FIREFOX_VERSION }
+    }
+
+    # Use the specified version if provided, otherwise use the determined version
+    $remoteVersion = if ($version) { $version } else { $remoteVersion }
+    
+    # Define download URL and file paths
     $downloadUrl = "https://releases.mozilla.org/pub/firefox/releases/$remoteVersion/win64/$lang/Firefox%20Setup%20$remoteVersion.exe"
     $hashSource = "https://ftp.mozilla.org/pub/firefox/releases/$remoteVersion/SHA512SUMS"
     $installDir = "$Env:ProgramFiles\Mozilla Firefox"
