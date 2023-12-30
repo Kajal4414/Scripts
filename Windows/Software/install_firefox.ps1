@@ -8,7 +8,7 @@ param (
     [switch]$force,
     [switch]$skipHashCheck,
     [string]$lang = "en-GB",
-    [string]$edition = "Standard",
+    [string]$edition,
     [string]$version
 )
 
