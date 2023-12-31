@@ -10,10 +10,20 @@
         "DisableSync": true,
         "OverrideFirstRunPage": "",
         "DisableAppUpdate": true,
+        "DisableDefaultBrowserAgent": true,
         "DNSOverHTTPS": {
             "Enabled": false,
             "ProviderURL": "",
             "Locked": false
+        },
+        "FirefoxHome": {
+            "TopSites": true,
+            "SponsoredTopSites": false,
+            "Highlights": false,
+            "Pocket": false,
+            "SponsoredPocket": false,
+            "Snippets": false,
+            "Locked": true
         },
         "EnableTrackingProtection": {
             "Value": true,
@@ -25,10 +35,6 @@
                 "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi",
                 "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi",
                 "https://addons.mozilla.org/firefox/downloads/latest/fastforwardteam/latest.xpi"
-            ],
-            "Uninstall": [
-                "amazondotcom@search.mozilla.org",
-                "ebay@search.mozilla.org"
             ]
         },
         "PopupBlocking": {
@@ -36,7 +42,7 @@
             "Locked": true
         },
         "Cookies": {
-            "Behavior": "reject-tracker",
+            "Behavior": "reject-tracker-and-partition-foreign",
             "Locked": true
         },
         "DontCheckDefaultBrowser": true,
