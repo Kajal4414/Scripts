@@ -1,7 +1,5 @@
 {
     "policies": {
-
-        /* --- Privacy and Security --- */
         "DisableTelemetry": true,
         "DisableFirefoxStudies": true,
         "DisablePocket": true,
@@ -34,8 +32,6 @@
             "OfflineApps": true,
             "Locked": true
         },
-
-        /* --- Updates and Features --- */
         "DisableAppUpdate": true,
         "DNSOverHTTPS": {
             "Enabled": false,
@@ -51,15 +47,11 @@
             "Snippets": false,
             "Locked": true
         },
-
-        /* --- User Experience --- */
         "OverrideFirstRunPage": "",
         "DisableDefaultBrowserAgent": true,
         "DontCheckDefaultBrowser": true,
         "NetworkPrediction": false,
         "SearchSuggestEnabled": false,
-
-        /* --- Extensions --- */
         "Extensions": {
             "Install": [
                 "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
