@@ -1,5 +1,6 @@
 {
     "policies": {
+
         /* --- Privacy and Security --- */
         "DisableTelemetry": true,
         "DisableFirefoxStudies": true,
@@ -33,6 +34,7 @@
             "OfflineApps": true,
             "Locked": true
         },
+
         /* --- Updates and Features --- */
         "DisableAppUpdate": true,
         "DNSOverHTTPS": {
@@ -49,12 +51,14 @@
             "Snippets": false,
             "Locked": true
         },
+
         /* --- User Experience --- */
         "OverrideFirstRunPage": "",
         "DisableDefaultBrowserAgent": true,
         "DontCheckDefaultBrowser": true,
         "NetworkPrediction": false,
         "SearchSuggestEnabled": false,
+
         /* --- Extensions --- */
         "Extensions": {
             "Install": [
