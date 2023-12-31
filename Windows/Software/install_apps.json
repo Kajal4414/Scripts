@@ -16,7 +16,7 @@
   },
   {
     "appName": "Google Chrome",
-    "version": "120.0.6099.129",
+    "version": "120.0.6099.130",
     "url": "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
   },
   {
@@ -100,8 +100,8 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.4.16",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/Obsidian.1.4.16.exe"
+    "version": "1.5.3",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.3/Obsidian.1.5.3.exe"
   },
   {
     "appName": "OhMyPosh",
@@ -130,7 +130,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.7.2",
+    "version": "3.7.3",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -150,7 +150,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.10.8",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.8/YoutubeDownloader.zip"
+    "version": "1.10.9",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.9/YoutubeDownloader.zip"
   }
 ]
