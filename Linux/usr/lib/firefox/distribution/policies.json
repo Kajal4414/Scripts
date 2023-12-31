@@ -7,7 +7,6 @@
         "DisableSetDesktopBackground": true,
         "DisableFormHistory": true,
         "DisableFirefoxAccounts": true,
-        "DisableSync": true,
         "OverrideFirstRunPage": "",
         "DisableAppUpdate": true,
         "DisableDefaultBrowserAgent": true,
