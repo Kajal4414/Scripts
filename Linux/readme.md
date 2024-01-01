@@ -54,3 +54,16 @@ bash -c "$(wget -qO- https://git.io/vQgMr)"
 - **Compatibility:** Remember that GTK 4 themes might have some limitations in Cinnamon, especially with libadwaita applications.
 - **Customization:** You can experiment with different color variants of the theme by editing the `gtk.css` file located in `/usr/share/themes/Tokyo Night/gtk-3.0/`.
 - **Updates:** Keep an eye on the theme's GitHub repository for any updates or compatibility improvements.
+
+---
+
+**Adjust the spacing of the panel launchers in the Cinnamon desktop environment.**
+- Navigate to `/usr/share/themes/THEME_NAME/cinnamon/cinnamon.css` where THEME_NAME is the name of your current theme.
+
+**OR**
+
+- Navigate to `~/.themes/THEME_NAME/cinnamon/cinnamon.css`.
+- Look for sections in the CSS file that pertain to the taskbar or panel, such as `.panel-launcher`.
+- For example, if you want to increase the spacing between launchers to 4 pixels, you would change.
+
+`.panel-launcher { padding: 2px; }` to `.panel-launcher { padding: 4px; }`.
