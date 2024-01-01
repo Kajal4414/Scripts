@@ -34,6 +34,12 @@ mv ~/Downloads/Tokyo-Night-GTK-Theme-master/icons/* .local/share/icons/
 **4. (Optional) Install a matching icon theme:**
 
 - If you wish to use a matching icon theme, you can download one from websites like Gnome-Look.org and install it by placing the icons in `/usr/share/icons`.
+- If you wish to use a matching terminal theme.
+
+```bash
+bash -c "$(wget -qO- https://git.io/vQgMr)"
+```
+- Enter `230` Tokyo Night, and restart the terminal.
 
 **5. (Optional) Install a GTK+ 2.0 theme:**
 
