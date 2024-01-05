@@ -15,11 +15,6 @@
     "url": "https://github.com/brave/brave-browser/releases/download/v1.61.114/BraveBrowserStandaloneSetup.exe"
   },
   {
-    "appName": "Google Chrome",
-    "version": "120.0.6099.199",
-    "url": "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
-  },
-  {
     "appName": "Git",
     "version": "2.43.0",
     "url": "https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe"
