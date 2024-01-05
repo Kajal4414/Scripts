@@ -48,13 +48,13 @@ $softwareList += [PSCustomObject]@{
 }
 
 # Chrome
-$baseUrl = "https://chromiumdash.appspot.com/fetch_releases?channel=Stable&platform=Windows&num=1"
+# $baseUrl = "https://chromiumdash.appspot.com/fetch_releases?channel=Stable&platform=Windows&num=1"
 
-$softwareList += [PSCustomObject]@{
-    appName = "Google Chrome"
-    version = (Invoke-RestMethod $baseUrl).version
-    url     = "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
-}
+# $softwareList += [PSCustomObject]@{
+#     appName = "Google Chrome"
+#     version = (Invoke-RestMethod $baseUrl).version
+#     url     = "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
+# }
 
 # Git
 $baseUrl = "https://api.github.com/repos/git-for-windows/git/releases/latest"
