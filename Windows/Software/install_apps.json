@@ -11,12 +11,12 @@
   },
   {
     "appName": "Brave",
-    "version": "1.61.109",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.61.109/BraveBrowserStandaloneSetup.exe"
+    "version": "1.61.114",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.61.114/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Google Chrome",
-    "version": "120.0.6099.130",
+    "version": "120.0.6099.199",
     "url": "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
   },
   {
@@ -105,13 +105,13 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.3.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.3.0/install-amd64.exe"
+    "version": "19.3.1",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.3.1/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
-    "version": "3.2.8",
-    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.8.exe"
+    "version": "3.2.9",
+    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.9.exe"
   },
   {
     "appName": "PyCharm Community Edition",
@@ -140,8 +140,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "4.12.2",
-    "url": "https://telegram.org/dl/desktop/win64"
+    "version": "4.14.3",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.14.3/tsetup-x64.4.14.3.exe"
   },
   {
     "appName": "VLC media player",
@@ -150,7 +150,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.10.9",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.9/YoutubeDownloader.zip"
+    "version": "1.10.10",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.10/YoutubeDownloader.zip"
   }
 ]
