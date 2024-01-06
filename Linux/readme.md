@@ -67,3 +67,8 @@ bash -c "$(wget -qO- https://git.io/vQgMr)"
 - For example, if you want to increase the spacing between launchers to 4 pixels, you would change.
 
 `.panel-launcher { padding: 2px; }` to `.panel-launcher { padding: 4px; }`.
+
+---
+
+### Fonts:
+https://fonts.google.com/specimen/Roboto+Condensed `.local/share/fonts/`
