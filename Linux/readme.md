@@ -71,4 +71,5 @@ bash -c "$(wget -qO- https://git.io/vQgMr)"
 ---
 
 ### Fonts:
-https://fonts.google.com/specimen/Roboto+Condensed `.local/share/fonts/`
+- https://fonts.google.com/specimen/Roboto+Condensed `.local/share/fonts/`
+- https://fonts.google.com/specimen/IBM+Plex+Sans
