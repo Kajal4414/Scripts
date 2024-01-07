@@ -9,9 +9,11 @@ Adjusting display using `xgamma`: `sudo apt install x11-xserver-utils` (pre-inst
 - Adjusting individual color channels using `-rgamma`, `-ggamma`, and `-bgamma`.
     - ```sh
       xgamma -rgamma 1.2  # Increase red gamma slightly more
-      xgamma -ggamma 1.1  # Adjust green gamma
-      xgamma -bgamma 1.1  # Adjust blue gamma
+      xgamma -ggamma 1.05  # Adjust green gamma
+      xgamma -bgamma 1.2  # Adjust blue gamma
       ```
+      Increase red and blue slightly more than green, as human eyes are less sensitive to green.
+
 **Note:** These changes are not permanent and will reset after a reboot. To make them permanent, you can add the `xgamma` command to your `.xinitrc` or `.xprofile` file.
 
 ---
