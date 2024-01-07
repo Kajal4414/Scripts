@@ -1,4 +1,20 @@
 # Linux
+Adjusting display using `xgamma`: `sudo apt install x11-xserver-utils` (pre-installed in Linux Mint)
+- Check the current gamma value, use `xgamma` without any options.
+    - `-> Red  1.000, Green  1.000, Blue  1.000` (Default)
+- To increase all channels by 10%:
+    - ```sh
+      xgamma -gamma 1.1
+      ```
+- Adjusting individual color channels using `-rgamma`, `-ggamma`, and `-bgamma`.
+    - ```sh
+      xgamma -rgamma 1.2  # Increase red gamma slightly more
+      xgamma -ggamma 1.1  # Adjust green gamma
+      xgamma -bgamma 1.1  # Adjust blue gamma
+      ```
+
+
+---
 
 -   Icons Directory: `/usr/share/applications` and `/home/sakshi/.local/share/applications`
 
