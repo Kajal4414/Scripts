@@ -12,7 +12,7 @@ Adjusting display using `xgamma`: `sudo apt install x11-xserver-utils` (pre-inst
       xgamma -ggamma 1.1  # Adjust green gamma
       xgamma -bgamma 1.1  # Adjust blue gamma
       ```
-
+**Note:** These changes are not permanent and will reset after a reboot. To make them permanent, you can add the `xgamma` command to your `.xinitrc` or `.xprofile` file.
 
 ---
 
