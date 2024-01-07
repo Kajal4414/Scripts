@@ -31,6 +31,7 @@ Adjusting display using `xgamma`: `sudo apt install x11-xserver-utils` (pre-inst
 - Visit the GitHub repository: [https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme](https://github.com/Fausto-Korpsvart/Tokyo-Night-GTK-Theme)
 - Click the green "Code" button and select "Download ZIP".
 - Extract the downloaded ZIP file to a convenient location, like your Downloads folder.
+    > **Recommendation**: Avoid the 'Download ZIP' button, as its compression can remove soft links and ruin a large part of the pack.
 
 **2. Move the theme files:**
 
