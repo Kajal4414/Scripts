@@ -90,8 +90,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.6",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6/npp.8.6.Installer.x64.exe"
+    "version": "8.6.1",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.1/npp.8.6.1.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.3.1",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.3.1/install-amd64.exe"
+    "version": "19.4.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.4.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
