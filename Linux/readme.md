@@ -17,6 +17,11 @@ Adjusting display using `xgamma`: `sudo apt install x11-xserver-utils` (pre-inst
 **Note:** These changes are not permanent and will reset after a reboot. To make them permanent, you can add the `xgamma` command to your `.xinitrc` or `.xprofile` file.
 
 ---
+My Device: (Bus 003 Device 006: ID `04f3:0903` Elan Microelectronics Corp. `ELAN:Fingerprint`)
+- https://github.com/mincrmatt12/elan-spi-fingerprint
+- https://gitlab.freedesktop.org/libfprint/libfprint
+- https://gitlab.freedesktop.org/libfprint/libfprint/-/issues/174
+---
 
 -   Icons Directory: `/usr/share/applications` and `/home/sakshi/.local/share/applications`
 
