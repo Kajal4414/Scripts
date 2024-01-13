@@ -69,7 +69,7 @@
     ```cmd
     format V: /FS:FAT32
     ```
-6. Recreate the UEFI partition (Replace 'C:' with your Windows drive letter).
+6. [Recreate the UEFI partition](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/bcdboot-command-line-options-techref-di?view=windows-11) (Replace 'C:' with your Windows drive letter).
     ```sh
     bcdboot C:\Windows /s V: /f UEFI
     ```
