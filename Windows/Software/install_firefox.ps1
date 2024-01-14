@@ -162,7 +162,7 @@ function main {
     Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\userChrome.css" -Destination $profilePath
     Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\userContent.css" -Destination $profilePath
     Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\image" -Destination $profilePath
-    Remove-Item "$Env:TEMP\Firefox-Mod-Blur"
+    Remove-Item -Path "$Env:TEMP\Firefox-Mod-Blur" -Force -Recurse
 
 
     # Display release notes URL
