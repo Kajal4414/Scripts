@@ -157,11 +157,9 @@ function main {
     Write-Host "Installing Firefox Theme..." -ForegroundColor Yellow
     $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
     $tempraryDir = "$Env:TEMP\Firefox-Mod-Blur"
-    
+
     git clone --depth=1 https://github.com/datguypiko/Firefox-Mod-Blur $tempraryDir
-    Move-Item -Path "$tempraryDir\userChrome.css" -Destination $profilePath
-    Move-Item -Path "$tempraryDir\userContent.css" -Destination $profilePath
-    Move-Item -Path "$tempraryDir\image" -Destination $profilePath
+    Move-Item -Path "$tempraryDir\userChrome.css", "$tempraryDir\userContent.css", "$tempraryDir\image" -Destination $profilePath
     Remove-Item -Path $tempraryDir -Force -Recurse
 
     # Display release notes URL
