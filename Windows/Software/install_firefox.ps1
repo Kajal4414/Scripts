@@ -153,6 +153,18 @@ function main {
     curl.exe -o "$installDir\firefox.cfg" -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/firefox.cfg"
     Write-Host "Created: firefox.cfg" -ForegroundColor Green
 
+    # Firefox Theme
+    Write-Host "Installing Firefox Theme..." -ForegroundColor Yellow
+    curl.exe -o "$Env:TEMP\Firefox-Mod-Blur.zip" -LS https://github.com/datguypiko/Firefox-Mod-Blur/archive/refs/heads/master.zip
+    Expand-Archive -LiteralPath "$Env:TEMP\Firefox-Mod-Blur.zip" -DestinationPath "$Env:TEMP\Firefox-Mod-Blur"
+
+    $profilePath = Get-ChildItem -Path "$Env:USERPROFILE\AppData\Roaming\Mozilla\Firefox\Profiles" -Directory | Select-Object -First 1 -ExpandProperty FullName
+    Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\userChrome.css" -Destination $profilePath
+    Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\userContent.css" -Destination $profilePath
+    Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\image" -Destination $profilePath
+    Remove-Item "$Env:TEMP\Firefox-Mod-Blur"
+
+
     # Display release notes URL
     Write-Host "`nRelease notes: https://www.mozilla.org/en-US/firefox/$remoteVersion/releasenotes" -ForegroundColor Green
     return 0
