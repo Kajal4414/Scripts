@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.61.114",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.61.114/BraveBrowserStandaloneSetup.exe"
+    "version": "1.61.116",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.61.116/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Git",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.4.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.4.0/install-amd64.exe"
+    "version": "19.5.2",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.5.2/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -135,8 +135,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "4.14.3",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.14.3/tsetup-x64.4.14.3.exe"
+    "version": "4.14.4",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.14.4/tsetup-x64.4.14.4.exe"
   },
   {
     "appName": "VLC media player",
