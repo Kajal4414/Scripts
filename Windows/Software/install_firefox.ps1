@@ -158,7 +158,7 @@ function main {
     $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
     $tempraryDir = "$Env:TEMP\Firefox-Mod-Blur"
 
-    git clone --depth=1 https://github.com/datguypiko/Firefox-Mod-Blur $tempraryDir
+    git clone --depth=1 -q https://github.com/datguypiko/Firefox-Mod-Blur $tempraryDir
     Move-Item -Path "$tempraryDir\userChrome.css", "$tempraryDir\userContent.css", "$tempraryDir\image" -Destination $profilePath
     Remove-Item -Path $tempraryDir -Force -Recurse
 
