@@ -15,7 +15,7 @@
         ```
 
     -   #### [Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)
-    -   #### [~~Firefox Mod Blur~~](https://github.com/datguypiko/Firefox-Mod-Blur) - Deprecated
+    -   #### [Firefox Mod Blur](https://github.com/datguypiko/Firefox-Mod-Blur)
 
 -   ### [Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)
     -   #### [Catppuccin Mocha](https://chromewebstore.google.com/detail/catppuccin-chrome-theme-m/bkkmolkhemgaeaeggcmfbghljjjoofoh) <!--https://github.com/catppuccin/chrome-->
@@ -99,8 +99,18 @@
 -   ### [Calculator](https://apps.microsoft.com/detail/windows-calculator/9WZDNCRFHVN5?hl=en-in&gl=IN) <!-- https://github.com/microsoft/calculator -->
     -   #### [Parsify Desktop](https://github.com/parsify-dev/desktop)
 -   ### [ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica)
--   ### [~~HEIF Image Extensions~~](https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG?hl=en-in&gl=IN)
--   ### [~~MyAsus~~](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)
+-   ### [HEIF Image Extensions](https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG?hl=en-in&gl=IN)
+-   ### [MyAsus](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)
+
+    -   #### Set the battery charging threshold to `80%` (Install this driver) [ASUS System Control Interface v3](https://www.asus.com/support/Download-Center/)
+        ```cmd
+        reg add "HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys" /v ChargingRate /t REG_DWORD /d 80 /f
+        ```
+        -   Restart the Asus Optimization service in PowerShell (Administrator): `Restart-Service "ASUSOptimization"`
+        -   List all ASUS services: `Get-Service | Where-Object {$_.Name -like "*ASUS*"}`
+        -   Disable all ASUS services except `ASUSOptimization` using this: `Set-Service -Name "AsusAppService" -StartupType Disabled`
+        -   ASUS Servises: AsusAppService, ASUSLinkNear, ASUSLinkRemote, ASUSSoftwareManager, ASUSSwitch, ASUSSystemAnalysis, ASUSSystemDiagnosis.
+
 -   ### [Notepad](https://apps.microsoft.com/detail/windows-notepad/9MSMLRH6LZF3)
 -   ### [Obsidian](https://obsidian.md)
 -   ### [Process Explorer](https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer)
