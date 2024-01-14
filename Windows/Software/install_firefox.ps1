@@ -158,7 +158,7 @@ function main {
     curl.exe -o "$Env:TEMP\Firefox-Mod-Blur.zip" -LS https://github.com/datguypiko/Firefox-Mod-Blur/archive/refs/heads/master.zip
     Expand-Archive -LiteralPath "$Env:TEMP\Firefox-Mod-Blur.zip" -DestinationPath "$Env:TEMP\Firefox-Mod-Blur"
 
-    $profilePath = Get-ChildItem -Path "$Env:USERPROFILE\AppData\Roaming\Mozilla\Firefox\Profiles" -Directory | Select-Object -First 1 -ExpandProperty FullName
+    $profilePath = (Get-Item "$Env:USERPROFILE\AppData\Roaming\Mozilla\Firefox\Profiles\*default-release").FullName
     Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\userChrome.css" -Destination $profilePath
     Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\userContent.css" -Destination $profilePath
     Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\image" -Destination $profilePath
