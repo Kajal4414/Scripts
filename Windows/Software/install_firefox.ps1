@@ -156,14 +156,14 @@ function main {
     # Firefox Theme
     Write-Host "Installing Firefox Theme..." -ForegroundColor Yellow
     curl.exe -o "$Env:TEMP\Firefox-Mod-Blur.zip" -LS https://github.com/datguypiko/Firefox-Mod-Blur/archive/refs/heads/master.zip
-    Expand-Archive -LiteralPath "$Env:TEMP\Firefox-Mod-Blur.zip" -DestinationPath "$Env:TEMP\Firefox-Mod-Blur"
+    Expand-Archive -Path "$Env:TEMP\Firefox-Mod-Blur.zip" -DestinationPath "$Env:TEMP\Firefox-Mod-Blur"
 
     $profilePath = (Get-Item "$Env:USERPROFILE\AppData\Roaming\Mozilla\Firefox\Profiles\*default-release").FullName
-    Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\userChrome.css" -Destination $profilePath
-    Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\userContent.css" -Destination $profilePath
-    Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\image" -Destination $profilePath
+    Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\Firefox-Mod-Blur-master\userChrome.css" -Destination $profilePath
+    Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\Firefox-Mod-Blur-master\userContent.css" -Destination $profilePath
+    Move-Item -Path "$Env:TEMP\Firefox-Mod-Blur\Firefox-Mod-Blur-master\image" -Destination $profilePath
     Remove-Item -Path "$Env:TEMP\Firefox-Mod-Blur" -Force -Recurse
-
+    Remove-Item -Path "$Env:TEMP\Firefox-Mod-Blur.zip" -Force
 
     # Display release notes URL
     Write-Host "`nRelease notes: https://www.mozilla.org/en-US/firefox/$remoteVersion/releasenotes" -ForegroundColor Green
