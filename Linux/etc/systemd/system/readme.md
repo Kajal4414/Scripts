@@ -27,6 +27,10 @@
 6. Check the status of the service to ensure it's running without errors:
 
     ```sh
+    cat /sys/class/power_supply/BAT0/charge_control_end_threshold
+    ```
+    
+    ```sh
     sudo systemctl status battery-threshold.service
     ```
 
