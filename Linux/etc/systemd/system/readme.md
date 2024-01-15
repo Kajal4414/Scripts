@@ -12,16 +12,16 @@
     sudo systemctl daemon-reload
     ```
 
-3. Once the systemd daemon has been reloaded, you can start the service using the following command:
-
-    ```sh
-    sudo systemctl start battery-threshold.service
-    ```
-
-4. If you want the service to start automatically at boot, you can enable it using the following command:
+3. If you want the service to start automatically at boot, you can enable it using the following command:
 
     ```sh
     sudo systemctl enable battery-threshold.service
+    ```
+
+4. Once the systemd daemon has been reloaded, you can start the service using the following command:
+
+    ```sh
+    sudo systemctl start battery-threshold.service
     ```
 
 6. Check the status of the service to ensure it's running without errors:
