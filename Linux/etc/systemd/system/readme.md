@@ -18,7 +18,7 @@
     sudo systemctl enable battery-threshold.service
     ```
 
-4. Once the systemd daemon has been reloaded, you can start the service using the following command:
+4. Once the service is enabled, you can start it using:
 
     ```sh
     sudo systemctl start battery-threshold.service
