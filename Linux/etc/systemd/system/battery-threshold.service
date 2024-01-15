@@ -1,13 +1,10 @@
 [Unit]
 Description=Set battery charging threshold to 80%
 After=multi-user.target
-StartLimitBurst=0
 
 [Service]
 Type=oneshot
-Restart=no
-RemainAfterExit=true
-ExecStart=/bin/bash -c "echo 80 > /sys/class/power_supply/BAT0/charge_control_end_threshold"
+ExecStart=/bin/bash -c 'echo 80 > /sys/class/power_supply/BAT0/charge_control_end_threshold'
 
 [Install]
 WantedBy=multi-user.target
