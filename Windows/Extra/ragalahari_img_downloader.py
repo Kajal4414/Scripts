@@ -2,17 +2,17 @@ import os
 import re
 import requests
 
-def get_number_of_images(total_images):
+def get_number_of_images(images_count):
     while True:
-        user_input = input(f"Enter the number of images to download (Press Enter for all '{total_images}'): ")
+        user_input = input(f"Enter the number of images to download (Press Enter for all '{images_count}'): ")
         if not user_input:
-            return total_images
+            return images_count
         try:
             input_as_int = int(user_input)
-            if 0 < input_as_int <= total_images:
+            if 0 < input_as_int <= images_count:
                 return input_as_int
             else:
-                print(f"Enter a valid number between 1 and {total_images}.")
+                print(f"Enter a valid number between 1 and {images_count}.")
         except ValueError:
             print("Enter a valid integer.")
 
@@ -37,23 +37,23 @@ while not is_valid_url:
     user_url = input("Enter the gallery URL (Press Enter for default): ")
     is_valid_url = re.search(r'\.aspx$', user_url)
 
-response = requests.get(user_url)
-image_urls = re.findall(r'(?<=src=")[^"]*t\.jpg', response.text)
+user_response = requests.get(user_url)
+image_urls = re.findall(r'(?<=src=")[^"]*t\.jpg', user_response.text)
 total_images = len(image_urls)
 number_of_images = get_number_of_images(total_images)
 
-destination_folder = input("Enter the destination folder name: ")
-if not os.path.exists(destination_folder):
-    os.makedirs(destination_folder)
+user_destination_folder = input("Enter the destination folder name: ")
+if not os.path.exists(user_destination_folder):
+    os.makedirs(user_destination_folder)
 
 downloaded_count = 0
 skipped_count = 0
 
 for image_url in image_urls[:number_of_images]:
-    status = download_image(image_url, destination_folder)
+    status = download_image(image_url, user_destination_folder)
     if status == "downloaded":
         downloaded_count += 1
     if status == "skipped":
         skipped_count += 1
 
-print(f"\nAll images downloaded at '{os.path.abspath(destination_folder)}', Total downloaded: {downloaded_count}, Total skipped: {skipped_count}")
+print(f"\nAll images downloaded at '{os.path.abspath(user_destination_folder)}', Total downloaded: {downloaded_count}, Total skipped: {skipped_count}")
