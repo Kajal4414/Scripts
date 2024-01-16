@@ -2,6 +2,7 @@ import os
 import re
 import requests
 
+
 def get_number_of_images(images_count):
     while True:
         user_input = input(f"Enter the number of images to download (Press Enter for all '{images_count}'): ")
@@ -16,6 +17,7 @@ def get_number_of_images(images_count):
         except ValueError:
             print("Enter a valid integer.")
 
+
 def download_image(url, destination_folder):
     file_name = os.path.basename(url)
     file_path = os.path.join(destination_folder, file_name)
@@ -29,8 +31,10 @@ def download_image(url, destination_folder):
         print(f"'{file_name}' already exists.")
         return "skipped"
 
+
 user_url = input("Enter the gallery URL (Press Enter for default): ")
-user_url = user_url if user_url.strip() else "https://www.ragalahari.com/actor/171464/allu-arjun-at-honer-richmont-launch.aspx"
+user_url = user_url if user_url.strip() else ("https://www.ragalahari.com/actor/171464/allu-arjun-at-honer-richmont"
+                                              "-launch.aspx")
 is_valid_url = re.search(r'\.aspx$', user_url)
 while not is_valid_url:
     print("Invalid URL. Please enter a valid gallery URL.")
@@ -56,4 +60,6 @@ for image_url in image_urls[:number_of_images]:
     if status == "skipped":
         skipped_count += 1
 
-print(f"\nAll images downloaded at '{os.path.abspath(user_destination_folder)}', Total downloaded: {downloaded_count}, Total skipped: {skipped_count}")
+print(
+    f"\nAll images downloaded at '{os.path.abspath(user_destination_folder)}', Total downloaded: {downloaded_count}, "
+    f"Total skipped: {skipped_count}")
