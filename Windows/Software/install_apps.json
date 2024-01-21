@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.61.116",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.61.116/BraveBrowserStandaloneSetup.exe"
+    "version": "1.61.120",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.61.120/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Git",
@@ -26,8 +26,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.2",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build2.exe?v=lt&amp;filename=idman642build2.exe"
+    "version": "6.42.3",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build3.exe?v=lt&amp;filename=idman642build3.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -36,22 +36,22 @@
   },
   {
     "appName": "Java(TM) SE Development Kit",
-    "version": "21.0.1",
+    "version": "21.0.2",
     "url": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.0.0",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1800_Full.exe"
+    "version": "18.0.5",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1805_Full.exe"
   },
   {
     "appName": "Node.js",
-    "version": "21.5.0",
-    "url": "https://nodejs.org/download/release/latest/node-v21.5.0-x64.msi"
+    "version": "21.6.0",
+    "url": "https://nodejs.org/download/release/latest/node-v21.6.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.85.1",
+    "version": "1.85.2",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "aaron-bond.better-comments",
@@ -90,8 +90,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.6.1",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.1/npp.8.6.1.Installer.x64.exe"
+    "version": "8.6.2",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.2/npp.8.6.2.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.5.2",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.5.2/install-amd64.exe"
+    "version": "19.6.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.6.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -135,8 +135,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "4.14.4",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.14.4/tsetup-x64.4.14.4.exe"
+    "version": "4.14.9",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.14.9/tsetup-x64.4.14.9.exe"
   },
   {
     "appName": "VLC media player",
@@ -145,7 +145,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.10.10",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.10/YoutubeDownloader.zip"
+    "version": "1.10.11",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.11/YoutubeDownloader.zip"
   }
 ]
