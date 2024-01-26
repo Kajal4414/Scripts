@@ -1,5 +1,5 @@
 # 1. Determine Firefox profile path
-$profilePath = (Get-ItemProperty "HKCU:\Software\Mozilla\Firefox\Profiles").ProfileDirectory
+$profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
 
 # 2. Create Chrome folder if it doesn't exist
 $chromeFolder = Join-Path $profilePath "chrome"
