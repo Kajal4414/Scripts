@@ -13,10 +13,13 @@ curl.exe -o $downloadPath -LSs $downloadUrl
 # 4. Extract theme files to Chrome folder
 Expand-Archive -Path $downloadPath -DestinationPath $chromeFolder -Force
 
-# 5. Optional: Remove downloaded theme zip and extra mod files
+# 5. Delete downloaded theme zip
 Remove-Item $downloadPath
 
-# 6. Notify user about required Firefox settings
+# 6. Delete extra mod files, Exclude ASSETS folder, userChrome.css, and userContent.css
+Get-ChildItem -Path $chromeFolder -Exclude ASSETS, userChrome.css, userContent.css | Remove-Item -Recurse -Force
+
+# 7. Notify user about required Firefox settings
 Write-Output "Theme files installed successfully!"
 Write-Output "Please remember to adjust the following settings in Firefox for full effect:"
 Write-Output "- Set 'Theme' to Light or Dark in Settings > Appearance."
