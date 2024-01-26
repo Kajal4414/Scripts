@@ -149,13 +149,10 @@ function main {
     Write-Host "Created: firefox.cfg" -ForegroundColor Green
 
     # Firefox Theme
-    Write-Host "Installing Firefox Theme..." -ForegroundColor Yellow
+    Write-Host "Installing 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
     $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
-    $tempraryDir = "$Env:TEMP\Firefox-Mod-Blur"
-
-    git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur $tempraryDir
-    Move-Item -Path "$tempraryDir\userChrome.css", "$tempraryDir\userContent.css", "$tempraryDir\ASSETS" -Destination $profilePath
-    Remove-Item -Path $tempraryDir -Force -Recurse
+    git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur $profilePath\chrome
+    Get-ChildItem -Path $profilePath\chrome -Exclude ASSETS, userChrome.css, userContent.css -Force | Remove-Item -Force -Recurse
 
     # Display release notes URL
     Write-Host "`nRelease notes: https://www.mozilla.org/en-US/firefox/$remoteVersion/releasenotes" -ForegroundColor Green
