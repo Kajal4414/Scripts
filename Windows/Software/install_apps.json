@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.61.120",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.61.120/BraveBrowserStandaloneSetup.exe"
+    "version": "1.62.152",
+    "url": null
   },
   {
     "appName": "Git",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2023.3.2",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2023.3.2.exe"
+    "version": "2023.3.3",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2023.3.3.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -46,8 +46,8 @@
   },
   {
     "appName": "Node.js",
-    "version": "21.6.0",
-    "url": "https://nodejs.org/download/release/latest/node-v21.6.0-x64.msi"
+    "version": "21.6.1",
+    "url": "https://nodejs.org/download/release/latest/node-v21.6.1-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.6.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.6.0/install-amd64.exe"
+    "version": "19.8.2",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.8.2/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -110,8 +110,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2023.3.2",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2023.3.2.exe"
+    "version": "2023.3.3",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2023.3.3.exe"
   },
   {
     "appName": "Python",
