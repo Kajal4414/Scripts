@@ -10,9 +10,9 @@
     "url": "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
   },
   {
-    "appName": "Brave",
-    "version": "1.62.152",
-    "url": null
+    "appName": "Firefox",
+    "version": "122.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/122.0/win64/en-GB/Firefox%20Setup%20122.0.exe"
   },
   {
     "appName": "Git",
