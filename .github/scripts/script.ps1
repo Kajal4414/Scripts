@@ -38,16 +38,16 @@ $softwareList += [PSCustomObject]@{
     url     = $baseUrl + $finlUrl.Href.Split('=')[-1]
 }
 
-# Brave
-$baseUrl = "https://api.github.com/repos/brave/brave-browser/releases/latest"
+# # Brave
+# $baseUrl = "https://api.github.com/repos/brave/brave-browser/releases/latest"
 
-$softwareList += [PSCustomObject]@{
-    appName = "Brave"
-    version = (Invoke-RestMethod $baseUrl).tag_name.TrimStart('v')
-    url     = (Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -eq 'BraveBrowserStandaloneSetup.exe' } | Select-Object -ExpandProperty browser_download_url
-}
+# $softwareList += [PSCustomObject]@{
+#     appName = "Brave"
+#     version = (Invoke-RestMethod $baseUrl).tag_name.TrimStart('v')
+#     url     = (Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -eq 'BraveBrowserStandaloneSetup.exe' } | Select-Object -ExpandProperty browser_download_url
+# }
 
-# Chrome
+# # Chrome
 # $baseUrl = "https://chromiumdash.appspot.com/fetch_releases?channel=Stable&platform=Windows&num=1"
 
 # $softwareList += [PSCustomObject]@{
@@ -55,6 +55,15 @@ $softwareList += [PSCustomObject]@{
 #     version = (Invoke-RestMethod $baseUrl).version
 #     url     = "https://dl.google.com/chrome/install/ChromeStandaloneSetup64.exe"
 # }
+
+# Firefox
+$version = (Invoke-RestMethod "https://product-details.mozilla.org/1.0/firefox_versions.json").LATEST_FIREFOX_VERSION
+
+$softwareList += [PSCustomObject]@{
+    appName = "Firefox"
+    version = $version
+    url     = "https://releases.mozilla.org/pub/firefox/releases/$version/win64/en-GB/Firefox%20Setup%20$version.exe"
+}
 
 # Git
 $baseUrl = "https://api.github.com/repos/git-for-windows/git/releases/latest"
