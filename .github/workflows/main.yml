@@ -2,7 +2,7 @@ name: Update JSON
 
 on:
     schedule:
-        - cron: "0 0 * * Sun"
+        - cron: "0 */24 * * *"
     workflow_dispatch:
     push:
         paths:
