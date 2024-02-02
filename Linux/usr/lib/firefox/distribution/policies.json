@@ -53,28 +53,35 @@
         "NetworkPrediction": false,
         "SearchSuggestEnabled": false,
         "ExtensionSettings": {
-            "extensions": {
-                "checkerplusforgmail@jasonsavard.com": {
-                    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/checker-plus-gmail/latest.xpi"
-                },
-                "addon@darkreader.org": {
-                    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi"
-                },
-                "enhancerforyoutube@maximerf.addons.mozilla.org": {
-                    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi"
-                },
-                "languagetool-webextension@languagetool.org": {
-                    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi"
-                },
-                "jid1-MnnxcxisBPnSXQ@jetpack": {
-                    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi"
-                },
-                "sponsorBlocker@ajay.app": {
-                    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi"
-                },
-                "uBlock0@raymondhill.net": {
-                    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
-                }
+            "*": {
+                "installation_mode": "blocked",
+                "install_sources": [
+                    "https://addons.mozilla.org/*"
+                ],
+                "allowed_types": [
+                    "extension"
+                ]
+            },
+            "checkerplusforgmail@jasonsavard.com": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/checker-plus-gmail/latest.xpi"
+            },
+            "addon@darkreader.org": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi"
+            },
+            "enhancerforyoutube@maximerf.addons.mozilla.org": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi"
+            },
+            "languagetool-webextension@languagetool.org": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi"
+            },
+            "jid1-MnnxcxisBPnSXQ@jetpack": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi"
+            },
+            "sponsorBlocker@ajay.app": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi"
+            },
+            "uBlock0@raymondhill.net": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
             }
         }
     }
