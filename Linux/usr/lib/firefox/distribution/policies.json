@@ -76,6 +76,9 @@
             "languagetool-webextension@languagetool.org": {
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi"
             },
+            "{73a6fe31-595d-460b-a920-fcc0f8843232}": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/noscript/latest.xpi"
+            },
             "jid1-MnnxcxisBPnSXQ@jetpack": {
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi"
             },
