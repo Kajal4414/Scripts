@@ -58,6 +58,12 @@
                 "install_sources": "https://addons.mozilla.org/*",
                 "allowed_types": "extension"
             },
+            "bing@search.mozilla.org": {
+                "installation_mode": "blocked"
+            },
+            "wikipedia@search.mozilla.org": {
+                "installation_mode": "blocked"
+            },
             "checkerplusforgmail@jasonsavard.com": {
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/checker-plus-gmail/latest.xpi"
             },
