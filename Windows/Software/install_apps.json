@@ -51,7 +51,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.85.2",
+    "version": "1.86.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "aaron-bond.better-comments",
@@ -135,8 +135,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "4.14.9",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.14.9/tsetup-x64.4.14.9.exe"
+    "version": "4.14.12",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.14.12/tsetup-x64.4.14.12.exe"
   },
   {
     "appName": "VLC media player",
