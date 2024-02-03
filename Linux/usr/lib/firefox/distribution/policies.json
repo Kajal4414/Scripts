@@ -1,82 +1,82 @@
 {
-    "policies": {
-        "DisableTelemetry": true,
-        "DisableFirefoxStudies": true,
-        "DisablePocket": true,
-        "DisableFeedbackCommands": true,
-        "DisableSetDesktopBackground": true,
-        "DisableFormHistory": true,
-        "DisableFirefoxAccounts": true,
-        "EnableTrackingProtection": {
-            "Value": true,
-            "Locked": true
-        },
-        "Cookies": {
-            "Behavior": "reject-tracker-and-partition-foreign",
-            "Locked": true
-        },
-        "PopupBlocking": {
-            "Default": true,
-            "Locked": true
-        },
-        "DisableSecurityBypass": {
-            "SafeBrowsing": true
-        },
-        "SanitizeOnShutdown": {
-            "Cache": true,
-            "Downloads": true,
-            "FormData": true,
-            "History": true,
-            "Sessions": true,
-            "SiteSettings": true,
-            "OfflineApps": true,
-            "Locked": true
-        },
-        "DisableAppUpdate": true,
-        "DNSOverHTTPS": {
-            "Enabled": false,
-            "ProviderURL": "",
-            "Locked": false
-        },
-        "FirefoxHome": {
-            "TopSites": true,
-            "SponsoredTopSites": false,
-            "Highlights": false,
-            "Pocket": false,
-            "SponsoredPocket": false,
-            "Snippets": false,
-            "Locked": true
-        },
-        "OverrideFirstRunPage": "",
-        "DisableDefaultBrowserAgent": true,
-        "DontCheckDefaultBrowser": true,
-        "NetworkPrediction": false,
-        "SearchSuggestEnabled": false,
-        "Extensions": {
-            "Install": [
-                "https://addons.mozilla.org/firefox/downloads/latest/checker-plus-gmail/latest.xpi",
-                "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi",
-                "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi",
-                "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi",
-                "https://addons.mozilla.org/firefox/downloads/latest/noscript/latest.xpi",
-                "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi",
-                "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi",
-                "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
-            ],
-            "Uninstall": [
-                "bing@search.mozilla.org",
-                "wikipedia@search.mozilla.org"
-            ],
-            "Locked": [
-                "checkerplusforgmail@jasonsavard.com",
-                "addon@darkreader.org",
-                "enhancerforyoutube@maximerf.addons.mozilla.org",
-                "languagetool-webextension@languagetool.org",
-                "{73a6fe31-595d-460b-a920-fcc0f8843232}",
-                "jid1-MnnxcxisBPnSXQ@jetpack",
-                "sponsorBlocker@ajay.app",
-                "uBlock0@raymondhill.net"
-            ]
-        }
+  "policies": {
+    "DisableTelemetry": true,
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DisableFeedbackCommands": true,
+    "DisableSetDesktopBackground": true,
+    "DisableFormHistory": true,
+    "DisableFirefoxAccounts": true,
+    "EnableTrackingProtection": {
+      "Value": true,
+      "Locked": true
+    },
+    "Cookies": {
+      "Behavior": "reject-tracker-and-partition-foreign",
+      "Locked": true
+    },
+    "PopupBlocking": {
+      "Default": true,
+      "Locked": true
+    },
+    "DisableSecurityBypass": {
+      "SafeBrowsing": true
+    },
+    "SanitizeOnShutdown": {
+      "Cache": true,
+      "Downloads": true,
+      "FormData": true,
+      "History": true,
+      "Sessions": true,
+      "SiteSettings": true,
+      "OfflineApps": true,
+      "Locked": true
+    },
+    "DisableAppUpdate": true,
+    "DNSOverHTTPS": {
+      "Enabled": false,
+      "ProviderURL": "",
+      "Locked": false
+    },
+    "FirefoxHome": {
+      "TopSites": true,
+      "SponsoredTopSites": false,
+      "Highlights": false,
+      "Pocket": false,
+      "SponsoredPocket": false,
+      "Snippets": false,
+      "Locked": true
+    },
+    "OverrideFirstRunPage": "",
+    "DisableDefaultBrowserAgent": true,
+    "DontCheckDefaultBrowser": true,
+    "NetworkPrediction": false,
+    "SearchSuggestEnabled": false,
+    "Extensions": {
+      "Install": [
+        "https://addons.mozilla.org/firefox/downloads/latest/checker-plus-gmail/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/noscript/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+      ],
+      "Uninstall": [
+        "bing@search.mozilla.org",
+        "wikipedia@search.mozilla.org"
+      ],
+      "Locked": [
+        "checkerplusforgmail@jasonsavard.com",
+        "addon@darkreader.org",
+        "enhancerforyoutube@maximerf.addons.mozilla.org",
+        "languagetool-webextension@languagetool.org",
+        "{73a6fe31-595d-460b-a920-fcc0f8843232}",
+        "jid1-MnnxcxisBPnSXQ@jetpack",
+        "sponsorBlocker@ajay.app",
+        "uBlock0@raymondhill.net"
+      ]
     }
+  }
 }
