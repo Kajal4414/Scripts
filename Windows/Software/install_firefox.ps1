@@ -42,9 +42,10 @@ function main {
 
     # Use the specified version if provided, otherwise use the determined version
     $remoteVersion = if ($version) { $version } else { $remoteVersion }
-    
+
     # Define download URL and file paths
     $downloadUrl = "https://releases.mozilla.org/pub/firefox/releases/$remoteVersion/win64/$lang/Firefox%20Setup%20$remoteVersion.exe"
+    $profilePath = (Get-Item "$Env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
     $hashSource = "https://ftp.mozilla.org/pub/firefox/releases/$remoteVersion/SHA512SUMS"
     $installDir = "$Env:ProgramFiles\Mozilla Firefox"
     $setupFile = "$Env:TEMP\Firefox Setup $remoteVersion.exe"
@@ -137,22 +138,23 @@ function main {
     New-Item -Path $installDir -Name "distribution" -ItemType Directory -Force | Out-Null
 
     # Write policies.json
-    curl.exe -o "$installDir\distribution\policies.json" -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/policies.json"
+    curl.exe -o "$installDir\distribution\policies.json" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"
     Write-Host "Created: policies.json" -ForegroundColor Green
 
     # Write autoconfig.js
-    curl.exe -o "$installDir\defaults\pref\autoconfig.js" -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/autoconfig.js"
+    curl.exe -o "$installDir\defaults\pref\autoconfig.js" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"
     Write-Host "Created: autoconfig.js" -ForegroundColor Green
 
     # Write firefox.cfg
-    curl.exe -o "$installDir\firefox.cfg" -LSs "https://github.com/sakshiagrwal/Scripts/raw/main/Windows/Extra/firefox.cfg"
+    curl.exe -o "$installDir\firefox.cfg" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/firefox.cfg"
     Write-Host "Created: firefox.cfg" -ForegroundColor Green
 
     # Firefox Theme
-    Write-Host "Installing 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
-    $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
-    git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur $profilePath\chrome
-    Get-ChildItem -Path $profilePath\chrome -Exclude ASSETS, userChrome.css, userContent.css -Force | Remove-Item -Force -Recurse
+    if (-not (Test-Path "$profilePath\chrome" -PathType Container)) {
+        Write-Host "`nInstalling 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
+        git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
+        Get-ChildItem -Path "$profilePath\chrome" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force | Remove-Item -Force -Recurse
+    }
 
     # Display release notes URL
     Write-Host "`nRelease notes: https://www.mozilla.org/en-US/firefox/$remoteVersion/releasenotes" -ForegroundColor Green
