@@ -11,8 +11,8 @@
   },
   {
     "appName": "Firefox",
-    "version": "122.0",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/122.0/win64/en-GB/Firefox%20Setup%20122.0.exe"
+    "version": "122.0.1",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/122.0.1/win64/en-GB/Firefox%20Setup%20122.0.1.exe"
   },
   {
     "appName": "Git",
@@ -115,8 +115,8 @@
   },
   {
     "appName": "Python",
-    "version": "3.12.1",
-    "url": "https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe"
+    "version": "3.12.2",
+    "url": "https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
