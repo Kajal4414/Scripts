@@ -10,6 +10,11 @@
     "url": "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
   },
   {
+    "appName": "Brave",
+    "version": "1.62.162",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.62.162/BraveBrowserStandaloneSetup.exe"
+  },
+  {
     "appName": "Firefox",
     "version": "122.0.1",
     "url": "https://releases.mozilla.org/pub/firefox/releases/122.0.1/win64/en-GB/Firefox%20Setup%20122.0.1.exe"
@@ -135,8 +140,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "4.14.14",
-    "url": null
+    "version": "4.14.15",
+    "url": "https://telegram.org/dl/desktop/win64"
   },
   {
     "appName": "VLC media player",
