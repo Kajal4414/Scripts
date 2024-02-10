@@ -16,7 +16,7 @@ function Get-ExistingData($appName) {
     return $softwareItem
 }
 
-# Update the software list with new URLs but keep the existing version and extensions
+# Update the software list with new Versions, URLs but keep the VSCode extensions
 
 
 # 7-Zip
@@ -38,14 +38,14 @@ $softwareList += [PSCustomObject]@{
     url     = $baseUrl + $finlUrl.Href.Split('=')[-1]
 }
 
-# # Brave
-# $baseUrl = "https://api.github.com/repos/brave/brave-browser/releases/latest"
+# Brave
+$baseUrl = "https://api.github.com/repos/brave/brave-browser/releases/latest"
 
-# $softwareList += [PSCustomObject]@{
-#     appName = "Brave"
-#     version = (Invoke-RestMethod $baseUrl).tag_name.TrimStart('v')
-#     url     = (Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -eq 'BraveBrowserStandaloneSetup.exe' } | Select-Object -ExpandProperty browser_download_url
-# }
+$softwareList += [PSCustomObject]@{
+    appName = "Brave"
+    version = (Invoke-RestMethod $baseUrl).tag_name.TrimStart('v')
+    url     = (Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -eq 'BraveBrowserStandaloneSetup.exe' } | Select-Object -ExpandProperty browser_download_url
+}
 
 # # Chrome
 # $baseUrl = "https://chromiumdash.appspot.com/fetch_releases?channel=Stable&platform=Windows&num=1"
@@ -227,7 +227,7 @@ $baseUrl = "https://api.github.com/repos/telegramdesktop/tdesktop/releases/lates
 $softwareList += [PSCustomObject]@{
     appName = "Telegram"
     version = (Invoke-RestMethod $baseUrl).tag_name.TrimStart('v')
-    url     = (Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -like 'tsetup-x64*.exe' } | Select-Object -ExpandProperty browser_download_url
+    url     = "https://telegram.org/dl/desktop/win64" # (Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -like 'tsetup-x64*.exe' } | Select-Object -ExpandProperty browser_download_url
 }
 
 # VLC
