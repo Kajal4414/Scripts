@@ -105,13 +105,13 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.8.3",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.8.3/install-amd64.exe"
+    "version": "19.10.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.10.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
-    "version": "3.2.9",
-    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.9.exe"
+    "version": "3.2.10",
+    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.10.exe"
   },
   {
     "appName": "PyCharm Community Edition",
@@ -125,8 +125,8 @@
   },
   {
     "appName": "Revo Uninstaller Pro",
-    "version": "5.2.2",
-    "url": "https://3f202bc8aeed5a1bc022-d2000d6089aeb75a1b2ca6b461e27754.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
+    "version": "5.2.5",
+    "url": "https://e9cd4de739d41241cc96-dd750d5e73037ff6e0ed0f4fe22b35af.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
   },
   {
     "appName": "StartAllBack",
