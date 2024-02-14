@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2023.3.3",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2023.3.3.exe"
+    "version": "2023.3.4",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2023.3.4.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -105,8 +105,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.10.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.10.0/install-amd64.exe"
+    "version": "19.11.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.11.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
