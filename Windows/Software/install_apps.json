@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.62.162",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.62.162/BraveBrowserStandaloneSetup.exe"
+    "version": "1.62.165",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.62.165/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -51,8 +51,8 @@
   },
   {
     "appName": "Node.js",
-    "version": "21.6.1",
-    "url": "https://nodejs.org/download/release/latest/node-v21.6.1-x64.msi"
+    "version": "21.6.2",
+    "url": "https://nodejs.org/download/release/latest/node-v21.6.2-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -105,8 +105,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.11.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.11.0/install-amd64.exe"
+    "version": "19.11.1",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.11.1/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
