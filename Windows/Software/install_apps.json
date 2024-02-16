@@ -46,8 +46,8 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.0.5",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1805_Full.exe"
+    "version": "18.1.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1810_Full.exe"
   },
   {
     "appName": "Node.js",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.86.1",
+    "version": "1.86.2",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "aaron-bond.better-comments",
@@ -105,8 +105,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.11.1",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.11.1/install-amd64.exe"
+    "version": "19.11.2",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.11.2/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -135,7 +135,7 @@
   },
   {
     "appName": "StartIsBack++",
-    "version": "2.9.19",
+    "version": "2.9.20",
     "url": "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
   },
   {
