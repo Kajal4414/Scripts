@@ -95,8 +95,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.6.2",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.2/npp.8.6.2.Installer.x64.exe"
+    "version": "8.6.3",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.3/npp.8.6.3.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -140,7 +140,7 @@
   },
   {
     "appName": "Telegram",
-    "version": "4.14.15",
+    "version": "4.15.0",
     "url": "https://telegram.org/dl/desktop/win64"
   },
   {
