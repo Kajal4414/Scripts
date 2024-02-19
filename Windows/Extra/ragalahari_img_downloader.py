@@ -5,7 +5,7 @@ This script allows users to download images from a specified URL. It checks for 
 internet connection, validates image URLs, and downloads the images to a designated folder.
 
 Author: Sakshi
-Date: 02-12-2023
+Date: 19-02-2024
 """
 
 import os
@@ -188,9 +188,13 @@ def main():
                                 percent = min(
                                     int((download_size / file_size) * 100), 100
                                 )
+                                status = (
+                                    f"{Fore.YELLOW}Downloading{Style.RESET_ALL}"
+                                    if percent < 100
+                                    else f"{Fore.GREEN}Downloaded{Style.RESET_ALL}"
+                                )
                                 print(
-                                    f"{file_name_format}{Fore.GREEN} - Downloaded "
-                                    f"{percent}%{Style.RESET_ALL}",
+                                    f"{file_name_format} - {status} {percent}%",
                                     end="\r",
                                 )
 
