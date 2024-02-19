@@ -227,7 +227,7 @@ $baseUrl = "https://api.github.com/repos/telegramdesktop/tdesktop/releases/lates
 $softwareList += [PSCustomObject]@{
     appName = "Telegram"
     version = (Invoke-RestMethod $baseUrl).tag_name.TrimStart('v')
-    url     = "https://telegram.org/dl/desktop/win64" # (Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -like 'tsetup-x64*.exe' } | Select-Object -ExpandProperty browser_download_url
+    url     = (Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -like 'tsetup-x64*.exe' } | Select-Object -ExpandProperty browser_download_url # "https://telegram.org/dl/desktop/win64"
 }
 
 # VLC
