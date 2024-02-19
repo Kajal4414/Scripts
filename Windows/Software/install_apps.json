@@ -105,8 +105,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.11.2",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.11.2/install-amd64.exe"
+    "version": "19.11.3",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.11.3/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -141,7 +141,7 @@
   {
     "appName": "Telegram",
     "version": "4.15.0",
-    "url": "https://telegram.org/dl/desktop/win64"
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.15.0/tsetup-x64.4.15.0.exe"
   },
   {
     "appName": "VLC media player",
