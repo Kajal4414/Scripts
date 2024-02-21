@@ -16,8 +16,8 @@
   },
   {
     "appName": "Firefox",
-    "version": "122.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/122.0.1/win64/en-GB/Firefox%20Setup%20122.0.1.exe"
+    "version": "123.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/123.0/win64/en-GB/Firefox%20Setup%20123.0.exe"
   },
   {
     "appName": "Git",
@@ -95,8 +95,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.6.3",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.3/npp.8.6.3.Installer.x64.exe"
+    "version": "8.6.4",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.4/npp.8.6.4.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -105,8 +105,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.11.3",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.11.3/install-amd64.exe"
+    "version": "19.11.4",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.11.4/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
