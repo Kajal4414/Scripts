@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.62.165",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.62.165/BraveBrowserStandaloneSetup.exe"
+    "version": "1.63.161",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.63.161/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.5.3",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.3/Obsidian.1.5.3.exe"
+    "version": "1.5.8",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.8/Obsidian.1.5.8.exe"
   },
   {
     "appName": "OhMyPosh",
