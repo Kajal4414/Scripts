@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.63.161",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.63.161/BraveBrowserStandaloneSetup.exe"
+    "version": "1.63.162",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.63.162/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -21,8 +21,8 @@
   },
   {
     "appName": "Git",
-    "version": "2.43.0",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe"
+    "version": "2.44.0",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.44.0.windows.1/Git-2.44.0-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
