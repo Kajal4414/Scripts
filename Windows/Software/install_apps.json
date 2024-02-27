@@ -115,8 +115,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2023.3.3",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2023.3.3.exe"
+    "version": "2023.3.4",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2023.3.4.exe"
   },
   {
     "appName": "Python",
@@ -125,12 +125,12 @@
   },
   {
     "appName": "Revo Uninstaller Pro",
-    "version": "5.2.5",
-    "url": "https://e9cd4de739d41241cc96-dd750d5e73037ff6e0ed0f4fe22b35af.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
+    "version": "5.2.6",
+    "url": "https://51c600f9e82d68dc3826-1d74afb9afdb5826b7a50bfb479868d8.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
   },
   {
     "appName": "StartAllBack",
-    "version": "3.7.3",
+    "version": "3.7.5",
     "url": "https://www.startallback.com/download.php"
   },
   {
