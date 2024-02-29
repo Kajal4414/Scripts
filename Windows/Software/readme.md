@@ -31,7 +31,7 @@
     -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/pycharm/installation-guide.html#d2ebe883)
         ```sh
         sudo tar xzf pycharm-*.tar.gz -C /opt/ # Recommended installation location
-        cd /opt/pycharm-*/bin && sudo sh pycharm.sh # Run as root for update
+        sudo sh /opt/pycharm-*/bin/pycharm.sh # Run as root for update
         ```
 -   ### [Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)
     -   #### [Catppuccin Theme](https://github.com/catppuccin/notepad-plus-plus/blob/main/catppuccin-mocha.xml)
