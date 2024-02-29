@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.63.162",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.63.162/BraveBrowserStandaloneSetup.exe"
+    "version": "1.63.165",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.63.165/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -46,8 +46,8 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.1.0",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1810_Full.exe"
+    "version": "18.1.5",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1815_Full.exe"
   },
   {
     "appName": "Node.js",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.86.2",
+    "version": "1.87.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "aaron-bond.better-comments",
