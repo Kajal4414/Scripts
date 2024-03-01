@@ -138,22 +138,29 @@ function main {
     New-Item -Path $installDir -Name "distribution" -ItemType Directory -Force | Out-Null
 
     # Write policies.json
-    curl.exe -o "$installDir\distribution\policies.json" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"
-    Write-Host "Created: policies.json" -ForegroundColor Green
+    if (-not (Test-Path "$installDir\distribution\policies.json")) {
+        curl.exe -o "$installDir\distribution\policies.json" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"
+        Write-Host "Created: policies.json" -ForegroundColor Green
+    }
 
     # Write autoconfig.js
-    curl.exe -o "$installDir\defaults\pref\autoconfig.js" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"
-    Write-Host "Created: autoconfig.js" -ForegroundColor Green
+    if (-not (Test-Path "$installDir\defaults\pref\autoconfig.js")) {
+        curl.exe -o "$installDir\defaults\pref\autoconfig.js" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"
+        Write-Host "Created: autoconfig.js" -ForegroundColor Green
+    }
 
     # Write firefox.cfg
-    curl.exe -o "$installDir\firefox.cfg" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/firefox.cfg"
-    Write-Host "Created: firefox.cfg" -ForegroundColor Green
+    if (-not (Test-Path "$installDir\firefox.cfg")) {
+        curl.exe -o "$installDir\firefox.cfg" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/firefox.cfg"
+        Write-Host "Created: firefox.cfg" -ForegroundColor Green
+    }
 
     # Firefox Theme
     if (-not (Test-Path "$profilePath\chrome" -PathType Container)) {
         Write-Host "`nInstalling 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
         git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
         Get-ChildItem -Path "$profilePath\chrome" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force | Remove-Item -Force -Recurse
+        Write-Host "Theme installed successfully in the default profile path '$profilePath\chrome'" -ForegroundColor Green
     }
 
     # Display release notes URL
