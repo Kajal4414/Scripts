@@ -45,10 +45,9 @@ function main {
 
     # Define download URL and file paths
     $downloadUrl = "https://releases.mozilla.org/pub/firefox/releases/$remoteVersion/win64/$lang/Firefox%20Setup%20$remoteVersion.exe"
-    $profilePath = (Get-Item "$Env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
     $hashSource = "https://ftp.mozilla.org/pub/firefox/releases/$remoteVersion/SHA512SUMS"
-    $installDir = "$Env:ProgramFiles\Mozilla Firefox"
-    $setupFile = "$Env:TEMP\Firefox Setup $remoteVersion.exe"
+    $installDir = "$env:PROGRAMFILES\Mozilla Firefox"
+    $setupFile = "$env:TEMP\Firefox Setup $remoteVersion.exe"
 
     # Check if the current version is already installed
     if (Test-Path "$installDir\firefox.exe" -PathType Leaf) {
@@ -138,24 +137,31 @@ function main {
     New-Item -Path $installDir -Name "distribution" -ItemType Directory -Force | Out-Null
 
     # Write policies.json
-    Remove-Item -Path "$installDir\distribution\policies.json" -Force
-    curl.exe -o "$installDir\distribution\policies.json" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"
-    Write-Host "Created: policies.json" -ForegroundColor Green
+    $policyFile = "$installDir\distribution\policies.json"
+    if (-not (Test-Path $policyFile)) {
+        curl.exe -o $policyFile -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"
+        Write-Host "Created: policies.json" -ForegroundColor Green
+    }
 
     # Write autoconfig.js
-    Remove-Item -Path "$installDir\defaults\pref\autoconfig.js" -Force
-    curl.exe -o "$installDir\defaults\pref\autoconfig.js" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"
-    Write-Host "Created: autoconfig.js" -ForegroundColor Green
+    $autoconfigFile = "$installDir\defaults\pref\autoconfig.js"
+    if (-not (Test-Path $autoconfigFile)) {
+        curl.exe -o $autoconfigFile -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"
+        Write-Host "Created: autoconfig.js" -ForegroundColor Green
+    }
 
     # Write firefox.cfg
-    Remove-Item -Path "$installDir\firefox.cfg" -Force
-    curl.exe -o "$installDir\firefox.cfg" -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/firefox.cfg"
-    Write-Host "Created: firefox.cfg" -ForegroundColor Green
+    $firefoxCfgFile = "$installDir\firefox.cfg"
+    if (-not (Test-Path $firefoxCfgFile)) {
+        curl.exe -o $firefoxCfgFile -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/firefox.cfg"
+        Write-Host "Created: firefox.cfg" -ForegroundColor Green
+    }
 
     # Firefox Theme
+    $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
     if (-not (Test-Path "$profilePath\chrome" -PathType Container)) {
         Write-Host "`nInstalling 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
-        git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
+        if (Get-Command git.exe -ErrorAction SilentlyContinue) { git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome" }
         Get-ChildItem -Path "$profilePath\chrome" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force | Remove-Item -Force -Recurse
         Write-Host "Theme installed successfully in the default profile path '$profilePath\chrome'" -ForegroundColor Green
     }
