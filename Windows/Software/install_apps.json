@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.63.165",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.63.165/BraveBrowserStandaloneSetup.exe"
+    "version": "1.63.169",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.63.169/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "123.0",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/123.0/win64/en-GB/Firefox%20Setup%20123.0.exe"
+    "version": "123.0.1",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/123.0.1/win64/en-GB/Firefox%20Setup%20123.0.1.exe"
   },
   {
     "appName": "Git",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "21.6.2",
-    "url": "https://nodejs.org/download/release/latest/node-v21.6.2-x64.msi"
+    "version": "21.7.1",
+    "url": "https://nodejs.org/download/release/latest/node-v21.7.1-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.87.0",
+    "version": "1.87.1",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.11.7",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.11.7/install-amd64.exe"
+    "version": "19.13.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.13.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -135,8 +135,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "4.15.0",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.15.0/tsetup-x64.4.15.0.exe"
+    "version": "4.15.1",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.15.1/tsetup-x64.4.15.1.exe"
   },
   {
     "appName": "VLC media player",
