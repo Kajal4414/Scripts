@@ -12,6 +12,9 @@
 
         # Run script
         .\install_firefox.ps1
+
+        # OR
+        irm https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Software/install_firefox.ps1 | iex
         ```
 
     -   #### [Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)
