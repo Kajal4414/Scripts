@@ -109,6 +109,10 @@
     -   #### Set the battery charging threshold to `80%` (Install this driver) [ASUS System Control Interface v3](https://www.asus.com/support/Download-Center/)
         ```cmd
         reg add "HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys" /v ChargingRate /t REG_DWORD /d 80 /f
+        
+        :: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys
+        :: Select 'ChargingRate'
+        :: Value data '3c' (Hexadecimal) OR '60' (Decimal)
         ```
         -   Restart the Asus Optimization service in PowerShell (Administrator): `Restart-Service "ASUSOptimization"`
         -   List all ASUS services: `Get-Service | Where-Object {$_.Name -like "*ASUS*"}`
