@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.63.174",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.63.174/BraveBrowserStandaloneSetup.exe"
+    "version": "1.64.109",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.64.109/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "123.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/123.0.1/win64/en-GB/Firefox%20Setup%20123.0.1.exe"
+    "version": "124.0.1",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/124.0.1/win64/en-GB/Firefox%20Setup%20124.0.1.exe"
   },
   {
     "appName": "Git",
@@ -31,13 +31,13 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.3",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build3.exe?v=lt&amp;filename=idman642build3.exe"
+    "version": "6.42.6",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build6.exe?v=lt&amp;filename=idman642build6.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2023.3.5",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2023.3.5.exe"
+    "version": "2023.3.6",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2023.3.6.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -95,13 +95,13 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.5.8",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.8/Obsidian.1.5.8.exe"
+    "version": "1.5.11",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.11/Obsidian.1.5.11.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.17.2",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.17.2/install-amd64.exe"
+    "version": "19.18.1",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.18.1/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -110,8 +110,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2023.3.4",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2023.3.4.exe"
+    "version": "2023.3.5",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2023.3.5.exe"
   },
   {
     "appName": "Python",
