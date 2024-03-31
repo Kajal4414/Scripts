@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.64.109",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.64.109/BraveBrowserStandaloneSetup.exe"
+    "version": "1.64.113",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.64.113/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.6",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build6.exe?v=lt&amp;filename=idman642build6.exe"
+    "version": "6.42.7",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build7.exe?v=lt&amp;filename=idman642build7.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.18.1",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.18.1/install-amd64.exe"
+    "version": "19.19.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.19.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
