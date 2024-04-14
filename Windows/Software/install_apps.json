@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.64.116",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.64.116/BraveBrowserStandaloneSetup.exe"
+    "version": "1.64.122",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.64.122/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -46,17 +46,17 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.2.6",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1826_Full.exe"
+    "version": "18.3.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1830_Full.exe"
   },
   {
     "appName": "Node.js",
-    "version": "21.7.2",
-    "url": "https://nodejs.org/download/release/latest/node-v21.7.2-x64.msi"
+    "version": "21.7.3",
+    "url": "https://nodejs.org/download/release/latest/node-v21.7.3-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.88.0",
+    "version": "1.88.1",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -105,8 +105,8 @@
   },
   {
     "appName": "Proton VPN",
-    "version": "3.2.10",
-    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.10.exe"
+    "version": "3.2.11",
+    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.11.exe"
   },
   {
     "appName": "PyCharm Community Edition",
@@ -115,8 +115,8 @@
   },
   {
     "appName": "Python",
-    "version": "3.12.2",
-    "url": "https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe"
+    "version": "3.12.3",
+    "url": "https://www.python.org/ftp/python/3.12.3/python-3.12.3-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
@@ -135,8 +135,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "4.16.2",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.16.2/tsetup-x64.4.16.2.exe"
+    "version": "4.16.6",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.16.6/tsetup-x64.4.16.6.exe"
   },
   {
     "appName": "VLC media player",
@@ -145,7 +145,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.10.11",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.11/YoutubeDownloader.zip"
+    "version": "1.10.12",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.12/YoutubeDownloader.zip"
   }
 ]
