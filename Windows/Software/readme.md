@@ -35,6 +35,7 @@
         ```sh
         sudo tar xzf pycharm-*.tar.gz -C /opt/ # Recommended installation location
         sudo sh /opt/pycharm-*/bin/pycharm.sh # Run as root for update
+        sudo sh /opt/idea-*/bin/idea.sh
         ```
 -   ### [Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)
     -   #### [Catppuccin Theme](https://github.com/catppuccin/notepad-plus-plus/blob/main/catppuccin-mocha.xml)
