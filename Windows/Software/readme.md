@@ -143,14 +143,14 @@
     ```
 -   ### [Winpinator](https://winpinator.swisz.cz/download.html)
 -   ### [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
-    -   ##### `.NET Runtime` [Installation Script For Linux](https://dotnet.microsoft.com/en-us/download)
+    -   ##### [Install `.NET Runtime` On Linux Mint](https://learn.microsoft.com/en-in/dotnet/core/install/linux-debian#debian-12)
         ```sh
-        wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && chmod +x ./dotnet-install.sh && ./dotnet-install.sh --version latest
+        wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && sudo dpkg -i packages-microsoft-prod.deb && rm packages-microsoft-prod.deb
 
-        export DOTNET_ROOT=$HOME/.dotnet # Set the following two environment variables in your shell profile
-        export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-
+        sudo apt update && sudo apt install -y dotnet-sdk-8.0 # Install SDK (Optional)
         dotnet --list-sdks # Check SDK versions
+
+        sudo apt update && sudo apt install -y aspnetcore-runtime-8.0 # Install Runtimes
         dotnet --list-runtimes # Check Runtime versions
 
         cd YoutubeDownloader/ # Open installation directory
