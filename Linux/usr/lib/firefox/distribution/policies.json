@@ -8,16 +8,13 @@
     "DisableFormHistory": true,
     "DisableFirefoxAccounts": true,
     "EnableTrackingProtection": {
-      "Value": true,
-      "Locked": true
+      "Value": true
     },
     "Cookies": {
-      "Behavior": "reject-tracker-and-partition-foreign",
-      "Locked": true
+      "Behavior": "reject-tracker-and-partition-foreign"
     },
     "PopupBlocking": {
-      "Default": true,
-      "Locked": true
+      "Default": true
     },
     "DisableSecurityBypass": {
       "SafeBrowsing": true
@@ -29,14 +26,12 @@
       "History": true,
       "Sessions": true,
       "SiteSettings": true,
-      "OfflineApps": true,
-      "Locked": true
+      "OfflineApps": true
     },
     "DisableAppUpdate": true,
     "DNSOverHTTPS": {
       "Enabled": false,
-      "ProviderURL": "",
-      "Locked": false
+      "ProviderURL": ""
     },
     "FirefoxHome": {
       "TopSites": true,
@@ -44,8 +39,7 @@
       "Highlights": false,
       "Pocket": false,
       "SponsoredPocket": false,
-      "Snippets": false,
-      "Locked": true
+      "Snippets": false
     },
     "OverrideFirstRunPage": "",
     "DisableDefaultBrowserAgent": true,
@@ -66,16 +60,6 @@
       "Uninstall": [
         "bing@search.mozilla.org",
         "wikipedia@search.mozilla.org"
-      ],
-      "Locked": [
-        "checkerplusforgmail@jasonsavard.com",
-        "addon@darkreader.org",
-        "enhancerforyoutube@maximerf.addons.mozilla.org",
-        "languagetool-webextension@languagetool.org",
-        "{73a6fe31-595d-460b-a920-fcc0f8843232}",
-        "jid1-MnnxcxisBPnSXQ@jetpack",
-        "sponsorBlocker@ajay.app",
-        "uBlock0@raymondhill.net"
       ]
     }
   }
