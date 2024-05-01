@@ -145,8 +145,14 @@
 -   ### [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
     -   ##### `.NET Runtime` [Installation Script For Linux](https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x64&rid=linux-x64&os=linuxmint.21.3&apphost_version=8.0.4)
         ```sh
-        wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && chmod +x ./dotnet-install.sh && ./dotnet-install.sh --version latest && export DOTNET_ROOT=$HOME/.dotnet
+        wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && chmod +x ./dotnet-install.sh && ./dotnet-install.sh --version latest
 
-        cd YoutubeDownloader/
-        ./YoutubeDownloader # Launch App
+        export DOTNET_ROOT=$HOME/.dotnet # Set the following two environment variables in your shell profile
+        export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+
+        dotnet --list-sdks # Check SDK versions
+        dotnet --list-runtimes # Check Runtime versions
+
+        cd YoutubeDownloader/ # Open installation directory
+        ./YoutubeDownloader # Launch app
         ```
