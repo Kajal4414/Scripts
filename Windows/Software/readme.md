@@ -143,7 +143,7 @@
     ```
 -   ### [Winpinator](https://winpinator.swisz.cz/download.html)
 -   ### [YoutubeDownloader](https://github.com/Tyrrrz/YoutubeDownloader)
-    -   ##### `.NET Runtime` [Installation Script For Linux](https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x64&rid=linux-x64&os=linuxmint.21.3&apphost_version=8.0.4)
+    -   ##### `.NET Runtime` [Installation Script For Linux](https://dotnet.microsoft.com/en-us/download)
         ```sh
         wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && chmod +x ./dotnet-install.sh && ./dotnet-install.sh --version latest
 
