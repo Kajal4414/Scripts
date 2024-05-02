@@ -62,7 +62,7 @@
 # Download Managers
 
 -   ### [Internet Download Manager](https://www.internetdownloadmanager.com)
-    -   #### [~~IDM Activation Script~~](https://github.com/WindowsAddict/IDM-Activation-Script)
+    -   #### [~~IDM Activation Script~~](https://github.com/WindowsAddict/IDM-Activation-Script) - _Deprecated_
     -   #### [IDM Trial Reset](https://github.com/J2TEAM/idm-trial-reset)
 -   ### [Free Download Manager](https://www.freedownloadmanager.org)
 -   ### [qBittorrent](https://www.qbittorrent.org)
