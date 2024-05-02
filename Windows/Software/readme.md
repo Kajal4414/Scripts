@@ -30,12 +30,15 @@
     -   #### [Settings](../C/Users/Admin/AppData/Roaming/Code/User/settings.json)
 -   ### [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)
     -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/idea/installation-guide.html#9a778ae1)
+        ```sh
+        sudo tar xzf ideaIC-*.tar.gz -C /opt/ # Recommended installation location
+        sudo sh /opt/idea-*/bin/idea.sh # Run as root for update
+        ```
 -   ### [PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)
     -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/pycharm/installation-guide.html#d2ebe883)
         ```sh
         sudo tar xzf pycharm-*.tar.gz -C /opt/ # Recommended installation location
         sudo sh /opt/pycharm-*/bin/pycharm.sh # Run as root for update
-        sudo sh /opt/idea-*/bin/idea.sh
         ```
 -   ### [Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)
     -   #### [Catppuccin Theme](https://github.com/catppuccin/notepad-plus-plus/blob/main/catppuccin-mocha.xml)
@@ -62,7 +65,7 @@
 # Download Managers
 
 -   ### [Internet Download Manager](https://www.internetdownloadmanager.com)
-    -   #### [IDM Activation Script](https://github.com/WindowsAddict/IDM-Activation-Script)
+    -   #### [IDM Activation Script](https://github.com/WindowsAddict/IDM-Activation-Script) (This project has been archived and is no longer being maintained.)
     -   #### [IDM Trial Reset](https://github.com/J2TEAM/idm-trial-reset)
 -   ### [Free Download Manager](https://www.freedownloadmanager.org)
 -   ### [qBittorrent](https://www.qbittorrent.org)
@@ -118,10 +121,10 @@
         :: Select 'ChargingRate'
         :: Value data '3c' (Hexadecimal) OR '60' (Decimal)
         ```
-        -   Restart the Asus Optimization service in PowerShell (Administrator): `Restart-Service "ASUSOptimization"`
-        -   List all ASUS services: `Get-Service | Where-Object {$_.Name -like "*ASUS*"}`
-        -   Disable all ASUS services except `ASUSOptimization` using this: `Set-Service -Name "AsusAppService" -StartupType Disabled`
-        -   ASUS Servises: AsusAppService, ASUSLinkNear, ASUSLinkRemote, ASUSSoftwareManager, ASUSSwitch, ASUSSystemAnalysis, ASUSSystemDiagnosis.
+    -   **Restart the Asus Optimization service in PowerShell (Administrator):** `Restart-Service "ASUSOptimization"`
+    -   **List all ASUS services:** `Get-Service | Where-Object {$_.Name -like "*ASUS*"}`
+    -   **Disable all ASUS services except 'ASUSOptimization' using this:** `Set-Service -Name "AsusAppService" -StartupType Disabled`
+    -   **ASUS Servises:** `AsusAppService`, `ASUSLinkNear`, `ASUSLinkRemote`, `ASUSSoftwareManager`, `ASUSSwitch`, `ASUSSystemAnalysis`, `ASUSSystemDiagnosis`.
 
 -   ### [Notepad](https://apps.microsoft.com/detail/windows-notepad/9MSMLRH6LZF3)
 -   ### [Obsidian](https://obsidian.md)
