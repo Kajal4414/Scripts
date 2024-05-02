@@ -2,10 +2,7 @@
 
 -   ### [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)
 
-    -   #### [Installation Script](./install_firefox.ps1)
-
-        ###### Note: Run PowerShell or Terminal as an administrator (not CMD), then copy and paste the code below and press 'Enter'.
-
+    -   #### [Installation Script](./install_firefox.ps1) - _Run PowerShell or Terminal as an administrator (not CMD), then copy and paste the code below and press 'Enter'._
         ```ps1
         # Set execution policy for this session only
         Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
@@ -65,7 +62,7 @@
 # Download Managers
 
 -   ### [Internet Download Manager](https://www.internetdownloadmanager.com)
-    -   #### [IDM Activation Script](https://github.com/WindowsAddict/IDM-Activation-Script) (This project has been archived and is no longer being maintained.)
+    -   #### [~~IDM Activation Script~~](https://github.com/WindowsAddict/IDM-Activation-Script)
     -   #### [IDM Trial Reset](https://github.com/J2TEAM/idm-trial-reset)
 -   ### [Free Download Manager](https://www.freedownloadmanager.org)
 -   ### [qBittorrent](https://www.qbittorrent.org)
@@ -80,8 +77,7 @@
 # Office
 
 -   ### [Office 365 ProPlus](https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/O365ProPlusRetail.img) <!-- Office 365 ProPlus English US x86-64 Offline -->
-    -   #### [Microsoft Activation Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)
-        ###### Microsoft Activation Scripts 'Ohook' method can activate it.
+    -   #### [Microsoft Activation Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts) - _Microsoft Activation Scripts 'Ohook' method can activate it._
     -   #### [Microsoft Activation Scripts Docs](https://massgrave.dev/office_c2r_links.html)
 
 # Messaging
@@ -89,9 +85,8 @@
 -   ### [Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)
     -   #### [Alternative - Portable Version](https://desktop.telegram.org)
     -   #### [Alternative - MaterialYou](https://github.com/kukuruzka165/materialgram)
-        ###### Note: Recommended installation directory for linux:
         ```sh
-        sudo tar -xf tsetup*.tar.xz -C /opt/
+        sudo tar -xf tsetup*.tar.xz -C /opt/ # Recommended installation directory for debian
         ```
 -   ### [Indirect](https://github.com/huynhsontung/Indirect)
 
