@@ -11,18 +11,18 @@
   },
   {
     "appName": "Brave",
-    "version": "1.65.123",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.65.123/BraveBrowserStandaloneSetup.exe"
+    "version": "1.65.126",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.65.126/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "125.0.2",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/125.0.2/win64/en-GB/Firefox%20Setup%20125.0.2.exe"
+    "version": "125.0.3",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/125.0.3/win64/en-GB/Firefox%20Setup%20125.0.3.exe"
   },
   {
     "appName": "Git",
-    "version": "2.44.0",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.44.0.windows.1/Git-2.44.0-64-bit.exe"
+    "version": "2.45.0",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.45.0.windows.1/Git-2.45.0-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -31,13 +31,13 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.9",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build9.exe?v=lt&amp;filename=idman642build9.exe"
+    "version": "6.42.10",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build10.exe?v=lt&amp;filename=idman642build10.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.1",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.1.exe"
+    "version": "2024.1.1",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.1.1.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "22.0.0",
-    "url": "https://nodejs.org/download/release/latest/node-v22.0.0-x64.msi"
+    "version": "22.1.0",
+    "url": "https://nodejs.org/download/release/latest/node-v22.1.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.88.1",
+    "version": "1.89.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.24.3",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.24.3/install-amd64.exe"
+    "version": "19.26.1",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.26.1/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -110,8 +110,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.1",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.1.exe"
+    "version": "2024.1.1",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.1.1.exe"
   },
   {
     "appName": "Python",
@@ -125,7 +125,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.7.8",
+    "version": "3.7.9",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -135,8 +135,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "4.16.8",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v4.16.8/tsetup-x64.4.16.8.exe"
+    "version": "5.0.1",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.0.1/tsetup-x64.5.0.1.exe"
   },
   {
     "appName": "VLC media player",
@@ -145,7 +145,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.10.12",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.10.12/YoutubeDownloader.zip"
+    "version": "1.11",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.11/YoutubeDownloader.zip"
   }
 ]
