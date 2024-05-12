@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.65.126",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.65.126/BraveBrowserStandaloneSetup.exe"
+    "version": "1.65.132",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.65.132/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.89.0",
+    "version": "1.89.1",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -90,8 +90,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.6.5",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.5/npp.8.6.5.Installer.x64.exe"
+    "version": "8.6.6",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.6/npp.8.6.6.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.26.1",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.26.1/install-amd64.exe"
+    "version": "19.28.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.28.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
