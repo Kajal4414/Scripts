@@ -1,8 +1,8 @@
 [
   {
     "appName": "7-Zip",
-    "version": "23.01",
-    "url": "https://www.7-zip.org/a/7z2301-x64.exe"
+    "version": "24.05",
+    "url": "https://www.7-zip.org/a/7z2405-x64.exe"
   },
   {
     "appName": "BleachBit",
@@ -11,18 +11,18 @@
   },
   {
     "appName": "Brave",
-    "version": "1.65.132",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.65.132/BraveBrowserStandaloneSetup.exe"
+    "version": "1.66.110",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.66.110/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "125.0.3",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/125.0.3/win64/en-GB/Firefox%20Setup%20125.0.3.exe"
+    "version": "126.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/126.0/win64/en-GB/Firefox%20Setup%20126.0.exe"
   },
   {
     "appName": "Git",
-    "version": "2.45.0",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.45.0.windows.1/Git-2.45.0-64-bit.exe"
+    "version": "2.45.1",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.45.1.windows.1/Git-2.45.1-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -51,8 +51,8 @@
   },
   {
     "appName": "Node.js",
-    "version": "22.1.0",
-    "url": "https://nodejs.org/download/release/latest/node-v22.1.0-x64.msi"
+    "version": "22.2.0",
+    "url": "https://nodejs.org/download/release/latest/node-v22.2.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -90,8 +90,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.6.6",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.6/npp.8.6.6.Installer.x64.exe"
+    "version": "8.6.7",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.7/npp.8.6.7.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "19.28.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.28.0/install-amd64.exe"
+    "version": "19.30.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v19.30.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -145,7 +145,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.11",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.11/YoutubeDownloader.zip"
+    "version": "1.12.1",
+    "url": null
   }
 ]
