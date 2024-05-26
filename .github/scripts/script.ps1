@@ -246,7 +246,7 @@ $baseUrl = "https://api.github.com/repos/Tyrrrz/YoutubeDownloader/releases/lates
 $softwareList += [PSCustomObject]@{
     appName = "YoutubeDownloader"
     version = (Invoke-RestMethod $baseUrl).tag_name
-    url     = ((Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -eq 'YoutubeDownloader.zip' } | Select-Object -ExpandProperty browser_download_url)
+    url     = ((Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -eq 'YoutubeDownloader.win-x64.zip' } | Select-Object -ExpandProperty browser_download_url)
 }
 
 # Convert the software list to JSON

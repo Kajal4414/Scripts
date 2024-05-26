@@ -4,11 +4,9 @@
 
     -   #### [Installation Script](./install_firefox.ps1) - _Run PowerShell or Terminal as an administrator (not CMD), then copy and paste the code below and press 'Enter'._
         ```ps1
-        # Set execution policy for this session only
-        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-
-        # Run script
-        .\install_firefox.ps1
+        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass # Set execution policy for this session only
+        cd "%UserProfile%\Downloads\" # Change Directory
+        .\install_firefox.ps1 # Run script
 
         # OR
         irm https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Software/install_firefox.ps1 | iex
@@ -26,13 +24,13 @@
     -   #### [Alternative - VSCodium](https://github.com/VSCodium/vscodium)
     -   #### [Settings](../C/Users/Admin/AppData/Roaming/Code/User/settings.json)
 -   ### [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)
-    -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/idea/installation-guide.html#9a778ae1)
+    -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/idea/installation-guide.html#wb3tvh_178)
         ```sh
         sudo tar xzf ideaIC-*.tar.gz -C /opt/ # Recommended installation location
         sudo sh /opt/idea-*/bin/idea.sh # Run as root for update
         ```
 -   ### [PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)
-    -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/pycharm/installation-guide.html#d2ebe883)
+    -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/pycharm/installation-guide.html#gm9zg_170)
         ```sh
         sudo tar xzf pycharm-*.tar.gz -C /opt/ # Recommended installation location
         sudo sh /opt/pycharm-*/bin/pycharm.sh # Run as root for update
@@ -49,7 +47,7 @@
 
 -   ### [Git](https://git-scm.com)
 -   ### [Gpg4win](https://www.gpg4win.org)
--   ### [JDK 21](https://www.oracle.com/in/java/technologies/downloads/#jdk21-windows)
+-   ### [JDK 22](https://www.oracle.com/in/java/technologies/downloads/)
 -   ### [Node.js](https://nodejs.org/en)
 -   ### [Python](https://www.python.org/downloads)
 
@@ -82,7 +80,7 @@
 
 # Messaging
 
--   ### [Telegram Desktop](https://apps.microsoft.com/detail/telegram-desktop/9NZTWSQNTD0S?hl=en-in&gl=IN)
+-   ### [Telegram Desktop](https://github.com/telegramdesktop/tdesktop/releases/latest)
     -   #### [Alternative - Portable Version](https://desktop.telegram.org)
     -   #### [Alternative - MaterialYou](https://github.com/kukuruzka165/materialgram)
         ```sh
