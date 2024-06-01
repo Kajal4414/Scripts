@@ -10,22 +10,17 @@ function Get-NumberOfImages($totalImages) {
 
 function DownloadImage {
     param ([string]$url, [string]$destinationFolder)
-    $fileName = [System.IO.Path]::GetFileName($url)
-    $filePath = Join-Path $destinationFolder $fileName
+    $fileName = [System.IO.Path]::GetFileName($url); $filePath = Join-Path $destinationFolder $fileName
     if (-not (Test-Path -Path $filePath -PathType Leaf)) {
         try {
-            $ProgressPreference = 'SilentlyContinue'
-            Write-Host -NoNewline "$fileName - Downloading..." -ForegroundColor Blue
+            $ProgressPreference = 'SilentlyContinue'; Write-Host -NoNewline "$fileName - Downloading..." -ForegroundColor Blue
             Invoke-WebRequest -Uri $url -OutFile $filePath -ErrorAction Stop
-            Write-Host "`r$fileName - Downloaded.   " -ForegroundColor Green
-            return "downloaded"
+            Write-Host "`r$fileName - Downloaded.   " -ForegroundColor Green; return "downloaded"
         } catch {
-            Write-Host "`r$fileName - Failed.       " -ForegroundColor Red
-            return "failed"
+            Write-Host "`r$fileName - Failed.       " -ForegroundColor Red; return "failed"
         }
     } else {
-        Write-Host "$fileName - Skipped." -ForegroundColor Yellow
-        return "skipped"
+        Write-Host "$fileName - Skipped." -ForegroundColor Yellow; return "skipped"
     }
 }
 
@@ -49,11 +44,5 @@ foreach ($imageUrl in $imageUrls[0..($numberOfImages - 1)]) {
     $downloadResults += DownloadImage -url $imageUrl -destinationFolder $destinationFolder
 }
 
-$downloadedCount = ($downloadResults | Where-Object { $_ -eq "downloaded" }).Count
-$skippedCount = ($downloadResults | Where-Object { $_ -eq "skipped" }).Count
-$failedCount = ($downloadResults | Where-Object { $_ -eq "failed" }).Count
-
-Write-Host "`nDownloaded: $downloadedCount" -ForegroundColor Green -NoNewline
-Write-Host " - " -NoNewline; Write-Host "Skipped: $skippedCount" -ForegroundColor Yellow -NoNewline
-Write-Host " - " -NoNewline; Write-Host "Failed: $failedCount" -ForegroundColor Red
-Write-Host "Images downloaded at '$(Resolve-Path -Path $destinationFolder)'" -ForegroundColor Blue
+$downloadedCount = ($downloadResults | Where-Object { $_ -eq "downloaded" }).Count; $skippedCount = ($downloadResults | Where-Object { $_ -eq "skipped" }).Count; $failedCount = ($downloadResults | Where-Object { $_ -eq "failed" }).Count
+Write-Host "`nDownloaded: $downloadedCount" -ForegroundColor Green -NoNewline; Write-Host " - " -NoNewline; Write-Host "Skipped: $skippedCount" -ForegroundColor Yellow -NoNewline; Write-Host " - " -NoNewline; Write-Host "Failed: $failedCount" -ForegroundColor Red; Write-Host "Images downloaded at '$(Resolve-Path -Path $destinationFolder)'" -ForegroundColor Blue
