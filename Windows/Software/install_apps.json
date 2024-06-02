@@ -1,8 +1,8 @@
 [
   {
     "appName": "7-Zip",
-    "version": "24.05",
-    "url": "https://www.7-zip.org/a/7z2405-x64.exe"
+    "version": "24.06",
+    "url": "https://www.7-zip.org/a/7z2406-x64.exe"
   },
   {
     "appName": "BleachBit",
@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.66.115",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.66.115/BraveBrowserStandaloneSetup.exe"
+    "version": "1.66.118",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.66.118/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "126.0",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/126.0/win64/en-GB/Firefox%20Setup%20126.0.exe"
+    "version": "126.0.1",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/126.0.1/win64/en-GB/Firefox%20Setup%20126.0.1.exe"
   },
   {
     "appName": "Git",
@@ -46,8 +46,8 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.3.0",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1830_Full.exe"
+    "version": "18.3.5",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1835_Full.exe"
   },
   {
     "appName": "Node.js",
@@ -100,8 +100,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "20.2.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v20.2.0/install-amd64.exe"
+    "version": "21.1.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.1.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -110,8 +110,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.1.1",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.1.1.exe"
+    "version": "2024.1.2",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.1.2.exe"
   },
   {
     "appName": "Python",
@@ -125,7 +125,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.7.9",
+    "version": "3.7.10",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -135,8 +135,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.0.2",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.0.2/tsetup-x64.5.0.2.exe"
+    "version": "5.1.1",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.1.1/tsetup-x64.5.1.1.exe"
   },
   {
     "appName": "VLC media player",
