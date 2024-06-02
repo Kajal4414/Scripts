@@ -2,22 +2,13 @@
 $softwareList = @()
 
 # Load the existing JSON data, preserving all information
-$jsonPath = 'Windows/Software/install_apps.json'
-if (Test-Path $jsonPath) {
-    $existingSoftwareList = Get-Content $jsonPath | ConvertFrom-Json
-}
-else {
-    $existingSoftwareList = @()
-}
+$jsonPath = 'install_apps.json'
+$existingData = if (Test-Path $jsonPath) { Get-Content $jsonPath | ConvertFrom-Json } else { @() }
 
 # Define a helper function to find the existing data for an app
 function Get-ExistingData($appName) {
-    $softwareItem = $existingSoftwareList | Where-Object { $_.appName -eq $appName }
-    return $softwareItem
+    return $existingData | Where-Object { $_.appName -eq $appName }
 }
-
-# Update the software list with new Versions, URLs but keep the VSCode extensions
-
 
 # 7-Zip
 $baseUrl = "https://www.7-zip.org/"
@@ -254,3 +245,6 @@ $json = $softwareList | ConvertTo-Json -Depth 10
 
 # Output the JSON to a file
 $json | Out-File -FilePath $jsonPath
+
+# Write the JSON to the console
+Write-Host $json
