@@ -159,7 +159,7 @@ function main {
 
     # Firefox Theme
     $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
-    if (-not (Test-Path "$profilePath\chrome" -PathType Container) -and (Get-Command git -ErrorAction SilentlyContinue)) {
+    if (-not (Test-Path "$profilePath\chrome" -PathType Container) -and (Get-Command git)) {
         Write-Host "`nInstalling 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
         git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
         Get-ChildItem -Path "$profilePath\chrome" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force | Remove-Item -Force -Recurse
