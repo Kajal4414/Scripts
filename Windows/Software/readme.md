@@ -2,13 +2,14 @@
 
 -   ### [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)
 
-    -   #### [Installation Script](./install_firefox.ps1) - _Run PowerShell or Terminal as an administrator (not CMD), then copy and paste the code below and press 'Enter'._
+    -   #### [Installation Script](./install_firefox.ps1) - _Run PowerShell or Terminal as an admin (not CMD), then copy and paste the code below and press 'Enter'._
         ```ps1
         Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass # Set execution policy for this session only
-        cd "%UserProfile%\Downloads\" # Change Directory
-        .\install_firefox.ps1 # Run script
+        cd "$env:USERPROFILE\Downloads"                            # Change Directory
+        .\install_firefox.ps1                                      # Run Script
 
-        # OR
+        # OR #
+        
         irm https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Software/install_firefox.ps1 | iex
         ```
 
@@ -109,15 +110,24 @@
     -   #### Set the battery charging threshold to `80%` (Install this driver) [ASUS System Control Interface v3](https://www.asus.com/support/Download-Center/)
         ```cmd
         reg add "HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys" /v ChargingRate /t REG_DWORD /d 80 /f
-        
-        :: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys
-        :: Select 'ChargingRate'
-        :: Value data '3c' (Hexadecimal) OR '60' (Decimal)
+
+        ## Adding Manually ##
+        # Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys
+        # Select 'ChargingRate'
+        # Value data '3c' in (Hexadecimal) OR '60' in (Decimal)
         ```
-    -   **Restart the Asus Optimization service in PowerShell (Administrator):** `Restart-Service "ASUSOptimization"`
     -   **List all ASUS services:** `Get-Service | Where-Object {$_.Name -like "*ASUS*"}`
     -   **Disable all ASUS services except 'ASUSOptimization' using this:** `Set-Service -Name "AsusAppService" -StartupType Disabled`
-    -   **ASUS Servises:** `AsusAppService`, `ASUSLinkNear`, `ASUSLinkRemote`, `ASUSSoftwareManager`, `ASUSSwitch`, `ASUSSystemAnalysis`, `ASUSSystemDiagnosis`.
+    -   **All ASUS Servises:**
+        -   AsusAppService
+        -   ASUSLinkNear
+        -   ASUSLinkRemote
+        -   ASUSSoftwareManager
+        -   ASUSSwitch
+        -   ASUSSystemAnalysis
+        -   ASUSSystemDiagnosis
+    -   **Restart the Asus Optimization service in PowerShell (Administrator):** `Restart-Service "ASUSOptimization"`
+    -   **Alternatively, you can utilize the following [script](../Extra/charging_threshold.ps1).**
 
 -   ### [Notepad](https://apps.microsoft.com/detail/windows-notepad/9MSMLRH6LZF3)
 -   ### [Obsidian](https://obsidian.md)
