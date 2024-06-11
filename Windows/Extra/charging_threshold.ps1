@@ -1,3 +1,5 @@
+# https://github.com/sakshiagrwal/monitors/blob/main/charging_threshold.ps1
+
 # Check if ASUSOptimization service exists
 if (-not (Get-Service -Name "ASUSOptimization" -ErrorAction SilentlyContinue)) {
     Write-Host "ASUSOptimization service does not exist. Install the 'ASUS System Control Interface v3' drivers and try again."
