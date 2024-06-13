@@ -12,7 +12,7 @@ for %%D in (
     if exist "%%~D" (
         echo Deleting the "%%~D" directory...
         takeown /F "%%~D" /A >NUL 2>&1 & icacls "%%~D" /grant Administrators:F >NUL 2>&1
-        RD /S /Q "%%~D"
+        RD /S /Q "%%~D" >NUL 2>&1
     )
 )
 
@@ -20,9 +20,11 @@ for %%D in (
 for %%D in (
     "%AppData%\DMCache"
     "%ProgramData%\USOPrivate"
+    "%ProgramData%\USOShared"
     "%SystemDrive%\$Recycle.bin"
     "%UserProfile%\.dbus-keyrings"
     "%UserProfile%\.vscode\cli"
+    "%UserProfile%\AppData\Local\ASUS"
     "%UserProfile%\AppData\Local\cache"
     "%UserProfile%\AppData\Local\Comms"
     "%UserProfile%\AppData\Local\Temp"
@@ -33,8 +35,11 @@ for %%D in (
     "%UserProfile%\AppData\Local\pip"
     "%UserProfile%\AppData\Local\pylint"
     "%UserProfile%\AppData\Local\VirtualStore"
+    "%UserProfile%\AppData\Local\ToastNotificationManagerCompat"
+    "%UserProfile%\AppData\Local\Rufus"
     "%UserProfile%\AppData\LocalLow\AMD"
     "%UserProfile%\AppData\Roaming\Adobe"
+    "%UserProfile%\AppData\Roaming\balena-etcher"
     "%UserProfile%\Favorites"
     "%UserProfile%\Recent"
     "%UserProfile%\Searches"
