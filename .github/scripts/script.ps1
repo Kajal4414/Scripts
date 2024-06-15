@@ -2,7 +2,7 @@
 $softwareList = @()
 
 # Load the existing JSON data, preserving all information
-$jsonPath = 'install_apps.json'
+$jsonPath = 'Windows/Software/install_apps.json'
 $existingData = if (Test-Path $jsonPath) { Get-Content $jsonPath | ConvertFrom-Json } else { @() }
 
 # Define a helper function to find the existing data for an app
