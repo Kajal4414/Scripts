@@ -94,7 +94,6 @@ function main {
             Write-Host "`nInstalling 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
             git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
             Remove-Item "$profilePath\chrome\*" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force -Recurse
-            Write-Host "Theme installed at default profile path '$profilePath\chrome'" -ForegroundColor Green
         }
     }
 
