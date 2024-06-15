@@ -2,6 +2,7 @@ param (
     [switch]$force,
     [switch]$skipHashCheck,
     [switch]$theme,
+    [switch]$configs,
     [string]$lang = "en-GB",
     [string]$edition,
     [string]$version
@@ -132,30 +133,32 @@ function main {
     }
 
     # Configuration settings
-    Write-Host "`nConfiguring Mozilla Firefox settings..." -ForegroundColor Yellow
+    if ($configs) {
+        Write-Host "`nConfiguring Mozilla Firefox settings..." -ForegroundColor Yellow
 
-    # Create 'distribution' folder for policies.json
-    New-Item -Path $installDir -Name "distribution" -ItemType Directory -Force | Out-Null
+        # Create 'distribution' folder for policies.json
+        New-Item -Path $installDir -Name "distribution" -ItemType Directory -Force | Out-Null
 
-    # Write policies.json
-    $policyFile = "$installDir\distribution\policies.json"
-    if (-not (Test-Path $policyFile)) {
-        curl.exe -o $policyFile -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"
-        Write-Host "Created: policies.json" -ForegroundColor Green
-    }
+        # Write policies.json
+        $policyFile = "$installDir\distribution\policies.json"
+        if (-not (Test-Path $policyFile)) {
+            curl.exe -o $policyFile -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"
+            Write-Host "Created: policies.json" -ForegroundColor Green
+        }
 
-    # Write autoconfig.js
-    $autoconfigFile = "$installDir\defaults\pref\autoconfig.js"
-    if (-not (Test-Path $autoconfigFile)) {
-        curl.exe -o $autoconfigFile -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"
-        Write-Host "Created: autoconfig.js" -ForegroundColor Green
-    }
+        # Write autoconfig.js
+        $autoconfigFile = "$installDir\defaults\pref\autoconfig.js"
+        if (-not (Test-Path $autoconfigFile)) {
+            curl.exe -o $autoconfigFile -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"
+            Write-Host "Created: autoconfig.js" -ForegroundColor Green
+        }
 
-    # Write firefox.cfg
-    $firefoxCfgFile = "$installDir\firefox.cfg"
-    if (-not (Test-Path $firefoxCfgFile)) {
-        curl.exe -o $firefoxCfgFile -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/firefox.cfg"
-        Write-Host "Created: firefox.cfg" -ForegroundColor Green
+        # Write firefox.cfg
+        $firefoxCfgFile = "$installDir\firefox.cfg"
+        if (-not (Test-Path $firefoxCfgFile)) {
+            curl.exe -o $firefoxCfgFile -LSs "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/firefox.cfg"
+            Write-Host "Created: firefox.cfg" -ForegroundColor Green
+        }
     }
 
     # Firefox Theme
