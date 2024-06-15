@@ -1,6 +1,7 @@
 param (
     [switch]$force,
     [switch]$skipHashCheck,
+    [switch]$theme,
     [string]$lang = "en-GB",
     [string]$edition,
     [string]$version
@@ -158,12 +159,14 @@ function main {
     }
 
     # Firefox Theme
-    $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
-    if (-not (Test-Path "$profilePath\chrome" -PathType Container) -and (Get-Command git -ErrorAction SilentlyContinue)) {
-        Write-Host "`nInstalling 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
-        git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
-        Get-ChildItem -Path "$profilePath\chrome" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force | Remove-Item -Force -Recurse
-        Write-Host "Theme installed successfully in the default profile path '$profilePath\chrome'" -ForegroundColor Green
+    if ($theme) {
+        $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
+        if (-not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
+            Write-Host "`nInstalling 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
+            git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
+            Remove-Item "$profilePath\chrome\*" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force -Recurse
+            Write-Host "Theme installed at default profile path '$profilePath\chrome'" -ForegroundColor Green
+        }
     }
 
     # Display release notes URL
