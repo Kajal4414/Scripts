@@ -11,18 +11,18 @@
   },
   {
     "appName": "Brave",
-    "version": "1.66.118",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.66.118/BraveBrowserStandaloneSetup.exe"
+    "version": "1.67.116",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.67.116/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "126.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/126.0.1/win64/en-GB/Firefox%20Setup%20126.0.1.exe"
+    "version": "127.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/127.0/win64/en-GB/Firefox%20Setup%20127.0.exe"
   },
   {
     "appName": "Git",
-    "version": "2.45.1",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.45.1.windows.1/Git-2.45.1-64-bit.exe"
+    "version": "2.45.2",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.45.2.windows.1/Git-2.45.2-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -31,13 +31,13 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.10",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build10.exe?v=lt&amp;filename=idman642build10.exe"
+    "version": "6.42.11",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build11.exe?v=lt&amp;filename=idman642build11.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.1.2",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.1.2.exe"
+    "version": "2024.1.3",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.1.3.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -46,17 +46,17 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.3.5",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1835_Full.exe"
+    "version": "18.4.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1840_Full.exe"
   },
   {
     "appName": "Node.js",
-    "version": "22.2.0",
-    "url": "https://nodejs.org/download/release/latest/node-v22.2.0-x64.msi"
+    "version": "22.3.0",
+    "url": "https://nodejs.org/download/release/latest/node-v22.3.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.89.1",
+    "version": "1.90.1",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -90,18 +90,18 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.6.7",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.7/npp.8.6.7.Installer.x64.exe"
+    "version": "8.6.8",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.8/npp.8.6.8.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
-    "version": "1.5.12",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.12/Obsidian.1.5.12.exe"
+    "version": "1.6.3",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/Obsidian.1.6.3.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "21.1.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.1.0/install-amd64.exe"
+    "version": "21.10.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.10.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -110,18 +110,18 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.1.2",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.1.2.exe"
+    "version": "2024.1.3",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.1.3.exe"
   },
   {
     "appName": "Python",
-    "version": "3.12.3",
-    "url": "https://www.python.org/ftp/python/3.12.3/python-3.12.3-amd64.exe"
+    "version": "3.12.4",
+    "url": "https://www.python.org/ftp/python/3.12.4/python-3.12.4-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
-    "version": "5.2.6",
-    "url": "https://51c600f9e82d68dc3826-1d74afb9afdb5826b7a50bfb479868d8.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
+    "version": "5.3.0",
+    "url": "https://2c4eb3d18fca8ba6d9ca-4662654c4d02b3489a1b137ebc24250a.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
   },
   {
     "appName": "StartAllBack",
@@ -135,8 +135,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.1.1",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.1.1/tsetup-x64.5.1.1.exe"
+    "version": "5.1.7",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.1.7/tsetup-x64.5.1.7.exe"
   },
   {
     "appName": "VLC media player",
