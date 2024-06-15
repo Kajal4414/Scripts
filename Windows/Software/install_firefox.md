@@ -1,22 +1,22 @@
 # Firefox Installer Script Guide
 
-Yeh guide aapko batayegi ki kaise aap is script ko use kar sakte hain Mozilla Firefox install karne ke liye with optional configurations.
+This guide will explain how to use this script to install Mozilla Firefox with optional configurations.
 
 ## Script Parameters
 
-- **`-force`**: Yeh option forcibly install karta hai Firefox agar already installed hai.
-- **`-skipHashCheck`**: Yeh option hash verification ko skip karta hai download ke baad.
-- **`-theme`**: Yeh option install karta hai 'Firefox Mod Blur' theme.
-- **`-configs`**: Yeh option configure karta hai Firefox ko with `policies.json`, `autoconfig.js`, and `firefox.cfg`.
-- **`-lang`**: Firefox installation ke liye language specify karta hai (default: "en-GB").
-- **`-edition`**: Firefox edition specify karta hai (Developer, Enterprise, ya default).
-- **`-version`**: Firefox version specify karta hai (agar aap specific version install karna chahte hain).
+- **`-force`**: This option forces the installation of Firefox even if it is already installed.
+- **`-skipHashCheck`**: This option skips the hash verification after downloading.
+- **`-theme`**: This option installs the 'Firefox Mod Blur' theme.
+- **`-configs`**: This option configures Firefox with `policies.json`, `autoconfig.js`, and `firefox.cfg`.
+- **`-lang`**: Specifies the language for the Firefox installation (default: "en-GB").
+- **`-edition`**: Specifies the edition of Firefox (Developer, Enterprise, or default).
+- **`-version`**: Specifies the version of Firefox (if you want to install a specific version).
 
 ## Usage Examples
 
 ### Basic Usage
 
-Agar aap simply Firefox install karna chahte hain without any special configurations:
+If you simply want to install Firefox without any special configurations:
 
 ```powershell
 .\Script.ps1
@@ -24,7 +24,7 @@ Agar aap simply Firefox install karna chahte hain without any special configurat
 
 ### Force Install
 
-Agar aapko forcefully Firefox install karna hai even if it's already installed:
+If you need to forcefully install Firefox even if it's already installed:
 
 ```powershell
 .\Script.ps1 -force
@@ -32,7 +32,7 @@ Agar aapko forcefully Firefox install karna hai even if it's already installed:
 
 ### Skip Hash Check
 
-Agar aap hash check skip karna chahte hain:
+If you want to skip the hash check:
 
 ```powershell
 .\Script.ps1 -skipHashCheck
@@ -40,7 +40,7 @@ Agar aap hash check skip karna chahte hain:
 
 ### Install with Theme
 
-Agar aapko 'Firefox Mod Blur' theme install karna hai:
+If you want to install the 'Firefox Mod Blur' theme:
 
 ```powershell
 .\Script.ps1 -theme
@@ -48,7 +48,7 @@ Agar aapko 'Firefox Mod Blur' theme install karna hai:
 
 ### Install with Configurations
 
-Agar aap Firefox ko `policies.json`, `autoconfig.js`, aur `firefox.cfg` ke saath configure karna chahte hain:
+If you want to configure Firefox with `policies.json`, `autoconfig.js`, and `firefox.cfg`:
 
 ```powershell
 .\Script.ps1 -configs
@@ -56,7 +56,7 @@ Agar aap Firefox ko `policies.json`, `autoconfig.js`, aur `firefox.cfg` ke saath
 
 ### Install Specific Edition and Version
 
-Agar aap specific edition (Developer ya Enterprise) ya specific version install karna chahte hain:
+If you want to install a specific edition (Developer or Enterprise) or a specific version:
 
 ```powershell
 .\Script.ps1 -edition Developer -version 89.0
@@ -64,7 +64,7 @@ Agar aap specific edition (Developer ya Enterprise) ya specific version install 
 
 ### Full Command Example
 
-Yeh ek example hai jisme sabhi options include hain:
+Here is an example that includes all options:
 
 ```powershell
 .\Script.ps1 -force -skipHashCheck -theme -configs -lang "en-US" -edition Enterprise -version 78.0
@@ -74,24 +74,24 @@ Yeh ek example hai jisme sabhi options include hain:
 
 ### Functions
 
-- **`PauseNull`**: Yeh function script ko pause karta hai aur user input ka wait karta hai.
-- **`DownloadFile`**: Yeh function specified URL se file download karta hai.
-- **`VerifyHash`**: Yeh function local aur remote file hash ko verify karta hai.
-- **`ConfigureFiles`**: Yeh function configuration files (`policies.json`, `autoconfig.js`, `firefox.cfg`) ko download aur place karta hai.
+- **`PauseNull`**: This function pauses the script and waits for user input.
+- **`DownloadFile`**: This function downloads a file from a specified URL.
+- **`VerifyHash`**: This function verifies the hash of the local file against the remote file.
+- **`ConfigureFiles`**: This function downloads and places configuration files (`policies.json`, `autoconfig.js`, `firefox.cfg`).
 
 ### Main Script Flow
 
-1. Admin privileges check karta hai.
-2. Latest Firefox version fetch karta hai JSON data se.
-3. Version decide karta hai (specified ya default).
-4. Firefox setup file download karta hai.
-5. (Optional) Hash verification karta hai.
-6. Firefox install karta hai.
-7. Unnecessary files remove karta hai.
-8. (Optional) Configuration files set karta hai.
-9. (Optional) 'Firefox Mod Blur' theme install karta hai.
-10. Release notes URL display karta hai.
+1. Checks for admin privileges.
+2. Fetches the latest Firefox version from JSON data.
+3. Determines the version to use (specified or default).
+4. Downloads the Firefox setup file.
+5. (Optional) Verifies the hash.
+6. Installs Firefox.
+7. Removes unnecessary files.
+8. (Optional) Sets up configuration files.
+9. (Optional) Installs the 'Firefox Mod Blur' theme.
+10. Displays the release notes URL.
 
 ## Conclusion
 
-Yeh guide aapko script ke usage aur parameters ko samajhne mein madad karegi. Agar aapko koi additional help chahiye, feel free to reach out!
+This guide should help you understand the usage and parameters of the script.
