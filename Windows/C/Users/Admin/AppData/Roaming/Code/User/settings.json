@@ -3,7 +3,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.html-language-features"
     },
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -12,7 +12,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
@@ -33,7 +33,7 @@
     "terminal.integrated.minimumContrastRatio": 1,
     "terminal.sourceControlRepositoriesKind": "both",
     "update.mode": "manual",
-    "workbench.colorTheme": "Bearded Theme Black & Diamond",
+    "workbench.colorTheme": "GitHub Dark Default",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none"
 }
