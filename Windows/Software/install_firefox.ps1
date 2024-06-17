@@ -31,6 +31,7 @@ function VerifyHash($file, $hashSource, $remoteFile) {
 }
 
 function ConfigureFiles($installDir) {
+    New-Item -Path "$installDir\distribution" -ItemType Directory -Force | Out-Null
     $files = @(
         @{Name = "policies.json"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"; Path = "$installDir\distribution\policies.json"},
         @{Name = "autoconfig.js"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"; Path = "$installDir\defaults\pref\autoconfig.js"},
@@ -44,8 +45,6 @@ function ConfigureFiles($installDir) {
 }
 
 function main {
-    Write-Host "Starting Firefox installation process..." -ForegroundColor Yellow
-
     try { $response = Invoke-RestMethod -Uri "https://product-details.mozilla.org/1.0/firefox_versions.json" }
     catch { Write-Host "Failed to fetch JSON data: $_" -ForegroundColor Red; PauseNull }
 
@@ -66,6 +65,7 @@ function main {
     Write-Host "`nDownloading Mozilla Firefox v$remoteVersion setup..." -ForegroundColor Yellow
     DownloadFile $downloadUrl $setupFile
 
+    Write-Host "`nVerifying SHA-512 Hash..." -ForegroundColor Yellow
     if (-not $skipHashCheck -and -not (VerifyHash $setupFile $hashSource "win64/$lang/Firefox Setup $remoteVersion.exe")) {
         Write-Host "SHA-512 Hash verification failed, consider using -skipHashCheck." -ForegroundColor Red
         PauseNull
