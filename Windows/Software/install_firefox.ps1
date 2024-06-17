@@ -86,7 +86,7 @@ function main {
         if (Test-Path $filePath) { Remove-Item $filePath -ErrorAction SilentlyContinue; Write-Host "Removed: $filePath" -ForegroundColor Green }
     }
 
-    if ($configs) { ConfigureFiles $installDir }
+    if ($configs) { Write-Host "`nConfiguring firefox settings..." -ForegroundColor Yellow; ConfigureFiles $installDir }
 
     if ($theme) {
         $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
