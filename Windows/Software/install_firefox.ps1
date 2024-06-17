@@ -70,13 +70,13 @@ function main {
         Write-Host "SHA-512 Hash verification failed, consider using -skipHashCheck." -ForegroundColor Red
         PauseNull
     } else {
-        Write-Host "Verification successful." -ForegroundColor Green
+        Write-Host "Verification Successful." -ForegroundColor Green
     }
 
     Write-Host "`nInstalling Mozilla Firefox..." -ForegroundColor Yellow
     Stop-Process -Name "firefox" -ErrorAction SilentlyContinue
 
-    try { Start-Process -FilePath $setupFile -ArgumentList "/S /MaintenanceService=false" -Wait; Write-Host "Installation successful." -ForegroundColor Green }
+    try { Start-Process -FilePath $setupFile -ArgumentList "/S /MaintenanceService=false" -Wait; Write-Host "Installation Successful." -ForegroundColor Green }
     catch { Write-Host "Error occurred while installing 'Mozilla Firefox $remoteVersion.exe': $_" -ForegroundColor Red; PauseNull }
 
     Write-Host "`nRemoving unnecessary files..." -ForegroundColor Yellow
@@ -86,15 +86,15 @@ function main {
         if (Test-Path $filePath) { Remove-Item $filePath -ErrorAction SilentlyContinue; Write-Host "Removed: $filePath" -ForegroundColor Green }
     }
 
-    if ($configs) { Write-Host "`nConfiguring firefox settings..." -ForegroundColor Yellow; ConfigureFiles $installDir }
+    if ($configs) { Write-Host "`nConfiguring Firefox Settings..." -ForegroundColor Yellow; ConfigureFiles $installDir }
 
     if ($theme) {
         $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
         if (-not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
-            Write-Host "`nInstalling 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
+            Write-Host "`nInstalling Firefox Mod Blur Theme..." -ForegroundColor Yellow
             git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
             Remove-Item "$profilePath\chrome\*" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force -Recurse
-            Write-Host "Theme 'Firefox Mod Blur' installed." -ForegroundColor Green
+            Write-Host "Installation Successful." -ForegroundColor Green
         }
     }
 
