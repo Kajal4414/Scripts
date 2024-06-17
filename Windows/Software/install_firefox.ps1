@@ -62,7 +62,7 @@ function main {
         }
     }
 
-    Write-Host "`nDownloading Mozilla Firefox v$remoteVersion setup..." -ForegroundColor Yellow
+    Write-Host "Downloading Mozilla Firefox v$remoteVersion setup..." -ForegroundColor Yellow
     DownloadFile $downloadUrl $setupFile
 
     Write-Host "`nVerifying SHA-512 Hash..." -ForegroundColor Yellow
@@ -70,7 +70,7 @@ function main {
         Write-Host "SHA-512 Hash verification failed, consider using -skipHashCheck." -ForegroundColor Red
         PauseNull
     } else {
-        Write-Host "SHA-512 Hash verification successful." -ForegroundColor Green
+        Write-Host "Verification successful." -ForegroundColor Green
     }
 
     Write-Host "`nInstalling Mozilla Firefox..." -ForegroundColor Yellow
@@ -83,7 +83,7 @@ function main {
     Remove-Item $setupFile -ErrorAction SilentlyContinue
     "crashreporter.exe crashreporter.ini defaultagent.ini defaultagent_localized.ini default-browser-agent.exe maintenanceservice.exe maintenanceservice_installer.exe minidump-analyzer.exe pingsender.exe updater.exe updater.ini update-settings.ini".Split() | ForEach-Object {
         $filePath = "$installDir\$_"
-        if (Test-Path $filePath) { Remove-Item $filePath -ErrorAction SilentlyContinue }
+        if (Test-Path $filePath) { Remove-Item $filePath -ErrorAction SilentlyContinue; Write-Host "Removed: $filePath" -ForegroundColor Green }
     }
 
     if ($configs) { ConfigureFiles $installDir }
@@ -94,6 +94,7 @@ function main {
             Write-Host "`nInstalling 'Firefox Mod Blur' Theme..." -ForegroundColor Yellow
             git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
             Remove-Item "$profilePath\chrome\*" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force -Recurse
+            Write-Host "Theme 'Firefox Mod Blur' installed." -ForegroundColor Green
         }
     }
 
