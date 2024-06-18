@@ -24,6 +24,9 @@
 -   ### [Visual Studio Code](https://code.visualstudio.com/download)
     -   #### [Alternative - VSCodium](https://github.com/VSCodium/vscodium)
     -   #### [Settings](../C/Users/Admin/AppData/Roaming/Code/User/settings.json)
+        ```ps1
+        code --install-extension beardedbear.beardedtheme dbaeumer.vscode-eslint eamodio.gitlens esbenp.prettier-vscode foxundermoon.shell-format github.codespaces github.github-vscode-theme jock.svg ms-python.black-formatter ms-python.debugpy ms-python.pylint ms-python.python ms-python.vscode-pylance ms-vscode.makefile-tools ms-vscode.powershell pkief.material-icon-theme redhat.java redhat.vscode-xml redhat.vscode-yaml ritwickdey.liveserver tabnine.tabnine-vscode visualstudioexptteam.intellicode-api-usage-examples visualstudioexptteam.vscodeintellicode vscjava.vscode-java-debug vscjava.vscode-java-dependency vscjava.vscode-java-pack vscjava.vscode-java-test vscjava.vscode-maven
+        ```
 -   ### [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)
     -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/idea/installation-guide.html#wb3tvh_178)
         ```sh
