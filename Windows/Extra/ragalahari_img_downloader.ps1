@@ -45,4 +45,4 @@ foreach ($imageUrl in $imageUrls[0..($numberOfImages - 1)]) {
 }
 
 $downloadedCount = ($downloadResults | Where-Object { $_ -eq "downloaded" }).Count; $skippedCount = ($downloadResults | Where-Object { $_ -eq "skipped" }).Count; $failedCount = ($downloadResults | Where-Object { $_ -eq "failed" }).Count
-Write-Host "`nDownloaded: $downloadedCount" -ForegroundColor Green -NoNewline; Write-Host " - " -NoNewline; Write-Host "Skipped: $skippedCount" -ForegroundColor Yellow -NoNewline; Write-Host " - " -NoNewline; Write-Host "Failed: $failedCount" -ForegroundColor Red; Write-Host "Images downloaded at '$(Resolve-Path -Path $destinationFolder)'" -ForegroundColor Blue
+Write-Host "`nDownloaded: $downloadedCount" -ForegroundColor Green -NoNewline; Write-Host " - " -NoNewline; Write-Host "Skipped: $skippedCount" -ForegroundColor Yellow -NoNewline; Write-Host " - " -NoNewline; Write-Host "Failed: $failedCount" -ForegroundColor Red; Write-Host "All Images Downloaded At '$(Resolve-Path -Path $destinationFolder)'" -ForegroundColor Blue
