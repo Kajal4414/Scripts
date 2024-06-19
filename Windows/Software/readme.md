@@ -105,20 +105,26 @@
     -   #### [Parsify Desktop](https://github.com/parsify-dev/desktop)
 -   ### [ExplorerBlurMica](https://github.com/Maplespe/ExplorerBlurMica)
 -   ### [HEIF Image Extensions](https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG?hl=en-in&gl=IN)
--   ### [MyAsus](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)
-
-    -   #### Set the battery charging threshold to `80%` (Install this driver) [ASUS System Control Interface v3](https://www.asus.com/support/Download-Center/)
-        ```cmd
-        reg add "HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys" /v ChargingRate /t REG_DWORD /d 80 /f
-
-        ## Adding Manually ##
-        # Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys
-        # Select 'ChargingRate'
-        # Value data '3c' in (Hexadecimal) OR '60' in (Decimal)
+-   ### [MyASUS](https://apps.microsoft.com/detail/myasus/9N7R5S6B0ZZH?hl=en-in&gl=IN)
+    -   #### Set the Battery Charging Threshold to `60%` Without the MyASUS App.
+        - Install the [ASUS System Control Interface](https://www.asus.com/support/Download-Center/) driver.
+        - Open Command Prompt as an administrator and run the following command:
+            ```cmd
+            reg add "HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys" /v ChargingRate /t REG_DWORD /d 60 /f
+            ```
+        - Alternatively, you can add the registry key manually:
+            - Navigate to `HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys\ASUS Keyboard Hotkeys`.
+            - Select `ChargingRate`.
+            - Set the value data to `3c` (Hexadecimal) or `60` (Decimal).
+    -   **List all ASUS Services:**
+        ```powershell
+        Get-Service | Where-Object {$_.Name -like "*ASUS*"}
         ```
-    -   **List all ASUS services:** `Get-Service | Where-Object {$_.Name -like "*ASUS*"}`
-    -   **Disable all ASUS services except 'ASUSOptimization' using this:** `Set-Service -Name "AsusAppService" -StartupType Disabled`
-    -   **All ASUS Servises:**
+    -   **Disable all ASUS Services Except 'ASUSOptimization':**
+        ```powershell
+        Set-Service -Name "AsusAppService" -StartupType Disabled
+        ```
+    -   **List of All ASUS Services:**
         -   AsusAppService
         -   ASUSLinkNear
         -   ASUSLinkRemote
@@ -126,9 +132,11 @@
         -   ASUSSwitch
         -   ASUSSystemAnalysis
         -   ASUSSystemDiagnosis
-    -   **Restart the Asus Optimization service in PowerShell (Administrator):** `Restart-Service "ASUSOptimization"`
-    -   **Alternatively, you can utilize the following [script](../Extra/charging_threshold.ps1).**
-
+    -   **Restart the ASUS Optimization Service in PowerShell (Run as Administrator):**
+        ```powershell
+        Restart-Service "ASUSOptimization"
+        ```
+    -   **Alternatively, you can use the following [script](../Extra/charging_threshold.ps1).**
 -   ### [Notepad](https://apps.microsoft.com/detail/windows-notepad/9MSMLRH6LZF3)
 -   ### [Obsidian](https://obsidian.md)
 -   ### [Process Explorer](https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer)
