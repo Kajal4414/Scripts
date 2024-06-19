@@ -1,18 +1,14 @@
 # Browsers
 
 -   ### [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)
-
     -   #### [Installation Script](./install_firefox.ps1) - _Run PowerShell or Terminal as an admin (not CMD), then copy and paste the code below and press 'Enter'._
         ```ps1
-        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass # Set execution policy for this session only
-        cd "$env:USERPROFILE\Downloads"                            # Change Directory
-        .\install_firefox.ps1                                      # Run Script
-
-        # OR #
-
+        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; & "$env:USERPROFILE\Downloads\install_firefox.ps1"
+        ```
+        #### OR
+        ```ps1
         irm https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Software/install_firefox.ps1 | iex
         ```
-
     -   #### [Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)
     -   #### [Firefox Mod Blur](https://github.com/datguypiko/Firefox-Mod-Blur)
 
