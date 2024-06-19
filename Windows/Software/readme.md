@@ -21,7 +21,7 @@
 
 ### [Visual Studio Code](https://code.visualstudio.com/download)
 - **Alternative** - [VSCodium](https://github.com/VSCodium/vscodium)
-- **Settings** - `../C/Users/Admin/AppData/Roaming/Code/User/settings.json`
+- **Settings** - [settings.json](../C/Users/Admin/AppData/Roaming/Code/User/settings.json)
 
 ### [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)
 - **Installation Guide (Linux)**
@@ -46,7 +46,7 @@
 - **Installation Guide (Windows)** - [Guide](https://ohmyposh.dev/docs/installation/windows)
 
 ### [Windows Terminal](https://github.com/microsoft/terminal)
-- **Settings** - `../C/Users/Admin/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json`
+- **Settings** - [settings.json](../C/Users/Admin/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json)
 
 ## Development Tools
 
