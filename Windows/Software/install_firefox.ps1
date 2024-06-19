@@ -19,6 +19,11 @@ if (-not (New-Object Security.Principal.WindowsPrincipal([Security.Principal.Win
     PauseNull
 }
 
+if (-not (Test-Connection 8.8.8.8 -Count 1 -Quiet)) {
+    Write-Host "Error: Internet connection required." -ForegroundColor Red
+    PauseNull
+}
+
 function DownloadFile($url, $path) {
     curl.exe -o $path -LSs $url
     Write-Host "Downloaded: $path" -ForegroundColor Green
