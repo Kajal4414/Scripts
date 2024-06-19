@@ -96,8 +96,8 @@
 ## Messaging
 
 ### [Telegram Desktop](https://github.com/telegramdesktop/tdesktop/releases/latest)
-- **Alternative - Portable Version** - [Portable Version](https://desktop.telegram.org)
-- **Alternative - MaterialYou** - [MaterialYou](https://github.com/kukuruzka165/materialgram)
+- **Alternative** - [Portable Version](https://desktop.telegram.org)
+- **Alternative** - [MaterialYou](https://github.com/kukuruzka165/materialgram)
     ```sh
     sudo tar -xf tsetup*.tar.xz -C /opt/ # Recommended installation directory for debian
     ```
@@ -117,7 +117,7 @@
 - **Alternative Guide** - [Guide](https://github.com/amitxv/PC-Tuning/blob/main/docs/configure-amd.md)
 
 ### [BleachBit](https://github.com/bleachbit/bleachbit)
-- **Alternative - CleanmgrPlus** - [CleanmgrPlus](https://github.com/builtbybel/CleanmgrPlus)
+- **Alternative** - [CleanmgrPlus](https://github.com/builtbybel/CleanmgrPlus)
 
 ### [Bulk Crap Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)
 
