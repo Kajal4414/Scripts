@@ -22,6 +22,12 @@ if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Adm
     PauseNull
 }
 
+# Check for internet connectivity
+if (-not (Test-Connection 8.8.8.8 -Count 1 -Quiet)) {
+    Write-Host "Error: Internet connection required." -ForegroundColor Red
+    PauseNull
+}
+
 # Main script execution
 function main {
     Write-Host "Starting Firefox installation process..." -ForegroundColor Yellow
