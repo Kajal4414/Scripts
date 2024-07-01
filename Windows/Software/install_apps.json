@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.67.119",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.67.119/BraveBrowserStandaloneSetup.exe"
+    "version": "1.67.123",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.67.123/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "127.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/127.0.1/win64/en-GB/Firefox%20Setup%20127.0.1.exe"
+    "version": "127.0.2",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/127.0.2/win64/en-GB/Firefox%20Setup%20127.0.2.exe"
   },
   {
     "appName": "Git",
@@ -96,13 +96,13 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.6.3",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/Obsidian.1.6.3.exe"
+    "version": "1.6.5",
+    "url": "p"
   },
   {
     "appName": "OhMyPosh",
-    "version": "21.16.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.16.0/install-amd64.exe"
+    "version": "21.17.2",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.17.2/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -111,8 +111,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.1.3",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.1.3.exe"
+    "version": "2024.1.4",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.1.4.exe"
   },
   {
     "appName": "Python",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.1.7",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.1.7/tsetup-x64.5.1.7.exe"
+    "version": "5.2.0",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.2.0/tsetup-x64.5.2.0.exe"
   },
   {
     "appName": "VLC media player",
