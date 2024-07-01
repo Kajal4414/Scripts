@@ -145,7 +145,7 @@ $baseUrl = "https://api.github.com/repos/obsidianmd/obsidian-releases/releases/l
 $softwareList += [PSCustomObject]@{
     appName = "Obsidian"
     version = (Invoke-RestMethod $baseUrl).tag_name.TrimStart('v')
-    url     = ((Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -like 'Obsidian.*.exe' } | Select-Object -ExpandProperty browser_download_url)[3]
+    url     = ((Invoke-RestMethod $baseUrl).assets | Where-Object { $_.name -like 'Obsidian*.exe' } | Select-Object -ExpandProperty browser_download_url)[3]
 }
 
 # OhMyPosh
