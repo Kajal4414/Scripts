@@ -1,7 +1,9 @@
 # [Git Commit Hook to Add Change-Id](https://gerrit-review.googlesource.com/Documentation/cmd-hook-commit-msg.html)
 
 ```
+cd <local repo>
 curl -Lo .git/hooks/commit-msg https://gerrit-review.googlesource.com/tools/hooks/commit-msg
+chmod u+x .git/hooks/commit-msg
 ```
 
 ## OR
