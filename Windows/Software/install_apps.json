@@ -46,17 +46,17 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.4.0",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1840_Full.exe"
+    "version": "18.4.5",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1845_Full.exe"
   },
   {
     "appName": "Node.js",
-    "version": "22.3.0",
-    "url": "https://nodejs.org/download/release/latest/node-v22.3.0-x64.msi"
+    "version": "22.4.0",
+    "url": "https://nodejs.org/download/release/latest/node-v22.4.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.90.2",
+    "version": "1.91.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,13 +101,13 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "21.17.2",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.17.2/install-amd64.exe"
+    "version": "21.21.1",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.21.1/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
-    "version": "3.2.11",
-    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.11.exe"
+    "version": "3.2.12",
+    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.12.exe"
   },
   {
     "appName": "PyCharm Community Edition",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.7.10",
+    "version": "3.7.11",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,13 +136,13 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.2.0",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.2.0/tsetup-x64.5.2.0.exe"
+    "version": "5.2.2",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.2.2/tsetup-x64.5.2.2.exe"
   },
   {
     "appName": "VLC media player",
-    "version": "3.0.20",
-    "url": "https://get.videolan.org/vlc/last/win64/vlc-3.0.20-win64.exe"
+    "version": "3.0.21",
+    "url": "https://get.videolan.org/vlc/last/win64/vlc-3.0.21-win64.exe"
   },
   {
     "appName": "YoutubeDownloader",
