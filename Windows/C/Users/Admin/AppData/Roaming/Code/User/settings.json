@@ -17,6 +17,9 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
     "editor.semanticHighlighting.enabled": true,
     "editor.scrollbar.vertical": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 0,
