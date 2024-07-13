@@ -19,7 +19,7 @@ This guide will explain how to use this script to install Mozilla Firefox with o
 If you simply want to install Firefox without any special configurations:
 
 ```powershell
-.\Script.ps1
+irm https://raw.githubusercontent.com/Kajal4414/Scripts/dev/Windows/Software/install_firefox.ps1 | iex
 ```
 
 ### Force Install
@@ -27,7 +27,7 @@ If you simply want to install Firefox without any special configurations:
 If you need to forcefully install Firefox even if it's already installed:
 
 ```powershell
-.\Script.ps1 -force
+.\install_firefox.ps1 -force
 ```
 
 ### Skip Hash Check
@@ -35,7 +35,7 @@ If you need to forcefully install Firefox even if it's already installed:
 If you want to skip the hash check:
 
 ```powershell
-.\Script.ps1 -skipHashCheck
+.\install_firefox.ps1 -skipHashCheck
 ```
 
 ### Install with Theme
@@ -43,7 +43,7 @@ If you want to skip the hash check:
 If you want to install the 'Firefox Mod Blur' theme:
 
 ```powershell
-.\Script.ps1 -theme
+.\install_firefox.ps1 -theme
 ```
 
 ### Install with Configurations
@@ -51,7 +51,7 @@ If you want to install the 'Firefox Mod Blur' theme:
 If you want to configure Firefox with `policies.json`, `autoconfig.js`, and `firefox.cfg`:
 
 ```powershell
-.\Script.ps1 -configs
+.\install_firefox.ps1 -configs
 ```
 
 ### Install Specific Edition and Version
@@ -59,7 +59,7 @@ If you want to configure Firefox with `policies.json`, `autoconfig.js`, and `fir
 If you want to install a specific edition (Developer or Enterprise) or a specific version:
 
 ```powershell
-.\Script.ps1 -edition Developer -version 89.0
+.\install_firefox.ps1 -edition Developer -version 89.0
 ```
 
 ### Full Command Example
@@ -67,7 +67,7 @@ If you want to install a specific edition (Developer or Enterprise) or a specifi
 Here is an example that includes all options:
 
 ```powershell
-.\Script.ps1 -force -skipHashCheck -theme -configs -lang "en-US" -edition Enterprise -version 78.0
+.\install_firefox.ps1 -force -skipHashCheck -theme -configs -lang "en-US" -edition Enterprise -version 78.0
 ```
 
 ## Script Details
