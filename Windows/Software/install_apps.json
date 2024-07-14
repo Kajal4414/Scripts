@@ -16,8 +16,8 @@
   },
   {
     "appName": "Firefox",
-    "version": "127.0.2",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/127.0.2/win64/en-GB/Firefox%20Setup%20127.0.2.exe"
+    "version": "128.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/128.0/win64/en-GB/Firefox%20Setup%20128.0.exe"
   },
   {
     "appName": "Git",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.12",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build12.exe?v=lt&amp;filename=idman642build12.exe"
+    "version": "6.42.14",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build14.exe?v=lt&amp;filename=idman642build14.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "22.4.0",
-    "url": "https://nodejs.org/download/release/latest/node-v22.4.0-x64.msi"
+    "version": "22.4.1",
+    "url": "https://nodejs.org/download/release/latest/node-v22.4.1-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.91.0",
+    "version": "1.91.1",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,8 +101,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "21.21.1",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.21.1/install-amd64.exe"
+    "version": "21.25.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.25.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.2.2",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.2.2/tsetup-x64.5.2.2.exe"
+    "version": "5.2.3",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.2.3/tsetup-x64.5.2.3.exe"
   },
   {
     "appName": "VLC media player",
