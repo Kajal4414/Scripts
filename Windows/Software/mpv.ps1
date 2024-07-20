@@ -1,7 +1,14 @@
+# Function to pause and wait for user input
+function PauseNull {
+    Write-Host "Press any key to exit... " -NoNewline
+    $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
+    exit
+}
+
 # Check for Administrator privileges
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Host "Error: Administrator privileges required." -ForegroundColor Red
-    exit 1
+    PauseNull
 }
 
 # Define URLs and paths
@@ -13,7 +20,7 @@ $InstallPath = Join-Path -Path $env:PROGRAMFILES -ChildPath "MPV"
 $MpvPath = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\mpv.exe" -ErrorAction SilentlyContinue)."(Default)"
 if ($MpvPath -and (Test-Path $MpvPath)) {
     Write-Host "Already installed mpv $((Get-Item $MpvPath).VersionInfo.ProductVersion)." -ForegroundColor Green
-    exit 0
+    PauseNull
 }
 
 # Get download URL
@@ -30,7 +37,7 @@ try {
     Start-Process -FilePath "$InstallPath\installer\mpv-install.bat" -Wait -NoNewWindow
 } catch {
     Write-Host "Error: $_" -ForegroundColor Red
-    exit 1
+    PauseNull
 }
 
 # Cleanup
