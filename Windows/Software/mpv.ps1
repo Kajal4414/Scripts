@@ -27,16 +27,23 @@ if ($MpvPath -and (Test-Path $MpvPath)) {
 $DownloadUrl = ([regex]::Matches((Invoke-WebRequest $BaseUrl -UseBasicParsing).Content, "https://.*?download") | Select-Object -First 1).Value
 
 # Download and install mpv
-Write-Host "Downloading mpv..." -ForegroundColor Yellow
+Write-Host "`nDownloading mpv..." -ForegroundColor Yellow
 try {
     curl.exe -LS -o $TempPath $DownloadUrl
     Write-Host "Download successful." -ForegroundColor Green
 
-    Write-Host "Installing mpv..." -ForegroundColor Yellow
-    cmd.exe /c "7z x `"$TempPath`" -o`"$InstallPath`" -y 2>nul || nanazipg x `"$TempPath`" -o`"$InstallPath`" -y"
+    Write-Host "`nInstalling mpv..." -ForegroundColor Yellow
+    if (Get-Command 7z -ErrorAction SilentlyContinue) {
+        & 7z x $TempPath -o"$InstallPath" -y
+    } elseif (Get-Command nanazipg -ErrorAction SilentlyContinue) {
+        & nanazipg x $TempPath -o"$InstallPath" -y
+    } else {
+        throw "Neither 7z nor NanaZip is installed."
+    }
+
     Start-Process -FilePath "$InstallPath\installer\mpv-install.bat" -Wait -NoNewWindow
 } catch {
-    Write-Host "Error: $_" -ForegroundColor Red
+    Write-Host "`nError: $_" -ForegroundColor Red
     PauseNull
 }
 
