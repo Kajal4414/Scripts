@@ -98,7 +98,7 @@ function main {
         if (-not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
             Write-Host "`nInstalling Firefox Mod Blur Theme..." -ForegroundColor Yellow
             git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
-            Remove-Item "$profilePath\chrome\*" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force -Recurse
+            Get-ChildItem -Path "$profilePath\chrome" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force | Remove-Item -Force -Recurse
             Write-Host "Installation Successful." -ForegroundColor Green
         }
     }
