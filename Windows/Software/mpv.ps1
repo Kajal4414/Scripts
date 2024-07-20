@@ -33,7 +33,7 @@ try {
     Write-Host "Download successful." -ForegroundColor Green
 
     Write-Host "Installing mpv..." -ForegroundColor Yellow
-    nanazipg x "$TempPath" -o"$InstallPath" -y
+    cmd.exe /c "7z x `"$TempPath`" -o`"$InstallPath`" -y || nanazipg x `"$TempPath`" -o`"$InstallPath`" -y"
     Start-Process -FilePath "$InstallPath\installer\mpv-install.bat" -Wait -NoNewWindow
 } catch {
     Write-Host "Error: $_" -ForegroundColor Red
