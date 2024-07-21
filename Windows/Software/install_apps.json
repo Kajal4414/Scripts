@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.67.123",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.67.123/BraveBrowserStandaloneSetup.exe"
+    "version": "1.67.134",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.67.134/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.14",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build14.exe?v=lt&amp;filename=idman642build14.exe"
+    "version": "6.42.15",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build15.exe?v=lt&amp;filename=idman642build15.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -41,18 +41,18 @@
   },
   {
     "appName": "Java(TM) SE Development Kit",
-    "version": "22.0.1",
+    "version": "22.0.2",
     "url": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.4.5",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1845_Full.exe"
+    "version": "18.4.8",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1848_Full.exe"
   },
   {
     "appName": "Node.js",
-    "version": "22.4.1",
-    "url": "https://nodejs.org/download/release/latest/node-v22.4.1-x64.msi"
+    "version": "22.5.1",
+    "url": "https://nodejs.org/download/release/latest/node-v22.5.1-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -91,18 +91,18 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.6.8",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.8/npp.8.6.8.Installer.x64.exe"
+    "version": "8.6.9",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.9/npp.8.6.9.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
-    "version": "1.6.5",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.5/Obsidian-1.6.5.exe"
+    "version": "1.6.7",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "21.25.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.25.0/install-amd64.exe"
+    "version": "21.28.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.28.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
