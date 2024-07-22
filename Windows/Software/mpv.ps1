@@ -31,7 +31,6 @@ Write-Host "`nDownloading mpv..." -ForegroundColor Yellow
 try {
     curl.exe -LS -o $TempPath $DownloadUrl
     Write-Host "Download successful." -ForegroundColor Green
-
     Write-Host "`nInstalling mpv..." -ForegroundColor Yellow
     if (Get-Command 7z -ErrorAction SilentlyContinue) {
         & 7z x $TempPath -o"$InstallPath" -y
@@ -40,8 +39,8 @@ try {
     } else {
         throw "Neither 7z nor NanaZip is installed."
     }
-
     Start-Process -FilePath "$InstallPath\installer\mpv-install.bat" -Wait -NoNewWindow
+    [System.Environment]::SetEnvironmentVariable("PATH", "$env:PATH;$InstallPath", [System.EnvironmentVariableTarget]::User)
 } catch {
     Write-Host "`nError: $_" -ForegroundColor Red
     PauseNull
