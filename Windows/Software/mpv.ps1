@@ -1,6 +1,6 @@
 # Function to pause and wait for user input
 function PauseNull {
-    Write-Host "Press any key to exit... " -NoNewline
+    Write-Host "Press any key to exit..." -NoNewline
     $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
     exit
 }
@@ -24,7 +24,11 @@ if ($MpvPath -and (Test-Path $MpvPath)) {
 }
 
 # Get download URL
-$DownloadUrl = ([regex]::Matches((Invoke-WebRequest $BaseUrl -UseBasicParsing).Content, "https://.*?download") | Select-Object -First 1).Value
+$DownloadUrl = ([regex]::Match((Invoke-WebRequest -Uri $BaseUrl -UseBasicParsing).Content, "https://.*?download")).Value
+if (-not $DownloadUrl) {
+    Write-Host "Error: Could not find download URL." -ForegroundColor Red
+    PauseNull
+}
 
 # Download and install mpv
 Write-Host "`nDownloading mpv..." -ForegroundColor Yellow
@@ -44,7 +48,6 @@ try {
 } catch {
     Write-Host "`nError: $_" -ForegroundColor Red
     PauseNull
+} finally {
+    Remove-Item -Path $TempPath -Force -ErrorAction SilentlyContinue
 }
-
-# Cleanup
-Remove-Item -Path $TempPath -Force -ErrorAction SilentlyContinue
