@@ -25,8 +25,7 @@ if (-not (Test-Connection 8.8.8.8 -Count 1 -Quiet)) {
 }
 
 function DownloadFile($url, $path, $useLSs = $false) {
-    $options = if ($useLSs) { "-LSs" } else { "-S" }
-    curl.exe -o $path $options $url
+    curl.exe -o $path $(if ($useLSs) { "-LSs" } else { "-S" }) $url
     Write-Host "Downloaded: $path" -ForegroundColor Green
 }
 
