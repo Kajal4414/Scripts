@@ -38,9 +38,9 @@ function VerifyHash($file, $hashSource, $remoteFile) {
 function ConfigureFiles($installDir) {
     New-Item -Path "$installDir\distribution" -ItemType Directory -Force | Out-Null
     $files = @(
-        @{Name = "policies.json"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"; Path = "$installDir\distribution\policies.json"},
-        @{Name = "autoconfig.js"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"; Path = "$installDir\defaults\pref\autoconfig.js"},
-        @{Name = "firefox.cfg"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/firefox.cfg"; Path = "$installDir\firefox.cfg"}
+        @{Name = "policies.json"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"; Path = "$installDir\distribution\policies.json" },
+        @{Name = "autoconfig.js"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"; Path = "$installDir\defaults\pref\autoconfig.js" },
+        @{Name = "firefox.cfg"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/firefox.cfg"; Path = "$installDir\firefox.cfg" }
     )
     foreach ($file in $files) {
         if (-not (Test-Path $file.Path)) {
@@ -97,9 +97,8 @@ function main {
         Write-Host "`nInstalling Firefox Mod Blur Theme..." -ForegroundColor Yellow
         $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
         if (-not $profilePath) { Start-Process "firefox.exe"; Start-Sleep -Seconds 3; Stop-Process -Name "firefox" -Force }
-        if ($profilePath -and (Test-Path "$profilePath\chrome")) {
-            Write-Host "Skipping: Firefox Mod Blur Theme Already Installed." -ForegroundColor Green
-        } elseif ($profilePath -and -not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
+        if ($profilePath -and (Test-Path "$profilePath\chrome")) { Write-Host "Skipping: Firefox Mod Blur Theme Already Installed." -ForegroundColor Green }
+        elseif ($profilePath -and -not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
             git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
             Get-ChildItem -Path "$profilePath\chrome" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force | Remove-Item -Force -Recurse
             Write-Host "Installation Successful." -ForegroundColor Green
