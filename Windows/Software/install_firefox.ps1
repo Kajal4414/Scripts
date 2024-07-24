@@ -95,9 +95,8 @@ function main {
 
     if ($theme) {
         $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
-        if (-not $profilePath) {
-            Start-Process "firefox.exe"; Start-Sleep -Seconds 3; Stop-Process -Name "firefox" -Force
-        } elseif (-not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
+        if (-not $profilePath) { Start-Process "firefox.exe"; Start-Sleep -Seconds 3; Stop-Process -Name "firefox" -Force }
+        if ($profilePath -and -not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
             Write-Host "`nInstalling Firefox Mod Blur Theme..." -ForegroundColor Yellow
             git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
             Get-ChildItem -Path "$profilePath\chrome" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force | Remove-Item -Force -Recurse
