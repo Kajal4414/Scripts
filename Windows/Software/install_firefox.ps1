@@ -94,10 +94,12 @@ function main {
     if ($configs) { Write-Host "`nConfiguring Firefox Settings..." -ForegroundColor Yellow; ConfigureFiles $installDir }
 
     if ($theme) {
+        Write-Host "`nInstalling Firefox Mod Blur Theme..." -ForegroundColor Yellow
         $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
         if (-not $profilePath) { Start-Process "firefox.exe"; Start-Sleep -Seconds 3; Stop-Process -Name "firefox" -Force }
-        if ($profilePath -and -not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
-            Write-Host "`nInstalling Firefox Mod Blur Theme..." -ForegroundColor Yellow
+        if ($profilePath -and (Test-Path "$profilePath\chrome")) {
+            Write-Host "Skipping: Firefox Mod Blur Theme Already Installed." -ForegroundColor Green
+        } elseif ($profilePath -and -not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
             git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
             Get-ChildItem -Path "$profilePath\chrome" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force | Remove-Item -Force -Recurse
             Write-Host "Installation Successful." -ForegroundColor Green
