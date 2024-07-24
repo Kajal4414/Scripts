@@ -24,8 +24,9 @@ if (-not (Test-Connection 8.8.8.8 -Count 1 -Quiet)) {
     PauseNull
 }
 
-function DownloadFile($url, $path) {
-    curl.exe -o $path -S $url
+function DownloadFile($url, $path, $useLSs = $false) {
+    $options = if ($useLSs) { "-LSs" } else { "-S" }
+    curl.exe -o $path $options $url
     Write-Host "Downloaded: $path" -ForegroundColor Green
 }
 
@@ -44,7 +45,7 @@ function ConfigureFiles($installDir) {
     )
     foreach ($file in $files) {
         if (-not (Test-Path $file.Path)) {
-            DownloadFile $file.Url $file.Path
+            DownloadFile $file.Url $file.Path $true
         }
     }
 }
