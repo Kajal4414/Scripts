@@ -130,9 +130,9 @@ function main {
         Write-Host "`nInstalling Firefox Mod Blur Theme..." -ForegroundColor Yellow
         $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
         if (-not $profilePath) {
-            Start-Process "firefox.exe"
+            Start-Process "firefox.exe" -ErrorAction SilentlyContinue # Launch Firefox to create the default profile if it doesn't exist
             Start-Sleep -Seconds 3
-            Stop-Process -Name "firefox" -Force
+            Stop-Process -Name "firefox" -Force -ErrorAction SilentlyContinue
         }
         if ($profilePath -and (Test-Path "$profilePath\chrome")) {
             Write-Host "Skipping: Firefox Mod Blur Theme Already Installed." -ForegroundColor Green
