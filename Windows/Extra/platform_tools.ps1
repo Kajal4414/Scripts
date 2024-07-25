@@ -9,6 +9,13 @@ if (-not (New-Object Security.Principal.WindowsPrincipal([Security.Principal.Win
     exit
 }
 
+# Check if adb is already installed
+if (Get-Command "adb" -ErrorAction SilentlyContinue) {
+    Write-Host "ADB Is Already Installed`n" -ForegroundColor Green
+    & adb --version
+    exit
+}
+
 # Check for internet connection
 if (-not (Test-Connection 8.8.8.8 -Count 1 -Quiet)) {
     Write-Host "Error: Internet connection required." -ForegroundColor Red
