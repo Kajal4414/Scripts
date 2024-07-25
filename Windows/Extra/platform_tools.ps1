@@ -28,9 +28,9 @@ try {
     curl.exe -L $platformToolsUrl -o $zipFilePath
     Write-Host "Download Successful" -ForegroundColor Green
 }
-catch { 
+catch {
     Write-Host "Failed to download: $_" -ForegroundColor Red
-    exit 
+    exit
 }
 
 # Extract the ZIP file
@@ -41,7 +41,7 @@ try {
 }
 catch {
     Write-Host "Failed to extract: $_" -ForegroundColor Red
-    exit 
+    exit
 }
 
 # Add the folder to the system PATH
