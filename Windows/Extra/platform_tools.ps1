@@ -1,7 +1,7 @@
 # Define variables
 $platformToolsUrl = "https://dl.google.com/android/repository/platform-tools-latest-windows.zip"
+$platformToolsPath = "$env:PROGRAMFILES\Android\platform-tools"
 $zipFilePath = "$env:TEMP\platform-tools.zip"
-$extractPath = "$env:PROGRAMFILES\Android"
 
 # Check for administrative privileges
 if (-not (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
@@ -27,9 +27,9 @@ catch {
 }
 
 # Extract the ZIP file
-Write-Host "`nInstalling Platform Tools to $extractPath..." -ForegroundColor Yellow
+Write-Host "`nInstalling Platform Tools to $platformToolsPath..." -ForegroundColor Yellow
 try {
-    Expand-Archive -Path $zipFilePath -DestinationPath $extractPath -Force
+    Expand-Archive -Path $zipFilePath -DestinationPath "$env:PROGRAMFILES\Android" -Force
     Write-Host "Installation Successful" -ForegroundColor Green
 }
 catch {
@@ -38,11 +38,12 @@ catch {
 }
 
 # Add the folder to the system PATH
-$platformToolsPath = "$extractPath\platform-tools"
 $currentPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
-if (-not ($currentPath -contains $platformToolsPath)) {
+if (-not ($currentPath -split ';' -contains $platformToolsPath)) {
     [System.Environment]::SetEnvironmentVariable("PATH", "$currentPath;$platformToolsPath", [System.EnvironmentVariableTarget]::Machine)
-    Write-Host "`nAdded '$platformToolsPath' to system environment variables..." -ForegroundColor Green
+    Write-Host "`nAdded Platform Tools to system environment variables" -ForegroundColor Green
+} else {
+    Write-Host "`nPlatform Tools path already exists in system environment variables" -ForegroundColor Yellow
 }
 
 # Cleanup
