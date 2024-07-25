@@ -41,12 +41,10 @@ catch {
 $currentPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
 if (-not ($currentPath -split ';' -contains $platformToolsPath)) {
     [System.Environment]::SetEnvironmentVariable("PATH", "$currentPath;$platformToolsPath", [System.EnvironmentVariableTarget]::Machine)
-    Write-Host "`nAdded Platform Tools to system environment variables" -ForegroundColor Green
-} else {
-    Write-Host "`nPlatform Tools path already exists in system environment variables" -ForegroundColor Yellow
+    Write-Host "`nAdded Platform Tools To System Snvironment Variables" -ForegroundColor Green
 }
 
 # Cleanup
 Remove-Item -Path $zipFilePath -ErrorAction SilentlyContinue
 
-Write-Host "`nPlatform Tools installed successfully!" -ForegroundColor Green
+Write-Host "`nPlatform Tools Installed Successfully!" -ForegroundColor Green
