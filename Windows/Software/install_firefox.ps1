@@ -58,12 +58,12 @@ function ConfigureFiles($installDir) {
 # Main function to control the installation process
 function main {
     # Fetch JSON data from Mozilla's product details API
-    try { 
-        $response = Invoke-RestMethod -Uri "https://product-details.mozilla.org/1.0/firefox_versions.json" 
+    try {
+        $response = Invoke-RestMethod -Uri "https://product-details.mozilla.org/1.0/firefox_versions.json"
     }
-    catch { 
+    catch {
         Write-Host "Failed to fetch JSON data: $_" -ForegroundColor Red
-        PauseNull 
+        PauseNull
     }
 
     # Determine the remote version based on the provided edition or default to latest
@@ -91,20 +91,21 @@ function main {
     if (-not $skipHashCheck -and -not (VerifyHash $setupFile $hashSource "win64/$lang/Firefox Setup $remoteVersion.exe")) {
         Write-Host "SHA-512 Hash verification failed, consider using -skipHashCheck." -ForegroundColor Red
         PauseNull
-    } else {
+    }
+    else {
         Write-Host "Verification Successful." -ForegroundColor Green
     }
 
     # Install Firefox
     Write-Host "`nInstalling Mozilla Firefox..." -ForegroundColor Yellow
     Stop-Process -Name "firefox" -ErrorAction SilentlyContinue
-    try { 
+    try {
         Start-Process -FilePath $setupFile -ArgumentList "/S /MaintenanceService=false" -Wait
-        Write-Host "Installation Successful." -ForegroundColor Green 
+        Write-Host "Installation Successful." -ForegroundColor Green
     }
-    catch { 
+    catch {
         Write-Host "Error occurred while installing 'Mozilla Firefox $remoteVersion.exe': $_" -ForegroundColor Red
-        PauseNull 
+        PauseNull
     }
 
     # Remove unnecessary files
@@ -112,29 +113,29 @@ function main {
     Remove-Item $setupFile -ErrorAction SilentlyContinue
     "crashreporter.exe crashreporter.ini defaultagent.ini defaultagent_localized.ini default-browser-agent.exe maintenanceservice.exe maintenanceservice_installer.exe minidump-analyzer.exe pingsender.exe updater.exe updater.ini update-settings.ini".Split() | ForEach-Object {
         $filePath = "$installDir\$_"
-        if (Test-Path $filePath) { 
+        if (Test-Path $filePath) {
             Remove-Item $filePath -ErrorAction SilentlyContinue
-            Write-Host "Removed: $filePath" -ForegroundColor Green 
+            Write-Host "Removed: $filePath" -ForegroundColor Green
         }
     }
 
     # Configure Firefox settings if requested
-    if ($configs) { 
+    if ($configs) {
         Write-Host "`nConfiguring Firefox Settings..." -ForegroundColor Yellow
-        ConfigureFiles $installDir 
+        ConfigureFiles $installDir
     }
 
     # Install Firefox Mod Blur Theme if requested
     if ($theme) {
         Write-Host "`nInstalling Firefox Mod Blur Theme..." -ForegroundColor Yellow
         $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
-        if (-not $profilePath) { 
+        if (-not $profilePath) {
             Start-Process "firefox.exe"
             Start-Sleep -Seconds 3
-            Stop-Process -Name "firefox" -Force 
+            Stop-Process -Name "firefox" -Force
         }
-        if ($profilePath -and (Test-Path "$profilePath\chrome")) { 
-            Write-Host "Skipping: Firefox Mod Blur Theme Already Installed." -ForegroundColor Green 
+        if ($profilePath -and (Test-Path "$profilePath\chrome")) {
+            Write-Host "Skipping: Firefox Mod Blur Theme Already Installed." -ForegroundColor Green
         }
         elseif ($profilePath -and -not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
             git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
