@@ -33,11 +33,10 @@ try {
     $SevenZipPath = if (Get-Command 7z -ErrorAction SilentlyContinue) { "7z" } else { Join-Path -Path $env:ProgramFiles -ChildPath "7-Zip\7z.exe" }
     if (Test-Path $SevenZipPath) {
         & $SevenZipPath x $TempPath -o"$InstallPath" -y
-    } elseif (Get-Command nanazipg -ErrorAction SilentlyContinue) {
-        & nanazipg x $TempPath -o"$InstallPath" -y
     } else {
-        throw "Neither 7z nor NanaZip is installed."
+        throw "7z not installed."
     }
+
     Start-Process -FilePath "$InstallPath\installer\mpv-install.bat" -Wait -NoNewWindow
     [System.Environment]::SetEnvironmentVariable("PATH", "$env:PATH;$InstallPath", [System.EnvironmentVariableTarget]::User)
 } catch {
