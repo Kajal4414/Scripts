@@ -9,7 +9,6 @@
         cd "$env:USERPROFILE\Desktop" ; .\install_firefox.ps1 -theme -configs
         ```
         **Execution Policy Bypass** `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
-    -   #### [Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)
     -   #### [Firefox Mod Blur](https://github.com/datguypiko/Firefox-Mod-Blur)
 -   ### [Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)
     -   #### [Catppuccin Mocha](https://chromewebstore.google.com/detail/catppuccin-chrome-theme-m/bkkmolkhemgaeaeggcmfbghljjjoofoh) <!--https://github.com/catppuccin/chrome-->
@@ -19,6 +18,9 @@
 -   ### [Visual Studio Code](https://code.visualstudio.com/download)
     -   #### [Alternative - VSCodium](https://github.com/VSCodium/vscodium)
     -   #### [Settings](../C/Users/Admin/AppData/Roaming/Code/User/settings.json)
+        ```ps1
+        curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json" -o "$env:APPDATA\Code\User\settings.json"
+        ```
 -   ### [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)
     -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/idea/installation-guide.html#wb3tvh_178)
         ```sh
@@ -46,6 +48,11 @@
 -   ### [JDK 22](https://www.oracle.com/in/java/technologies/downloads/)
 -   ### [Node.js](https://nodejs.org/en)
 -   ### [Python](https://www.python.org/downloads)
+-   ### [Platform Tools](https://developer.android.com/tools/releases/platform-tools)
+    -   #### [Installation Script](https://github.com/Kajal4414/Scripts/blob/main/Windows/Extra/platform_tools.ps1)
+        ```ps1
+        irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Extra/platform_tools.ps1
+        ```
 
 # Runtimes
 
