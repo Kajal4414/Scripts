@@ -5,10 +5,10 @@ function PauseNull {
     exit
 }
 
-# Check for Administrator privileges
-if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+# Check for administrative privileges
+if (-not (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Host "Error: Administrator privileges required." -ForegroundColor Red
-    PauseNull
+    exit
 }
 
 # Define URLs and paths
@@ -20,14 +20,14 @@ $InstallPath = Join-Path -Path $env:PROGRAMFILES -ChildPath "MPV"
 $MpvPath = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\mpv.exe" -ErrorAction SilentlyContinue)."(Default)"
 if ($MpvPath -and (Test-Path $MpvPath)) {
     Write-Host "Already installed mpv $((Get-Item $MpvPath).VersionInfo.ProductVersion)." -ForegroundColor Green
-    PauseNull
+    exit
 }
 
 # Get download URL
 $DownloadUrl = ([regex]::Match((Invoke-WebRequest -Uri $BaseUrl -UseBasicParsing).Content, "https://.*?download")).Value
 if (-not $DownloadUrl) {
     Write-Host "Error: Could not find download URL." -ForegroundColor Red
-    PauseNull
+    exit
 }
 
 # Download and install mpv
@@ -47,7 +47,7 @@ try {
     [System.Environment]::SetEnvironmentVariable("PATH", "$env:PATH;$InstallPath", [System.EnvironmentVariableTarget]::User)
 } catch {
     Write-Host "`nError: $_" -ForegroundColor Red
-    PauseNull
+    exit
 } finally {
     Remove-Item -Path $TempPath -Force -ErrorAction SilentlyContinue
 }
