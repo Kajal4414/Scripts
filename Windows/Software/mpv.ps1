@@ -29,7 +29,7 @@ Write-Host "Initiating download of mpv..." -ForegroundColor Yellow
 try {
     curl.exe -LS -o $tempPath $downloadUrl
     Write-Host "Download completed successfully." -ForegroundColor Green
-    
+
     # Extract the file using 7z
     Write-Host "Commencing extraction of mpv..." -ForegroundColor Yellow
     if (Test-Path $7zPath) {
@@ -42,7 +42,7 @@ try {
     # Run the installer
     Write-Host "Starting mpv installer..." -ForegroundColor Yellow
     Start-Process -FilePath "$mpvPath\installer\mpv-install.bat" -Wait -NoNewWindow
-    
+
     # Add mpv to system PATH
     $currentPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
     if (-not ($currentPath -split ';' -contains $mpvPath)) {
