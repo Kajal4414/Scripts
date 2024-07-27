@@ -22,16 +22,16 @@
         curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json" -o "$env:APPDATA\Code\User\settings.json"
         ```
 -   ### [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)
-    -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/idea/installation-guide.html#wb3tvh_178)
+    -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/idea/installation-guide.html#standalone)
         ```sh
-        sudo tar xzf ideaIC-*.tar.gz -C /opt/ # Recommended installation location
-        sudo sh /opt/idea-*/bin/idea.sh # Run as root for update
+        sudo tar -xzf ideaIC-*.tar.gz -C /opt    # Recommended installation location
+        sudo sh /opt/idea-*/bin/idea.sh          # Run as root for update
         ```
 -   ### [PyCharm](https://www.jetbrains.com/pycharm/download/?section=windows)
-    -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/pycharm/installation-guide.html#gm9zg_170)
+    -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)
         ```sh
-        sudo tar xzf pycharm-*.tar.gz -C /opt/ # Recommended installation location
-        sudo sh /opt/pycharm-*/bin/pycharm.sh # Run as root for update
+        sudo tar -xzf pycharm-*.tar.gz -C /opt    # Recommended installation location
+        sudo sh /opt/pycharm-*/bin/pycharm.sh     # Run as root for update
         ```
 -   ### [Notepad++](https://github.com/notepad-plus-plus/notepad-plus-plus)
     -   #### [Catppuccin Theme](https://github.com/catppuccin/notepad-plus-plus/blob/main/catppuccin-mocha.xml)
@@ -51,7 +51,7 @@
 -   ### [Platform Tools](https://developer.android.com/tools/releases/platform-tools)
     -   #### [Installation Script](https://github.com/Kajal4414/Scripts/blob/main/Windows/Extra/platform_tools.ps1)
         ```ps1
-        irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Extra/platform_tools.ps1
+        irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Extra/platform_tools.ps1 | iex
         ```
 
 # Runtimes
@@ -92,7 +92,7 @@
     -   #### [Alternative - Portable Version](https://desktop.telegram.org)
     -   #### [Alternative - MaterialYou](https://github.com/kukuruzka165/materialgram)
         ```sh
-        sudo tar -xf tsetup*.tar.xz -C /opt/ # Recommended installation directory for debian
+        sudo tar -xf tsetup*.tar.xz -C /opt
         ```
 -   ### [Indirect](https://github.com/huynhsontung/Indirect)
 
