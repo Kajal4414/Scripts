@@ -3,12 +3,12 @@
 -   ### [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)
     -   #### [Installation Script](./install_firefox.ps1) - _Run PowerShell or Terminal as an admin (not CMD), then copy and paste the code below and press 'Enter'._
         ```ps1
-        Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; & "$env:USERPROFILE\Downloads\install_firefox.ps1"
+        curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/dev/Windows/Software/install_firefox.ps1" -o "$env:USERPROFILE\Desktop\install_firefox.ps1"
         ```
-        #### OR
         ```ps1
-        irm https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Software/install_firefox.ps1 | iex
+        cd "$env:USERPROFILE\Desktop" ; .\install_firefox.ps1 -theme -configs
         ```
+
     -   #### [Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)
     -   #### [Firefox Mod Blur](https://github.com/datguypiko/Firefox-Mod-Blur)
 -   ### [Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)
@@ -67,6 +67,11 @@
 -   ### [VLC media player](https://www.videolan.org)
 -   ### [Screenbox](https://github.com/huynhsontung/Screenbox)
 -   ### [PV Photo Viewer](../Extra/pv.exe) <!-- https://github.com/davidly/PV -->
+-   ### [MPV](https://github.com/mpv-player/mpv)
+    -   #### [Installation Script](https://github.com/Kajal4414/Scripts/blob/dev/Windows/Software/mpv.ps1)
+        ```ps1
+        irm https://raw.githubusercontent.com/Kajal4414/Scripts/dev/Windows/Software/mpv.ps1 | iex
+        ```
 
 # Office
 
