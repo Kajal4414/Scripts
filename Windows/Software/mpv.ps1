@@ -12,8 +12,8 @@ if (-not (New-Object Security.Principal.WindowsPrincipal([Security.Principal.Win
 
 # Check if mpv is already installed
 $mpvRegPath = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\mpv.exe" -ErrorAction SilentlyContinue)."(Default)"
-if ($MpvPath -and (Test-Path $MpvPath)) {
-    Write-Host "Already installed mpv $((Get-Item $MpvPath).VersionInfo.ProductVersion)." -ForegroundColor Green
+if ($mpvRegPath -and (Test-Path $mpvRegPath)) {
+    Write-Host "Already installed mpv $((Get-Item $mpvRegPath).VersionInfo.ProductVersion)." -ForegroundColor Green
     exit
 }
 
@@ -33,17 +33,18 @@ try {
     # Extract the file using 7z
     Write-Host "`nInstalling mpv..." -ForegroundColor Yellow
     if (Test-Path $7zPath) {
-        & $7zPath x $tempPath -o"$InstallPath" -y
+        & $7zPath x $tempPath -o"$mpvPath" -y
     } else {
-        throw "7-Zip is not installed. Please install it and then run the script again."
+        Write-Host "7-Zip is not installed. Please install 7-Zip or manually extract the archive." -ForegroundColor Red
+        exit
     }
 
     # Run the installer
-    Start-Process -FilePath "$InstallPath\installer\mpv-install.bat" -Wait -NoNewWindow
+    Start-Process -FilePath "$mpvPath\installer\mpv-install.bat" -Wait -NoNewWindow
     
     # Add mpv to system PATH
     $currentPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
-    if (-not ($currentPath -split ';' -contains $InstallPath)) {
+    if (-not ($currentPath -split ';' -contains $mpvPath)) {
         [System.Environment]::SetEnvironmentVariable("PATH", "$currentPath;$mpvPath", [System.EnvironmentVariableTarget]::Machine)
         Write-Host "`nAdded mpv to system PATH" -ForegroundColor Green
     }
