@@ -1,6 +1,6 @@
 # Define URLs and paths
 $BaseUrl = "https://sourceforge.net/projects/mpv-player-windows/files/64bit-v3"
-$InstallPath = Join-Path -Path $env:PROGRAMFILES -ChildPath "MPV"
+$InstallPath = Join-Path -Path $env:PROGRAMFILES -ChildPath "mpv"
 $TempPath = Join-Path -Path $env:TEMP -ChildPath "mpv.7z"
 
 # Check for administrative privileges
