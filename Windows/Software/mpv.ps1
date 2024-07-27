@@ -38,7 +38,13 @@ try {
     }
 
     Start-Process -FilePath "$InstallPath\installer\mpv-install.bat" -Wait -NoNewWindow
-    [System.Environment]::SetEnvironmentVariable("PATH", "$env:PATH;$InstallPath", [System.EnvironmentVariableTarget]::User)
+    
+    # Add mpv to system PATH
+    $currentPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
+    if (-not ($currentPath -split ';' -contains $InstallPath)) {
+        [System.Environment]::SetEnvironmentVariable("PATH", "$currentPath;$InstallPath", [System.EnvironmentVariableTarget]::Machine)
+        Write-Host "`nAdded mpv to system PATH" -ForegroundColor Green
+    }
 } catch {
     Write-Host "`nError: $_" -ForegroundColor Red
     exit
