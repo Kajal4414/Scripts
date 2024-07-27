@@ -8,7 +8,7 @@
         ```ps1
         cd "$env:USERPROFILE\Desktop" ; .\install_firefox.ps1 -theme -configs
         ```
-
+        **Execution Policy Bypass** `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
     -   #### [Configure Firefox](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#configure-a-web-browser)
     -   #### [Firefox Mod Blur](https://github.com/datguypiko/Firefox-Mod-Blur)
 -   ### [Google Chrome](https://www.google.com/intl/en/chrome/?standalone=1)
