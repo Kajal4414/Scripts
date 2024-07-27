@@ -1,57 +1,59 @@
-# Define variables
+# Define base URL and paths
 $baseUrl = "https://sourceforge.net/projects/mpv-player-windows/files/64bit-v3"
 $7zPath = "$env:PROGRAMFILES\7-Zip\7z.exe"
 $mpvPath = "$env:PROGRAMFILES\mpv"
 $tempPath = "$env:TEMP\mpv.7z"
 
-# Check for administrative privileges
+# Check for administrator privileges
 if (-not (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Host "Error: Administrative privileges are required to run this script." -ForegroundColor Red
+    Write-Host "`n[ERROR] Administrator privileges are required to run this script." -ForegroundColor Red
     exit
 }
 
 # Check if mpv is already installed
-$mpvRegPath = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\mpv.exe" -ErrorAction SilentlyContinue)."(Default)"
-if ($mpvRegPath -and (Test-Path $mpvRegPath)) {
-    Write-Host "mpv is already installed. Version: $((Get-Item $mpvRegPath).VersionInfo.ProductVersion)." -ForegroundColor Green
+$mpvExePath = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\mpv.exe" -ErrorAction SilentlyContinue)."(Default)"
+if ($mpvExePath -and (Test-Path $mpvExePath)) {
+    Write-Host "`n[INFO] MPV $((Get-Item $mpvExePath).VersionInfo.ProductVersion) is already installed at '$(Split-Path -Path $mpvExePath -Parent)'." -ForegroundColor Yellow
     exit
 }
 
-# Get download URL
-$downloadUrl = ([regex]::Match((Invoke-WebRequest -Uri $baseUrl -UseBasicParsing).Content, "https://.*?download")).Value
-if (-not $downloadUrl) {
-    Write-Host "Error: Unable to retrieve the download URL from the source." -ForegroundColor Red
-    exit
-}
-
-# Download and install mpv
-Write-Host "Initiating download of mpv..." -ForegroundColor Yellow
+# Retrieve download URL for mpv
 try {
-    curl.exe -LS -o $tempPath $downloadUrl
-    Write-Host "Download completed successfully." -ForegroundColor Green
-
-    # Extract the file using 7z
-    Write-Host "Commencing extraction of mpv..." -ForegroundColor Yellow
-    if (Test-Path $7zPath) {
-        & $7zPath x $tempPath -o"$mpvPath" -y
-    } else {
-        Write-Host "Error: 7-Zip is not installed. Please install 7-Zip or manually extract the archive." -ForegroundColor Red
-        exit
-    }
-
-    # Run the installer
-    Write-Host "Starting mpv installer..." -ForegroundColor Yellow
-    Start-Process -FilePath "$mpvPath\installer\mpv-install.bat" -Wait -NoNewWindow
-
-    # Add mpv to system PATH
-    $currentPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
-    if (-not ($currentPath -split ';' -contains $mpvPath)) {
-        [System.Environment]::SetEnvironmentVariable("PATH", "$currentPath;$mpvPath", [System.EnvironmentVariableTarget]::Machine)
-        Write-Host "mpv has been successfully added to the system PATH." -ForegroundColor Green
-    }
-} catch {
-    Write-Host "Error: An exception occurred during the installation process. Details: $_" -ForegroundColor Red
-    exit
-} finally {
-    Remove-Item -Path $tempPath -Force -ErrorAction SilentlyContinue
+    $downloadUrl = ([regex]::Match((Invoke-WebRequest -Uri $baseUrl -UseBasicParsing).Content, "https://.*?download")).Value
 }
+catch {
+    Write-Host "`n[ERROR] Unable to retrieve the download URL. $_" -ForegroundColor Red
+    exit
+}
+
+# Download mpv archive
+try {
+    Write-Host "`n[INFO] Downloading MPV from '$downloadUrl' to '$tempPath'..." -ForegroundColor Yellow
+    curl.exe -LS $downloadUrl -o $tempPath
+    Write-Host "[SUCCESS] Download completed successfully." -ForegroundColor Green
+}
+catch {
+    Write-Host "[ERROR] Failed to download the file. $_" -ForegroundColor Red
+    exit
+}
+
+# Extract and remove mpv archive
+Write-Host "`n[INFO] Extracting MPV archive to '$mpvPath'..." -ForegroundColor Yellow
+& $7zPath x $tempPath -o"$mpvPath" -y -bso0 -bd
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "[ERROR] An error occurred while extracting the MPV archive." -ForegroundColor Red
+    exit 1
+}
+Remove-Item -Path $tempPath -ErrorAction SilentlyContinue
+Write-Host "[SUCCESS] Extraction completed successfully." -ForegroundColor Green
+
+# Add mpv to system environment variable if not already present
+$currentPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
+if (-not ($currentPath -split ';' -contains $mpvPath)) {
+    [System.Environment]::SetEnvironmentVariable("PATH", "$currentPath;$mpvPath", [System.EnvironmentVariableTarget]::Machine)
+    Write-Host "`n[SUCCESS] MPV successfully added to the system PATH." -ForegroundColor Green
+}
+
+# Run mpv installer batch file
+Write-Host "`n[INFO] Running the MPV installer..." -ForegroundColor Yellow
+Start-Process -FilePath "$mpvPath\installer\mpv-install.bat" -Wait -NoNewWindow
