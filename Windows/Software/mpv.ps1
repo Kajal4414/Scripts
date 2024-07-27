@@ -1,5 +1,6 @@
 # Define variables
 $baseUrl = "https://sourceforge.net/projects/mpv-player-windows/files/64bit-v3"
+$7zPath = "$env:PROGRAMFILES\7-Zip\7z.exe"
 $mpvPath = "$env:PROGRAMFILES\mpv"
 $tempPath = "$env:TEMP\mpv.7z"
 
@@ -29,12 +30,12 @@ try {
     curl.exe -LS -o $tempPath $downloadUrl
     Write-Host "Download successful." -ForegroundColor Green
     
+    # Extract the file using 7z
     Write-Host "`nInstalling mpv..." -ForegroundColor Yellow
-    $SevenZipPath = if (Get-Command 7z -ErrorAction SilentlyContinue) { "7z" } else { Join-Path -Path $env:ProgramFiles -ChildPath "7-Zip\7z.exe" }
-    if (Test-Path $SevenZipPath) {
-        & $SevenZipPath x $TempPath -o"$InstallPath" -y
+    if (Test-Path $7zPath) {
+        & $7zPath x $tempPath -o"$InstallPath" -y
     } else {
-        throw "7z not installed."
+        throw "7-Zip is not installed. Please install it and then run the script again."
     }
 
     # Run the installer
