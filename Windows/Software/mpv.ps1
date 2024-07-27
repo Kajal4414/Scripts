@@ -1,20 +1,13 @@
-# Function to pause and wait for user input
-function PauseNull {
-    Write-Host "Press any key to exit..." -NoNewline
-    $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
-    exit
-}
+# Define URLs and paths
+$BaseUrl = "https://sourceforge.net/projects/mpv-player-windows/files/64bit-v3"
+$InstallPath = Join-Path -Path $env:PROGRAMFILES -ChildPath "MPV"
+$TempPath = Join-Path -Path $env:TEMP -ChildPath "mpv.7z"
 
 # Check for administrative privileges
 if (-not (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Host "Error: Administrator privileges required." -ForegroundColor Red
     exit
 }
-
-# Define URLs and paths
-$BaseUrl = "https://sourceforge.net/projects/mpv-player-windows/files/64bit-v3"
-$TempPath = Join-Path -Path $env:TEMP -ChildPath "mpv.7z"
-$InstallPath = Join-Path -Path $env:PROGRAMFILES -ChildPath "MPV"
 
 # Check if mpv is already installed
 $MpvPath = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\mpv.exe" -ErrorAction SilentlyContinue)."(Default)"
