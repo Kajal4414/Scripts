@@ -89,7 +89,6 @@
 # Messaging
 
 -   ### [Telegram Desktop](https://github.com/telegramdesktop/tdesktop/releases/latest)
-    -   #### [Alternative - Portable Version](https://desktop.telegram.org)
     -   #### [Alternative - MaterialYou](https://github.com/kukuruzka165/materialgram)
         ```sh
         sudo tar -xf tsetup*.tar.xz -C /opt
@@ -99,9 +98,8 @@
 # Miscellaneous
 
 -   ### [7-Zip](https://www.7-zip.org)
-    -   #### [Configure 7-Zip](https://github.com/amitxv/PC-Tuning/blob/main/docs/post-install.md#install-7-zip)
 -   ### [App Installer](https://apps.microsoft.com/detail/app-installer/9NBLGGH4NNS1?hl=en-in&gl=IN)
-    -   #### [GitHub](https://github.com/microsoft/winget-cli/releases)
+    -   #### [WinGet - CLI](https://github.com/microsoft/winget-cli/releases)
 -   ### [AMD Software](https://www.amd.com/en/support/apu/amd-ryzen-processors/amd-ryzen-5-mobile-processors-radeon-vega-graphics/amd-ryzen-5-1)
     -   #### [AMD - Atlas Documentation](https://docs.atlasos.net/getting-started/post-installation/drivers/amd/#configure-radeon-software)
 -   ### [BleachBit](https://github.com/bleachbit/bleachbit)
