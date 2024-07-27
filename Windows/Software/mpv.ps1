@@ -31,8 +31,8 @@ try {
     
     Write-Host "`nInstalling mpv..." -ForegroundColor Yellow
     $SevenZipPath = if (Get-Command 7z -ErrorAction SilentlyContinue) { "7z" } else { Join-Path -Path $env:ProgramFiles -ChildPath "7-Zip\7z.exe" }
-    if (Get-Command 7z -ErrorAction SilentlyContinue) {
-        & 7z x $TempPath -o"$InstallPath" -y
+    if (Test-Path $SevenZipPath) {
+        & $SevenZipPath x $TempPath -o"$InstallPath" -y
     } elseif (Get-Command nanazipg -ErrorAction SilentlyContinue) {
         & nanazipg x $TempPath -o"$InstallPath" -y
     } else {
