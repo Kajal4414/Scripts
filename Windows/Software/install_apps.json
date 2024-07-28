@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.67.134",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.67.134/BraveBrowserStandaloneSetup.exe"
+    "version": "1.68.131",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.68.131/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "128.0",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/128.0/win64/en-GB/Firefox%20Setup%20128.0.exe"
+    "version": "128.0.3",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/128.0.3/win64/en-GB/Firefox%20Setup%20128.0.3.exe"
   },
   {
     "appName": "Git",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.15",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build15.exe?v=lt&amp;filename=idman642build15.exe"
+    "version": "6.42.17",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build17.exe?v=lt&amp;filename=idman642build17.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -101,8 +101,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "21.28.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v21.28.0/install-amd64.exe"
+    "version": "23.3.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.3.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
