@@ -8,39 +8,33 @@ param (
     [string]$version
 )
 
-# Function to pause the script and wait for user input
 function PauseNull {
     Write-Host "Press any key to exit... " -NoNewline
     $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown') | Out-Null
     exit
 }
 
-# Check for Administrator privileges
 if (-not (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Host "Error: Administrator privileges required." -ForegroundColor Red
     PauseNull
 }
 
-# Check for internet connection
 if (-not (Test-Connection 8.8.8.8 -Count 1 -Quiet)) {
     Write-Host "Error: Internet connection required." -ForegroundColor Red
     PauseNull
 }
 
-# Function to download files using curl with optional parameters
 function DownloadFile($url, $path, $useLSs = $false) {
     curl.exe -o $path $(if ($useLSs) { "-LSs" } else { "-S" }) $url
     Write-Host "Downloaded: $path" -ForegroundColor Green
 }
 
-# Function to verify file hash
 function VerifyHash($file, $hashSource, $remoteFile) {
     $localHash = (Get-FileHash -Path $file -Algorithm SHA512).Hash
     $remoteHash = (Invoke-RestMethod -Uri $hashSource).Split("`n") | Select-String -Pattern $remoteFile | ForEach-Object { $_.Line.Split(" ")[0].Trim() }
     return $localHash -eq $remoteHash
 }
 
-# Function to configure additional files for Firefox
 function ConfigureFiles($installDir) {
     New-Item -Path "$installDir\distribution" -ItemType Directory -Force | Out-Null
     $files = @(
@@ -55,25 +49,16 @@ function ConfigureFiles($installDir) {
     }
 }
 
-# Main function to control the installation process
 function main {
-    # Fetch JSON data from Mozilla's product details API
-    try {
-        $response = Invoke-RestMethod -Uri "https://product-details.mozilla.org/1.0/firefox_versions.json"
-    }
-    catch {
-        Write-Host "Failed to fetch JSON data: $_" -ForegroundColor Red
-        PauseNull
-    }
+    try { $response = Invoke-RestMethod -Uri "https://product-details.mozilla.org/1.0/firefox_versions.json" }
+    catch { Write-Host "Failed to fetch JSON data: $_" -ForegroundColor Red; PauseNull }
 
-    # Determine the remote version based on the provided edition or default to latest
     $remoteVersion = if ($version) { $version } else { switch ($edition) { "Developer" { $response.FIREFOX_DEVEDITION }; "Enterprise" { $response.FIREFOX_ESR }; default { $response.LATEST_FIREFOX_VERSION } } }
     $downloadUrl = "https://releases.mozilla.org/pub/firefox/releases/$remoteVersion/win64/$lang/Firefox%20Setup%20$remoteVersion.exe"
     $hashSource = "https://ftp.mozilla.org/pub/firefox/releases/$remoteVersion/SHA512SUMS"
     $installDir = "$env:PROGRAMFILES\Mozilla Firefox"
     $setupFile = "$env:TEMP\Firefox Setup $remoteVersion.exe"
 
-    # Check if Firefox is already installed and the version matches
     if (Test-Path "$installDir\firefox.exe") {
         $localVersion = (Get-Item "$installDir\firefox.exe").VersionInfo.ProductVersion
         if ($localVersion -eq $remoteVersion -and -not $force) {
@@ -82,61 +67,37 @@ function main {
         }
     }
 
-    # Download Firefox setup file
     Write-Host "Downloading Mozilla Firefox v$remoteVersion setup..." -ForegroundColor Yellow
     DownloadFile $downloadUrl $setupFile
 
-    # Verify SHA-512 hash of the downloaded setup file
     Write-Host "`nVerifying SHA-512 Hash..." -ForegroundColor Yellow
     if (-not $skipHashCheck -and -not (VerifyHash $setupFile $hashSource "win64/$lang/Firefox Setup $remoteVersion.exe")) {
         Write-Host "SHA-512 Hash verification failed, consider using -skipHashCheck." -ForegroundColor Red
         PauseNull
-    }
-    else {
+    } else {
         Write-Host "Verification Successful." -ForegroundColor Green
     }
 
-    # Install Firefox
     Write-Host "`nInstalling Mozilla Firefox..." -ForegroundColor Yellow
     Stop-Process -Name "firefox" -ErrorAction SilentlyContinue
-    try {
-        Start-Process -FilePath $setupFile -ArgumentList "/S /MaintenanceService=false" -Wait
-        Write-Host "Installation Successful." -ForegroundColor Green
-    }
-    catch {
-        Write-Host "Error occurred while installing 'Mozilla Firefox $remoteVersion.exe': $_" -ForegroundColor Red
-        PauseNull
-    }
 
-    # Remove unnecessary files
+    try { Start-Process -FilePath $setupFile -ArgumentList "/S /MaintenanceService=false" -Wait; Write-Host "Installation Successful." -ForegroundColor Green }
+    catch { Write-Host "Error occurred while installing 'Mozilla Firefox $remoteVersion.exe': $_" -ForegroundColor Red; PauseNull }
+
     Write-Host "`nRemoving unnecessary files..." -ForegroundColor Yellow
     Remove-Item $setupFile -ErrorAction SilentlyContinue
     "crashreporter.exe crashreporter.ini defaultagent.ini defaultagent_localized.ini default-browser-agent.exe maintenanceservice.exe maintenanceservice_installer.exe minidump-analyzer.exe pingsender.exe updater.exe updater.ini update-settings.ini".Split() | ForEach-Object {
         $filePath = "$installDir\$_"
-        if (Test-Path $filePath) {
-            Remove-Item $filePath -ErrorAction SilentlyContinue
-            Write-Host "Removed: $filePath" -ForegroundColor Green
-        }
+        if (Test-Path $filePath) { Remove-Item $filePath -ErrorAction SilentlyContinue; Write-Host "Removed: $filePath" -ForegroundColor Green }
     }
 
-    # Configure Firefox settings if requested
-    if ($configs) {
-        Write-Host "`nConfiguring Firefox Settings..." -ForegroundColor Yellow
-        ConfigureFiles $installDir
-    }
+    if ($configs) { Write-Host "`nConfiguring Firefox Settings..." -ForegroundColor Yellow; ConfigureFiles $installDir }
 
-    # Install Firefox Mod Blur Theme if requested
     if ($theme) {
         Write-Host "`nInstalling Firefox Mod Blur Theme..." -ForegroundColor Yellow
         $profilePath = (Get-Item "$env:APPDATA\Mozilla\Firefox\Profiles\*.default-release").FullName
-        if (-not $profilePath) {
-            Start-Process "firefox.exe" -ErrorAction SilentlyContinue # Launch Firefox to create the default profile if it doesn't exist
-            Start-Sleep -Seconds 3
-            Stop-Process -Name "firefox" -Force -ErrorAction SilentlyContinue
-        }
-        if ($profilePath -and (Test-Path "$profilePath\chrome")) {
-            Write-Host "Skipping: Firefox Mod Blur Theme Already Installed." -ForegroundColor Green
-        }
+        if (-not $profilePath) { Start-Process "firefox.exe"; Start-Sleep -Seconds 10; Stop-Process -Name "firefox" -Force }
+        if ($profilePath -and (Test-Path "$profilePath\chrome")) { Write-Host "Skipping: Firefox Mod Blur Theme Already Installed." -ForegroundColor Green }
         elseif ($profilePath -and -not (Test-Path "$profilePath\chrome") -and (Get-Command "git" -ErrorAction SilentlyContinue)) {
             git clone --depth 1 -q https://github.com/datguypiko/Firefox-Mod-Blur "$profilePath\chrome"
             Get-ChildItem -Path "$profilePath\chrome" -Exclude "ASSETS", "userChrome.css", "userContent.css" -Force | Remove-Item -Force -Recurse
