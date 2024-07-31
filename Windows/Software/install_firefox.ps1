@@ -85,7 +85,7 @@ function main {
     catch { Write-Host "Error occurred while installing 'Mozilla Firefox $remoteVersion.exe': $_" -ForegroundColor Red; PauseNull }
 
     Write-Host "`nRemoving unnecessary files..." -ForegroundColor Yellow
-    Remove-Item $setupFile -ErrorAction SilentlyContinue
+    Remove-Item -Path "$env:PUBLIC\Desktop\Firefox.lnk", $setupFile -ErrorAction SilentlyContinue
     "crashreporter.exe crashreporter.ini defaultagent.ini defaultagent_localized.ini default-browser-agent.exe maintenanceservice.exe maintenanceservice_installer.exe minidump-analyzer.exe pingsender.exe updater.exe updater.ini update-settings.ini".Split() | ForEach-Object {
         $filePath = "$installDir\$_"
         if (Test-Path $filePath) { Remove-Item $filePath -ErrorAction SilentlyContinue; Write-Host "Removed: $filePath" -ForegroundColor Green }
