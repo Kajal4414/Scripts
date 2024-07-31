@@ -6,7 +6,7 @@
         curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/dev/Windows/Software/install_firefox.ps1" -o "$env:USERPROFILE\Desktop\install_firefox.ps1"
         ```
         ```ps1
-        cd "$env:USERPROFILE\Desktop" ; .\install_firefox.ps1 -theme -configs
+        cd "$env:USERPROFILE\Desktop"; .\install_firefox.ps1 -theme -configs; Remove-Item .\install_firefox.ps1
         ```
         **Execution Policy Bypass** `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
     -   #### [Firefox Mod Blur](https://github.com/datguypiko/Firefox-Mod-Blur)
