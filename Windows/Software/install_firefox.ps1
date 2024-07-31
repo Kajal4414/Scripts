@@ -38,9 +38,9 @@ function VerifyHash($file, $hashSource, $remoteFile) {
 function ConfigureFiles($installDir) {
     New-Item -Path "$installDir\distribution" -ItemType Directory -Force | Out-Null
     $files = @(
-        @{Name = "policies.json"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/policies.json"; Path = "$installDir\distribution\policies.json" },
-        @{Name = "autoconfig.js"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/autoconfig.js"; Path = "$installDir\defaults\pref\autoconfig.js" },
-        @{Name = "firefox.cfg"; Url = "https://raw.githubusercontent.com/sakshiagrwal/Scripts/main/Windows/Extra/firefox.cfg"; Path = "$installDir\firefox.cfg" }
+        @{Name = "policies.json"; Url = "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Extra/policies.json"; Path = "$installDir\distribution\policies.json" },
+        @{Name = "autoconfig.js"; Url = "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Extra/autoconfig.js"; Path = "$installDir\defaults\pref\autoconfig.js" },
+        @{Name = "firefox.cfg"; Url = "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Extra/firefox.cfg"; Path = "$installDir\firefox.cfg" }
     )
     foreach ($file in $files) {
         if (-not (Test-Path $file.Path)) {
