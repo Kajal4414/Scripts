@@ -36,7 +36,7 @@ $response = try { Invoke-RestMethod -Uri $userUrl -ErrorAction Stop } catch { Wr
 $imageUrls = [regex]::Matches($response, '(?<=src=["''])([^"'']*t\.jpg)') | ForEach-Object { $_.Value -replace 't\.jpg$', '.jpg' }
 $numberOfImages = Get-NumberOfImages $imageUrls.Count
 
-$destinationFolder = (Get-Culture).TextInfo.ToTitleCase(($userUrl -replace '.*/([^/]+)\.aspx$', '$1' -replace '-', ' ').ToLower())
+$destinationFolder = (Get-Culture).TextInfo.ToTitleCase((($userUrl -replace '.*/([^/]+)\.aspx$', '$1' -replace '-', ' ') -replace '^(actress|heroine)\s', ''))
 if (-not (Test-Path -Path $destinationFolder)) { New-Item -ItemType Directory -Path $destinationFolder -Force | Out-Null; Write-Host "$destinationFolder - Folder Created.`n" -ForegroundColor Green }
 
 $downloadResults = @()
