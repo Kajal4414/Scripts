@@ -1,65 +1,48 @@
 function Get-NumberOfImages($totalImages) {
-    do {
+    while ($true) {
         $userInput = Read-Host "Enter the number of images to download (Press Enter for all '$totalImages')"; Write-Host
         if (-not $userInput) { return $totalImages }
         $inputAsInt = $userInput -as [int]
-        if ($inputAsInt -and $inputAsInt -gt 0 -and $inputAsInt -le $totalImages) { return $inputAsInt }
+        if ($inputAsInt -gt 0 -and $inputAsInt -le $totalImages) { return $inputAsInt }
         Write-Host "Enter a valid number between 1 and $totalImages." -ForegroundColor Red
-    } while ($true)
-}
-
-function DownloadImage($url, $destinationFolder) {
-    $fileName = [System.IO.Path]::GetFileName($url)
-    $filePath = Join-Path $destinationFolder $fileName
-    if (-not (Test-Path -Path $filePath)) {
-        Write-Host -NoNewline "$fileName - Downloading..." -ForegroundColor Blue
-        $ProgressPreference = 'SilentlyContinue'
-        try {
-            Invoke-WebRequest -Uri $url -OutFile $filePath -ErrorAction Stop
-            Write-Host "`r$fileName - Downloaded.   " -ForegroundColor Green
-            return "downloaded"
-        } catch {
-            Write-Host "`r$fileName - Failed.       " -ForegroundColor Red
-            return "failed"
-        }
-    } else {
-        Write-Host "$fileName - Skipped." -ForegroundColor Yellow
-        return "skipped"
     }
 }
 
-function Get-FolderNameFromUrl($url) {
-    $folderName = $url -replace '.*/([^/]+)\.aspx$', '$1' -replace '-', ' '
-    return (Get-Culture).TextInfo.ToTitleCase($folderName.ToLower())
+function DownloadImage {
+    param ([string]$url, [string]$destinationFolder)
+    $fileName = [System.IO.Path]::GetFileName($url); $filePath = Join-Path $destinationFolder $fileName
+    if (-not (Test-Path -Path $filePath -PathType Leaf)) {
+        try {
+            $ProgressPreference = 'SilentlyContinue'; Write-Host -NoNewline "$fileName - Downloading..." -ForegroundColor Blue
+            Invoke-WebRequest -Uri $url -OutFile $filePath -ErrorAction Stop
+            Write-Host "`r$fileName - Downloaded.   " -ForegroundColor Green; return "downloaded"
+        } catch {
+            Write-Host "`r$fileName - Failed.       " -ForegroundColor Red; return "failed"
+        }
+    } else {
+        Write-Host "$fileName - Skipped." -ForegroundColor Yellow; return "skipped"
+    }
 }
 
 do {
-    $userUrl = Read-Host "Enter the gallery URL (Press Enter for default)"
-    $userUrl = if ([string]::IsNullOrWhiteSpace($userUrl)) { "https://www.ragalahari.com/actress/173348/pragati-srivastava-at-gam-gam-ganesha-pre-release-event-hd-gallery.aspx" } else { $userUrl }
-    $isValidUrl = $userUrl -match '\.aspx$'
-    if (-not $isValidUrl) { Write-Host "Invalid URL. Please enter a valid gallery URL." -ForegroundColor Red }
+    $defaultUrl = "https://www.ragalahari.com/actor/171464/allu-arjun-at-honer-richmont-launch.aspx"
+    $userUrl = Read-Host "Enter the gallery URL (Press Enter for default '$defaultUrl')"
+    if ($userUrl -eq "") { $userUrl = $defaultUrl }
+    $isValidUrl = [Uri]::TryCreate($userUrl, [UriKind]::Absolute, [ref]$null) -and $userUrl.ToLower().EndsWith(".aspx")
+    if (-not $isValidUrl) { Write-Host "`nInvalid URL. Please enter a valid gallery URL." -ForegroundColor Red }
 } while (-not $isValidUrl)
 
-$response = Invoke-RestMethod -Uri $userUrl -ErrorAction Stop
-$imageUrls = [regex]::Matches($response, '(?<=src=")[^"]*t\.jpg') | ForEach-Object { $_.Value -replace 't\.jpg$', '.jpg' }
-$totalImages = $imageUrls.Count
-$numberOfImages = Get-NumberOfImages $totalImages
+$response = try { Invoke-RestMethod -Uri $userUrl -ErrorAction Stop } catch { Write-Host "`nFailed to retrieve the gallery page. Please check the URL and try again." -ForegroundColor Red; exit }
+$imageUrls = [regex]::Matches($response, '(?<=src=["''])([^"'']*t\.jpg)') | ForEach-Object { $_.Value -replace 't\.jpg$', '.jpg' }
+$numberOfImages = Get-NumberOfImages $imageUrls.Count
 
-$destinationFolder = Get-FolderNameFromUrl $userUrl
-if (-not (Test-Path -Path $destinationFolder)) { New-Item -ItemType Directory -Path $destinationFolder -Force | Out-Null; Write-Host "$destinationFolder - Folder Created." -ForegroundColor Green; Write-Host }
+$destinationFolder = (Get-Culture).TextInfo.ToTitleCase((($userUrl -replace '.*/([^/]+)\.aspx$', '$1' -replace '-', ' ') -replace '^(actress|heroine)\s', ''))
+if (-not (Test-Path -Path $destinationFolder)) { New-Item -ItemType Directory -Path $destinationFolder -Force | Out-Null; Write-Host "$destinationFolder - Folder Created.`n" -ForegroundColor Green }
 
-$downloadedCount = 0
-$skippedCount = 0
-$failedCount = 0
-
+$downloadResults = @()
 foreach ($imageUrl in $imageUrls[0..($numberOfImages - 1)]) {
-    $status = DownloadImage $imageUrl $destinationFolder
-    if ($status -eq "downloaded") { $downloadedCount++ }
-    elseif ($status -eq "skipped") { $skippedCount++ }
-    elseif ($status -eq "failed") { $failedCount++ }
+    $downloadResults += DownloadImage -url $imageUrl -destinationFolder $destinationFolder
 }
 
-Write-Host "`nImages downloaded at '$(Resolve-Path -Path $destinationFolder)'" -ForegroundColor Cyan -NoNewline
-Write-Host "`nDownloaded: $downloadedCount" -ForegroundColor Green -NoNewline
-Write-Host " - Skipped: $skippedCount" -ForegroundColor Yellow -NoNewline
-Write-Host " - Failed: $failedCount" -ForegroundColor Red
+$downloadedCount = ($downloadResults | Where-Object { $_ -eq "downloaded" }).Count; $skippedCount = ($downloadResults | Where-Object { $_ -eq "skipped" }).Count; $failedCount = ($downloadResults | Where-Object { $_ -eq "failed" }).Count
+Write-Host "`nDownloaded: $downloadedCount" -ForegroundColor Green -NoNewline; Write-Host " - " -NoNewline; Write-Host "Skipped: $skippedCount" -ForegroundColor Yellow -NoNewline; Write-Host " - " -NoNewline; Write-Host "Failed: $failedCount" -ForegroundColor Red; Write-Host "All Images Downloaded At '$(Resolve-Path -Path $destinationFolder)'" -ForegroundColor Blue
