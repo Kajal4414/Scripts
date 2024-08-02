@@ -1,5 +1,4 @@
 {
-  "template": "https://mozilla.github.io/policy-templates"
   "policies": {
     "DisableTelemetry": true,
     "DisableFirefoxStudies": true,
