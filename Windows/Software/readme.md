@@ -3,7 +3,7 @@
 -   ### [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)
     -   #### [Installation Script](./install_firefox.ps1) - _Run PowerShell or Terminal as an admin (not CMD), then copy and paste the code below and press 'Enter'._
         ```ps1
-        curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/dev/Windows/Software/install_firefox.ps1" -o "$env:USERPROFILE\Desktop\install_firefox.ps1"
+        curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_firefox.ps1" -o "$env:USERPROFILE\Desktop\install_firefox.ps1"
         ```
         ```ps1
         cd "$env:USERPROFILE\Desktop"; .\install_firefox.ps1 -theme -configs; Remove-Item .\install_firefox.ps1
@@ -18,8 +18,12 @@
 -   ### [Visual Studio Code](https://code.visualstudio.com/download)
     -   #### [Alternative - VSCodium](https://github.com/VSCodium/vscodium)
     -   #### [Settings](../C/Users/Admin/AppData/Roaming/Code/User/settings.json)
-        ```ps1
+      	```ps1
         curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json" -o "$env:APPDATA\Code\User\settings.json"
+        ```
+    -   #### [Extensions](./install_code_extensions.ps1)
+      	```ps1
+        irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_code_extensions.ps1 | iex
         ```
 -   ### [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=windows)
     -   #### [Installation Guide - Linux](https://www.jetbrains.com/help/idea/installation-guide.html#standalone)
@@ -49,9 +53,9 @@
 -   ### [Node.js](https://nodejs.org/en)
 -   ### [Python](https://www.python.org/downloads)
 -   ### [Platform Tools](https://developer.android.com/tools/releases/platform-tools)
-    -   #### [Installation Script](https://github.com/Kajal4414/Scripts/blob/main/Windows/Extra/platform_tools.ps1)
+    -   #### [Installation Script](./install_platform_tools.ps1)
         ```ps1
-        irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Extra/platform_tools.ps1 | iex
+        irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_platform_tools.ps1 | iex
         ```
 
 # Runtimes
@@ -75,9 +79,9 @@
 -   ### [Screenbox](https://github.com/huynhsontung/Screenbox)
 -   ### [PV Photo Viewer](../Extra/pv.exe) <!-- https://github.com/davidly/PV -->
 -   ### [MPV](https://github.com/mpv-player/mpv)
-    -   #### [Installation Script](https://github.com/Kajal4414/Scripts/blob/dev/Windows/Software/mpv.ps1)
+    -   #### [Installation Script](./install_mpv.ps1)
         ```ps1
-        irm https://raw.githubusercontent.com/Kajal4414/Scripts/dev/Windows/Software/mpv.ps1 | iex
+        irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_mpv.ps1 | iex
         ```
 
 # Office

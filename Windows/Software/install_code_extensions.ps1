@@ -25,9 +25,7 @@ $extensions = @(
     "visualstudioexptteam.vscodeintellicode",
     "vscjava.vscode-java-debug",
     "vscjava.vscode-java-dependency",
-    "vscjava.vscode-java-pack",
-    "vscjava.vscode-java-test",
-    "vscjava.vscode-maven"
+    "vscjava.vscode-java-pack"
 )
 
 foreach ($extensionId in $extensions) {
