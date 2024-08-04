@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.68.131",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.68.131/BraveBrowserStandaloneSetup.exe"
+    "version": "1.68.134",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.68.134/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -21,8 +21,8 @@
   },
   {
     "appName": "Git",
-    "version": "2.45.2",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.45.2.windows.1/Git-2.45.2-64-bit.exe"
+    "version": "2.46.0",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.46.0.windows.1/Git-2.46.0-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.17",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build17.exe?v=lt&amp;filename=idman642build17.exe"
+    "version": "6.42.18",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build18.exe?v=lt&amp;filename=idman642build18.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.91.1",
+    "version": "1.92.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,8 +101,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "23.3.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.3.0/install-amd64.exe"
+    "version": "23.4.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.4.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.7.11",
+    "version": "3.8.1",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.2.3",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.2.3/tsetup-x64.5.2.3.exe"
+    "version": "5.3.2",
+    "url": null
   },
   {
     "appName": "VLC media player",
