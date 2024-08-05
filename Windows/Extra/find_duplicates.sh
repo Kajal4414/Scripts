@@ -14,18 +14,23 @@ if [ ! -r "$filename" ]; then
     exit 1
 fi
 
-# Using awk to find and count duplicate lines along with their line numbers
-awk '
+# Define color codes directly in the awk script
+awk 'BEGIN { red = "\033[0;31m"; green = "\033[0;32m"; yellow = "\033[0;33m"; nc = "\033[0m" }
 {
     if (length($0) > 0) {
+        if (!seen[$0]++) {
+            print
+        }
         count[$0]++
         lines[$0] = lines[$0] ? lines[$0] "," NR : NR
+    } else {
+        print
     }
 }
 END {
     for (line in count) {
         if (count[line] > 1) {
-            print count[line] " duplicates of: \"" line "\" at lines: " lines[line]
+            printf "%s%d duplicate(s)%s of: %s\"%s\"%s found at line(s): %s%s%s\n", red, count[line]-1, nc, green, line, nc, yellow, lines[line], nc > "/dev/stderr"
         }
     }
-}' "$filename"
+}' "$filename" >temp_file && mv temp_file "$filename"
