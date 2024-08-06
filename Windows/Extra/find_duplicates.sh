@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Check if the correct number of arguments is provided
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <filename>"
     exit 1
@@ -8,13 +7,11 @@ fi
 
 filename=$1
 
-# Check if the file exists and is readable
 if [ ! -r "$filename" ]; then
     echo "Error: File '$filename' not found or not readable."
     exit 1
 fi
 
-# Define color codes directly in the awk script
 awk 'BEGIN { red = "\033[0;31m"; green = "\033[0;32m"; yellow = "\033[0;33m"; nc = "\033[0m" }
 {
     if (length($0) > 0) {
