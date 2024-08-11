@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.68.134",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.68.134/BraveBrowserStandaloneSetup.exe"
+    "version": "1.68.137",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.68.137/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "128.0.3",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/128.0.3/win64/en-GB/Firefox%20Setup%20128.0.3.exe"
+    "version": "129.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/129.0/win64/en-GB/Firefox%20Setup%20129.0.exe"
   },
   {
     "appName": "Git",
@@ -31,13 +31,13 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.18",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build18.exe?v=lt&amp;filename=idman642build18.exe"
+    "version": "6.42.19",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build19.exe?v=lt&amp;filename=idman642build19.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.1.4",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.1.4.exe"
+    "version": "2024.2",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.2.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -46,17 +46,17 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.4.8",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1848_Full.exe"
+    "version": "18.5.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1850_Full.exe"
   },
   {
     "appName": "Node.js",
-    "version": "22.5.1",
-    "url": "https://nodejs.org/download/release/latest/node-v22.5.1-x64.msi"
+    "version": "22.6.0",
+    "url": "https://nodejs.org/download/release/latest/node-v22.6.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.92.0",
+    "version": "1.92.1",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,23 +101,23 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "23.4.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.4.0/install-amd64.exe"
+    "version": "23.6.2",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.6.2/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
-    "version": "3.2.12",
-    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.2.12.exe"
+    "version": "3.3.0",
+    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.3.0.exe"
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.1.4",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.1.4.exe"
+    "version": "2024.1.6",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.1.6.exe"
   },
   {
     "appName": "Python",
-    "version": "3.12.4",
-    "url": "https://www.python.org/ftp/python/3.12.4/python-3.12.4-amd64.exe"
+    "version": "3.12.5",
+    "url": "https://www.python.org/ftp/python/3.12.5/python-3.12.5-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.8.1",
+    "version": "3.8.2",
     "url": "https://www.startallback.com/download.php"
   },
   {
