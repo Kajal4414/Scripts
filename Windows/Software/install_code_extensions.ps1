@@ -1,3 +1,5 @@
+# https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management
+
 # List of extension IDs
 $extensions = @(
     "beardedbear.beardedtheme",
