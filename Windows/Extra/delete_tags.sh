@@ -7,12 +7,13 @@ REPO_NAME="your_repository_name"
 
 # Function to delete tags
 delete_tags() {
-    echo "Deleting tags..."
+    echo "Fetching tags to delete..."
     curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" \
         "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/git/refs/tags" |
         jq -r '.[] | .ref' |
         while read -r tag_ref; do
             tag_name=$(echo "$tag_ref" | awk -F '/' '{print $3}' | tr -d '"')
+            echo "Deleting tag: $tag_name"
             curl -X DELETE -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" \
                 "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/git/refs/tags/$tag_name"
         done
@@ -20,11 +21,12 @@ delete_tags() {
 
 # Function to delete releases
 delete_releases() {
-    echo "Deleting releases..."
+    echo "Fetching releases to delete..."
     curl -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" \
         "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases" |
         jq -r '.[] | .id' |
         while read -r release_id; do
+            echo "Deleting release: $release_id"
             curl -X DELETE -s -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" \
                 "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases/$release_id"
         done
