@@ -9,10 +9,14 @@ if (-not (New-Object Security.Principal.WindowsPrincipal([Security.Principal.Win
     exit
 }
 
-# Check if adb is already installed
-if (Get-Command "adb" -ErrorAction SilentlyContinue) {
-    Write-Host "`n[INFO] ADB Is Already Installed`n" -ForegroundColor Yellow
-    & adb --version
+# Fetch remote version from the webpage
+try {
+    Write-Host "`n[INFO] Fetching Remote Platform Tools Version..." -ForegroundColor Yellow
+    $webContent = Invoke-WebRequest -Uri https://developer.android.com/tools/releases/platform-tools -UseBasicParsing
+    $null = $webContent.Content -match '<h4 id=".*?" data-text="(\d+\.\d+\.\d+)'; $remoteVersion = $Matches[1]
+}
+catch {
+    Write-Host "[ERROR] Failed To Fetch Remote Version. $_" -ForegroundColor Red
     exit
 }
 
@@ -22,11 +26,21 @@ if (-not (Test-Connection 8.8.8.8 -Count 1 -Quiet)) {
     exit
 }
 
+# Check if adb is already installed
+if (Get-Command "adb" -ErrorAction SilentlyContinue) {
+    $localVersion = (adb --version | Select-String -Pattern "Version (\d+\.\d+\.\d+)-\d+" -AllMatches).Matches[0].Groups[1].Value
+    if ($localVersion -eq $remoteVersion) {
+        Write-Host "`n[INFO] ADB v$remoteVersion Is Already Installed And Up-To-Date.`n" -ForegroundColor Yellow
+        exit
+    }
+    Write-Host "`n[INFO] ADB v$localVersion Is Installed. Updating To v$remoteVersion...`n" -ForegroundColor Yellow
+}
+
 # Download the file
 try {
     Write-Host "`n[INFO] Downloading Platform Tools From '$platformToolsUrl' To '$zipFilePath'..." -ForegroundColor Yellow
     curl.exe -L $platformToolsUrl -o $zipFilePath
-    Write-Host "[SUCCESS] Download Sompleted Successfully." -ForegroundColor Green
+    Write-Host "[SUCCESS] Download Completed Successfully." -ForegroundColor Green
 }
 catch {
     Write-Host "[ERROR] Failed To Download The File. $_" -ForegroundColor Red
@@ -54,4 +68,4 @@ if (-not ($currentPath -split ';' -contains $platformToolsPath)) {
 # Cleanup
 Remove-Item -Path $zipFilePath -ErrorAction SilentlyContinue
 
-Write-Host "`n[INFO] Platform Tools Installed Successfully!" -ForegroundColor Green
+Write-Host "`n[INFO] Platform Tools Installed/Updated Successfully To Version $remoteVersion!" -ForegroundColor Green
