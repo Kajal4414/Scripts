@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.68.141",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.68.141/BraveBrowserStandaloneSetup.exe"
+    "version": "1.69.153",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.69.153/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "129.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/129.0.1/win64/en-GB/Firefox%20Setup%20129.0.1.exe"
+    "version": "129.0.2",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/129.0.2/win64/en-GB/Firefox%20Setup%20129.0.2.exe"
   },
   {
     "appName": "Git",
@@ -31,13 +31,13 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.19",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build19.exe?v=lt&amp;filename=idman642build19.exe"
+    "version": "6.42.20",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build20.exe?v=lt&amp;filename=idman642build20.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.2.0.1",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.2.0.1.exe"
+    "version": "2024.2.0.2",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.2.0.2.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -51,8 +51,8 @@
   },
   {
     "appName": "Node.js",
-    "version": "22.6.0",
-    "url": "https://nodejs.org/download/release/latest/node-v22.6.0-x64.msi"
+    "version": "22.7.0",
+    "url": "https://nodejs.org/download/release/latest/node-v22.7.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -101,18 +101,18 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "23.6.3",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.6.3/install-amd64.exe"
+    "version": "23.7.2",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.7.2/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
-    "version": "3.3.0",
-    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.3.0.exe"
+    "version": "3.3.2",
+    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.3.2.exe"
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.2",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.2.exe"
+    "version": "2024.2.0.1",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.2.0.1.exe"
   },
   {
     "appName": "Python",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.8.4",
+    "version": "3.8.6",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -137,7 +137,7 @@
   {
     "appName": "Telegram",
     "version": "5.4.1",
-    "url": null
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.4.1/tsetup-x64.5.4.1.exe"
   },
   {
     "appName": "VLC media player",
@@ -146,7 +146,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.12.2",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.12.2/YoutubeDownloader.win-x64.zip"
+    "version": "1.13",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.13/YoutubeDownloader.win-x64.zip"
   }
 ]
