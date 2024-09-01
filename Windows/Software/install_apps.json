@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.69.153",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.69.153/BraveBrowserStandaloneSetup.exe"
+    "version": "1.69.160",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.69.160/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.2.0.2",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.2.0.2.exe"
+    "version": "2024.2.1",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.2.1.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -101,8 +101,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "23.7.2",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.7.2/install-amd64.exe"
+    "version": "23.9.1",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.9.1/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -111,8 +111,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.2.0.1",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.2.0.1.exe"
+    "version": "2024.2.1",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.2.1.exe"
   },
   {
     "appName": "Python",
