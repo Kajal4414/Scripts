@@ -57,6 +57,17 @@
         ```ps1
         irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_platform_tools.ps1 | iex
         ```
+-   ### [APK Tool](https://github.com/iBotPeaches/Apktool)
+    -   #### [Bitbucket - Download](https://bitbucket.org/iBotPeaches/apktool/downloads/)
+        ```ps1
+        $apkToolPath = "$env:PROGRAMFILES\Android\apk-tool"
+        New-Item -Path $apkToolPath -ItemType Directory -Force | Out-Null
+        curl.exe -L https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar -o $apkToolPath\apktool.jar
+        curl.exe -LSs https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat -o $apkToolPath\apktool.bat
+        
+        $currentPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
+        [System.Environment]::SetEnvironmentVariable("PATH", "$currentPath;$apkToolPath", [System.EnvironmentVariableTarget]::Machine)
+        ```
 
 # Runtimes
 
