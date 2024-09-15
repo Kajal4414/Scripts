@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.69.162",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.69.162/BraveBrowserStandaloneSetup.exe"
+    "version": "1.69.168",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.69.168/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.93.0",
+    "version": "1.93.1",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,13 +101,13 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "23.11.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.11.0/install-amd64.exe"
+    "version": "23.13.1",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.13.1/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
     "version": "3.3.2",
-    "url": "https://download.protonvpn.net/download/ProtonVPN_v3.3.2.exe"
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v3.3.2.exe"
   },
   {
     "appName": "PyCharm Community Edition",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.8.7",
+    "version": "3.8.8",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.5.1",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.5.1/tsetup-x64.5.5.1.exe"
+    "version": "5.5.5",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.5.5/tsetup-x64.5.5.5.exe"
   },
   {
     "appName": "VLC media player",
