@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.70.117",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.70.117/BraveBrowserStandaloneSetup.exe"
+    "version": "1.70.119",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.70.119/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -21,8 +21,8 @@
   },
   {
     "appName": "Git",
-    "version": "2.46.1",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.46.1.windows.1/Git-2.46.1-64-bit.exe"
+    "version": "2.46.2",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.46.2.windows.1/Git-2.46.2-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.2.2",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.2.2.exe"
+    "version": "2024.2.3",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.2.3.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -101,8 +101,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "23.14.1",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.14.1/install-amd64.exe"
+    "version": "23.15.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.15.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -111,8 +111,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.2.2",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.2.2.exe"
+    "version": "2024.2.3",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.2.3.exe"
   },
   {
     "appName": "Python",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.8.9",
+    "version": "3.8.10",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -146,7 +146,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.13.2",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.13.2/YoutubeDownloader.win-x64.zip"
+    "version": "1.13.3",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.13.3/YoutubeDownloader.win-x64.zip"
   }
 ]
