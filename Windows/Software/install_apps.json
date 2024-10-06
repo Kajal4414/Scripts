@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.70.119",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.70.119/BraveBrowserStandaloneSetup.exe"
+    "version": "1.70.123",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.70.123/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "130.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/130.0.1/win64/en-GB/Firefox%20Setup%20130.0.1.exe"
+    "version": "131.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/131.0/win64/en-GB/Firefox%20Setup%20131.0.exe"
   },
   {
     "appName": "Git",
@@ -46,8 +46,8 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.5.5",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1855_Full.exe"
+    "version": "18.6.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1860_Full.exe"
   },
   {
     "appName": "Node.js",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.93.1",
+    "version": "1.94.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,8 +101,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "23.15.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.15.0/install-amd64.exe"
+    "version": "23.16.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.16.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -116,8 +116,8 @@
   },
   {
     "appName": "Python",
-    "version": "3.12.6",
-    "url": "https://www.python.org/ftp/python/3.12.6/python-3.12.6-amd64.exe"
+    "version": "3.12.7",
+    "url": "https://www.python.org/ftp/python/3.12.7/python-3.12.7-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.5.5",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.5.5/tsetup-x64.5.5.5.exe"
+    "version": "5.6.0",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.6.0/tsetup-x64.5.6.0.exe"
   },
   {
     "appName": "VLC media player",
