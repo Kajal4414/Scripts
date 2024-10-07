@@ -1,6 +1,6 @@
 @echo off
 
-:: Delete directories requiring 'takeown' and 'icacls' commands.
+:: Delete directories requiring 'takeown' and 'icacls' commands (Windows 10).
 for %%D in (
     "%ProgramFiles%\ModifiableWindowsApps"
     "%Public%\Desktop"
@@ -16,7 +16,7 @@ for %%D in (
     )
 )
 
-:: Delete other directories.
+:: Delete other directories (Windows 10).
 for %%D in (
     "%AppData%\DMCache"
     "%ProgramData%\USOPrivate"
@@ -39,10 +39,13 @@ for %%D in (
     "%UserProfile%\AppData\Local\VirtualStore"
     "%UserProfile%\AppData\Local\ToastNotificationManagerCompat"
     "%UserProfile%\AppData\Local\Rufus"
+    "%UserProfile%\AppData\Local\uad"
+    "%UserProfile%\AppData\Local\Programs"
     "%UserProfile%\AppData\LocalLow\AMD"
     "%UserProfile%\AppData\LocalLow\Microsoft\Internet Explorer"
     "%UserProfile%\AppData\Roaming\Adobe"
     "%UserProfile%\AppData\Roaming\balena-etcher"
+    "%UserProfile%\AppData\Roaming\uad"
     "%UserProfile%\Favorites"
     "%UserProfile%\Recent"
     "%UserProfile%\Searches"
