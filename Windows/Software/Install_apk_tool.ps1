@@ -1,11 +1,11 @@
 # Define the ApkTool installation path
-$apkToolPath = "$env:PROGRAMFILES\Android\apk-tool"
+$apkToolPath = "$env:PROGRAMFILES\Android\APK Tool"
 
 # Create the ApkTool directory if it doesn't exist
 New-Item -Path $apkToolPath -ItemType Directory -Force | Out-Null
 
 # Download ApkTool jar and bat files
-$apkToolJarUrl = "https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar"
+$apkToolJarUrl = "https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.10.0.jar"
 $apkToolBatUrl = "https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat"
 
 curl.exe -L $apkToolJarUrl -o "$apkToolPath\apktool.jar"
