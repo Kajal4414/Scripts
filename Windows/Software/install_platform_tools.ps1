@@ -1,6 +1,6 @@
 # Define variables
 $platformToolsUrl = "https://dl.google.com/android/repository/platform-tools-latest-windows.zip"
-$platformToolsPath = "$env:PROGRAMFILES\Android\platform-tools"
+$platformToolsPath = "$env:PROGRAMFILES\Android\Platform Tools"
 $zipFilePath = "$env:TEMP\platform-tools.zip"
 
 # Check for administrator privileges
