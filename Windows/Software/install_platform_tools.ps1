@@ -50,7 +50,7 @@ catch {
 # Extract the ZIP file
 try {
     Write-Host "`n[INFO] Extracting Platform Tools Archive To '$platformToolsPath'..." -ForegroundColor Yellow
-    Expand-Archive -Path $zipFilePath -DestinationPath "$env:PROGRAMFILES\Android" -Force
+    Expand-Archive -Path $zipFilePath -DestinationPath "$env:PROGRAMFILES\Android" -Force; Rename-Item -Path "$env:PROGRAMFILES\Android\platform-tools" -NewName "Platform Tools"
     Write-Host "[SUCCESS] Extraction Completed Successfully." -ForegroundColor Green
 }
 catch {
