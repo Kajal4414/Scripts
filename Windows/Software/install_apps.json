@@ -6,23 +6,23 @@
   },
   {
     "appName": "BleachBit",
-    "version": "4.6.0",
-    "url": "https://download.bleachbit.org/BleachBit-4.6.0-setup.exe"
+    "version": "4.6.2",
+    "url": "https://download.bleachbit.org/BleachBit-4.6.2-setup.exe"
   },
   {
     "appName": "Brave",
-    "version": "1.70.123",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.70.123/BraveBrowserStandaloneSetup.exe"
+    "version": "1.70.126",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.70.126/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "131.0",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/131.0/win64/en-GB/Firefox%20Setup%20131.0.exe"
+    "version": "131.0.2",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/131.0.2/win64/en-GB/Firefox%20Setup%20131.0.2.exe"
   },
   {
     "appName": "Git",
-    "version": "2.46.2",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.46.2.windows.1/Git-2.46.2-64-bit.exe"
+    "version": "2.47.0",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.47.0.windows.1/Git-2.47.0-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.94.0",
+    "version": "1.94.2",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,8 +101,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "23.16.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.16.0/install-amd64.exe"
+    "version": "23.19.0",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.19.0/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -116,8 +116,8 @@
   },
   {
     "appName": "Python",
-    "version": "3.12.7",
-    "url": "https://www.python.org/ftp/python/3.12.7/python-3.12.7-amd64.exe"
+    "version": "3.13.0",
+    "url": "https://www.python.org/ftp/python/3.13.0/python-3.13.0-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.8.10",
+    "version": "3.8.11",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.6.0",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.6.0/tsetup-x64.5.6.0.exe"
+    "version": "5.6.1",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.6.1/tsetup-x64.5.6.1.exe"
   },
   {
     "appName": "VLC media player",
