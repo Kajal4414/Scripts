@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.70.126",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.70.126/BraveBrowserStandaloneSetup.exe"
+    "version": "1.71.114",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.71.114/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "131.0.2",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/131.0.2/win64/en-GB/Firefox%20Setup%20131.0.2.exe"
+    "version": "131.0.3",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/131.0.3/win64/en-GB/Firefox%20Setup%20131.0.3.exe"
   },
   {
     "appName": "Git",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.22",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build22.exe?v=lt&amp;filename=idman642build22.exe"
+    "version": "6.42.23",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build23.exe?v=lt&amp;filename=idman642build23.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -41,7 +41,7 @@
   },
   {
     "appName": "Java(TM) SE Development Kit",
-    "version": "21.0.4",
+    "version": "23.0.1",
     "url": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
   },
   {
@@ -51,8 +51,8 @@
   },
   {
     "appName": "Node.js",
-    "version": "22.9.0",
-    "url": "https://nodejs.org/download/release/latest/node-v22.9.0-x64.msi"
+    "version": "23.0.0",
+    "url": "https://nodejs.org/download/release/latest/node-v23.0.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -96,13 +96,13 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.6.7",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.exe"
+    "version": "1.7.4",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.4/Obsidian-1.7.4.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "23.19.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.19.0/install-amd64.exe"
+    "version": "23.20.2",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.20.2/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.6.1",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.6.1/tsetup-x64.5.6.1.exe"
+    "version": "5.6.3",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.6.3/tsetup-x64.5.6.3.exe"
   },
   {
     "appName": "VLC media player",
