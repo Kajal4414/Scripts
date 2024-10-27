@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.71.114",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.71.114/BraveBrowserStandaloneSetup.exe"
+    "version": "1.71.118",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.71.118/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -22,7 +22,7 @@
   {
     "appName": "Git",
     "version": "2.47.0",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.47.0.windows.1/Git-2.47.0-64-bit.exe"
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.47.0.windows.2/Git-2.47.0.2-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.2.3",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.2.3.exe"
+    "version": "2024.2.4",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.2.4.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -51,8 +51,8 @@
   },
   {
     "appName": "Node.js",
-    "version": "23.0.0",
-    "url": "https://nodejs.org/download/release/latest/node-v23.0.0-x64.msi"
+    "version": "23.1.0",
+    "url": "https://nodejs.org/download/release/latest/node-v23.1.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -101,8 +101,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "23.20.2",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.20.2/install-amd64.exe"
+    "version": "23.20.3",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v23.20.3/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -111,8 +111,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.2.3",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.2.3.exe"
+    "version": "2024.2.4",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.2.4.exe"
   },
   {
     "appName": "Python",
@@ -121,12 +121,12 @@
   },
   {
     "appName": "Revo Uninstaller Pro",
-    "version": "5.3.0",
-    "url": "https://2c4eb3d18fca8ba6d9ca-4662654c4d02b3489a1b137ebc24250a.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
+    "version": "5.3.2",
+    "url": "https://53f7aaadf588cf347524-a8b1826fcfe5d5395d1769e8886fb686.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
   },
   {
     "appName": "StartAllBack",
-    "version": "3.8.11",
+    "version": "3.8.12",
     "url": "https://www.startallback.com/download.php"
   },
   {
