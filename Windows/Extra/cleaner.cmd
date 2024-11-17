@@ -1,6 +1,6 @@
 @echo off
 
-:: Delete directories requiring 'takeown' and 'icacls' commands (Windows 10).
+:: Delete directories requiring 'takeown' and 'icacls' commands (ATLAS 10 21H2).
 for %%D in (
     "%ProgramFiles%\ModifiableWindowsApps"
     "%Public%\Desktop"
@@ -16,7 +16,7 @@ for %%D in (
     )
 )
 
-:: Delete other directories (Windows 10).
+:: Delete other directories (ATLAS 10 21H2).
 for %%D in (
     "%AppData%\DMCache"
     "%ProgramData%\USOPrivate"
@@ -27,6 +27,7 @@ for %%D in (
     "%ProgramData%\ASUS\ASUS System Control Interface\AsusSystemDiagnosis"
     "%ProgramData%\ASUS\ASUS System Control Interface\AsusSoftwareManager"
     "%ProgramData%\ASUS\AsusInstaller"
+    "%ProgramFiles%\Crashpad"
     "%SystemDrive%\$Recycle.bin"
     "%UserProfile%\.dbus-keyrings"
     "%UserProfile%\.vscode\cli"
@@ -50,6 +51,7 @@ for %%D in (
     "%UserProfile%\AppData\Roaming\Adobe"
     "%UserProfile%\AppData\Roaming\balena-etcher"
     "%UserProfile%\AppData\Roaming\uad"
+    "%UserProfile%\Downloads\Telegram Desktop"
     "%UserProfile%\Favorites"
     "%UserProfile%\Recent"
     "%UserProfile%\Searches"
