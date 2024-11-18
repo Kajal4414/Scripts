@@ -70,5 +70,8 @@ for %%D in (
 if not exist "%WinDir%\Temp" mkdir "%WinDir%\Temp"
 if not exist "%Temp%" mkdir "%Temp%"
 
+:: Set charging threshold.
+powershell -NoProfile -ExecutionPolicy Bypass -File "BatterySet.ps1"
+
 echo.
 pause
