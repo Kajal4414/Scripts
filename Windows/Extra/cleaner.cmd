@@ -73,5 +73,9 @@ if not exist "%Temp%" mkdir "%Temp%"
 :: Set charging threshold.
 powershell -NoProfile -ExecutionPolicy Bypass -File "BatterySet.ps1"
 
+:: reg query "HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys" /v ChargingRate
+:: reg add "HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys" /v ChargingRate /t REG_DWORD /d 40 /f
+:: net stop ASUSOptimization && net start ASUSOptimization
+
 echo.
 pause
