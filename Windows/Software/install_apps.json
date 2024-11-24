@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.73.89",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.73.89/BraveBrowserStandaloneSetup.exe"
+    "version": "1.73.91",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.73.91/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.23",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build23.exe?v=lt&amp;filename=idman642build23.exe"
+    "version": "6.42.25",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build25.exe?v=lt&amp;filename=idman642build25.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -96,13 +96,13 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.7.6",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.6/Obsidian-1.7.6.exe"
+    "version": "1.7.7",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.7/Obsidian-1.7.7.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "24.6.3",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v24.6.3/install-amd64.exe"
+    "version": "24.6.5",
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v24.6.5/install-amd64.exe"
   },
   {
     "appName": "Proton VPN",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.7.2",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.7.2/tsetup-x64.5.7.2.exe"
+    "version": "5.8.3",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.8.3/tsetup-x64.5.8.3.exe"
   },
   {
     "appName": "VLC media player",
