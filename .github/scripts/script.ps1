@@ -115,8 +115,8 @@ $baseUrl = "https://nodejs.org/download/release/latest/"
 
 $softwareList += [PSCustomObject]@{
     appName = "Node.js"
-    version = ((Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like 'node*x64.msi' } | Select-Object -First 1 -ExpandProperty Href) -replace '.*node-v(\d+\.\d+\.\d+).*', '$1'
-    url     = $baseUrl + ((Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -like 'node*x64.msi' } | Select-Object -First 1 -ExpandProperty Href)
+    version = ((Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -match 'node-v(\d+\.\d+\.\d+)-x64\.msi' } | Select-Object -First 1).Href -replace '.*node-v(\d+\.\d+\.\d+)-x64\.msi', '$1'
+    url     = "https://nodejs.org" + ((Invoke-WebRequest $baseUrl -UseBasicParsing).Links | Where-Object { $_.Href -match 'node-v(\d+\.\d+\.\d+)-x64\.msi' } | Select-Object -First 1 -ExpandProperty Href)
 }
 
 # VS Code
