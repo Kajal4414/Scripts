@@ -1,8 +1,8 @@
 [
   {
     "appName": "7-Zip",
-    "version": "24.08",
-    "url": "https://www.7-zip.org/a/7z2408-x64.exe"
+    "version": "24.09",
+    "url": "https://www.7-zip.org/a/7z2409-x64.exe"
   },
   {
     "appName": "BleachBit",
@@ -16,13 +16,13 @@
   },
   {
     "appName": "Firefox",
-    "version": "132.0.2",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/132.0.2/win64/en-GB/Firefox%20Setup%20132.0.2.exe"
+    "version": "133.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/133.0/win64/en-GB/Firefox%20Setup%20133.0.exe"
   },
   {
     "appName": "Git",
-    "version": "2.47.0",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.47.0.windows.2/Git-2.47.0.2-64-bit.exe"
+    "version": "2.47.1",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.47.1.windows.1/Git-2.47.1-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -46,8 +46,8 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.6.5",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1865_Full.exe"
+    "version": "18.7.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1870_Full.exe"
   },
   {
     "appName": "Node.js",
@@ -91,8 +91,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.7.1",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.x64.exe"
+    "version": "8.7.2",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.2/npp.8.7.2.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -101,8 +101,8 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "24.8.0",
-    "url": "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/v24.8.0/install-amd64.exe"
+    "version": "24.11.2",
+    "url": null
   },
   {
     "appName": "Proton VPN",
