@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.73.91",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.73.91/BraveBrowserStandaloneSetup.exe"
+    "version": "1.73.97",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.73.97/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -91,8 +91,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.7.2",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.2/npp.8.7.2.Installer.x64.exe"
+    "version": "8.7.4",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.4/npp.8.7.4.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -101,13 +101,13 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "24.11.2",
+    "version": "24.12.0",
     "url": null
   },
   {
     "appName": "Proton VPN",
-    "version": "3.4.3",
-    "url": "https://vpn.protondownload.com/download/ProtonVPN_v3.4.3_x64.exe"
+    "version": "3.5.0",
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v3.5.0_x64.exe"
   },
   {
     "appName": "PyCharm Community Edition",
@@ -116,13 +116,13 @@
   },
   {
     "appName": "Python",
-    "version": "3.13.0",
-    "url": "https://www.python.org/ftp/python/3.13.0/python-3.13.0-amd64.exe"
+    "version": "3.13.1",
+    "url": "https://www.python.org/ftp/python/3.13.1/python-3.13.1-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
-    "version": "5.3.2",
-    "url": "https://53f7aaadf588cf347524-a8b1826fcfe5d5395d1769e8886fb686.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
+    "version": "5.3.4",
+    "url": "https://44581b6373a4ec0a6882-ec5a86ebfebe800deef2bbb78a8a4d07.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
   },
   {
     "appName": "StartAllBack",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.8.3",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.8.3/tsetup-x64.5.8.3.exe"
+    "version": "5.9.0",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.9.0/tsetup-x64.5.9.0.exe"
   },
   {
     "appName": "VLC media player",
