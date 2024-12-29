@@ -91,8 +91,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.7.4",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.4/npp.8.7.4.Installer.x64.exe"
+    "version": "8.7.5",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.5/npp.8.7.5.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "24.16.1",
+    "version": "24.17.1",
     "url": null
   },
   {
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.8.13",
+    "version": "",
     "url": "https://www.startallback.com/download.php"
   },
   {
