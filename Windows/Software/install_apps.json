@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "24.17.1",
+    "version": "24.18.0",
     "url": null
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.9.0",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.9.0/tsetup-x64.5.9.0.exe"
+    "version": "5.10.0",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.10.0/tsetup-x64.5.10.0.exe"
   },
   {
     "appName": "VLC media player",
