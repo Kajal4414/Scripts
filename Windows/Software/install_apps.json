@@ -11,18 +11,18 @@
   },
   {
     "appName": "Brave",
-    "version": "1.73.105",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.73.105/BraveBrowserStandaloneSetup.exe"
+    "version": "1.74.48",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.74.48/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "134.0",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/134.0/win64/en-GB/Firefox%20Setup%20134.0.exe"
+    "version": "134.0.1",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/134.0.1/win64/en-GB/Firefox%20Setup%20134.0.1.exe"
   },
   {
     "appName": "Git",
     "version": "2.47.1",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.47.1.windows.1/Git-2.47.1-64-bit.exe"
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.47.1.windows.2/Git-2.47.1.2-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.3.1.1",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.1.1.exe"
+    "version": "2024.3.2",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.2.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.96.2",
+    "version": "1.96.4",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -121,12 +121,12 @@
   },
   {
     "appName": "Revo Uninstaller Pro",
-    "version": "5.3.4",
-    "url": "https://44581b6373a4ec0a6882-ec5a86ebfebe800deef2bbb78a8a4d07.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
+    "version": "5.3.5",
+    "url": "https://94866791b381919ae8f6-1ddd7000cb5132c730d3468c2e43d790.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
   },
   {
     "appName": "StartAllBack",
-    "version": "",
+    "version": "3.9.1",
     "url": "https://www.startallback.com/download.php"
   },
   {
