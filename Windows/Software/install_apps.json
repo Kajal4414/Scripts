@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.74.48",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.74.48/BraveBrowserStandaloneSetup.exe"
+    "version": "1.74.50",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.74.50/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "134.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/134.0.1/win64/en-GB/Firefox%20Setup%20134.0.1.exe"
+    "version": "134.0.2",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/134.0.2/win64/en-GB/Firefox%20Setup%20134.0.2.exe"
   },
   {
     "appName": "Git",
@@ -31,17 +31,17 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.26",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build26.exe?v=lt&amp;filename=idman642build26.exe"
+    "version": "6.42.27",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build27.exe?v=lt&amp;filename=idman642build27.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.3.2",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.2.exe"
+    "version": "2024.3.2.1",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.2.1.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
-    "version": "23.0.1",
+    "version": "23.0.2",
     "url": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
   },
   {
@@ -51,8 +51,8 @@
   },
   {
     "appName": "Node.js",
-    "version": "23.6.0",
-    "url": "https://nodejs.org/download/release/v23.6.0/node-v23.6.0-x64.msi"
+    "version": "23.6.1",
+    "url": "https://nodejs.org/download/release/v23.6.1/node-v23.6.1-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.10.3",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.10.3/tsetup-x64.5.10.3.exe"
+    "version": "5.10.5",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.10.5/tsetup-x64.5.10.5.exe"
   },
   {
     "appName": "VLC media player",
@@ -146,7 +146,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.14",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.14/YoutubeDownloader.win-x64.zip"
+    "version": "1.14.1",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.14.1/YoutubeDownloader.win-x64.zip"
   }
 ]
