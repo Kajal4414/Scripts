@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.74.50",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.74.50/BraveBrowserStandaloneSetup.exe"
+    "version": "1.74.51",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.74.51/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -36,12 +36,12 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.3.2.1",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.2.1.exe"
+    "version": "2024.3.2.2",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.2.2.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
-    "version": "23.0.2",
+    "version": "",
     "url": "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
   },
   {
@@ -51,8 +51,8 @@
   },
   {
     "appName": "Node.js",
-    "version": "23.6.1",
-    "url": "https://nodejs.org/download/release/v23.6.1/node-v23.6.1-x64.msi"
+    "version": "23.7.0",
+    "url": "https://nodejs.org/download/release/latest/node-v23.7.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -91,17 +91,17 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.7.5",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.5/npp.8.7.5.Installer.x64.exe"
+    "version": "8.7.6",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.6/npp.8.7.6.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
-    "version": "1.7.7",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.7.7/Obsidian-1.7.7.exe"
+    "version": "1.8.4",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.4/Obsidian-1.8.4.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "24.18.1",
+    "version": "24.19.0",
     "url": null
   },
   {
@@ -111,8 +111,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.3.1.1",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.3.1.1.exe"
+    "version": "2024.3.2",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.3.2.exe"
   },
   {
     "appName": "Python",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.1",
+    "version": "3.9.2",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.10.5",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.10.5/tsetup-x64.5.10.5.exe"
+    "version": "5.10.7",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.10.7/tsetup-x64.5.10.7.exe"
   },
   {
     "appName": "VLC media player",
