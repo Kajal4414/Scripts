@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.74.51",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.74.51/BraveBrowserStandaloneSetup.exe"
+    "version": "1.75.175",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.75.175/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "134.0.2",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/134.0.2/win64/en-GB/Firefox%20Setup%20134.0.2.exe"
+    "version": "135.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/135.0/win64/en-GB/Firefox%20Setup%20135.0.exe"
   },
   {
     "appName": "Git",
@@ -46,8 +46,8 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.7.5",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1875_Full.exe"
+    "version": "18.8.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1880_Full.exe"
   },
   {
     "appName": "Node.js",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.96.4",
+    "version": "1.97.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -91,8 +91,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.7.6",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.6/npp.8.7.6.Installer.x64.exe"
+    "version": "8.7.7",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.7/npp.8.7.7.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -116,8 +116,8 @@
   },
   {
     "appName": "Python",
-    "version": "3.13.1",
-    "url": "https://www.python.org/ftp/python/3.13.1/python-3.13.1-amd64.exe"
+    "version": "3.13.2",
+    "url": "https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
@@ -146,7 +146,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.14.1",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.14.1/YoutubeDownloader.win-x64.zip"
+    "version": "1.14.2",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.14.2/YoutubeDownloader.win-x64.zip"
   }
 ]
