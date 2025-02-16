@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.75.175",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.75.175/BraveBrowserStandaloneSetup.exe"
+    "version": "1.75.178",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.75.178/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -21,8 +21,8 @@
   },
   {
     "appName": "Git",
-    "version": "2.47.1",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.47.1.windows.2/Git-2.47.1.2-64-bit.exe"
+    "version": "2.48.1",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.48.1.windows.1/Git-2.48.1-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.3.2.2",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.2.2.exe"
+    "version": "2024.3.3",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.3.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "23.7.0",
-    "url": "https://nodejs.org/download/release/latest/node-v23.7.0-x64.msi"
+    "version": "23.8.0",
+    "url": "https://nodejs.org/download/release/latest/node-v23.8.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.97.0",
+    "version": "1.97.2",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -106,13 +106,13 @@
   },
   {
     "appName": "Proton VPN",
-    "version": "3.5.1",
-    "url": "https://vpn.protondownload.com/download/ProtonVPN_v3.5.1_x64.exe"
+    "version": "3.5.2",
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v3.5.2_x64.exe"
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.3.2",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.3.2.exe"
+    "version": "2024.3.3",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.3.3.exe"
   },
   {
     "appName": "Python",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.2",
+    "version": "3.9.3",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.10.7",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.10.7/tsetup-x64.5.10.7.exe"
+    "version": "5.11.1",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.11.1/tsetup-x64.5.11.1.exe"
   },
   {
     "appName": "VLC media player",
