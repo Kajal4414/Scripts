@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.75.178",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.75.178/BraveBrowserStandaloneSetup.exe"
+    "version": "1.75.180",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.75.180/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "135.0",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/135.0/win64/en-GB/Firefox%20Setup%20135.0.exe"
+    "version": "135.0.1",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/135.0.1/win64/en-GB/Firefox%20Setup%20135.0.1.exe"
   },
   {
     "appName": "Git",
@@ -96,8 +96,8 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.8.4",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.4/Obsidian-1.8.4.exe"
+    "version": "1.8.7",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.7/Obsidian-1.8.7.exe"
   },
   {
     "appName": "OhMyPosh",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.3",
+    "version": "3.9.4",
     "url": "https://www.startallback.com/download.php"
   },
   {
