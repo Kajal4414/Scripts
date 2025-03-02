@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.75.180",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.75.180/BraveBrowserStandaloneSetup.exe"
+    "version": "1.75.181",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.75.181/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.3.3",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.3.exe"
+    "version": "2024.3.4",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.4.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -51,8 +51,8 @@
   },
   {
     "appName": "Node.js",
-    "version": "23.8.0",
-    "url": "https://nodejs.org/download/release/latest/node-v23.8.0-x64.msi"
+    "version": "23.9.0",
+    "url": "https://nodejs.org/download/release/v23.9.0/node-v23.9.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -101,18 +101,18 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "24.19.0",
+    "version": "25.0.0",
     "url": null
   },
   {
     "appName": "Proton VPN",
-    "version": "3.5.2",
-    "url": "https://vpn.protondownload.com/download/ProtonVPN_v3.5.2_x64.exe"
+    "version": "3.5.3",
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v3.5.3_x64.exe"
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.3.3",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.3.3.exe"
+    "version": "2024.3.4",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2024.3.4.exe"
   },
   {
     "appName": "Python",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.4",
+    "version": "3.9.5",
     "url": "https://www.startallback.com/download.php"
   },
   {
