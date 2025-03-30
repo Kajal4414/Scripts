@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.76.81",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.76.81/BraveBrowserStandaloneSetup.exe"
+    "version": "1.76.82",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.76.82/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "136.0.2",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/136.0.2/win64/en-GB/Firefox%20Setup%20136.0.2.exe"
+    "version": "136.0.4",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/136.0.4/win64/en-GB/Firefox%20Setup%20136.0.4.exe"
   },
   {
     "appName": "Git",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.27",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build27.exe?v=lt&amp;filename=idman642build27.exe"
+    "version": "6.42.31",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build31.exe?v=lt&amp;filename=idman642build31.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "25.5.1",
+    "version": "25.7.1",
     "url": null
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.12.3",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.12.3/tsetup-x64.5.12.3.exe"
+    "version": "5.13.1",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.13.1/tsetup-x64.5.13.1.exe"
   },
   {
     "appName": "VLC media player",
