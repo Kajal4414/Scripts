@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.76.82",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.76.82/BraveBrowserStandaloneSetup.exe"
+    "version": "1.77.97",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.77.97/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "136.0.4",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/136.0.4/win64/en-GB/Firefox%20Setup%20136.0.4.exe"
+    "version": "137.0.1",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/137.0.1/win64/en-GB/Firefox%20Setup%20137.0.1.exe"
   },
   {
     "appName": "Git",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.31",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build31.exe?v=lt&amp;filename=idman642build31.exe"
+    "version": "6.42.32",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build32.exe?v=lt&amp;filename=idman642build32.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "23.10.0",
-    "url": "https://nodejs.org/download/release/latest/node-v23.10.0-x64.msi"
+    "version": "23.11.0",
+    "url": "https://nodejs.org/download/release/latest/node-v23.11.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.98.2",
+    "version": "1.99.2",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -91,8 +91,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.7.8",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.8/npp.8.7.8.Installer.x64.exe"
+    "version": "8.7.9",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.9/npp.8.7.9.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -101,13 +101,13 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "25.7.1",
+    "version": "25.13.0",
     "url": null
   },
   {
     "appName": "Proton VPN",
-    "version": "3.5.3",
-    "url": "https://vpn.protondownload.com/download/ProtonVPN_v3.5.3_x64.exe"
+    "version": "4.1.11",
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.1.11_x64.exe"
   },
   {
     "appName": "PyCharm Community Edition",
@@ -116,8 +116,8 @@
   },
   {
     "appName": "Python",
-    "version": "3.13.2",
-    "url": "https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64.exe"
+    "version": "3.13.3",
+    "url": "https://www.python.org/ftp/python/3.13.3/python-3.13.3-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.6",
+    "version": "3.9.7",
     "url": "https://www.startallback.com/download.php"
   },
   {
