@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.77.97",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.77.97/BraveBrowserStandaloneSetup.exe"
+    "version": "1.77.100",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.77.100/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "137.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/137.0.1/win64/en-GB/Firefox%20Setup%20137.0.1.exe"
+    "version": "137.0.2",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/137.0.2/win64/en-GB/Firefox%20Setup%20137.0.2.exe"
   },
   {
     "appName": "Git",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2024.3.5",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2024.3.5.exe"
+    "version": "2025.1",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2025.1.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -46,8 +46,8 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "18.8.5",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1885_Full.exe"
+    "version": "18.9.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1890_Full.exe"
   },
   {
     "appName": "Node.js",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.99.2",
+    "version": "1.99.3",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "25.13.0",
+    "version": "25.16.1",
     "url": null
   },
   {
@@ -111,8 +111,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2024.3.5",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2024.3.5.exe"
+    "version": "2025.1",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2025.1.exe"
   },
   {
     "appName": "Python",
