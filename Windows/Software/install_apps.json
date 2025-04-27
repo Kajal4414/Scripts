@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.77.100",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.77.100/BraveBrowserStandaloneSetup.exe"
+    "version": "1.77.101",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.77.101/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.32",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build32.exe?v=lt&amp;filename=idman642build32.exe"
+    "version": "6.42.34",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build34.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -96,12 +96,12 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.8.9",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.9/Obsidian-1.8.9.exe"
+    "version": "1.8.10",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.10/Obsidian-1.8.10.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "25.16.1",
+    "version": "25.19.0",
     "url": null
   },
   {
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.7",
+    "version": "3.9.8",
     "url": "https://www.startallback.com/download.php"
   },
   {
