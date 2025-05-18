@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.78.97",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.78.97/BraveBrowserStandaloneSetup.exe"
+    "version": "1.78.102",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.78.102/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "138.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/138.0.1/win64/en-GB/Firefox%20Setup%20138.0.1.exe"
+    "version": "138.0.4",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/138.0.4/win64/en-GB/Firefox%20Setup%20138.0.4.exe"
   },
   {
     "appName": "Git",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "24.0.1",
-    "url": "https://nodejs.org/download/release/latest/node-v24.0.1-x64.msi"
+    "version": "24.0.2",
+    "url": "https://nodejs.org/download/release/latest/node-v24.0.2-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.100.0",
+    "version": "1.100.2",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,18 +101,18 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "25.22.0",
+    "version": "25.23.0",
     "url": null
   },
   {
     "appName": "Proton VPN",
-    "version": "4.1.12",
-    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.1.12_x64.exe"
+    "version": "4.1.13",
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.1.13_x64.exe"
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2025.1.1",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2025.1.1.exe"
+    "version": "2025.1.1.1",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2025.1.1.1.exe"
   },
   {
     "appName": "Python",
@@ -146,7 +146,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.14.2",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.14.2/YoutubeDownloader.win-x64.zip"
+    "version": "1.15",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.15/YoutubeDownloader.win-x64.zip"
   }
 ]
