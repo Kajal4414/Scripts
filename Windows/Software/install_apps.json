@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.78.102",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.78.102/BraveBrowserStandaloneSetup.exe"
+    "version": "1.79.118",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.79.118/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "138.0.4",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/138.0.4/win64/en-GB/Firefox%20Setup%20138.0.4.exe"
+    "version": "139.0.1",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/139.0.1/win64/en-GB/Firefox%20Setup%20139.0.1.exe"
   },
   {
     "appName": "Git",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.38",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build38.exe"
+    "version": "6.42.40",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build40.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -52,7 +52,7 @@
   {
     "appName": "Node.js",
     "version": "24.1.0",
-    "url": "https://nodejs.org/download/release/v24.1.0/node-v24.1.0-x64.msi"
+    "url": "https://nodejs.org/download/release/latest/node-v24.1.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "25.23.3",
+    "version": "26.0.5",
     "url": null
   },
   {
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.8",
+    "version": "3.9.9",
     "url": "https://www.startallback.com/download.php"
   },
   {
