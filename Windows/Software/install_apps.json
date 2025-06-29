@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.79.126",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.79.126/BraveBrowserStandaloneSetup.exe"
+    "version": "1.80.113",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.80.113/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "139.0.4",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/139.0.4/win64/en-GB/Firefox%20Setup%20139.0.4.exe"
+    "version": "140.0.2",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/140.0.2/win64/en-GB/Firefox%20Setup%20140.0.2.exe"
   },
   {
     "appName": "Git",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2025.1.2",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2025.1.2.exe"
+    "version": "2025.1.3",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2025.1.3.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -46,17 +46,17 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "19.0.1",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1901_Full.exe"
+    "version": "19.0.5",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1905_Full.exe"
   },
   {
     "appName": "Node.js",
-    "version": "24.2.0",
-    "url": "https://nodejs.org/download/release/v24.2.0/node-v24.2.0-x64.msi"
+    "version": "24.3.0",
+    "url": "https://nodejs.org/download/release/latest/node-v24.3.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.101.1",
+    "version": "1.101.2",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "26.9.0",
+    "version": "26.11.0",
     "url": null
   },
   {
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.11",
+    "version": "3.9.12",
     "url": "https://www.startallback.com/download.php"
   },
   {
