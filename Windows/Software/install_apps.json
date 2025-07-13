@@ -11,18 +11,18 @@
   },
   {
     "appName": "Brave",
-    "version": "1.80.115",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.80.115/BraveBrowserStandaloneSetup.exe"
+    "version": "1.80.120",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.80.120/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "140.0.2",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/140.0.2/win64/en-GB/Firefox%20Setup%20140.0.2.exe"
+    "version": "140.0.4",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/140.0.4/win64/en-GB/Firefox%20Setup%20140.0.4.exe"
   },
   {
     "appName": "Git",
-    "version": "2.50.0",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.50.0.windows.2/Git-2.50.0.2-64-bit.exe"
+    "version": "2.50.1",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.50.1.windows.1/Git-2.50.1-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "24.3.0",
-    "url": "https://nodejs.org/download/release/latest/node-v24.3.0-x64.msi"
+    "version": "24.4.0",
+    "url": "https://nodejs.org/download/release/latest-v24.x/node-v24.4.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.101.2",
+    "version": "1.102.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -91,8 +91,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.8.2",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.2/npp.8.8.2.Installer.x64.exe"
+    "version": "8.8.3",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.3/npp.8.8.3.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "26.13.0",
+    "version": "26.14.3",
     "url": null
   },
   {
@@ -111,8 +111,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2025.1.3",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2025.1.3.exe"
+    "version": "2025.1.3.1",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2025.1.3.1.exe"
   },
   {
     "appName": "Python",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.16.2",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.16.2/tsetup-x64.5.16.2.exe"
+    "version": "5.16.3",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.16.3/tsetup-x64.5.16.3.exe"
   },
   {
     "appName": "VLC media player",
