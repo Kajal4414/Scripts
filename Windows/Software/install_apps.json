@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.80.120",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.80.120/BraveBrowserStandaloneSetup.exe"
+    "version": "1.80.122",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.80.122/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "24.4.0",
-    "url": "https://nodejs.org/download/release/latest-v24.x/node-v24.4.0-x64.msi"
+    "version": "24.4.1",
+    "url": "https://nodejs.org/download/release/v24.4.1/node-v24.4.1-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.102.0",
+    "version": "1.102.1",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "26.14.3",
+    "version": "26.17.0",
     "url": null
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.16.3",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.16.3/tsetup-x64.5.16.3.exe"
+    "version": "5.16.4",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.16.4/tsetup-x64.5.16.4.exe"
   },
   {
     "appName": "VLC media player",
