@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.80.122",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.80.122/BraveBrowserStandaloneSetup.exe"
+    "version": "1.80.124",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.80.124/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "140.0.4",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/140.0.4/win64/en-GB/Firefox%20Setup%20140.0.4.exe"
+    "version": "141.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/141.0/win64/en-GB/Firefox%20Setup%20141.0.exe"
   },
   {
     "appName": "Git",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2025.1.3",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2025.1.3.exe"
+    "version": "2025.1.4.1",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2025.1.4.1.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -46,17 +46,17 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "19.0.5",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1905_Full.exe"
+    "version": "19.1.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1910_Full.exe"
   },
   {
     "appName": "Node.js",
     "version": "24.4.1",
-    "url": "https://nodejs.org/download/release/v24.4.1/node-v24.4.1-x64.msi"
+    "url": "https://nodejs.org/download/release/latest/node-v24.4.1-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.102.1",
+    "version": "1.102.2",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -106,8 +106,8 @@
   },
   {
     "appName": "Proton VPN",
-    "version": "4.2.0",
-    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.2.0_x64.exe"
+    "version": "4.2.1",
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.2.1_x64.exe"
   },
   {
     "appName": "PyCharm Community Edition",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.12",
+    "version": "3.9.13",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.16.4",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.16.4/tsetup-x64.5.16.4.exe"
+    "version": "5.16.6",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.16.6/tsetup-x64.5.16.6.exe"
   },
   {
     "appName": "VLC media player",
