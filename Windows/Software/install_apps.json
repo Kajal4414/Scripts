@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.80.124",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.80.124/BraveBrowserStandaloneSetup.exe"
+    "version": "1.80.125",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.80.125/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.41",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build41.exe"
+    "version": "6.42.42",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build42.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "24.4.1",
-    "url": "https://nodejs.org/download/release/latest/node-v24.4.1-x64.msi"
+    "version": "24.5.0",
+    "url": "https://nodejs.org/download/release/latest/node-v24.5.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.102.2",
+    "version": "1.102.3",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "26.17.0",
+    "version": "26.17.3",
     "url": null
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "5.16.6",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v5.16.6/tsetup-x64.5.16.6.exe"
+    "version": "6.0.2",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.0.2/tsetup-x64.6.0.2.exe"
   },
   {
     "appName": "VLC media player",
