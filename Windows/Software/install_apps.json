@@ -11,18 +11,18 @@
   },
   {
     "appName": "Brave",
-    "version": "1.81.135",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.81.135/BraveBrowserStandaloneSetup.exe"
+    "version": "1.81.136",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.81.136/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "141.0.3",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/141.0.3/win64/en-GB/Firefox%20Setup%20141.0.3.exe"
+    "version": "142.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/142.0/win64/en-GB/Firefox%20Setup%20142.0.exe"
   },
   {
     "appName": "Git",
-    "version": "2.50.1",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.50.1.windows.1/Git-2.50.1-64-bit.exe"
+    "version": "2.51.0",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.51.0.windows.1/Git-2.51.0-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.103.1",
+    "version": "1.103.2",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -96,8 +96,8 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.8.10",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.10/Obsidian-1.8.10.exe"
+    "version": "1.9.10",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.10/Obsidian-1.9.10.exe"
   },
   {
     "appName": "OhMyPosh",
