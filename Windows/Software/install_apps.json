@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.81.136",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.81.136/BraveBrowserStandaloneSetup.exe"
+    "version": "1.82.161",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.82.161/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "142.0",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/142.0/win64/en-GB/Firefox%20Setup%20142.0.exe"
+    "version": "142.0.1",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/142.0.1/win64/en-GB/Firefox%20Setup%20142.0.1.exe"
   },
   {
     "appName": "Git",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2025.2",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2025.2.exe"
+    "version": "2025.2.1",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2025.2.1.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -51,8 +51,8 @@
   },
   {
     "appName": "Node.js",
-    "version": "24.6.0",
-    "url": "https://nodejs.org/download/release/latest-v24.x/node-v24.6.0-x64.msi"
+    "version": "24.7.0",
+    "url": "https://nodejs.org/download/release/latest-v24.x/node-v24.7.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -96,12 +96,12 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.9.10",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.10/Obsidian-1.9.10.exe"
+    "version": "1.9.12",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.12/Obsidian-1.9.12.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "26.19.1",
+    "version": "26.20.1",
     "url": null
   },
   {
@@ -111,8 +111,8 @@
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2025.2.0.1",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2025.2.0.1.exe"
+    "version": "2025.2.1.1",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2025.2.1.1.exe"
   },
   {
     "appName": "Python",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.13",
+    "version": "3.9.15",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "6.0.2",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.0.2/tsetup-x64.6.0.2.exe"
+    "version": "6.1.2",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.1.2/tsetup-x64.6.1.2.exe"
   },
   {
     "appName": "VLC media player",
