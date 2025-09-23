@@ -1,5 +1,5 @@
 [Unit]
-Description=Persist the battery charging threshold after 60%
+Description=Persist the battery charging threshold after boot
 After=multi-user.target
 StartLimitBurst=0
 
