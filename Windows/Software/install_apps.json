@@ -11,18 +11,18 @@
   },
   {
     "appName": "Brave",
-    "version": "1.82.172",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.82.172/BraveBrowserStandaloneSetup.exe"
+    "version": "1.83.109",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.83.109/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "143.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/143.0.1/win64/en-GB/Firefox%20Setup%20143.0.1.exe"
+    "version": "143.0.4",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/143.0.4/win64/en-GB/Firefox%20Setup%20143.0.4.exe"
   },
   {
     "appName": "Git",
     "version": "2.51.0",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.51.0.windows.1/Git-2.51.0-64-bit.exe"
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.51.0.windows.2/Git-2.51.0.2-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2025.2.2",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2025.2.2.exe"
+    "version": "2025.2.3",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2025.2.3.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -46,17 +46,17 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "19.2.0",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1920_Full.exe"
+    "version": "19.2.5",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1925_Full.exe"
   },
   {
     "appName": "Node.js",
     "version": "24.9.0",
-    "url": "https://nodejs.org/download/release/latest-v24.x/node-v24.9.0-x64.msi"
+    "url": "https://nodejs.org/download/release/latest/node-v24.9.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.104.2",
+    "version": "1.104.3",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -96,23 +96,23 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.9.12",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.12/Obsidian-1.9.12.exe"
+    "version": "1.9.14",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.14/Obsidian-1.9.14.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "26.26.0",
+    "version": "27.0.0",
     "url": null
   },
   {
     "appName": "Proton VPN",
-    "version": "4.3.1",
-    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.3.1_x64.exe"
+    "version": "4.3.4",
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.3.4_x64.exe"
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2025.2.2",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2025.2.2.exe"
+    "version": "2025.2.3",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2025.2.3.exe"
   },
   {
     "appName": "Python",
@@ -146,7 +146,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.15",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.15/YoutubeDownloader.win-x64.zip"
+    "version": "1.15.1",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.15.1/YoutubeDownloader.win-x64.zip"
   }
 ]
