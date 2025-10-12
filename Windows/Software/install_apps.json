@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.83.109",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.83.109/BraveBrowserStandaloneSetup.exe"
+    "version": "1.83.112",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.83.112/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.48",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build48.exe"
+    "version": "6.42.50",
+    "url": "https://mirror5.internetdownloadmanager.com/idman642build50.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "24.9.0",
-    "url": "https://nodejs.org/download/release/latest/node-v24.9.0-x64.msi"
+    "version": "24.10.0",
+    "url": "https://nodejs.org/download/release/latest/node-v24.10.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.104.3",
+    "version": "1.105.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -91,8 +91,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.8.5",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.5/npp.8.8.5.Installer.x64.exe"
+    "version": "8.8.6",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.6/npp.8.8.6.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "27.0.0",
+    "version": "27.1.2",
     "url": null
   },
   {
@@ -116,8 +116,8 @@
   },
   {
     "appName": "Python",
-    "version": "3.13.7",
-    "url": "https://www.python.org/ftp/python/3.13.7/python-3.13.7-amd64.exe"
+    "version": "3.14.0",
+    "url": "https://www.python.org/ftp/python/3.14.0/python-3.14.0-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.15",
+    "version": "3.9.16",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "6.1.3",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.1.3/tsetup-x64.6.1.3.exe"
+    "version": "6.2.2",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.2.2/tsetup-x64.6.2.2.exe"
   },
   {
     "appName": "VLC media player",
