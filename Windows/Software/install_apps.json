@@ -11,18 +11,18 @@
   },
   {
     "appName": "Brave",
-    "version": "1.83.112",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.83.112/BraveBrowserStandaloneSetup.exe"
+    "version": "1.83.118",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.83.118/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "143.0.4",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/143.0.4/win64/en-GB/Firefox%20Setup%20143.0.4.exe"
+    "version": "144.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/144.0/win64/en-GB/Firefox%20Setup%20144.0.exe"
   },
   {
     "appName": "Git",
-    "version": "2.51.0",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.51.0.windows.2/Git-2.51.0.2-64-bit.exe"
+    "version": "2.51.1",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.51.1.windows.1/Git-2.51.1-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.50",
-    "url": "https://mirror5.internetdownloadmanager.com/idman642build50.exe"
+    "version": "6.42.51",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build51.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "24.10.0",
-    "url": "https://nodejs.org/download/release/latest/node-v24.10.0-x64.msi"
+    "version": "25.0.0",
+    "url": "https://nodejs.org/download/release/latest-v25.x/node-v25.0.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.105.0",
+    "version": "1.105.1",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "27.1.2",
+    "version": "27.2.1",
     "url": null
   },
   {
@@ -121,8 +121,8 @@
   },
   {
     "appName": "Revo Uninstaller Pro",
-    "version": "5.4.0",
-    "url": "https://cd840e6e176b653b1547-d2869635327bad45a686a1f99424bbcf.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
+    "version": "5.4.3",
+    "url": "https://147395aedc40cda44fb3-cfb2b589c3e040ffc10801ffc7764e00.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
   },
   {
     "appName": "StartAllBack",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "6.2.2",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.2.2/tsetup-x64.6.2.2.exe"
+    "version": "6.2.3",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.2.3/tsetup-x64.6.2.3.exe"
   },
   {
     "appName": "VLC media player",
