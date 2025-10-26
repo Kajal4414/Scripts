@@ -6,13 +6,13 @@
   },
   {
     "appName": "BleachBit",
-    "version": "5.0.0",
-    "url": "https://download.bleachbit.org/BleachBit-5.0.0-setup.exe"
+    "version": "5.0.2",
+    "url": "https://download.bleachbit.org/BleachBit-5.0.2-setup.exe"
   },
   {
     "appName": "Brave",
-    "version": "1.83.118",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.83.118/BraveBrowserStandaloneSetup.exe"
+    "version": "1.83.120",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.83.120/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -31,13 +31,13 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.51",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build51.exe"
+    "version": "6.42.52",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build52.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2025.2.3",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2025.2.3.exe"
+    "version": "2025.2.4",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2025.2.4.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -52,7 +52,7 @@
   {
     "appName": "Node.js",
     "version": "25.0.0",
-    "url": "https://nodejs.org/download/release/latest-v25.x/node-v25.0.0-x64.msi"
+    "url": "https://nodejs.org/download/release/latest/node-v25.0.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
@@ -91,8 +91,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.8.6",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.6/npp.8.8.6.Installer.x64.exe"
+    "version": "8.8.7",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.7/npp.8.8.7.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -101,18 +101,18 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "27.2.1",
+    "version": "27.3.1",
     "url": null
   },
   {
     "appName": "Proton VPN",
-    "version": "4.3.4",
-    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.3.4_x64.exe"
+    "version": "4.3.5",
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.3.5_x64.exe"
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2025.2.3",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2025.2.3.exe"
+    "version": "2025.2.4",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2025.2.4.exe"
   },
   {
     "appName": "Python",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "6.2.3",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.2.3/tsetup-x64.6.2.3.exe"
+    "version": "6.2.4",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.2.4/tsetup-x64.6.2.4.exe"
   },
   {
     "appName": "VLC media player",
@@ -146,7 +146,7 @@
   },
   {
     "appName": "YoutubeDownloader",
-    "version": "1.15.1",
-    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.15.1/YoutubeDownloader.win-x64.zip"
+    "version": "1.15.2",
+    "url": "https://github.com/Tyrrrz/YoutubeDownloader/releases/download/1.15.2/YoutubeDownloader.win-x64.zip"
   }
 ]
