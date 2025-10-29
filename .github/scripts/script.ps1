@@ -97,7 +97,7 @@ $baseUrl = "https://www.oracle.com/java/technologies/downloads/"
 
 $softwareList += [PSCustomObject]@{
     appName = "Java(TM) SE Development Kit"
-    version = ([regex]'JDK Development Kit (\d+\.\d+\.\d+)').Match((Invoke-WebRequest $baseUrl -UseBasicParsing).Content).Groups[1].Value
+    version = ([regex]'Java SE Development Kit (\d+\.\d+\.\d+)').Match((Invoke-WebRequest $baseUrl -UseBasicParsing).Content).Groups[1].Value
     url     = "https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe"
 }
 
