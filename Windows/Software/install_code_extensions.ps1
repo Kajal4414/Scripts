@@ -2,7 +2,6 @@
 
 # List of extension IDs
 $extensions = @(
-    "beardedbear.beardedtheme",
     "dbaeumer.vscode-eslint",
     "eamodio.gitlens",
     "esbenp.prettier-vscode",
@@ -27,7 +26,6 @@ $extensions = @(
     "redhat.vscode-yaml",
     "ritwickdey.liveserver",
     "selfrefactor.order-props",
-    "tabnine.tabnine-vscode",
     "twxs.cmake",
     "visualstudioexptteam.intellicode-api-usage-examples",
     "visualstudioexptteam.vscodeintellicode",
