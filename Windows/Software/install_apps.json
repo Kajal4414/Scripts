@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.83.120",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.83.120/BraveBrowserStandaloneSetup.exe"
+    "version": "1.84.132",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.84.132/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -46,8 +46,8 @@
   },
   {
     "appName": "K-Lite Codec Pack",
-    "version": "19.2.5",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1925_Full.exe"
+    "version": "19.3.0",
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1930_Full.exe"
   },
   {
     "appName": "Node.js",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "27.4.0",
+    "version": "27.4.4",
     "url": null
   },
   {
