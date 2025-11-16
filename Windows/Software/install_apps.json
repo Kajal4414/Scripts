@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.84.132",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.84.132/BraveBrowserStandaloneSetup.exe"
+    "version": "1.84.139",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.84.139/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "144.0.2",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/144.0.2/win64/en-GB/Firefox%20Setup%20144.0.2.exe"
+    "version": "145.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/145.0/win64/en-GB/Firefox%20Setup%20145.0.exe"
   },
   {
     "appName": "Git",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "25.1.0",
-    "url": "https://nodejs.org/download/release/latest/node-v25.1.0-x64.msi"
+    "version": "25.2.0",
+    "url": "https://nodejs.org/download/release/latest/node-v25.2.0-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.105.1",
+    "version": "1.106.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -96,12 +96,12 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.9.14",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.14/Obsidian-1.9.14.exe"
+    "version": "1.10.3",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.10.3/Obsidian-1.10.3.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "27.4.4",
+    "version": "27.6.0",
     "url": null
   },
   {
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.16",
+    "version": "3.9.17",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "6.2.4",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.2.4/tsetup-x64.6.2.4.exe"
+    "version": "6.3.0",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.3.0/tsetup-x64.6.3.0.exe"
   },
   {
     "appName": "VLC media player",
