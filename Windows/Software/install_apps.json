@@ -11,18 +11,18 @@
   },
   {
     "appName": "Brave",
-    "version": "1.84.139",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.84.139/BraveBrowserStandaloneSetup.exe"
+    "version": "1.84.141",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.84.141/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "145.0",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/145.0/win64/en-GB/Firefox%20Setup%20145.0.exe"
+    "version": "145.0.1",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/145.0.1/win64/en-GB/Firefox%20Setup%20145.0.1.exe"
   },
   {
     "appName": "Git",
-    "version": "2.51.2",
-    "url": "https://github.com/git-for-windows/git/releases/download/v2.51.2.windows.1/Git-2.51.2-64-bit.exe"
+    "version": "2.52.0",
+    "url": "https://github.com/git-for-windows/git/releases/download/v2.52.0.windows.1/Git-2.52.0-64-bit.exe"
   },
   {
     "appName": "Gpg4win",
@@ -31,13 +31,13 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.52",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build52.exe"
+    "version": "6.42.53",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build53.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2025.2.4",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2025.2.4.exe"
+    "version": "2025.2.5",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2025.2.5.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -51,12 +51,12 @@
   },
   {
     "appName": "Node.js",
-    "version": "25.2.0",
-    "url": "https://nodejs.org/download/release/latest/node-v25.2.0-x64.msi"
+    "version": "25.2.1",
+    "url": "https://nodejs.org/download/release/latest/node-v25.2.1-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.106.0",
+    "version": "1.106.2",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -91,8 +91,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.8.7",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.7/npp.8.8.7.Installer.x64.exe"
+    "version": "8.8.8",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.8/npp.8.8.8.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -126,7 +126,7 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.17",
+    "version": "3.9.18",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "6.3.0",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.3.0/tsetup-x64.6.3.0.exe"
+    "version": "6.3.3",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.3.3/tsetup-x64.6.3.3.exe"
   },
   {
     "appName": "VLC media player",
