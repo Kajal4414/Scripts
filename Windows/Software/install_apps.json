@@ -16,8 +16,8 @@
   },
   {
     "appName": "Firefox",
-    "version": "145.0.1",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/145.0.1/win64/en-GB/Firefox%20Setup%20145.0.1.exe"
+    "version": "145.0.2",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/145.0.2/win64/en-GB/Firefox%20Setup%20145.0.2.exe"
   },
   {
     "appName": "Git",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.53",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build53.exe"
+    "version": "6.42.56",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build56.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -56,7 +56,7 @@
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.106.2",
+    "version": "1.106.3",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -96,23 +96,23 @@
   },
   {
     "appName": "Obsidian",
-    "version": "1.10.3",
-    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.10.3/Obsidian-1.10.3.exe"
+    "version": "1.10.6",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.10.6/Obsidian-1.10.6.exe"
   },
   {
     "appName": "OhMyPosh",
-    "version": "27.6.0",
+    "version": "28.0.0",
     "url": null
   },
   {
     "appName": "Proton VPN",
-    "version": "4.3.5",
-    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.3.5_x64.exe"
+    "version": "4.3.7",
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.3.7_x64.exe"
   },
   {
     "appName": "PyCharm Community Edition",
-    "version": "2025.2.4",
-    "url": "https://download.jetbrains.com/python/pycharm-community-2025.2.4.exe"
+    "version": "2025.2.5",
+    "url": "https://download.jetbrains.com/python/pycharm-community-2025.2.5.exe"
   },
   {
     "appName": "Python",
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "6.3.3",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.3.3/tsetup-x64.6.3.3.exe"
+    "version": "6.3.4",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.3.4/tsetup-x64.6.3.4.exe"
   },
   {
     "appName": "VLC media player",
