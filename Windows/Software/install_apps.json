@@ -11,8 +11,8 @@
   },
   {
     "appName": "Brave",
-    "version": "1.84.141",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.84.141/BraveBrowserStandaloneSetup.exe"
+    "version": "1.85.111",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.85.111/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
@@ -31,8 +31,8 @@
   },
   {
     "appName": "Internet Download Manager",
-    "version": "6.42.56",
-    "url": "https://mirror2.internetdownloadmanager.com/idman642build56.exe"
+    "version": "6.42.57",
+    "url": "https://mirror2.internetdownloadmanager.com/idman642build57.exe"
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
@@ -47,7 +47,7 @@
   {
     "appName": "K-Lite Codec Pack",
     "version": "19.3.0",
-    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1930_Full.exe"
+    "url": "https://files2.codecguide.com/K-Lite_Codec_Pack_1935_Full.exe"
   },
   {
     "appName": "Node.js",
@@ -101,13 +101,13 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "28.0.0",
+    "version": "28.1.0",
     "url": null
   },
   {
     "appName": "Proton VPN",
-    "version": "4.3.7",
-    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.3.7_x64.exe"
+    "version": "4.3.9",
+    "url": "https://vpn.protondownload.com/download/ProtonVPN_v4.3.9_x64.exe"
   },
   {
     "appName": "PyCharm Community Edition",
@@ -116,17 +116,17 @@
   },
   {
     "appName": "Python",
-    "version": "3.14.0",
-    "url": "https://www.python.org/ftp/python/3.14.0/python-3.14.0-amd64.exe"
+    "version": "3.14.2",
+    "url": "https://www.python.org/ftp/python/3.14.2/python-3.14.2-amd64.exe"
   },
   {
     "appName": "Revo Uninstaller Pro",
-    "version": "5.4.3",
-    "url": "https://147395aedc40cda44fb3-cfb2b589c3e040ffc10801ffc7764e00.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
+    "version": "5.4.5",
+    "url": "https://7870ef469fb313275bda-d4bca2904e8df8ffec81c46590fa12d9.ssl.cf1.rackcdn.com/RevoUninProSetup.exe"
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.18",
+    "version": "3.9.19",
     "url": "https://www.startallback.com/download.php"
   },
   {
@@ -136,8 +136,8 @@
   },
   {
     "appName": "Telegram",
-    "version": "6.3.4",
-    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.3.4/tsetup-x64.6.3.4.exe"
+    "version": "6.3.6",
+    "url": "https://github.com/telegramdesktop/tdesktop/releases/download/v6.3.6/tsetup-x64.6.3.6.exe"
   },
   {
     "appName": "VLC media player",
