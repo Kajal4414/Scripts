@@ -11,13 +11,13 @@
   },
   {
     "appName": "Brave",
-    "version": "1.85.111",
-    "url": "https://github.com/brave/brave-browser/releases/download/v1.85.111/BraveBrowserStandaloneSetup.exe"
+    "version": "1.85.116",
+    "url": "https://github.com/brave/brave-browser/releases/download/v1.85.116/BraveBrowserStandaloneSetup.exe"
   },
   {
     "appName": "Firefox",
-    "version": "145.0.2",
-    "url": "https://releases.mozilla.org/pub/firefox/releases/145.0.2/win64/en-GB/Firefox%20Setup%20145.0.2.exe"
+    "version": "146.0",
+    "url": "https://releases.mozilla.org/pub/firefox/releases/146.0/win64/en-GB/Firefox%20Setup%20146.0.exe"
   },
   {
     "appName": "Git",
@@ -36,8 +36,8 @@
   },
   {
     "appName": "IntelliJ IDEA Community Edition",
-    "version": "2025.2.5",
-    "url": "https://download.jetbrains.com/idea/ideaIC-2025.2.5.exe"
+    "version": "2025.2.6",
+    "url": "https://download.jetbrains.com/idea/ideaIC-2025.2.6.exe"
   },
   {
     "appName": "Java(TM) SE Development Kit",
@@ -52,11 +52,11 @@
   {
     "appName": "Node.js",
     "version": "25.2.1",
-    "url": "https://nodejs.org/download/release/latest/node-v25.2.1-x64.msi"
+    "url": "https://nodejs.org/download/release/latest-v25.x/node-v25.2.1-x64.msi"
   },
   {
     "appName": "Microsoft Visual Studio Code",
-    "version": "1.106.3",
+    "version": "1.107.0",
     "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
     "extensions": [
       "beardedbear.beardedtheme",
@@ -91,8 +91,8 @@
   },
   {
     "appName": "Notepad++",
-    "version": "8.8.8",
-    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.8/npp.8.8.8.Installer.x64.exe"
+    "version": "8.8.9",
+    "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.8.9/npp.8.8.9.Installer.x64.exe"
   },
   {
     "appName": "Obsidian",
@@ -101,7 +101,7 @@
   },
   {
     "appName": "OhMyPosh",
-    "version": "28.1.0",
+    "version": "28.2.2",
     "url": null
   },
   {
@@ -126,12 +126,12 @@
   },
   {
     "appName": "StartAllBack",
-    "version": "3.9.19",
+    "version": "3.9.20",
     "url": "https://www.startallback.com/download.php"
   },
   {
     "appName": "StartIsBack++",
-    "version": "2.9.20",
+    "version": "2.9.21",
     "url": "https://startisback.sfo3.cdn.digitaloceanspaces.com/StartIsBackPlusPlus_setup.exe"
   },
   {
