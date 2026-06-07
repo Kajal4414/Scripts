@@ -49,7 +49,16 @@
 
 -   ### [Git](https://git-scm.com)
 -   ### [Gpg4win](https://www.gpg4win.org)
--   ### [JDK 22](https://www.oracle.com/in/java/technologies/downloads/)
+-   ### [~~JDK Oracle~~](https://www.oracle.com/in/java/technologies/downloads/)
+-   ### [JDK Adoptium](https://adoptium.net/) - _(Recommended)_
+    -   #### Error Code 2503?
+        ```ps1
+        # Method 1 - Run Elevated Installer
+        msiexec /i "C:\Users\YourName\Downloads\OpenJDK25U-jdk_x64_windows_hotspot_25.0.3_9.msi"
+
+        # Method 2 - Temp Folder Permissions Fix
+        icacls "C:\Windows\Temp" /grant "%USERNAME%":F
+        ```
 -   ### [Node.js](https://nodejs.org/en)
 -   ### [Python](https://www.python.org/downloads)
 -   ### [Platform Tools](https://developer.android.com/tools/releases/platform-tools)
