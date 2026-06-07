@@ -55,6 +55,8 @@
     top: 0;
     height: 100vh;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .sidebar-logo {
@@ -108,6 +110,41 @@
   .nav-item.active { color: var(--text); border-left-color: var(--text); background: var(--surface); }
 
   .nav-item i { font-size: 15px; opacity: 0.7; }
+
+  /* Sidebar Footer */
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 24px 20px 0;
+    margin-bottom: -10px;
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sidebar-footer span {
+    font-family: 'Geist Mono', monospace;
+    opacity: 0.6;
+  }
+
+  .sidebar-footer a {
+    color: var(--text);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    transition: color 0.15s;
+  }
+
+  .sidebar-footer a:hover {
+    color: var(--link);
+  }
+
+  .sidebar-footer i {
+    font-size: 15px;
+  }
 
   /* Main content */
   .main {
@@ -503,6 +540,13 @@
       </a>
       <a class="nav-item" onclick="show('linux')">
         <i class="ti ti-brand-ubuntu"></i> Linux Notes
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <span>Developed by Kajal</span>
+      <a href="https://github.com/Kajal4414" target="_blank">
+        <i class="ti ti-brand-github"></i> @Kajal4414
       </a>
     </div>
   </nav>
@@ -1045,7 +1089,7 @@ Set-Service -Name "ASUSSystemDiagnosis"  -StartupType Disabled</pre>
       </div>
     </div>
 
-    <!-- Disk & UEFI -->
+    <!-- Disk & UEFI (New Section) -->
     <div id="disk-uefi" class="section">
       <div class="section-header">
         <h2>Disk & UEFI Management</h2>
