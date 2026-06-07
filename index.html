@@ -498,6 +498,9 @@
       <a class="nav-item" onclick="show('asus')">
         <i class="ti ti-battery"></i> ASUS Config
       </a>
+      <a class="nav-item" onclick="show('disk-uefi')">
+        <i class="ti ti-disc"></i> Disk & UEFI
+      </a>
       <a class="nav-item" onclick="show('linux')">
         <i class="ti ti-brand-ubuntu"></i> Linux Notes
       </a>
@@ -1038,6 +1041,107 @@ Set-Service -Name "ASUSSystemDiagnosis"  -StartupType Disabled</pre>
         <div class="code-block">
           <div class="code-header"><span class="code-lang">powershell — restart optimization service</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
           <pre>Restart-Service "ASUSOptimization"</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disk & UEFI -->
+    <div id="disk-uefi" class="section">
+      <div class="section-header">
+        <h2>Disk & UEFI Management</h2>
+        <p>Guides for managing partitions, fixing GRUB, and rebuilding the Windows BCD Store.</p>
+      </div>
+
+      <!-- Remove Recovery Partition -->
+      <div class="subsection">
+        <h3><i class="ti ti-trash"></i> Removing Windows Recovery Partition</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">Open Command Prompt as Administrator and run the following commands in sequence:</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">cmd — diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <pre>diskpart
+list disk
+select disk 0         # Replace '0' with the disk containing recovery partition
+list partition
+select partition X    # Replace 'X' with the recovery partition number
+delete partition override
+exit</pre>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Removing Linux from GRUB -->
+      <div class="subsection">
+        <h3><i class="ti ti-brand-ubuntu"></i> Removing Linux from GRUB Boot Menu</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">For dual-boot setups. Open Command Prompt as Administrator.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">cmd — assign efi letter</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <pre>diskpart
+list disk
+select disk 0         # Replace '0' with your system disk
+list partition
+select partition 0    # Replace '0' with your EFI System Partition number
+assign letter=R
+exit</pre>
+        </div>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">cmd — remove boot entry</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <pre>R:
+cd EFI
+dir                   # Verify directory contents
+rd ubuntu /s          # Replace 'ubuntu' with the correct Linux folder name
+# Type 'Y' and press Enter to confirm deletion. Finally, Reboot.</pre>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Backup & Restore BCD -->
+      <div class="subsection">
+        <h3><i class="ti ti-device-floppy"></i> Backup & Restore UEFI Partition (BCD Store)</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">Backup your Boot Configuration Data before making sensitive changes.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">cmd — backup</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <pre>bcdedit /export "C:\BCD_Backup.bcd"</pre>
+        </div>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">cmd — restore</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <pre>bcdedit /import "C:\BCD_Backup.bcd"</pre>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Fix & Recreate UEFI Partition -->
+      <div class="subsection">
+        <h3><i class="ti ti-tool"></i> Format & Recreate UEFI Partition</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">If the UEFI partition is corrupted, you can reformat and rebuild it from Command Prompt (Admin) or Windows Setup (Shift + F10).</p>
+        
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">cmd — format existing efi</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <pre>diskpart
+list disk
+select disk 0         # Disk containing the UEFI partition
+list partition        # Look for the 100MB-1GB FAT32 EFI partition
+select partition 1    # Replace '1' with your EFI partition number
+format fs=fat32 quick label="System"
+assign letter=V
+exit</pre>
+        </div>
+
+        <div class="callout callout-warn">
+          <i class="ti ti-alert-triangle"></i>
+          <span>If the partition is completely missing, replace the <code>format</code> line above with: <br><code style="font-family:'Geist Mono',monospace; font-size:11px; background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:3px; margin-top:6px; display:inline-block;">create partition efi size=260</code></span>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">cmd — rebuild bcd & cleanup</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <pre>bcdboot C:\Windows /s V: /f UEFI
+
+diskpart
+select volume V
+remove letter=V
+exit</pre>
         </div>
       </div>
     </div>
