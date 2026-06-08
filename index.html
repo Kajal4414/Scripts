@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A curated Windows 10/11 setup guide covering browsers, editors, dev tools, runtimes, media players, ASUS config, boot cleanup, and UEFI repair.">
   <title>Windows Setup Guide</title>
+
+  <!-- Favicon (inline SVG — no external file needed) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232a2a2a'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='16' fill='%23e8e8e8'>W</text></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
   <style>
     /* ── Reset ─────────────────────────────────────────────────────── */
     *, *::before, *::after {
@@ -18,23 +23,30 @@
 
     /* ── Design tokens ─────────────────────────────────────────────── */
     :root {
-      --bg:        #0d0d0d;
-      --surface:   #161616;
-      --surface2:  #1e1e1e;
-      --border:    rgba(255, 255, 255, 0.07);
-      --border2:   rgba(255, 255, 255, 0.12);
-      --text:      #e8e8e8;
-      --muted:     #777;
-      --accent:    #e8e8e8;
-      --tag-bg:    #222;
-      --tag-text:  #999;
-      --code-bg:   #1a1a1a;
-      --code-text: #c9d1d9;
-      --btn-bg:    #1e1e1e;
-      --btn-hover: #2a2a2a;
-      --link:      #8ab4f8;
-      --warn:      #f59e0b;
-      --tip:       #34d399;
+      --bg:            #0d0d0d;
+      --surface:       #161616;
+      --surface2:      #1e1e1e;
+      --border:        rgba(255, 255, 255, 0.07);
+      --border2:       rgba(255, 255, 255, 0.12);
+      --text:          #e8e8e8;
+      --muted:         #777;
+      --tag-bg:        #222;
+      --tag-text:      #999;
+      --code-bg:       #1a1a1a;
+      --code-text:     #c9d1d9;
+      --link:          #8ab4f8;
+      --tip:           #34d399;
+      --transition:    0.15s ease;
+
+      /* Callout colour tokens */
+      --warn-bg:       rgba(245, 158, 11, 0.07);
+      --warn-border:   rgba(245, 158, 11, 0.2);
+      --warn-text:     #d4a843;
+      --tip-bg:        rgba(52, 211, 153, 0.07);
+      --tip-border:    rgba(52, 211, 153, 0.2);
+      --danger-bg:     rgba(239, 68, 68, 0.07);
+      --danger-border: rgba(239, 68, 68, 0.22);
+      --danger-text:   #f87171;
     }
 
     /* ── Base ──────────────────────────────────────────────────────── */
@@ -44,6 +56,7 @@
       color: var(--text);
       font-size: 14px;
       line-height: 1.6;
+      min-height: 100vh;
     }
 
     /* ── Layout ────────────────────────────────────────────────────── */
@@ -66,6 +79,9 @@
       overflow-y: auto;
       display: flex;
       flex-direction: column;
+      background: var(--bg);
+      transition: transform var(--transition), width var(--transition);
+      z-index: 100;
     }
 
     .sidebar-logo {
@@ -89,9 +105,7 @@
       font-family: 'Geist Mono', monospace;
     }
 
-    .nav-group {
-      margin-bottom: 4px;
-    }
+    .nav-group { margin-bottom: 4px; }
 
     .nav-label {
       font-size: 10px;
@@ -102,6 +116,7 @@
       font-weight: 500;
     }
 
+    /* Nav uses <button> for proper semantics and keyboard access */
     .nav-item {
       display: flex;
       align-items: center;
@@ -110,15 +125,35 @@
       font-size: 13px;
       color: #aaa;
       cursor: pointer;
-      border-radius: 0;
-      transition: color 0.15s, background 0.15s;
-      text-decoration: none;
+      border: none;
       border-left: 2px solid transparent;
+      border-radius: 0;
+      background: none;
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+      transition: color var(--transition), background var(--transition), border-color var(--transition);
     }
 
-    .nav-item:hover        { color: var(--text); background: var(--surface); }
-    .nav-item.active       { color: var(--text); border-left-color: var(--text); background: var(--surface); }
-    .nav-item i            { font-size: 15px; opacity: 0.7; }
+    .nav-item:hover  { color: var(--text); background: var(--surface); }
+    .nav-item.active { color: var(--text); border-left-color: var(--text); background: var(--surface); }
+    .nav-item i      { font-size: 15px; opacity: 0.7; }
+
+    /* ── Mobile hamburger ──────────────────────────────────────────── */
+    .sidebar-toggle {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 200;
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      color: var(--text);
+      border-radius: 6px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
 
     /* ── Sidebar footer / developer credit ────────────────────────── */
     .sidebar-footer {
@@ -143,7 +178,7 @@
       text-decoration: none;
       color: var(--muted);
       font-size: 12px;
-      transition: color 0.15s;
+      transition: color var(--transition), border-color var(--transition);
       padding: 6px 8px;
       border-radius: 6px;
       border: 1px solid var(--border);
@@ -196,7 +231,7 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 16px 18px;
-      transition: border-color 0.15s;
+      transition: border-color var(--transition);
     }
 
     .card:hover { border-color: var(--border2); }
@@ -253,7 +288,7 @@
       border-radius: 4px;
       text-decoration: none;
       border: 1px solid var(--border);
-      transition: color 0.15s, border-color 0.15s;
+      transition: color var(--transition), border-color var(--transition);
       cursor: pointer;
     }
 
@@ -261,24 +296,24 @@
     .chip i     { font-size: 12px; }
 
     /* ── Badges ────────────────────────────────────────────────────── */
-    .rec-badge {
-      font-size: 10px;
-      padding: 2px 6px;
-      background: rgba(52, 211, 153, 0.1);
-      color: var(--tip);
-      border-radius: 4px;
-      border: 1px solid rgba(52, 211, 153, 0.2);
-      font-weight: 500;
-    }
-
+    .rec-badge,
     .dep-badge {
       font-size: 10px;
       padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .rec-badge {
+      background: rgba(52, 211, 153, 0.1);
+      color: var(--tip);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+    }
+
+    .dep-badge {
       background: rgba(239, 68, 68, 0.1);
       color: #f87171;
-      border-radius: 4px;
       border: 1px solid rgba(239, 68, 68, 0.2);
-      font-weight: 500;
     }
 
     /* ── Code blocks ───────────────────────────────────────────────── */
@@ -318,8 +353,8 @@
       display: flex;
       align-items: center;
       gap: 4px;
-      font-family: 'DM Sans', sans-serif;
-      transition: color 0.15s;
+      font-family: inherit;
+      transition: color var(--transition);
     }
 
     .copy-btn:hover { color: var(--text); }
@@ -332,11 +367,14 @@
       font-size: 12px;
       line-height: 1.7;
       color: var(--code-text);
+      white-space: pre-wrap;
+      word-break: break-word;
     }
 
     /* ── Callouts ──────────────────────────────────────────────────── */
     .callout {
       display: flex;
+      align-items: flex-start;
       gap: 10px;
       padding: 12px 14px;
       border-radius: 6px;
@@ -345,28 +383,15 @@
       line-height: 1.6;
     }
 
-    .callout-warn {
-      background: rgba(245, 158, 11, 0.07);
-      border: 1px solid rgba(245, 158, 11, 0.2);
-      color: #d4a843;
-    }
-
-    .callout-tip {
-      background: rgba(52, 211, 153, 0.07);
-      border: 1px solid rgba(52, 211, 153, 0.2);
-      color: #34d399;
-    }
-
-    .callout-danger {
-      background: rgba(239, 68, 68, 0.07);
-      border: 1px solid rgba(239, 68, 68, 0.22);
-      color: #f87171;
-    }
+    .callout-warn   { background: var(--warn-bg);   border: 1px solid var(--warn-border);   color: var(--warn-text); }
+    .callout-tip    { background: var(--tip-bg);    border: 1px solid var(--tip-border);    color: var(--tip); }
+    .callout-danger { background: var(--danger-bg); border: 1px solid var(--danger-border); color: var(--danger-text); }
 
     .callout i    { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
     .callout span { color: var(--text); opacity: 0.85; }
 
-    /* ── Inline code (shared utility) ──────────────────────────────── */
+    /* ── Inline code utility classes ────────────────────────────────── */
+    /* Use .icode for normal surface background, .icode-dark inside callouts */
     .icode {
       font-family: 'Geist Mono', monospace;
       font-size: 11px;
@@ -375,7 +400,6 @@
       border-radius: 3px;
     }
 
-    /* Darker variant used inside callout-tip boxes */
     .icode-dark {
       font-family: 'Geist Mono', monospace;
       font-size: 11px;
@@ -412,12 +436,8 @@
 
     .data-table tr:hover td { background: var(--surface); }
 
-    .data-table td a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    .data-table td a:hover { text-decoration: underline; }
+    .data-table td a            { color: var(--link); text-decoration: none; }
+    .data-table td a:hover      { text-decoration: underline; }
 
     /* ── Step list ─────────────────────────────────────────────────── */
     .steps { margin: 16px 0; }
@@ -473,30 +493,11 @@
 
     .subsection h3 i { font-size: 16px; color: var(--muted); }
 
-    /* ── Utility text ──────────────────────────────────────────────── */
-    .text-muted-sm {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .text-muted-sm-top {
-      font-size: 13px;
-      color: var(--muted);
-      margin: 16px 0 10px;
-    }
-
-    .text-note {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 6px;
-    }
-
-    .text-desc {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
+    /* ── Shared text utility classes ────────────────────────────────── */
+    .text-muted-sm     { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .text-muted-sm-top { font-size: 13px; color: var(--muted); margin: 16px 0 10px; }
+    .text-note         { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .text-desc         { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
 
     /* ── Registry path ─────────────────────────────────────────────── */
     .reg-path {
@@ -532,7 +533,7 @@
     }
 
     /* ── Divider ───────────────────────────────────────────────────── */
-    .divider {
+    hr.divider {
       border: none;
       border-top: 1px solid var(--border);
       margin: 28px 0;
@@ -542,14 +543,41 @@
     ::-webkit-scrollbar       { width: 4px; height: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
+    /* ── Responsive (mobile) ───────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        width: 260px;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .sidebar.open { transform: translateX(0); }
+
+      .sidebar-toggle { display: block; }
+
+      .main { padding: 60px 20px 40px; }
+
+      .card-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
 <div class="layout">
 
+  <!-- Mobile hamburger button -->
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation menu">
+    <i class="ti ti-menu-2"></i>
+  </button>
+
   <!-- ── Sidebar ──────────────────────────────────────────────────── -->
-  <nav class="sidebar" aria-label="Main navigation">
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
     <div class="sidebar-logo">
       <h1>Setup Guide</h1>
       <span>Windows 10 / 11</span>
@@ -557,23 +585,23 @@
 
     <div class="nav-group">
       <div class="nav-label">Software</div>
-      <a class="nav-item active" href="#browsers"   onclick="show('browsers',   this)"><i class="ti ti-world"></i>         Browsers</a>
-      <a class="nav-item"        href="#editors"    onclick="show('editors',    this)"><i class="ti ti-code"></i>           Editors &amp; IDEs</a>
-      <a class="nav-item"        href="#devtools"   onclick="show('devtools',   this)"><i class="ti ti-tool"></i>           Dev Tools</a>
-      <a class="nav-item"        href="#runtimes"   onclick="show('runtimes',   this)"><i class="ti ti-cpu"></i>            Runtimes</a>
-      <a class="nav-item"        href="#downloaders" onclick="show('downloaders',this)"><i class="ti ti-download"></i>      Download Managers</a>
-      <a class="nav-item"        href="#media"      onclick="show('media',      this)"><i class="ti ti-player-play"></i>   Media Players</a>
-      <a class="nav-item"        href="#office"     onclick="show('office',     this)"><i class="ti ti-file-text"></i>     Office</a>
-      <a class="nav-item"        href="#messaging"  onclick="show('messaging',  this)"><i class="ti ti-message"></i>       Messaging</a>
+      <button class="nav-item active" data-target="browsers"><i class="ti ti-world"></i> Browsers</button>
+      <button class="nav-item" data-target="editors"><i class="ti ti-code"></i> Editors &amp; IDEs</button>
+      <button class="nav-item" data-target="devtools"><i class="ti ti-tool"></i> Dev Tools</button>
+      <button class="nav-item" data-target="runtimes"><i class="ti ti-cpu"></i> Runtimes</button>
+      <button class="nav-item" data-target="downloaders"><i class="ti ti-download"></i> Download Managers</button>
+      <button class="nav-item" data-target="media"><i class="ti ti-player-play"></i> Media Players</button>
+      <button class="nav-item" data-target="office"><i class="ti ti-file-text"></i> Office</button>
+      <button class="nav-item" data-target="messaging"><i class="ti ti-message"></i> Messaging</button>
     </div>
 
     <div class="nav-group">
       <div class="nav-label">System</div>
-      <a class="nav-item" href="#misc"    onclick="show('misc',    this)"><i class="ti ti-apps"></i>         Utilities</a>
-      <a class="nav-item" href="#asus"    onclick="show('asus',    this)"><i class="ti ti-battery"></i>      ASUS Config</a>
-      <a class="nav-item" href="#linux"   onclick="show('linux',   this)"><i class="ti ti-brand-ubuntu"></i> Linux Notes</a>
-      <a class="nav-item" href="#cleanup" onclick="show('cleanup', this)"><i class="ti ti-eraser"></i>       Boot Cleanup</a>
-      <a class="nav-item" href="#uefi"    onclick="show('uefi',    this)"><i class="ti ti-tool"></i>         UEFI Repair</a>
+      <button class="nav-item" data-target="misc"><i class="ti ti-apps"></i> Utilities</button>
+      <button class="nav-item" data-target="asus"><i class="ti ti-battery"></i> ASUS Config</button>
+      <button class="nav-item" data-target="linux"><i class="ti ti-brand-ubuntu"></i> Linux Notes</button>
+      <button class="nav-item" data-target="cleanup"><i class="ti ti-eraser"></i> Boot Cleanup</button>
+      <button class="nav-item" data-target="uefi"><i class="ti ti-tool"></i> UEFI Repair</button>
     </div>
 
     <div class="sidebar-footer">
@@ -586,10 +614,10 @@
   </nav>
 
   <!-- ── Main content ─────────────────────────────────────────────── -->
-  <main class="main">
+  <main class="main" id="mainContent">
 
     <!-- Browsers ──────────────────────────────────────────────────── -->
-    <div id="browsers" class="section active">
+    <section id="browsers" class="section active">
       <div class="section-header">
         <h2>Browsers</h2>
         <p>Recommended browsers with themes and install scripts.</p>
@@ -638,7 +666,7 @@
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">powershell — step 1</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_firefox.ps1" `
   -o "$env:USERPROFILE\Desktop\install_firefox.ps1"</pre>
@@ -646,7 +674,7 @@
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">powershell — step 2</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>cd "$env:USERPROFILE\Desktop"; .\install_firefox.ps1 -theme -configs; Remove-Item .\install_firefox.ps1</pre>
         </div>
@@ -657,10 +685,10 @@
           </span>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Editors ───────────────────────────────────────────────────── -->
-    <div id="editors" class="section">
+    <section id="editors" class="section">
       <div class="section-header">
         <h2>Code Editors &amp; IDEs</h2>
         <p>Development environments, terminal setups, and config sync scripts.</p>
@@ -760,7 +788,7 @@
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">powershell — apply settings</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json" `
   -o "$env:APPDATA\Code\User\settings.json"</pre>
@@ -768,7 +796,7 @@
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">powershell — install extensions</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_code_extensions.ps1 | iex</pre>
         </div>
@@ -779,7 +807,7 @@
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">sh — intellij idea</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>sudo tar -xzf ideaIC-*.tar.gz -C /opt
 sudo sh /opt/idea-*/bin/idea.sh</pre>
@@ -787,16 +815,16 @@ sudo sh /opt/idea-*/bin/idea.sh</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">sh — pycharm</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>sudo tar -xzf pycharm-*.tar.gz -C /opt
 sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Dev Tools ─────────────────────────────────────────────────── -->
-    <div id="devtools" class="section">
+    <section id="devtools" class="section">
       <div class="section-header">
         <h2>Development Tools</h2>
         <p>Version control, SDKs, and Android tooling.</p>
@@ -868,7 +896,7 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">powershell</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_platform_tools.ps1 | iex</pre>
         </div>
@@ -879,7 +907,7 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">powershell</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/Install_apk_tool.ps1 | iex</pre>
         </div>
@@ -895,7 +923,7 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">powershell</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>msiexec /i "C:\Users\YourName\Downloads\OpenJDK25U-jdk_x64_windows_hotspot_25.0.3_9.msi"</pre>
               </div>
@@ -908,7 +936,7 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">powershell</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>icacls "C:\Windows\Temp" /grant "%USERNAME%":F</pre>
               </div>
@@ -916,10 +944,10 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Runtimes ───────────────────────────────────────────────────── -->
-    <div id="runtimes" class="section">
+    <section id="runtimes" class="section">
       <div class="section-header">
         <h2>Runtimes &amp; Redistributables</h2>
         <p>Essential system packages required by most software.</p>
@@ -950,10 +978,10 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
 
     <!-- Download Managers ─────────────────────────────────────────── -->
-    <div id="downloaders" class="section">
+    <section id="downloaders" class="section">
       <div class="section-header">
         <h2>Download Managers</h2>
         <p>Download accelerators and torrent clients.</p>
@@ -1008,10 +1036,10 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         <i class="ti ti-alert-triangle"></i>
         <span>The <strong>IDM Activation Script</strong> is deprecated. Use the IDM Trial Reset tool instead.</span>
       </div>
-    </div>
+    </section>
 
     <!-- Media ─────────────────────────────────────────────────────── -->
-    <div id="media" class="section">
+    <section id="media" class="section">
       <div class="section-header">
         <h2>Media Players &amp; Viewers</h2>
         <p>Video, audio, and image viewing software.</p>
@@ -1058,15 +1086,15 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">powershell</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_mpv.ps1 | iex</pre>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Office ────────────────────────────────────────────────────── -->
-    <div id="office" class="section">
+    <section id="office" class="section">
       <div class="section-header">
         <h2>Office Suite</h2>
         <p>Microsoft Office installation and activation.</p>
@@ -1097,10 +1125,10 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         <i class="ti ti-info-circle"></i>
         <span>Use the <strong>Ohook</strong> method from Microsoft Activation Scripts for reliable activation.</span>
       </div>
-    </div>
+    </section>
 
     <!-- Messaging ─────────────────────────────────────────────────── -->
-    <div id="messaging" class="section">
+    <section id="messaging" class="section">
       <div class="section-header">
         <h2>Messaging</h2>
         <p>Messaging clients for desktop and cross-platform communication.</p>
@@ -1142,15 +1170,15 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">sh</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>sudo tar -xf tsetup*.tar.xz -C /opt</pre>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Utilities ─────────────────────────────────────────────────── -->
-    <div id="misc" class="section">
+    <section id="misc" class="section">
       <div class="section-header">
         <h2>Utilities</h2>
         <p>System tools, uninstallers, and quality-of-life apps.</p>
@@ -1260,10 +1288,10 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         </p>
         <code class="reg-path">C:\Program Files (x86)\StartIsBack\</code>
       </div>
-    </div>
+    </section>
 
     <!-- ASUS Config ────────────────────────────────────────────────── -->
-    <div id="asus" class="section">
+    <section id="asus" class="section">
       <div class="section-header">
         <h2>ASUS Configuration</h2>
         <p>Battery threshold settings and ASUS service management.</p>
@@ -1272,7 +1300,9 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
       <div class="subsection">
         <h3><i class="ti ti-battery"></i> Set Battery Charging Threshold (60%)</h3>
         <p class="text-desc">
-          Requires the <a href="https://www.asus.com/support/Download-Center/" target="_blank" rel="noopener noreferrer" style="color:var(--link);">ASUS System Control Interface</a> driver. Does not need the MyASUS app.
+          Requires the
+          <a href="https://www.asus.com/support/Download-Center/" target="_blank" rel="noopener noreferrer" style="color:var(--link);">ASUS System Control Interface</a>
+          driver. Does not need the MyASUS app.
         </p>
 
         <div class="steps">
@@ -1283,7 +1313,7 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">cmd</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>reg add "HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys" /v ChargingRate /t REG_DWORD /d 60 /f</pre>
               </div>
@@ -1306,9 +1336,7 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
             <div class="step-num">3</div>
             <div class="step-content">
               <h4>PowerShell Script (Alternative)</h4>
-              <p>
-                Use the pre-built script at <code class="icode">../Extra/charging_threshold.ps1</code>.
-              </p>
+              <p>Use the pre-built script at <code class="icode">../Extra/charging_threshold.ps1</code>.</p>
             </div>
           </div>
         </div>
@@ -1318,11 +1346,10 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
 
       <div class="subsection">
         <h3><i class="ti ti-server"></i> ASUS Services Management</h3>
-
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">powershell — list all asus services</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>Get-Service | Where-Object { $_.Name -like "*ASUS*" }</pre>
         </div>
@@ -1344,7 +1371,7 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         <div class="code-block" style="margin-top: 14px;">
           <div class="code-header">
             <span class="code-lang">powershell — disable non-essential services</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>Set-Service -Name "AsusAppService"       -StartupType Disabled
 Set-Service -Name "ASUSLinkNear"         -StartupType Disabled
@@ -1358,15 +1385,15 @@ Set-Service -Name "ASUSSystemDiagnosis"  -StartupType Disabled</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">powershell — restart optimization service</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>Restart-Service "ASUSOptimization"</pre>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Linux Notes ────────────────────────────────────────────────── -->
-    <div id="linux" class="section">
+    <section id="linux" class="section">
       <div class="section-header">
         <h2>Linux Notes</h2>
         <p>Supplementary setup steps for Linux Mint / Debian-based systems.</p>
@@ -1377,7 +1404,7 @@ Set-Service -Name "ASUSSystemDiagnosis"  -StartupType Disabled</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">sh — add microsoft package repo</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -1386,7 +1413,7 @@ rm packages-microsoft-prod.deb</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">sh — install runtime</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>sudo apt update && sudo apt install -y aspnetcore-runtime-8.0
 dotnet --list-runtimes</pre>
@@ -1394,7 +1421,7 @@ dotnet --list-runtimes</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">sh — optional: install sdk</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>sudo apt update && sudo apt install -y dotnet-sdk-8.0
 dotnet --list-sdks</pre>
@@ -1402,7 +1429,7 @@ dotnet --list-sdks</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">sh — launch app</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>cd YoutubeDownloader/ && ./YoutubeDownloader</pre>
         </div>
@@ -1419,10 +1446,10 @@ dotnet --list-sdks</pre>
           </span>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Boot Cleanup ────────────────────────────────────────────────── -->
-    <div id="cleanup" class="section">
+    <section id="cleanup" class="section">
       <div class="section-header">
         <h2>Boot Cleanup</h2>
         <p>Remove unwanted recovery partitions and wipe Linux boot entries from the EFI partition after a dual-boot teardown.</p>
@@ -1449,9 +1476,7 @@ dotnet --list-sdks</pre>
             <div class="step-num">1</div>
             <div class="step-content">
               <h4>Open Command Prompt as Administrator</h4>
-              <p>
-                Press <code class="icode">Win + X</code> → "Command Prompt (Admin)" or "Windows PowerShell (Admin)".
-              </p>
+              <p>Press <code class="icode">Win + X</code> → "Command Prompt (Admin)" or "Windows PowerShell (Admin)".</p>
             </div>
           </div>
 
@@ -1462,7 +1487,7 @@ dotnet --list-sdks</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">diskpart</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>diskpart
 list disk
@@ -1479,7 +1504,7 @@ list partition      # Find the "Recovery" type entry (~500 MB)</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">diskpart</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>select partition X    # Replace X with the recovery partition number
 delete partition override</pre>
@@ -1510,7 +1535,7 @@ delete partition override</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">diskpart</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>diskpart
 list disk
@@ -1530,7 +1555,7 @@ exit</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">cmd</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>R:
 cd EFI
@@ -1548,7 +1573,7 @@ rd ubuntu /s         # Replace 'ubuntu' with the actual folder name</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">diskpart</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>diskpart
 select volume R
@@ -1568,10 +1593,10 @@ exit</pre>
           to rebuild the BCD store or repair the EFI partition.
         </span>
       </div>
-    </div>
+    </section>
 
     <!-- UEFI Repair ─────────────────────────────────────────────────── -->
-    <div id="uefi" class="section">
+    <section id="uefi" class="section">
       <div class="section-header">
         <h2>UEFI Repair</h2>
         <p>Backup and restore the BCD store, or repair / fully recreate a corrupted EFI System Partition.</p>
@@ -1595,7 +1620,7 @@ exit</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">cmd — admin</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>bcdedit /export C:\BCD_Backup\bcdbackup</pre>
         </div>
@@ -1623,7 +1648,7 @@ exit</pre>
         <div class="code-block">
           <div class="code-header">
             <span class="code-lang">cmd — admin</span>
-            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+            <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
           </div>
           <pre>bcdedit /import C:\BCD_Backup\bcdbackup</pre>
         </div>
@@ -1663,7 +1688,7 @@ exit</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">diskpart</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>diskpart
 list disk
@@ -1685,7 +1710,7 @@ exit</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">cmd — admin</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>bcdboot C:\Windows /s V: /f UEFI</pre>
               </div>
@@ -1699,7 +1724,7 @@ exit</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">diskpart</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>diskpart
 select volume V
@@ -1739,7 +1764,7 @@ exit</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">diskpart</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>diskpart
 list disk
@@ -1756,7 +1781,7 @@ list partition         # Find the EFI entry (FAT32, 100–1000 MB)</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">diskpart</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>select partition #    # Replace # with the EFI partition number
 delete partition</pre>
@@ -1771,7 +1796,7 @@ delete partition</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">diskpart</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>create partition efi size=260
 format quick fs=fat32 label="System"
@@ -1789,7 +1814,7 @@ exit</pre>
               <div class="code-block">
                 <div class="code-header">
                   <span class="code-lang">cmd</span>
-                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                  <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
                 </div>
                 <pre>bcdboot C:\Windows /s S: /f UEFI</pre>
               </div>
@@ -1808,44 +1833,95 @@ exit</pre>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
   </main>
 </div>
 
 <script>
-  /**
-   * Switch the visible section and update the active nav-item.
-   * @param {string} id   - The section element ID to show.
-   * @param {Element} el  - The nav-item anchor that was clicked.
-   */
-  function show(id, el) {
-    document.querySelectorAll('.section').forEach(function (s) {
-      s.classList.remove('active');
-    });
-    document.querySelectorAll('.nav-item').forEach(function (n) {
-      n.classList.remove('active');
-    });
-    document.getElementById(id).classList.add('active');
-    el.classList.add('active');
-  }
+  (function () {
+    'use strict';
 
-  /**
-   * Copy the code block's text to the clipboard and provide visual feedback.
-   * @param {Element} btn - The copy button that was clicked.
-   */
-  function copyCode(btn) {
-    var pre = btn.closest('.code-block').querySelector('pre');
-    navigator.clipboard.writeText(pre.textContent.trim()).then(function () {
-      var orig = btn.innerHTML;
-      btn.innerHTML = '<i class="ti ti-check"></i> Copied';
-      btn.style.color = 'var(--tip)';
-      setTimeout(function () {
-        btn.innerHTML = orig;
-        btn.style.color = '';
-      }, 1800);
+    var sidebar    = document.getElementById('sidebar');
+    var toggleBtn  = document.getElementById('sidebarToggle');
+    var sections   = document.querySelectorAll('.section');
+    var navItems   = document.querySelectorAll('.nav-item');
+
+    /** Show the target section and mark the clicked nav-item as active. */
+    function switchSection(targetId, clickedItem) {
+      sections.forEach(function (s) { s.classList.remove('active'); });
+      navItems.forEach(function (n) { n.classList.remove('active'); });
+
+      var section = document.getElementById(targetId);
+      if (section)     section.classList.add('active');
+      if (clickedItem) clickedItem.classList.add('active');
+
+      // Auto-close sidebar on mobile after navigation
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove('open');
+      }
+    }
+
+    // Wire up nav buttons via event delegation (data-target attribute)
+    navItems.forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        switchSection(e.currentTarget.getAttribute('data-target'), e.currentTarget);
+      });
     });
-  }
+
+    // Copy-to-clipboard with modern API + execCommand fallback
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var pre  = btn.closest('.code-block').querySelector('pre');
+        var text = pre.textContent.trim();
+        var originalHTML = btn.innerHTML;
+
+        function onSuccess() {
+          btn.innerHTML = '<i class="ti ti-check"></i> Copied';
+          btn.style.color = 'var(--tip)';
+          setTimeout(function () {
+            btn.innerHTML = originalHTML;
+            btn.style.color = '';
+          }, 1800);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(onSuccess).catch(fallback);
+        } else {
+          fallback();
+        }
+
+        function fallback() {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity  = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); onSuccess(); } catch (_) {}
+          document.body.removeChild(ta);
+        }
+      });
+    });
+
+    // Mobile sidebar toggle
+    toggleBtn.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+
+    // Close sidebar when clicking outside it on mobile
+    document.addEventListener('click', function (e) {
+      if (
+        window.innerWidth <= 768 &&
+        !sidebar.contains(e.target) &&
+        e.target !== toggleBtn &&
+        sidebar.classList.contains('open')
+      ) {
+        sidebar.classList.remove('open');
+      }
+    });
+
+  })();
 </script>
 </body>
 </html>
