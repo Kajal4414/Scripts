@@ -1,497 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Windows Setup Guide</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A curated Windows 10/11 setup guide covering browsers, editors, dev tools, runtimes, media players, ASUS config, boot cleanup, and UEFI repair.">
+  <title>Windows Setup Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <style>
+    /* ── Reset ─────────────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --bg: #0d0d0d;
-    --surface: #161616;
-    --surface2: #1e1e1e;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.12);
-    --text: #e8e8e8;
-    --muted: #777;
-    --accent: #e8e8e8;
-    --tag-bg: #222;
-    --tag-text: #999;
-    --code-bg: #1a1a1a;
-    --code-text: #c9d1d9;
-    --btn-bg: #1e1e1e;
-    --btn-hover: #2a2a2a;
-    --link: #8ab4f8;
-    --warn: #f59e0b;
-    --tip: #34d399;
-  }
+    /* ── Design tokens ─────────────────────────────────────────────── */
+    :root {
+      --bg:        #0d0d0d;
+      --surface:   #161616;
+      --surface2:  #1e1e1e;
+      --border:    rgba(255, 255, 255, 0.07);
+      --border2:   rgba(255, 255, 255, 0.12);
+      --text:      #e8e8e8;
+      --muted:     #777;
+      --accent:    #e8e8e8;
+      --tag-bg:    #222;
+      --tag-text:  #999;
+      --code-bg:   #1a1a1a;
+      --code-text: #c9d1d9;
+      --btn-bg:    #1e1e1e;
+      --btn-hover: #2a2a2a;
+      --link:      #8ab4f8;
+      --warn:      #f59e0b;
+      --tip:       #34d399;
+    }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 14px;
-    line-height: 1.6;
-  }
+    /* ── Base ──────────────────────────────────────────────────────── */
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
 
-  .layout {
-    display: flex;
-    min-height: 100vh;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+    /* ── Layout ────────────────────────────────────────────────────── */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-  /* Sidebar */
-  .sidebar {
-    width: 220px;
-    flex-shrink: 0;
-    border-right: 1px solid var(--border);
-    padding: 32px 0 0;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-  }
+    /* ── Sidebar ───────────────────────────────────────────────────── */
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border);
+      padding: 32px 0 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
 
-  .sidebar-logo {
-    padding: 0 20px 28px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 20px;
-    margin-top: 32px;
-  }
+    .sidebar-logo {
+      padding: 0 20px 28px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+      margin-top: 32px;
+    }
 
-  .sidebar-logo h1 {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
+    .sidebar-logo h1 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
 
-  .sidebar-logo span {
-    font-size: 11px;
-    color: var(--muted);
-    font-family: 'Geist Mono', monospace;
-  }
+    .sidebar-logo span {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'Geist Mono', monospace;
+    }
 
-  .nav-group {
-    margin-bottom: 4px;
-  }
+    .nav-group {
+      margin-bottom: 4px;
+    }
 
-  .nav-label {
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 8px 20px 4px;
-    font-weight: 500;
-  }
+    .nav-label {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 8px 20px 4px;
+      font-weight: 500;
+    }
 
-  .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 20px;
-    font-size: 13px;
-    color: #aaa;
-    cursor: pointer;
-    border-radius: 0;
-    transition: color 0.15s, background 0.15s;
-    text-decoration: none;
-    border-left: 2px solid transparent;
-  }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 20px;
+      font-size: 13px;
+      color: #aaa;
+      cursor: pointer;
+      border-radius: 0;
+      transition: color 0.15s, background 0.15s;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+    }
 
-  .nav-item:hover { color: var(--text); background: var(--surface); }
-  .nav-item.active { color: var(--text); border-left-color: var(--text); background: var(--surface); }
+    .nav-item:hover        { color: var(--text); background: var(--surface); }
+    .nav-item.active       { color: var(--text); border-left-color: var(--text); background: var(--surface); }
+    .nav-item i            { font-size: 15px; opacity: 0.7; }
 
-  .nav-item i { font-size: 15px; opacity: 0.7; }
+    /* ── Sidebar footer / developer credit ────────────────────────── */
+    .sidebar-footer {
+      margin-top: auto;
+      padding: 20px 20px 16px;
+      border-top: 1px solid var(--border);
+    }
 
-  /* Main content */
-  .main {
-    flex: 1;
-    min-width: 0;
-    padding: 48px 48px 80px;
-    overflow-y: auto;
-  }
+    .dev-credit-label {
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
 
-  .section { display: none; }
-  .section.active { display: block; }
+    .dev-credit {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 12px;
+      transition: color 0.15s;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
 
-  .section-header {
-    margin-bottom: 32px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-  }
+    .dev-credit:hover { color: var(--text); border-color: var(--border2); }
+    .dev-credit i     { font-size: 15px; }
 
-  .section-header h2 {
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
+    /* ── Main content ──────────────────────────────────────────────── */
+    .main {
+      flex: 1;
+      min-width: 0;
+      padding: 48px 48px 80px;
+      overflow-y: auto;
+    }
 
-  .section-header p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
+    .section        { display: none; }
+    .section.active { display: block; }
 
-  /* Cards */
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 12px;
-    margin-bottom: 32px;
-  }
+    .section-header {
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
 
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 18px;
-    transition: border-color 0.15s;
-  }
+    .section-header h2 {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
 
-  .card:hover { border-color: var(--border2); }
+    .section-header p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
 
-  .card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
+    /* ── Cards ─────────────────────────────────────────────────────── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
 
-  .card-icon {
-    width: 32px;
-    height: 32px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    color: #aaa;
-  }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      transition: border-color 0.15s;
+    }
 
-  .card h3 {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
+    .card:hover { border-color: var(--border2); }
 
-  .card p {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.5;
-    margin-bottom: 12px;
-  }
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
 
-  .card-links {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
+    .card-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #aaa;
+    }
 
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    padding: 3px 8px;
-    background: var(--tag-bg);
-    color: var(--tag-text);
-    border-radius: 4px;
-    text-decoration: none;
-    border: 1px solid var(--border);
-    transition: color 0.15s, border-color 0.15s;
-    cursor: pointer;
-  }
+    .card h3 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
 
-  .chip:hover { color: var(--text); border-color: var(--border2); }
-  .chip i { font-size: 12px; }
+    .card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
 
-  .rec-badge {
-    font-size: 10px;
-    padding: 2px 6px;
-    background: rgba(52,211,153,0.1);
-    color: var(--tip);
-    border-radius: 4px;
-    border: 1px solid rgba(52,211,153,0.2);
-    font-weight: 500;
-  }
+    .card-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
 
-  .dep-badge {
-    font-size: 10px;
-    padding: 2px 6px;
-    background: rgba(239,68,68,0.1);
-    color: #f87171;
-    border-radius: 4px;
-    border: 1px solid rgba(239,68,68,0.2);
-    font-weight: 500;
-  }
+    /* ── Chips ─────────────────────────────────────────────────────── */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      padding: 3px 8px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 4px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: color 0.15s, border-color 0.15s;
+      cursor: pointer;
+    }
 
-  /* Code blocks */
-  .code-block {
-    background: var(--code-bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    margin: 12px 0;
-    overflow: hidden;
-  }
+    .chip:hover { color: var(--text); border-color: var(--border2); }
+    .chip i     { font-size: 12px; }
 
-  .code-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 14px;
-    border-bottom: 1px solid var(--border);
-    background: var(--surface);
-  }
+    /* ── Badges ────────────────────────────────────────────────────── */
+    .rec-badge {
+      font-size: 10px;
+      padding: 2px 6px;
+      background: rgba(52, 211, 153, 0.1);
+      color: var(--tip);
+      border-radius: 4px;
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      font-weight: 500;
+    }
 
-  .code-lang {
-    font-family: 'Geist Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
+    .dep-badge {
+      font-size: 10px;
+      padding: 2px 6px;
+      background: rgba(239, 68, 68, 0.1);
+      color: #f87171;
+      border-radius: 4px;
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      font-weight: 500;
+    }
 
-  .copy-btn {
-    background: none;
-    border: none;
-    color: var(--muted);
-    cursor: pointer;
-    font-size: 13px;
-    padding: 2px 6px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-family: 'DM Sans', sans-serif;
-    transition: color 0.15s;
-  }
+    /* ── Code blocks ───────────────────────────────────────────────── */
+    .code-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin: 12px 0;
+      overflow: hidden;
+    }
 
-  .copy-btn:hover { color: var(--text); }
-  .copy-btn i { font-size: 13px; }
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
 
-  pre {
-    padding: 14px;
-    overflow-x: auto;
-    font-family: 'Geist Mono', monospace;
-    font-size: 12px;
-    line-height: 1.7;
-    color: var(--code-text);
-  }
+    .code-lang {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
 
-  /* Callouts */
-  .callout {
-    display: flex;
-    gap: 10px;
-    padding: 12px 14px;
-    border-radius: 6px;
-    margin: 14px 0;
-    font-size: 12.5px;
-    line-height: 1.6;
-  }
+    .copy-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 13px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'DM Sans', sans-serif;
+      transition: color 0.15s;
+    }
 
-  .callout-warn {
-    background: rgba(245,158,11,0.07);
-    border: 1px solid rgba(245,158,11,0.2);
-    color: #d4a843;
-  }
+    .copy-btn:hover { color: var(--text); }
+    .copy-btn i     { font-size: 13px; }
 
-  .callout-tip {
-    background: rgba(52,211,153,0.07);
-    border: 1px solid rgba(52,211,153,0.2);
-    color: #34d399;
-  }
+    pre {
+      padding: 14px;
+      overflow-x: auto;
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--code-text);
+    }
 
-  .callout i { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
-  .callout span { color: var(--text); opacity: 0.85; }
+    /* ── Callouts ──────────────────────────────────────────────────── */
+    .callout {
+      display: flex;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin: 14px 0;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
 
-  /* Table */
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    margin: 16px 0 28px;
-  }
+    .callout-warn {
+      background: rgba(245, 158, 11, 0.07);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      color: #d4a843;
+    }
 
-  .data-table th {
-    text-align: left;
-    padding: 8px 12px;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    border-bottom: 1px solid var(--border);
-  }
+    .callout-tip {
+      background: rgba(52, 211, 153, 0.07);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      color: #34d399;
+    }
 
-  .data-table td {
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-    color: #bbb;
-    vertical-align: middle;
-  }
+    .callout-danger {
+      background: rgba(239, 68, 68, 0.07);
+      border: 1px solid rgba(239, 68, 68, 0.22);
+      color: #f87171;
+    }
 
-  .data-table tr:hover td { background: var(--surface); }
+    .callout i    { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .callout span { color: var(--text); opacity: 0.85; }
 
-  .data-table td a {
-    color: var(--link);
-    text-decoration: none;
-  }
+    /* ── Inline code (shared utility) ──────────────────────────────── */
+    .icode {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      background: var(--surface2);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
 
-  .data-table td a:hover { text-decoration: underline; }
+    /* Darker variant used inside callout-tip boxes */
+    .icode-dark {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
 
-  /* Step list */
-  .steps { margin: 16px 0; }
+    /* ── Table ─────────────────────────────────────────────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 16px 0 28px;
+    }
 
-  .step {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 20px;
-  }
+    .data-table th {
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--border);
+    }
 
-  .step-num {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--surface2);
-    border: 1px solid var(--border2);
-    color: var(--muted);
-    font-size: 11px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-family: 'Geist Mono', monospace;
-    margin-top: 2px;
-  }
+    .data-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: #bbb;
+      vertical-align: middle;
+    }
 
-  .step-content h4 {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
+    .data-table tr:hover td { background: var(--surface); }
 
-  .step-content p {
-    font-size: 12.5px;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
+    .data-table td a {
+      color: var(--link);
+      text-decoration: none;
+    }
 
-  /* Subsection */
-  .subsection {
-    margin-bottom: 36px;
-  }
+    .data-table td a:hover { text-decoration: underline; }
 
-  .subsection h3 {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+    /* ── Step list ─────────────────────────────────────────────────── */
+    .steps { margin: 16px 0; }
 
-  .subsection h3 i { font-size: 16px; color: var(--muted); }
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
 
-  /* Registry path */
-  .reg-path {
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 6px 10px;
-    border-radius: 4px;
-    display: block;
-    margin: 8px 0;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Geist Mono', monospace;
+      margin-top: 2px;
+    }
 
-  /* Service list */
-  .service-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin: 10px 0;
-  }
+    .step-content h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
 
-  .service-tag {
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    padding: 3px 8px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    color: #999;
-  }
+    .step-content p {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
 
-  /* Divider */
-  .divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 28px 0;
-  }
+    /* ── Subsection ────────────────────────────────────────────────── */
+    .subsection { margin-bottom: 36px; }
 
-  /* Scrollbar */
-  ::-webkit-scrollbar { width: 4px; height: 4px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    .subsection h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-  /* Sidebar footer / developer credit */
-  .sidebar-footer {
-    margin-top: auto;
-    padding: 20px 20px 16px;
-    border-top: 1px solid var(--border);
-  }
+    .subsection h3 i { font-size: 16px; color: var(--muted); }
 
-  .dev-credit {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: var(--muted);
-    font-size: 12px;
-    transition: color 0.15s;
-    padding: 6px 8px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-  }
+    /* ── Utility text ──────────────────────────────────────────────── */
+    .text-muted-sm {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
 
-  .dev-credit:hover { color: var(--text); border-color: var(--border2); }
-  .dev-credit i { font-size: 15px; }
-  .dev-credit-label { font-size: 10px; color: var(--muted); margin-bottom: 6px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+    .text-muted-sm-top {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 16px 0 10px;
+    }
 
-  /* Callout danger */
-  .callout-danger {
-    background: rgba(239,68,68,0.07);
-    border: 1px solid rgba(239,68,68,0.22);
-    color: #f87171;
-  }
-</style>
+    .text-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .text-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    /* ── Registry path ─────────────────────────────────────────────── */
+    .reg-path {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 4px;
+      display: block;
+      margin: 8px 0;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    /* ── Service list ──────────────────────────────────────────────── */
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0;
+    }
+
+    .service-tag {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      padding: 3px 8px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: #999;
+    }
+
+    /* ── Divider ───────────────────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px 0;
+    }
+
+    /* ── Scrollbar ─────────────────────────────────────────────────── */
+    ::-webkit-scrollbar       { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+  </style>
 </head>
 <body>
 
 <div class="layout">
 
-  <!-- Sidebar -->
-  <nav class="sidebar">
+  <!-- ── Sidebar ──────────────────────────────────────────────────── -->
+  <nav class="sidebar" aria-label="Main navigation">
     <div class="sidebar-logo">
       <h1>Setup Guide</h1>
       <span>Windows 10 / 11</span>
@@ -499,64 +557,38 @@
 
     <div class="nav-group">
       <div class="nav-label">Software</div>
-      <a class="nav-item active" onclick="show('browsers')">
-        <i class="ti ti-world"></i> Browsers
-      </a>
-      <a class="nav-item" onclick="show('editors')">
-        <i class="ti ti-code"></i> Editors & IDEs
-      </a>
-      <a class="nav-item" onclick="show('devtools')">
-        <i class="ti ti-tool"></i> Dev Tools
-      </a>
-      <a class="nav-item" onclick="show('runtimes')">
-        <i class="ti ti-cpu"></i> Runtimes
-      </a>
-      <a class="nav-item" onclick="show('downloaders')">
-        <i class="ti ti-download"></i> Download Managers
-      </a>
-      <a class="nav-item" onclick="show('media')">
-        <i class="ti ti-player-play"></i> Media Players
-      </a>
-      <a class="nav-item" onclick="show('office')">
-        <i class="ti ti-file-text"></i> Office
-      </a>
-      <a class="nav-item" onclick="show('messaging')">
-        <i class="ti ti-message"></i> Messaging
-      </a>
+      <a class="nav-item active" href="#browsers"   onclick="show('browsers',   this)"><i class="ti ti-world"></i>         Browsers</a>
+      <a class="nav-item"        href="#editors"    onclick="show('editors',    this)"><i class="ti ti-code"></i>           Editors &amp; IDEs</a>
+      <a class="nav-item"        href="#devtools"   onclick="show('devtools',   this)"><i class="ti ti-tool"></i>           Dev Tools</a>
+      <a class="nav-item"        href="#runtimes"   onclick="show('runtimes',   this)"><i class="ti ti-cpu"></i>            Runtimes</a>
+      <a class="nav-item"        href="#downloaders" onclick="show('downloaders',this)"><i class="ti ti-download"></i>      Download Managers</a>
+      <a class="nav-item"        href="#media"      onclick="show('media',      this)"><i class="ti ti-player-play"></i>   Media Players</a>
+      <a class="nav-item"        href="#office"     onclick="show('office',     this)"><i class="ti ti-file-text"></i>     Office</a>
+      <a class="nav-item"        href="#messaging"  onclick="show('messaging',  this)"><i class="ti ti-message"></i>       Messaging</a>
     </div>
 
     <div class="nav-group">
       <div class="nav-label">System</div>
-      <a class="nav-item" onclick="show('misc')">
-        <i class="ti ti-apps"></i> Utilities
-      </a>
-      <a class="nav-item" onclick="show('asus')">
-        <i class="ti ti-battery"></i> ASUS Config
-      </a>
-      <a class="nav-item" onclick="show('linux')">
-        <i class="ti ti-brand-ubuntu"></i> Linux Notes
-      </a>
-      <a class="nav-item" onclick="show('cleanup')">
-        <i class="ti ti-eraser"></i> Boot Cleanup
-      </a>
-      <a class="nav-item" onclick="show('uefi')">
-        <i class="ti ti-tool"></i> UEFI Repair
-      </a>
+      <a class="nav-item" href="#misc"    onclick="show('misc',    this)"><i class="ti ti-apps"></i>         Utilities</a>
+      <a class="nav-item" href="#asus"    onclick="show('asus',    this)"><i class="ti ti-battery"></i>      ASUS Config</a>
+      <a class="nav-item" href="#linux"   onclick="show('linux',   this)"><i class="ti ti-brand-ubuntu"></i> Linux Notes</a>
+      <a class="nav-item" href="#cleanup" onclick="show('cleanup', this)"><i class="ti ti-eraser"></i>       Boot Cleanup</a>
+      <a class="nav-item" href="#uefi"    onclick="show('uefi',    this)"><i class="ti ti-tool"></i>         UEFI Repair</a>
     </div>
 
     <div class="sidebar-footer">
       <div class="dev-credit-label">Developer</div>
-      <a class="dev-credit" href="https://github.com/Kajal4414" target="_blank">
+      <a class="dev-credit" href="https://github.com/Kajal4414" target="_blank" rel="noopener noreferrer">
         <i class="ti ti-brand-github"></i>
         <span>Kajal4414</span>
       </a>
     </div>
   </nav>
 
-  <!-- Main -->
+  <!-- ── Main content ─────────────────────────────────────────────── -->
   <main class="main">
 
-    <!-- Browsers -->
+    <!-- Browsers ──────────────────────────────────────────────────── -->
     <div id="browsers" class="section active">
       <div class="section-header">
         <h2>Browsers</h2>
@@ -571,8 +603,12 @@
           <h3>Mozilla Firefox</h3>
           <p>Open-source browser with full customization support via userChrome and mods.</p>
           <div class="card-links">
-            <a class="chip" href="https://www.mozilla.org/en-US/firefox/all/#product-desktop-release" target="_blank"><i class="ti ti-external-link"></i> Download</a>
-            <a class="chip" href="https://github.com/datguypiko/Firefox-Mod-Blur" target="_blank"><i class="ti ti-external-link"></i> Mod Blur</a>
+            <a class="chip" href="https://www.mozilla.org/en-US/firefox/all/#product-desktop-release" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Download
+            </a>
+            <a class="chip" href="https://github.com/datguypiko/Firefox-Mod-Blur" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Mod Blur
+            </a>
           </div>
         </div>
 
@@ -583,8 +619,12 @@
           <h3>Google Chrome</h3>
           <p>Standalone installer with Catppuccin Mocha theme for a polished dark look.</p>
           <div class="card-links">
-            <a class="chip" href="https://www.google.com/intl/en/chrome/?standalone=1" target="_blank"><i class="ti ti-external-link"></i> Download</a>
-            <a class="chip" href="https://chromewebstore.google.com/detail/catppuccin-chrome-theme-m/bkkmolkhemgaeaeggcmfbghljjjoofoh" target="_blank"><i class="ti ti-palette"></i> Theme</a>
+            <a class="chip" href="https://www.google.com/intl/en/chrome/?standalone=1" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Download
+            </a>
+            <a class="chip" href="https://chromewebstore.google.com/detail/catppuccin-chrome-theme-m/bkkmolkhemgaeaeggcmfbghljjjoofoh" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-palette"></i> Theme
+            </a>
           </div>
         </div>
       </div>
@@ -612,15 +652,17 @@
         </div>
         <div class="callout callout-tip">
           <i class="ti ti-info-circle"></i>
-          <span>Execution policy error? Run this first: <code style="font-family:'Geist Mono',monospace; font-size:11px; background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:3px;">Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</code></span>
+          <span>Execution policy error? Run this first:
+            <code class="icode-dark">Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</code>
+          </span>
         </div>
       </div>
     </div>
 
-    <!-- Editors -->
+    <!-- Editors ───────────────────────────────────────────────────── -->
     <div id="editors" class="section">
       <div class="section-header">
-        <h2>Code Editors & IDEs</h2>
+        <h2>Code Editors &amp; IDEs</h2>
         <p>Development environments, terminal setups, and config sync scripts.</p>
       </div>
 
@@ -633,10 +675,15 @@
           <h3>Visual Studio Code</h3>
           <p>Extensible editor with synced settings and curated extension list.</p>
           <div class="card-links">
-            <a class="chip" href="https://code.visualstudio.com/download" target="_blank"><i class="ti ti-external-link"></i> VS Code</a>
-            <a class="chip" href="https://github.com/VSCodium/vscodium" target="_blank"><i class="ti ti-external-link"></i> VSCodium</a>
+            <a class="chip" href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> VS Code
+            </a>
+            <a class="chip" href="https://github.com/VSCodium/vscodium" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> VSCodium
+            </a>
           </div>
         </div>
+
         <div class="card">
           <div class="card-top">
             <div class="card-icon"><i class="ti ti-coffee"></i></div>
@@ -644,9 +691,12 @@
           <h3>IntelliJ IDEA</h3>
           <p>Full-featured Java IDE by JetBrains with advanced refactoring support.</p>
           <div class="card-links">
-            <a class="chip" href="https://www.jetbrains.com/idea/download/?section=windows" target="_blank"><i class="ti ti-external-link"></i> Download</a>
+            <a class="chip" href="https://www.jetbrains.com/idea/download/?section=windows" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Download
+            </a>
           </div>
         </div>
+
         <div class="card">
           <div class="card-top">
             <div class="card-icon"><i class="ti ti-brand-python"></i></div>
@@ -654,9 +704,12 @@
           <h3>PyCharm</h3>
           <p>Python-first IDE with smart code assistance and built-in debugger.</p>
           <div class="card-links">
-            <a class="chip" href="https://www.jetbrains.com/pycharm/download/?section=windows" target="_blank"><i class="ti ti-external-link"></i> Download</a>
+            <a class="chip" href="https://www.jetbrains.com/pycharm/download/?section=windows" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Download
+            </a>
           </div>
         </div>
+
         <div class="card">
           <div class="card-top">
             <div class="card-icon"><i class="ti ti-file-text"></i></div>
@@ -664,10 +717,15 @@
           <h3>Notepad++</h3>
           <p>Lightweight text editor with syntax highlighting. Supports Catppuccin theme.</p>
           <div class="card-links">
-            <a class="chip" href="https://github.com/notepad-plus-plus/notepad-plus-plus" target="_blank"><i class="ti ti-external-link"></i> GitHub</a>
-            <a class="chip" href="https://github.com/catppuccin/notepad-plus-plus/blob/main/catppuccin-mocha.xml" target="_blank"><i class="ti ti-palette"></i> Theme</a>
+            <a class="chip" href="https://github.com/notepad-plus-plus/notepad-plus-plus" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> GitHub
+            </a>
+            <a class="chip" href="https://github.com/catppuccin/notepad-plus-plus/blob/main/catppuccin-mocha.xml" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-palette"></i> Theme
+            </a>
           </div>
         </div>
+
         <div class="card">
           <div class="card-top">
             <div class="card-icon"><i class="ti ti-terminal"></i></div>
@@ -675,9 +733,12 @@
           <h3>Windows Terminal</h3>
           <p>Modern tabbed terminal for Windows with profile and theme support.</p>
           <div class="card-links">
-            <a class="chip" href="https://github.com/microsoft/terminal" target="_blank"><i class="ti ti-external-link"></i> GitHub</a>
+            <a class="chip" href="https://github.com/microsoft/terminal" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> GitHub
+            </a>
           </div>
         </div>
+
         <div class="card">
           <div class="card-top">
             <div class="card-icon"><i class="ti ti-prompt"></i></div>
@@ -685,7 +746,9 @@
           <h3>Oh My Posh</h3>
           <p>Prompt theme engine for any shell with rich segment customization.</p>
           <div class="card-links">
-            <a class="chip" href="https://ohmyposh.dev/docs/installation/windows" target="_blank"><i class="ti ti-external-link"></i> Install Guide</a>
+            <a class="chip" href="https://ohmyposh.dev/docs/installation/windows" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Install Guide
+            </a>
           </div>
         </div>
       </div>
@@ -695,12 +758,18 @@
       <div class="subsection">
         <h3><i class="ti ti-settings"></i> VS Code Config Sync</h3>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">powershell — apply settings</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">powershell — apply settings</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/C/Users/Admin/AppData/Roaming/Code/User/settings.json" `
   -o "$env:APPDATA\Code\User\settings.json"</pre>
         </div>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">powershell — install extensions</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">powershell — install extensions</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_code_extensions.ps1 | iex</pre>
         </div>
       </div>
@@ -708,19 +777,25 @@
       <div class="subsection">
         <h3><i class="ti ti-brand-ubuntu"></i> JetBrains IDEs — Linux Install</h3>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">sh — intellij idea</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">sh — intellij idea</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>sudo tar -xzf ideaIC-*.tar.gz -C /opt
 sudo sh /opt/idea-*/bin/idea.sh</pre>
         </div>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">sh — pycharm</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">sh — pycharm</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>sudo tar -xzf pycharm-*.tar.gz -C /opt
 sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         </div>
       </div>
     </div>
 
-    <!-- Dev Tools -->
+    <!-- Dev Tools ─────────────────────────────────────────────────── -->
     <div id="devtools" class="section">
       <div class="section-header">
         <h2>Development Tools</h2>
@@ -740,49 +815,49 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
           <tr>
             <td>Git</td>
             <td>Version control system</td>
-            <td><a href="https://git-scm.com" target="_blank">git-scm.com</a></td>
+            <td><a href="https://git-scm.com" target="_blank" rel="noopener noreferrer">git-scm.com</a></td>
             <td><span class="rec-badge">Recommended</span></td>
           </tr>
           <tr>
             <td>Gpg4win</td>
             <td>GPG encryption for Windows</td>
-            <td><a href="https://www.gpg4win.org" target="_blank">gpg4win.org</a></td>
+            <td><a href="https://www.gpg4win.org" target="_blank" rel="noopener noreferrer">gpg4win.org</a></td>
             <td></td>
           </tr>
           <tr>
             <td>JDK Adoptium</td>
             <td>Open-source Java Development Kit</td>
-            <td><a href="https://adoptium.net/" target="_blank">adoptium.net</a></td>
+            <td><a href="https://adoptium.net/" target="_blank" rel="noopener noreferrer">adoptium.net</a></td>
             <td><span class="rec-badge">Recommended</span></td>
           </tr>
           <tr>
             <td><s>JDK Oracle</s></td>
             <td>Oracle Java — license restrictions</td>
-            <td><a href="https://www.oracle.com/in/java/technologies/downloads/" target="_blank">oracle.com</a></td>
+            <td><a href="https://www.oracle.com/in/java/technologies/downloads/" target="_blank" rel="noopener noreferrer">oracle.com</a></td>
             <td><span class="dep-badge">Avoid</span></td>
           </tr>
           <tr>
             <td>Node.js</td>
             <td>JavaScript runtime environment</td>
-            <td><a href="https://nodejs.org/en" target="_blank">nodejs.org</a></td>
+            <td><a href="https://nodejs.org/en" target="_blank" rel="noopener noreferrer">nodejs.org</a></td>
             <td></td>
           </tr>
           <tr>
             <td>Python</td>
             <td>Python interpreter</td>
-            <td><a href="https://www.python.org/downloads" target="_blank">python.org</a></td>
+            <td><a href="https://www.python.org/downloads" target="_blank" rel="noopener noreferrer">python.org</a></td>
             <td></td>
           </tr>
           <tr>
             <td>Platform Tools</td>
             <td>ADB, Fastboot, and Android tools</td>
-            <td><a href="https://developer.android.com/tools/releases/platform-tools" target="_blank">developer.android.com</a></td>
+            <td><a href="https://developer.android.com/tools/releases/platform-tools" target="_blank" rel="noopener noreferrer">developer.android.com</a></td>
             <td></td>
           </tr>
           <tr>
             <td>APK Tool</td>
             <td>APK reverse engineering</td>
-            <td><a href="https://github.com/iBotPeaches/Apktool" target="_blank">GitHub</a></td>
+            <td><a href="https://github.com/iBotPeaches/Apktool" target="_blank" rel="noopener noreferrer">GitHub</a></td>
             <td></td>
           </tr>
         </tbody>
@@ -791,7 +866,10 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
       <div class="subsection">
         <h3><i class="ti ti-brand-android"></i> Platform Tools</h3>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">powershell</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">powershell</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_platform_tools.ps1 | iex</pre>
         </div>
       </div>
@@ -799,7 +877,10 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
       <div class="subsection">
         <h3><i class="ti ti-package"></i> APK Tool</h3>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">powershell</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">powershell</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/Install_apk_tool.ps1 | iex</pre>
         </div>
       </div>
@@ -812,7 +893,10 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
             <div class="step-content">
               <h4>Run elevated installer via msiexec</h4>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">powershell</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">powershell</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>msiexec /i "C:\Users\YourName\Downloads\OpenJDK25U-jdk_x64_windows_hotspot_25.0.3_9.msi"</pre>
               </div>
             </div>
@@ -822,7 +906,10 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
             <div class="step-content">
               <h4>Or fix Temp folder permissions</h4>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">powershell</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">powershell</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>icacls "C:\Windows\Temp" /grant "%USERNAME%":F</pre>
               </div>
             </div>
@@ -831,168 +918,328 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
       </div>
     </div>
 
-    <!-- Runtimes -->
+    <!-- Runtimes ───────────────────────────────────────────────────── -->
     <div id="runtimes" class="section">
       <div class="section-header">
-        <h2>Runtimes & Redistributables</h2>
+        <h2>Runtimes &amp; Redistributables</h2>
         <p>Essential system packages required by most software.</p>
       </div>
       <table class="data-table">
-        <thead><tr><th>Package</th><th>Description</th><th>Link</th></tr></thead>
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Description</th>
+            <th>Link</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>Visual C++ Redist</td><td>All-in-one VC++ redistributable bundle</td><td><a href="https://github.com/abbodi1406/vcredist" target="_blank">GitHub</a></td></tr>
-          <tr><td>DirectX Redist</td><td>DirectX end-user runtime web installer</td><td><a href="https://www.microsoft.com/en-gb/download/details.aspx?id=8109" target="_blank">microsoft.com</a></td></tr>
-          <tr><td>WebView2</td><td>Microsoft Edge WebView2 runtime</td><td><a href="https://developer.microsoft.com/en-us/microsoft-edge/webview2" target="_blank">developer.microsoft.com</a></td></tr>
+          <tr>
+            <td>Visual C++ Redist</td>
+            <td>All-in-one VC++ redistributable bundle</td>
+            <td><a href="https://github.com/abbodi1406/vcredist" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+          </tr>
+          <tr>
+            <td>DirectX Redist</td>
+            <td>DirectX end-user runtime web installer</td>
+            <td><a href="https://www.microsoft.com/en-gb/download/details.aspx?id=8109" target="_blank" rel="noopener noreferrer">microsoft.com</a></td>
+          </tr>
+          <tr>
+            <td>WebView2</td>
+            <td>Microsoft Edge WebView2 runtime</td>
+            <td><a href="https://developer.microsoft.com/en-us/microsoft-edge/webview2" target="_blank" rel="noopener noreferrer">developer.microsoft.com</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Download Managers -->
+    <!-- Download Managers ─────────────────────────────────────────── -->
     <div id="downloaders" class="section">
       <div class="section-header">
         <h2>Download Managers</h2>
         <p>Download accelerators and torrent clients.</p>
       </div>
+
       <div class="card-grid">
         <div class="card">
-          <div class="card-top"><div class="card-icon"><i class="ti ti-download"></i></div></div>
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-download"></i></div>
+          </div>
           <h3>Internet Download Manager</h3>
           <p>Paid download accelerator. Use IDM Trial Reset to extend the trial.</p>
           <div class="card-links">
-            <a class="chip" href="https://www.internetdownloadmanager.com" target="_blank"><i class="ti ti-external-link"></i> Site</a>
-            <a class="chip" href="https://github.com/J2TEAM/idm-trial-reset" target="_blank"><i class="ti ti-refresh"></i> Trial Reset</a>
+            <a class="chip" href="https://www.internetdownloadmanager.com" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Site
+            </a>
+            <a class="chip" href="https://github.com/J2TEAM/idm-trial-reset" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-refresh"></i> Trial Reset
+            </a>
           </div>
         </div>
+
         <div class="card">
-          <div class="card-top"><div class="card-icon"><i class="ti ti-download"></i></div><span class="rec-badge">Free</span></div>
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-download"></i></div>
+            <span class="rec-badge">Free</span>
+          </div>
           <h3>Free Download Manager</h3>
           <p>Feature-rich, completely free alternative to IDM.</p>
           <div class="card-links">
-            <a class="chip" href="https://www.freedownloadmanager.org" target="_blank"><i class="ti ti-external-link"></i> Site</a>
+            <a class="chip" href="https://www.freedownloadmanager.org" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Site
+            </a>
           </div>
         </div>
+
         <div class="card">
-          <div class="card-top"><div class="card-icon"><i class="ti ti-file-zip"></i></div></div>
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-file-zip"></i></div>
+          </div>
           <h3>qBittorrent</h3>
           <p>Open-source torrent client, ad-free and lightweight.</p>
           <div class="card-links">
-            <a class="chip" href="https://www.qbittorrent.org" target="_blank"><i class="ti ti-external-link"></i> Site</a>
+            <a class="chip" href="https://www.qbittorrent.org" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Site
+            </a>
           </div>
         </div>
       </div>
+
       <div class="callout callout-warn">
         <i class="ti ti-alert-triangle"></i>
         <span>The <strong>IDM Activation Script</strong> is deprecated. Use the IDM Trial Reset tool instead.</span>
       </div>
     </div>
 
-    <!-- Media -->
+    <!-- Media ─────────────────────────────────────────────────────── -->
     <div id="media" class="section">
       <div class="section-header">
-        <h2>Media Players & Viewers</h2>
+        <h2>Media Players &amp; Viewers</h2>
         <p>Video, audio, and image viewing software.</p>
       </div>
       <table class="data-table">
-        <thead><tr><th>Tool</th><th>Description</th><th>Link</th></tr></thead>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Link</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>K-Lite Codec Pack</td><td>Full codec bundle for Windows media playback</td><td><a href="https://codecguide.com/download_k-lite_codec_pack_full.htm" target="_blank">codecguide.com</a></td></tr>
-          <tr><td>VLC Media Player</td><td>Universal, open-source media player</td><td><a href="https://www.videolan.org" target="_blank">videolan.org</a></td></tr>
-          <tr><td>Screenbox</td><td>Modern UWP-style media player for Windows</td><td><a href="https://github.com/huynhsontung/Screenbox" target="_blank">GitHub</a></td></tr>
-          <tr><td>MPV</td><td>Minimalist, highly scriptable video player</td><td><a href="https://github.com/mpv-player/mpv" target="_blank">GitHub</a></td></tr>
-          <tr><td>PV Photo Viewer</td><td>Lightweight, fast command-line image viewer</td><td>../Extra/pv.exe</td></tr>
+          <tr>
+            <td>K-Lite Codec Pack</td>
+            <td>Full codec bundle for Windows media playback</td>
+            <td><a href="https://codecguide.com/download_k-lite_codec_pack_full.htm" target="_blank" rel="noopener noreferrer">codecguide.com</a></td>
+          </tr>
+          <tr>
+            <td>VLC Media Player</td>
+            <td>Universal, open-source media player</td>
+            <td><a href="https://www.videolan.org" target="_blank" rel="noopener noreferrer">videolan.org</a></td>
+          </tr>
+          <tr>
+            <td>Screenbox</td>
+            <td>Modern UWP-style media player for Windows</td>
+            <td><a href="https://github.com/huynhsontung/Screenbox" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+          </tr>
+          <tr>
+            <td>MPV</td>
+            <td>Minimalist, highly scriptable video player</td>
+            <td><a href="https://github.com/mpv-player/mpv" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+          </tr>
+          <tr>
+            <td>PV Photo Viewer</td>
+            <td>Lightweight, fast command-line image viewer</td>
+            <td>../Extra/pv.exe</td>
+          </tr>
         </tbody>
       </table>
+
       <div class="subsection">
         <h3><i class="ti ti-player-play"></i> MPV Install Script</h3>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">powershell</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">powershell</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/Software/install_mpv.ps1 | iex</pre>
         </div>
       </div>
     </div>
 
-    <!-- Office -->
+    <!-- Office ────────────────────────────────────────────────────── -->
     <div id="office" class="section">
       <div class="section-header">
         <h2>Office Suite</h2>
         <p>Microsoft Office installation and activation.</p>
       </div>
+
       <div class="card-grid">
         <div class="card">
-          <div class="card-top"><div class="card-icon"><i class="ti ti-brand-office"></i></div></div>
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-brand-office"></i></div>
+          </div>
           <h3>Office 365 ProPlus</h3>
           <p>English US x64 offline installer. Activate using the MAS Ohook method.</p>
           <div class="card-links">
-            <a class="chip" href="https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/O365ProPlusRetail.img" target="_blank"><i class="ti ti-download"></i> .img Download</a>
-            <a class="chip" href="https://github.com/massgravel/Microsoft-Activation-Scripts" target="_blank"><i class="ti ti-key"></i> Activation</a>
-            <a class="chip" href="https://massgrave.dev/office_c2r_links.html" target="_blank"><i class="ti ti-external-link"></i> C2R Links</a>
+            <a class="chip" href="https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/O365ProPlusRetail.img" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-download"></i> .img Download
+            </a>
+            <a class="chip" href="https://github.com/massgravel/Microsoft-Activation-Scripts" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-key"></i> Activation
+            </a>
+            <a class="chip" href="https://massgrave.dev/office_c2r_links.html" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> C2R Links
+            </a>
           </div>
         </div>
       </div>
+
       <div class="callout callout-tip">
         <i class="ti ti-info-circle"></i>
         <span>Use the <strong>Ohook</strong> method from Microsoft Activation Scripts for reliable activation.</span>
       </div>
     </div>
 
-    <!-- Messaging -->
+    <!-- Messaging ─────────────────────────────────────────────────── -->
     <div id="messaging" class="section">
       <div class="section-header">
         <h2>Messaging</h2>
         <p>Messaging clients for desktop and cross-platform communication.</p>
       </div>
+
       <div class="card-grid">
         <div class="card">
-          <div class="card-top"><div class="card-icon"><i class="ti ti-brand-telegram"></i></div></div>
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-brand-telegram"></i></div>
+          </div>
           <h3>Telegram Desktop</h3>
           <p>Official client. MaterialYou fork adds Android-style dynamic theming.</p>
           <div class="card-links">
-            <a class="chip" href="https://github.com/telegramdesktop/tdesktop/releases/latest" target="_blank"><i class="ti ti-external-link"></i> Official</a>
-            <a class="chip" href="https://github.com/kukuruzka165/materialgram" target="_blank"><i class="ti ti-palette"></i> MaterialYou</a>
+            <a class="chip" href="https://github.com/telegramdesktop/tdesktop/releases/latest" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> Official
+            </a>
+            <a class="chip" href="https://github.com/kukuruzka165/materialgram" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-palette"></i> MaterialYou
+            </a>
           </div>
         </div>
+
         <div class="card">
-          <div class="card-top"><div class="card-icon"><i class="ti ti-brand-instagram"></i></div></div>
+          <div class="card-top">
+            <div class="card-icon"><i class="ti ti-brand-instagram"></i></div>
+          </div>
           <h3>Indirect</h3>
           <p>Unofficial Instagram Direct Messages client for Windows.</p>
           <div class="card-links">
-            <a class="chip" href="https://github.com/huynhsontung/Indirect" target="_blank"><i class="ti ti-external-link"></i> GitHub</a>
+            <a class="chip" href="https://github.com/huynhsontung/Indirect" target="_blank" rel="noopener noreferrer">
+              <i class="ti ti-external-link"></i> GitHub
+            </a>
           </div>
         </div>
       </div>
+
       <div class="subsection">
         <h3><i class="ti ti-brand-ubuntu"></i> Telegram Linux Install</h3>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">sh</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">sh</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>sudo tar -xf tsetup*.tar.xz -C /opt</pre>
         </div>
       </div>
     </div>
 
-    <!-- Misc -->
+    <!-- Utilities ─────────────────────────────────────────────────── -->
     <div id="misc" class="section">
       <div class="section-header">
         <h2>Utilities</h2>
         <p>System tools, uninstallers, and quality-of-life apps.</p>
       </div>
+
       <table class="data-table">
-        <thead><tr><th>Tool</th><th>Description</th><th>Link</th></tr></thead>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Link</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>7-Zip</td><td>Open-source archive manager</td><td><a href="https://www.7-zip.org" target="_blank">7-zip.org</a></td></tr>
-          <tr><td>WinGet / App Installer</td><td>Windows package manager CLI</td><td><a href="https://apps.microsoft.com/detail/app-installer/9NBLGGH4NNS1" target="_blank">Microsoft Store</a></td></tr>
-          <tr><td>AMD Software</td><td>GPU drivers for Radeon / Ryzen</td><td><a href="https://www.amd.com/en/support" target="_blank">amd.com</a></td></tr>
-          <tr><td>BleachBit</td><td>System cleaner and privacy tool</td><td><a href="https://github.com/bleachbit/bleachbit" target="_blank">GitHub</a></td></tr>
-          <tr><td>CleanmgrPlus</td><td>Enhanced Windows Disk Cleanup</td><td><a href="https://github.com/builtbybel/CleanmgrPlus" target="_blank">GitHub</a></td></tr>
-          <tr><td>Bulk Crap Uninstaller</td><td>Batch app uninstaller with leftovers scan</td><td><a href="https://github.com/Klocman/Bulk-Crap-Uninstaller" target="_blank">GitHub</a></td></tr>
-          <tr><td>ExplorerBlurMica</td><td>Blur/Mica effect for File Explorer</td><td><a href="https://github.com/Maplespe/ExplorerBlurMica" target="_blank">GitHub</a></td></tr>
-          <tr><td>HEIF Image Extensions</td><td>HEIC/HEIF support for Windows Photos</td><td><a href="https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG" target="_blank">Microsoft Store</a></td></tr>
-          <tr><td>Obsidian</td><td>Markdown-based knowledge base</td><td><a href="https://obsidian.md" target="_blank">obsidian.md</a></td></tr>
-          <tr><td>Process Explorer</td><td>Advanced Task Manager replacement</td><td><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer" target="_blank">Sysinternals</a></td></tr>
-          <tr><td>Proton VPN</td><td>Privacy-focused VPN</td><td><a href="https://protonvpn.com/download-windows" target="_blank">protonvpn.com</a></td></tr>
-          <tr><td>Revo Uninstaller Pro</td><td>Deep-clean uninstaller with registry scan</td><td><a href="https://www.revouninstaller.com/revo-uninstaller-free-download" target="_blank">revouninstaller.com</a></td></tr>
-          <tr><td>StartAllBack</td><td>Windows 11 Start menu replacement</td><td><a href="https://www.startallback.com" target="_blank">startallback.com</a></td></tr>
-          <tr><td>Winpinator</td><td>Warpinator-compatible file transfer for Windows</td><td><a href="https://winpinator.swisz.cz/download.html" target="_blank">winpinator.swisz.cz</a></td></tr>
-          <tr><td>YoutubeDownloader</td><td>YouTube video/audio downloader GUI</td><td><a href="https://github.com/Tyrrrz/YoutubeDownloader" target="_blank">GitHub</a></td></tr>
+          <tr>
+            <td>7-Zip</td>
+            <td>Open-source archive manager</td>
+            <td><a href="https://www.7-zip.org" target="_blank" rel="noopener noreferrer">7-zip.org</a></td>
+          </tr>
+          <tr>
+            <td>WinGet / App Installer</td>
+            <td>Windows package manager CLI</td>
+            <td><a href="https://apps.microsoft.com/detail/app-installer/9NBLGGH4NNS1" target="_blank" rel="noopener noreferrer">Microsoft Store</a></td>
+          </tr>
+          <tr>
+            <td>AMD Software</td>
+            <td>GPU drivers for Radeon / Ryzen</td>
+            <td><a href="https://www.amd.com/en/support" target="_blank" rel="noopener noreferrer">amd.com</a></td>
+          </tr>
+          <tr>
+            <td>BleachBit</td>
+            <td>System cleaner and privacy tool</td>
+            <td><a href="https://github.com/bleachbit/bleachbit" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+          </tr>
+          <tr>
+            <td>CleanmgrPlus</td>
+            <td>Enhanced Windows Disk Cleanup</td>
+            <td><a href="https://github.com/builtbybel/CleanmgrPlus" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+          </tr>
+          <tr>
+            <td>Bulk Crap Uninstaller</td>
+            <td>Batch app uninstaller with leftovers scan</td>
+            <td><a href="https://github.com/Klocman/Bulk-Crap-Uninstaller" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+          </tr>
+          <tr>
+            <td>ExplorerBlurMica</td>
+            <td>Blur/Mica effect for File Explorer</td>
+            <td><a href="https://github.com/Maplespe/ExplorerBlurMica" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+          </tr>
+          <tr>
+            <td>HEIF Image Extensions</td>
+            <td>HEIC/HEIF support for Windows Photos</td>
+            <td><a href="https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG" target="_blank" rel="noopener noreferrer">Microsoft Store</a></td>
+          </tr>
+          <tr>
+            <td>Obsidian</td>
+            <td>Markdown-based knowledge base</td>
+            <td><a href="https://obsidian.md" target="_blank" rel="noopener noreferrer">obsidian.md</a></td>
+          </tr>
+          <tr>
+            <td>Process Explorer</td>
+            <td>Advanced Task Manager replacement</td>
+            <td><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer" target="_blank" rel="noopener noreferrer">Sysinternals</a></td>
+          </tr>
+          <tr>
+            <td>Proton VPN</td>
+            <td>Privacy-focused VPN</td>
+            <td><a href="https://protonvpn.com/download-windows" target="_blank" rel="noopener noreferrer">protonvpn.com</a></td>
+          </tr>
+          <tr>
+            <td>Revo Uninstaller Pro</td>
+            <td>Deep-clean uninstaller with registry scan</td>
+            <td><a href="https://www.revouninstaller.com/revo-uninstaller-free-download" target="_blank" rel="noopener noreferrer">revouninstaller.com</a></td>
+          </tr>
+          <tr>
+            <td>StartAllBack</td>
+            <td>Windows 11 Start menu replacement</td>
+            <td><a href="https://www.startallback.com" target="_blank" rel="noopener noreferrer">startallback.com</a></td>
+          </tr>
+          <tr>
+            <td>Winpinator</td>
+            <td>Warpinator-compatible file transfer for Windows</td>
+            <td><a href="https://winpinator.swisz.cz/download.html" target="_blank" rel="noopener noreferrer">winpinator.swisz.cz</a></td>
+          </tr>
+          <tr>
+            <td>YoutubeDownloader</td>
+            <td>YouTube video/audio downloader GUI</td>
+            <td><a href="https://github.com/Tyrrrz/YoutubeDownloader" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+          </tr>
         </tbody>
       </table>
 
@@ -1000,18 +1247,22 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
 
       <div class="subsection">
         <h3><i class="ti ti-key"></i> Revo Uninstaller Pro — Activation</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:10px;">Copy the license file from <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 6px;border-radius:3px;">../Extra/revouninstallerpro5.lic</code> to:</p>
+        <p class="text-muted-sm">
+          Copy the license file from <code class="icode">../Extra/revouninstallerpro5.lic</code> to:
+        </p>
         <code class="reg-path">C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\</code>
       </div>
 
       <div class="subsection">
         <h3><i class="ti ti-key"></i> StartIsBack++ — Activation</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:10px;">Copy <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 6px;border-radius:3px;">../Extra/msimg32.dll</code> to:</p>
+        <p class="text-muted-sm">
+          Copy <code class="icode">../Extra/msimg32.dll</code> to:
+        </p>
         <code class="reg-path">C:\Program Files (x86)\StartIsBack\</code>
       </div>
     </div>
 
-    <!-- ASUS -->
+    <!-- ASUS Config ────────────────────────────────────────────────── -->
     <div id="asus" class="section">
       <div class="section-header">
         <h2>ASUS Configuration</h2>
@@ -1020,7 +1271,9 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
 
       <div class="subsection">
         <h3><i class="ti ti-battery"></i> Set Battery Charging Threshold (60%)</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">Requires the <a href="https://www.asus.com/support/Download-Center/" target="_blank" style="color:var(--link);">ASUS System Control Interface</a> driver. Does not need the MyASUS app.</p>
+        <p class="text-desc">
+          Requires the <a href="https://www.asus.com/support/Download-Center/" target="_blank" rel="noopener noreferrer" style="color:var(--link);">ASUS System Control Interface</a> driver. Does not need the MyASUS app.
+        </p>
 
         <div class="steps">
           <div class="step">
@@ -1028,24 +1281,34 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
             <div class="step-content">
               <h4>Command Prompt (Administrator)</h4>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">cmd</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">cmd</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>reg add "HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys" /v ChargingRate /t REG_DWORD /d 60 /f</pre>
               </div>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">2</div>
             <div class="step-content">
               <h4>Registry Editor (Manual)</h4>
-              <p>Navigate to the following key, then set <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">ChargingRate</code> to <strong>3C</strong> (hex) or <strong>60</strong> (decimal).</p>
+              <p>
+                Navigate to the following key, then set
+                <code class="icode">ChargingRate</code> to <strong>3C</strong> (hex) or <strong>60</strong> (decimal).
+              </p>
               <code class="reg-path">HKLM\SOFTWARE\ASUS\ASUS System Control Interface\AsusOptimization\ASUS Keyboard Hotkeys</code>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">3</div>
             <div class="step-content">
               <h4>PowerShell Script (Alternative)</h4>
-              <p>Use the pre-built script at <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">../Extra/charging_threshold.ps1</code>.</p>
+              <p>
+                Use the pre-built script at <code class="icode">../Extra/charging_threshold.ps1</code>.
+              </p>
             </div>
           </div>
         </div>
@@ -1057,11 +1320,16 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         <h3><i class="ti ti-server"></i> ASUS Services Management</h3>
 
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">powershell — list all asus services</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">powershell — list all asus services</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>Get-Service | Where-Object { $_.Name -like "*ASUS*" }</pre>
         </div>
 
-        <p style="font-size:13px; color:var(--muted); margin: 16px 0 10px;">ASUS services (safe to disable all except <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">ASUSOptimization</code>):</p>
+        <p class="text-muted-sm-top">
+          ASUS services (safe to disable all except <code class="icode">ASUSOptimization</code>):
+        </p>
 
         <div class="service-list">
           <span class="service-tag">AsusAppService</span>
@@ -1073,8 +1341,11 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
           <span class="service-tag">ASUSSystemDiagnosis</span>
         </div>
 
-        <div class="code-block" style="margin-top:14px;">
-          <div class="code-header"><span class="code-lang">powershell — disable non-essential services</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+        <div class="code-block" style="margin-top: 14px;">
+          <div class="code-header">
+            <span class="code-lang">powershell — disable non-essential services</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>Set-Service -Name "AsusAppService"       -StartupType Disabled
 Set-Service -Name "ASUSLinkNear"         -StartupType Disabled
 Set-Service -Name "ASUSLinkRemote"       -StartupType Disabled
@@ -1085,13 +1356,16 @@ Set-Service -Name "ASUSSystemDiagnosis"  -StartupType Disabled</pre>
         </div>
 
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">powershell — restart optimization service</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">powershell — restart optimization service</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>Restart-Service "ASUSOptimization"</pre>
         </div>
       </div>
     </div>
 
-    <!-- Linux -->
+    <!-- Linux Notes ────────────────────────────────────────────────── -->
     <div id="linux" class="section">
       <div class="section-header">
         <h2>Linux Notes</h2>
@@ -1101,23 +1375,35 @@ Set-Service -Name "ASUSSystemDiagnosis"  -StartupType Disabled</pre>
       <div class="subsection">
         <h3><i class="ti ti-brand-youtube"></i> YoutubeDownloader — .NET Runtime on Linux Mint</h3>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">sh — add microsoft package repo</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">sh — add microsoft package repo</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb</pre>
         </div>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">sh — install runtime</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">sh — install runtime</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>sudo apt update && sudo apt install -y aspnetcore-runtime-8.0
 dotnet --list-runtimes</pre>
         </div>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">sh — optional: install sdk</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">sh — optional: install sdk</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>sudo apt update && sudo apt install -y dotnet-sdk-8.0
 dotnet --list-sdks</pre>
         </div>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">sh — launch app</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">sh — launch app</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>cd YoutubeDownloader/ && ./YoutubeDownloader</pre>
         </div>
       </div>
@@ -1126,12 +1412,16 @@ dotnet --list-sdks</pre>
         <h3><i class="ti ti-shield"></i> Proton VPN — Linux Mint</h3>
         <div class="callout callout-tip">
           <i class="ti ti-info-circle"></i>
-          <span>Follow the <a href="https://protonvpn.com/support/official-linux-vpn-mint/" target="_blank" style="color:var(--link);">official Proton VPN Linux Mint guide</a> for the most up-to-date installation steps.</span>
+          <span>
+            Follow the
+            <a href="https://protonvpn.com/support/official-linux-vpn-mint/" target="_blank" rel="noopener noreferrer" style="color:var(--link);">official Proton VPN Linux Mint guide</a>
+            for the most up-to-date installation steps.
+          </span>
         </div>
       </div>
     </div>
 
-    <!-- Boot Cleanup -->
+    <!-- Boot Cleanup ────────────────────────────────────────────────── -->
     <div id="cleanup" class="section">
       <div class="section-header">
         <h2>Boot Cleanup</h2>
@@ -1140,28 +1430,40 @@ dotnet --list-sdks</pre>
 
       <div class="callout callout-danger">
         <i class="ti ti-alert-triangle"></i>
-        <span><strong>Caution:</strong> Partition deletion is permanent and cannot be undone. Back up all important data first. Run every command from an elevated (Administrator) prompt.</span>
+        <span>
+          <strong>Caution:</strong> Partition deletion is permanent and cannot be undone.
+          Back up all important data first. Run every command from an elevated (Administrator) prompt.
+        </span>
       </div>
 
       <div class="subsection">
         <h3><i class="ti ti-trash"></i> Remove Windows Recovery Partition</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
-          The recovery partition (~500 MB, hidden) is used by <strong>Windows Reset</strong>. Once deleted, factory reset options that keep or remove files will stop working. Only remove it if you have a bootable Windows USB or ISO as a fallback.
+        <p class="text-desc">
+          The recovery partition (~500 MB, hidden) is used by <strong>Windows Reset</strong>.
+          Once deleted, factory reset options that keep or remove files will stop working.
+          Only remove it if you have a bootable Windows USB or ISO as a fallback.
         </p>
+
         <div class="steps">
           <div class="step">
             <div class="step-num">1</div>
             <div class="step-content">
               <h4>Open Command Prompt as Administrator</h4>
-              <p>Press <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 6px;border-radius:3px;">Win + X</code> → "Command Prompt (Admin)" or "Windows PowerShell (Admin)".</p>
+              <p>
+                Press <code class="icode">Win + X</code> → "Command Prompt (Admin)" or "Windows PowerShell (Admin)".
+              </p>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">2</div>
             <div class="step-content">
               <h4>Launch Diskpart and list partitions</h4>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">diskpart</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>diskpart
 list disk
 select disk 0       # Replace 0 with the disk containing the recovery partition
@@ -1169,16 +1471,22 @@ list partition      # Find the "Recovery" type entry (~500 MB)</pre>
               </div>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">3</div>
             <div class="step-content">
               <h4>Select and delete the recovery partition</h4>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">diskpart</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>select partition X    # Replace X with the recovery partition number
 delete partition override</pre>
               </div>
-              <p style="font-size:12px; color:var(--muted); margin-top:6px;">The <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">override</code> flag is required — Windows normally protects this partition from deletion.</p>
+              <p class="text-note">
+                The <code class="icode">override</code> flag is required — Windows normally protects this partition from deletion.
+              </p>
             </div>
           </div>
         </div>
@@ -1188,9 +1496,11 @@ delete partition override</pre>
 
       <div class="subsection">
         <h3><i class="ti ti-brand-ubuntu"></i> Remove Linux Boot Entry (Dual Boot)</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
-          After deleting the Linux partition, its EFI boot entry lingers on the EFI System Partition. This removes it so Windows boots directly without any GRUB menu.
+        <p class="text-desc">
+          After deleting the Linux partition, its EFI boot entry lingers on the EFI System Partition.
+          This removes it so Windows boots directly without any GRUB menu.
         </p>
+
         <div class="steps">
           <div class="step">
             <div class="step-num">1</div>
@@ -1198,7 +1508,10 @@ delete partition override</pre>
               <h4>Assign a temporary drive letter to the EFI partition</h4>
               <p>Open an elevated Command Prompt, then run:</p>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">diskpart</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>diskpart
 list disk
 select disk 0       # Replace 0 with the correct disk
@@ -1209,32 +1522,40 @@ exit</pre>
               </div>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">2</div>
             <div class="step-content">
               <h4>Navigate to the EFI directory and remove the Linux entry</h4>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">cmd</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">cmd</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>R:
 cd EFI
 dir                  # List entries — look for ubuntu, fedora, arch, etc.
 rd ubuntu /s         # Replace 'ubuntu' with the actual folder name</pre>
               </div>
-              <p style="font-size:12px; color:var(--muted); margin-top:6px;">Type <strong>Y</strong> and press Enter when asked to confirm deletion.</p>
+              <p class="text-note">Type <strong>Y</strong> and press Enter when asked to confirm deletion.</p>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">3</div>
             <div class="step-content">
               <h4>Remove the temporary drive letter and reboot</h4>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">diskpart</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>diskpart
 select volume R
 remove letter=R
 exit</pre>
               </div>
-              <p style="font-size:12px; color:var(--muted); margin-top:6px;">Restart your system — GRUB will no longer appear.</p>
+              <p class="text-note">Restart your system — GRUB will no longer appear.</p>
             </div>
           </div>
         </div>
@@ -1242,11 +1563,14 @@ exit</pre>
 
       <div class="callout callout-tip">
         <i class="ti ti-info-circle"></i>
-        <span>Windows won't boot after partition changes? Head to <strong>UEFI Repair</strong> in the sidebar to rebuild the BCD store or repair the EFI partition.</span>
+        <span>
+          Windows won't boot after partition changes? Head to <strong>UEFI Repair</strong> in the sidebar
+          to rebuild the BCD store or repair the EFI partition.
+        </span>
       </div>
     </div>
 
-    <!-- UEFI Repair -->
+    <!-- UEFI Repair ─────────────────────────────────────────────────── -->
     <div id="uefi" class="section">
       <div class="section-header">
         <h2>UEFI Repair</h2>
@@ -1255,20 +1579,32 @@ exit</pre>
 
       <div class="callout callout-warn">
         <i class="ti ti-alert-triangle"></i>
-        <span>Always <strong>back up BCD</strong> before any repair. Formatting the EFI partition wipes all boot entries — Windows, Linux, and recovery loaders.</span>
+        <span>
+          Always <strong>back up BCD</strong> before any repair.
+          Formatting the EFI partition wipes all boot entries — Windows, Linux, and recovery loaders.
+        </span>
       </div>
 
       <!-- BCD Backup -->
       <div class="subsection">
         <h3><i class="ti ti-device-floppy"></i> Backup BCD Store</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">Run on a healthy system before making any boot or partition changes. Store the backup on an external drive or cloud.</p>
+        <p class="text-desc">
+          Run on a healthy system before making any boot or partition changes.
+          Store the backup on an external drive or cloud.
+        </p>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">cmd — admin</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">cmd — admin</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>bcdedit /export C:\BCD_Backup\bcdbackup</pre>
         </div>
-        <div class="callout callout-tip" style="margin-top:10px;">
+        <div class="callout callout-tip" style="margin-top: 10px;">
           <i class="ti ti-info-circle"></i>
-          <span>Verify the file <code style="font-family:'Geist Mono',monospace;font-size:11px;background:rgba(0,0,0,0.3);padding:2px 5px;border-radius:3px;">bcdbackup</code> exists at <code style="font-family:'Geist Mono',monospace;font-size:11px;background:rgba(0,0,0,0.3);padding:2px 5px;border-radius:3px;">C:\BCD_Backup</code> before closing the prompt.</span>
+          <span>
+            Verify the file <code class="icode-dark">bcdbackup</code> exists at
+            <code class="icode-dark">C:\BCD_Backup</code> before closing the prompt.
+          </span>
         </div>
       </div>
 
@@ -1279,10 +1615,16 @@ exit</pre>
         <h3><i class="ti ti-restore"></i> Restore BCD Store</h3>
         <div class="callout callout-danger">
           <i class="ti ti-alert-triangle"></i>
-          <span>This <strong>overwrites</strong> the current BCD configuration entirely. Confirm the backup path is correct before running.</span>
+          <span>
+            This <strong>overwrites</strong> the current BCD configuration entirely.
+            Confirm the backup path is correct before running.
+          </span>
         </div>
         <div class="code-block">
-          <div class="code-header"><span class="code-lang">cmd — admin</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <div class="code-header">
+            <span class="code-lang">cmd — admin</span>
+            <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+          </div>
           <pre>bcdedit /import C:\BCD_Backup\bcdbackup</pre>
         </div>
       </div>
@@ -1292,12 +1634,15 @@ exit</pre>
       <!-- Quick Fix -->
       <div class="subsection">
         <h3><i class="ti ti-bolt"></i> Quick EFI Fix — Repair In Place</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:6px;">
-          <strong>Use when:</strong> Windows can still boot (or you can access a recovery CMD) but the EFI partition has become corrupted or boot files are missing. This formats the existing EFI partition and rebuilds boot entries without deleting the partition itself.
+        <p class="text-desc">
+          <strong>Use when:</strong> Windows can still boot (or you can access a recovery CMD) but the EFI partition
+          has become corrupted or boot files are missing. This formats the existing EFI partition and rebuilds boot
+          entries without deleting the partition itself.
         </p>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
-          Reference: <a href="https://youtu.be/CZ17JrgFFhw" target="_blank" style="color:var(--link);">youtube.com/CZ17JrgFFhw</a>
+        <p class="text-desc">
+          Reference: <a href="https://youtu.be/CZ17JrgFFhw" target="_blank" rel="noopener noreferrer" style="color:var(--link);">youtube.com/CZ17JrgFFhw</a>
         </p>
+
         <div class="steps">
           <div class="step">
             <div class="step-num">1</div>
@@ -1306,13 +1651,20 @@ exit</pre>
               <p>See the Backup BCD Store section above before proceeding.</p>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">2</div>
             <div class="step-content">
               <h4>Format the EFI partition and assign a drive letter</h4>
-              <p>The EFI partition is the ~100 MB FAT32 partition. Use <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">list volume</code> to identify it by size and filesystem.</p>
+              <p>
+                The EFI partition is the ~100 MB FAT32 partition.
+                Use <code class="icode">list volume</code> to identify it by size and filesystem.
+              </p>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">diskpart</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>diskpart
 list disk
 select disk 0         # Replace 0 with the disk containing the EFI partition
@@ -1324,23 +1676,31 @@ exit</pre>
               </div>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">3</div>
             <div class="step-content">
               <h4>Rebuild Windows boot files</h4>
-              <p>Replace <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">C:</code> if Windows is on a different drive letter.</p>
+              <p>Replace <code class="icode">C:</code> if Windows is on a different drive letter.</p>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">cmd — admin</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">cmd — admin</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>bcdboot C:\Windows /s V: /f UEFI</pre>
               </div>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">4</div>
             <div class="step-content">
               <h4>Remove the temporary drive letter and reboot</h4>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">diskpart</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>diskpart
 select volume V
 remove letter=V
@@ -1356,13 +1716,20 @@ exit</pre>
       <!-- Full Recreate -->
       <div class="subsection">
         <h3><i class="ti ti-refresh"></i> Full EFI Recreate — From Windows Setup</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
-          <strong>Use when:</strong> The EFI partition is missing entirely, or so severely corrupted that the Quick Fix fails. This deletes the old EFI partition and creates a fresh 260 MB one from scratch. Requires booting from a <strong>Windows installation USB or DVD</strong>.
+        <p class="text-desc">
+          <strong>Use when:</strong> The EFI partition is missing entirely, or so severely corrupted that the Quick Fix
+          fails. This deletes the old EFI partition and creates a fresh 260 MB one from scratch.
+          Requires booting from a <strong>Windows installation USB or DVD</strong>.
         </p>
+
         <div class="callout callout-tip">
           <i class="ti ti-info-circle"></i>
-          <span>At the initial Windows Setup screen, press <strong>Shift + F10</strong> to open a Command Prompt without proceeding with installation.</span>
+          <span>
+            At the initial Windows Setup screen, press <strong>Shift + F10</strong> to open a Command Prompt
+            without proceeding with installation.
+          </span>
         </div>
+
         <div class="steps">
           <div class="step">
             <div class="step-num">1</div>
@@ -1370,7 +1737,10 @@ exit</pre>
               <h4>Identify the existing EFI partition</h4>
               <p>EFI partition is FAT32, typically between 100 MB and 1 GB.</p>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">diskpart</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>diskpart
 list disk
 select disk #          # Replace # with your disk number
@@ -1378,23 +1748,31 @@ list partition         # Find the EFI entry (FAT32, 100–1000 MB)</pre>
               </div>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">2</div>
             <div class="step-content">
               <h4>Delete the old EFI partition</h4>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">diskpart</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>select partition #    # Replace # with the EFI partition number
 delete partition</pre>
               </div>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">3</div>
             <div class="step-content">
               <h4>Create a new 260 MB EFI partition</h4>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">diskpart</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>create partition efi size=260
 format quick fs=fat32 label="System"
 assign letter=S
@@ -1402,22 +1780,30 @@ exit</pre>
               </div>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">4</div>
             <div class="step-content">
               <h4>Rebuild Windows boot files</h4>
-              <p>Replace <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">C:\Windows</code> with your actual Windows path if different.</p>
+              <p>Replace <code class="icode">C:\Windows</code> with your actual Windows path if different.</p>
               <div class="code-block">
-                <div class="code-header"><span class="code-lang">cmd</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <div class="code-header">
+                  <span class="code-lang">cmd</span>
+                  <button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button>
+                </div>
                 <pre>bcdboot C:\Windows /s S: /f UEFI</pre>
               </div>
             </div>
           </div>
+
           <div class="step">
             <div class="step-num">5</div>
             <div class="step-content">
               <h4>Exit and reboot</h4>
-              <p>Type <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">exit</code> to close the Command Prompt, then remove the installation media and restart.</p>
+              <p>
+                Type <code class="icode">exit</code> to close the Command Prompt,
+                then remove the installation media and restart.
+              </p>
             </div>
           </div>
         </div>
@@ -1428,22 +1814,38 @@ exit</pre>
 </div>
 
 <script>
-function show(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  event.currentTarget.classList.add('active');
-}
+  /**
+   * Switch the visible section and update the active nav-item.
+   * @param {string} id   - The section element ID to show.
+   * @param {Element} el  - The nav-item anchor that was clicked.
+   */
+  function show(id, el) {
+    document.querySelectorAll('.section').forEach(function (s) {
+      s.classList.remove('active');
+    });
+    document.querySelectorAll('.nav-item').forEach(function (n) {
+      n.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+  }
 
-function copyCode(btn) {
-  const pre = btn.closest('.code-block').querySelector('pre');
-  navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
-    const orig = btn.innerHTML;
-    btn.innerHTML = '<i class="ti ti-check"></i> Copied';
-    btn.style.color = 'var(--tip)';
-    setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 1800);
-  });
-}
+  /**
+   * Copy the code block's text to the clipboard and provide visual feedback.
+   * @param {Element} btn - The copy button that was clicked.
+   */
+  function copyCode(btn) {
+    var pre = btn.closest('.code-block').querySelector('pre');
+    navigator.clipboard.writeText(pre.textContent.trim()).then(function () {
+      var orig = btn.innerHTML;
+      btn.innerHTML = '<i class="ti ti-check"></i> Copied';
+      btn.style.color = 'var(--tip)';
+      setTimeout(function () {
+        btn.innerHTML = orig;
+        btn.style.color = '';
+      }, 1800);
+    });
+  }
 </script>
 </body>
 </html>
