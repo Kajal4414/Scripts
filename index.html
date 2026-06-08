@@ -50,7 +50,7 @@
     width: 220px;
     flex-shrink: 0;
     border-right: 1px solid var(--border);
-    padding: 32px 0;
+    padding: 32px 0 0;
     position: sticky;
     top: 0;
     height: 100vh;
@@ -63,6 +63,7 @@
     padding: 0 20px 28px;
     border-bottom: 1px solid var(--border);
     margin-bottom: 20px;
+    margin-top: 32px;
   }
 
   .sidebar-logo h1 {
@@ -110,41 +111,6 @@
   .nav-item.active { color: var(--text); border-left-color: var(--text); background: var(--surface); }
 
   .nav-item i { font-size: 15px; opacity: 0.7; }
-
-  /* Sidebar Footer */
-  .sidebar-footer {
-    margin-top: auto;
-    padding: 24px 20px 0;
-    margin-bottom: -10px;
-    font-size: 11px;
-    color: var(--muted);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .sidebar-footer span {
-    font-family: 'Geist Mono', monospace;
-    opacity: 0.6;
-  }
-
-  .sidebar-footer a {
-    color: var(--text);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    transition: color 0.15s;
-  }
-
-  .sidebar-footer a:hover {
-    color: var(--link);
-  }
-
-  .sidebar-footer i {
-    font-size: 15px;
-  }
 
   /* Main content */
   .main {
@@ -486,6 +452,38 @@
   ::-webkit-scrollbar { width: 4px; height: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
+  /* Sidebar footer / developer credit */
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 20px 20px 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .dev-credit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 12px;
+    transition: color 0.15s;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .dev-credit:hover { color: var(--text); border-color: var(--border2); }
+  .dev-credit i { font-size: 15px; }
+  .dev-credit-label { font-size: 10px; color: var(--muted); margin-bottom: 6px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+
+  /* Callout danger */
+  .callout-danger {
+    background: rgba(239,68,68,0.07);
+    border: 1px solid rgba(239,68,68,0.22);
+    color: #f87171;
+  }
 </style>
 </head>
 <body>
@@ -535,18 +533,22 @@
       <a class="nav-item" onclick="show('asus')">
         <i class="ti ti-battery"></i> ASUS Config
       </a>
-      <a class="nav-item" onclick="show('disk-uefi')">
-        <i class="ti ti-disc"></i> Disk & UEFI
-      </a>
       <a class="nav-item" onclick="show('linux')">
         <i class="ti ti-brand-ubuntu"></i> Linux Notes
+      </a>
+      <a class="nav-item" onclick="show('cleanup')">
+        <i class="ti ti-eraser"></i> Boot Cleanup
+      </a>
+      <a class="nav-item" onclick="show('uefi')">
+        <i class="ti ti-tool"></i> UEFI Repair
       </a>
     </div>
 
     <div class="sidebar-footer">
-      <span>Developed by Kajal</span>
-      <a href="https://github.com/Kajal4414" target="_blank">
-        <i class="ti ti-brand-github"></i> @Kajal4414
+      <div class="dev-credit-label">Developer</div>
+      <a class="dev-credit" href="https://github.com/Kajal4414" target="_blank">
+        <i class="ti ti-brand-github"></i>
+        <span>Kajal4414</span>
       </a>
     </div>
   </nav>
@@ -1089,107 +1091,6 @@ Set-Service -Name "ASUSSystemDiagnosis"  -StartupType Disabled</pre>
       </div>
     </div>
 
-    <!-- Disk & UEFI (New Section) -->
-    <div id="disk-uefi" class="section">
-      <div class="section-header">
-        <h2>Disk & UEFI Management</h2>
-        <p>Guides for managing partitions, fixing GRUB, and rebuilding the Windows BCD Store.</p>
-      </div>
-
-      <!-- Remove Recovery Partition -->
-      <div class="subsection">
-        <h3><i class="ti ti-trash"></i> Removing Windows Recovery Partition</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">Open Command Prompt as Administrator and run the following commands in sequence:</p>
-        <div class="code-block">
-          <div class="code-header"><span class="code-lang">cmd — diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
-          <pre>diskpart
-list disk
-select disk 0         # Replace '0' with the disk containing recovery partition
-list partition
-select partition X    # Replace 'X' with the recovery partition number
-delete partition override
-exit</pre>
-        </div>
-      </div>
-
-      <hr class="divider">
-
-      <!-- Removing Linux from GRUB -->
-      <div class="subsection">
-        <h3><i class="ti ti-brand-ubuntu"></i> Removing Linux from GRUB Boot Menu</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">For dual-boot setups. Open Command Prompt as Administrator.</p>
-        <div class="code-block">
-          <div class="code-header"><span class="code-lang">cmd — assign efi letter</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
-          <pre>diskpart
-list disk
-select disk 0         # Replace '0' with your system disk
-list partition
-select partition 0    # Replace '0' with your EFI System Partition number
-assign letter=R
-exit</pre>
-        </div>
-        <div class="code-block">
-          <div class="code-header"><span class="code-lang">cmd — remove boot entry</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
-          <pre>R:
-cd EFI
-dir                   # Verify directory contents
-rd ubuntu /s          # Replace 'ubuntu' with the correct Linux folder name
-# Type 'Y' and press Enter to confirm deletion. Finally, Reboot.</pre>
-        </div>
-      </div>
-
-      <hr class="divider">
-
-      <!-- Backup & Restore BCD -->
-      <div class="subsection">
-        <h3><i class="ti ti-device-floppy"></i> Backup & Restore UEFI Partition (BCD Store)</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">Backup your Boot Configuration Data before making sensitive changes.</p>
-        <div class="code-block">
-          <div class="code-header"><span class="code-lang">cmd — backup</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
-          <pre>bcdedit /export "C:\BCD_Backup.bcd"</pre>
-        </div>
-        <div class="code-block">
-          <div class="code-header"><span class="code-lang">cmd — restore</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
-          <pre>bcdedit /import "C:\BCD_Backup.bcd"</pre>
-        </div>
-      </div>
-
-      <hr class="divider">
-
-      <!-- Fix & Recreate UEFI Partition -->
-      <div class="subsection">
-        <h3><i class="ti ti-tool"></i> Format & Recreate UEFI Partition</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">If the UEFI partition is corrupted, you can reformat and rebuild it from Command Prompt (Admin) or Windows Setup (Shift + F10).</p>
-        
-        <div class="code-block">
-          <div class="code-header"><span class="code-lang">cmd — format existing efi</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
-          <pre>diskpart
-list disk
-select disk 0         # Disk containing the UEFI partition
-list partition        # Look for the 100MB-1GB FAT32 EFI partition
-select partition 1    # Replace '1' with your EFI partition number
-format fs=fat32 quick label="System"
-assign letter=V
-exit</pre>
-        </div>
-
-        <div class="callout callout-warn">
-          <i class="ti ti-alert-triangle"></i>
-          <span>If the partition is completely missing, replace the <code>format</code> line above with: <br><code style="font-family:'Geist Mono',monospace; font-size:11px; background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:3px; margin-top:6px; display:inline-block;">create partition efi size=260</code></span>
-        </div>
-
-        <div class="code-block">
-          <div class="code-header"><span class="code-lang">cmd — rebuild bcd & cleanup</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
-          <pre>bcdboot C:\Windows /s V: /f UEFI
-
-diskpart
-select volume V
-remove letter=V
-exit</pre>
-        </div>
-      </div>
-    </div>
-
     <!-- Linux -->
     <div id="linux" class="section">
       <div class="section-header">
@@ -1226,6 +1127,299 @@ dotnet --list-sdks</pre>
         <div class="callout callout-tip">
           <i class="ti ti-info-circle"></i>
           <span>Follow the <a href="https://protonvpn.com/support/official-linux-vpn-mint/" target="_blank" style="color:var(--link);">official Proton VPN Linux Mint guide</a> for the most up-to-date installation steps.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boot Cleanup -->
+    <div id="cleanup" class="section">
+      <div class="section-header">
+        <h2>Boot Cleanup</h2>
+        <p>Remove unwanted recovery partitions and wipe Linux boot entries from the EFI partition after a dual-boot teardown.</p>
+      </div>
+
+      <div class="callout callout-danger">
+        <i class="ti ti-alert-triangle"></i>
+        <span><strong>Caution:</strong> Partition deletion is permanent and cannot be undone. Back up all important data first. Run every command from an elevated (Administrator) prompt.</span>
+      </div>
+
+      <div class="subsection">
+        <h3><i class="ti ti-trash"></i> Remove Windows Recovery Partition</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
+          The recovery partition (~500 MB, hidden) is used by <strong>Windows Reset</strong>. Once deleted, factory reset options that keep or remove files will stop working. Only remove it if you have a bootable Windows USB or ISO as a fallback.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Open Command Prompt as Administrator</h4>
+              <p>Press <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 6px;border-radius:3px;">Win + X</code> → "Command Prompt (Admin)" or "Windows PowerShell (Admin)".</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Launch Diskpart and list partitions</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>diskpart
+list disk
+select disk 0       # Replace 0 with the disk containing the recovery partition
+list partition      # Find the "Recovery" type entry (~500 MB)</pre>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Select and delete the recovery partition</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>select partition X    # Replace X with the recovery partition number
+delete partition override</pre>
+              </div>
+              <p style="font-size:12px; color:var(--muted); margin-top:6px;">The <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">override</code> flag is required — Windows normally protects this partition from deletion.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="subsection">
+        <h3><i class="ti ti-brand-ubuntu"></i> Remove Linux Boot Entry (Dual Boot)</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
+          After deleting the Linux partition, its EFI boot entry lingers on the EFI System Partition. This removes it so Windows boots directly without any GRUB menu.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Assign a temporary drive letter to the EFI partition</h4>
+              <p>Open an elevated Command Prompt, then run:</p>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>diskpart
+list disk
+select disk 0       # Replace 0 with the correct disk
+list partition
+select partition 0  # Replace 0 with the EFI partition number (~100 MB FAT32)
+assign letter=R
+exit</pre>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Navigate to the EFI directory and remove the Linux entry</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">cmd</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>R:
+cd EFI
+dir                  # List entries — look for ubuntu, fedora, arch, etc.
+rd ubuntu /s         # Replace 'ubuntu' with the actual folder name</pre>
+              </div>
+              <p style="font-size:12px; color:var(--muted); margin-top:6px;">Type <strong>Y</strong> and press Enter when asked to confirm deletion.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Remove the temporary drive letter and reboot</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>diskpart
+select volume R
+remove letter=R
+exit</pre>
+              </div>
+              <p style="font-size:12px; color:var(--muted); margin-top:6px;">Restart your system — GRUB will no longer appear.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <i class="ti ti-info-circle"></i>
+        <span>Windows won't boot after partition changes? Head to <strong>UEFI Repair</strong> in the sidebar to rebuild the BCD store or repair the EFI partition.</span>
+      </div>
+    </div>
+
+    <!-- UEFI Repair -->
+    <div id="uefi" class="section">
+      <div class="section-header">
+        <h2>UEFI Repair</h2>
+        <p>Backup and restore the BCD store, or repair / fully recreate a corrupted EFI System Partition.</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <i class="ti ti-alert-triangle"></i>
+        <span>Always <strong>back up BCD</strong> before any repair. Formatting the EFI partition wipes all boot entries — Windows, Linux, and recovery loaders.</span>
+      </div>
+
+      <!-- BCD Backup -->
+      <div class="subsection">
+        <h3><i class="ti ti-device-floppy"></i> Backup BCD Store</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">Run on a healthy system before making any boot or partition changes. Store the backup on an external drive or cloud.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">cmd — admin</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <pre>bcdedit /export C:\BCD_Backup\bcdbackup</pre>
+        </div>
+        <div class="callout callout-tip" style="margin-top:10px;">
+          <i class="ti ti-info-circle"></i>
+          <span>Verify the file <code style="font-family:'Geist Mono',monospace;font-size:11px;background:rgba(0,0,0,0.3);padding:2px 5px;border-radius:3px;">bcdbackup</code> exists at <code style="font-family:'Geist Mono',monospace;font-size:11px;background:rgba(0,0,0,0.3);padding:2px 5px;border-radius:3px;">C:\BCD_Backup</code> before closing the prompt.</span>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- BCD Restore -->
+      <div class="subsection">
+        <h3><i class="ti ti-restore"></i> Restore BCD Store</h3>
+        <div class="callout callout-danger">
+          <i class="ti ti-alert-triangle"></i>
+          <span>This <strong>overwrites</strong> the current BCD configuration entirely. Confirm the backup path is correct before running.</span>
+        </div>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">cmd — admin</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+          <pre>bcdedit /import C:\BCD_Backup\bcdbackup</pre>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Quick Fix -->
+      <div class="subsection">
+        <h3><i class="ti ti-bolt"></i> Quick EFI Fix — Repair In Place</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:6px;">
+          <strong>Use when:</strong> Windows can still boot (or you can access a recovery CMD) but the EFI partition has become corrupted or boot files are missing. This formats the existing EFI partition and rebuilds boot entries without deleting the partition itself.
+        </p>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
+          Reference: <a href="https://youtu.be/CZ17JrgFFhw" target="_blank" style="color:var(--link);">youtube.com/CZ17JrgFFhw</a>
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Backup BCD first</h4>
+              <p>See the Backup BCD Store section above before proceeding.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Format the EFI partition and assign a drive letter</h4>
+              <p>The EFI partition is the ~100 MB FAT32 partition. Use <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">list volume</code> to identify it by size and filesystem.</p>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>diskpart
+list disk
+select disk 0         # Replace 0 with the disk containing the EFI partition
+list volume           # Find the ~100 MB FAT32 volume
+select partition 1    # Replace 1 with the EFI partition number
+format fs=fat32 quick
+assign letter=V
+exit</pre>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Rebuild Windows boot files</h4>
+              <p>Replace <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">C:</code> if Windows is on a different drive letter.</p>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">cmd — admin</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>bcdboot C:\Windows /s V: /f UEFI</pre>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Remove the temporary drive letter and reboot</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>diskpart
+select volume V
+remove letter=V
+exit</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Full Recreate -->
+      <div class="subsection">
+        <h3><i class="ti ti-refresh"></i> Full EFI Recreate — From Windows Setup</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">
+          <strong>Use when:</strong> The EFI partition is missing entirely, or so severely corrupted that the Quick Fix fails. This deletes the old EFI partition and creates a fresh 260 MB one from scratch. Requires booting from a <strong>Windows installation USB or DVD</strong>.
+        </p>
+        <div class="callout callout-tip">
+          <i class="ti ti-info-circle"></i>
+          <span>At the initial Windows Setup screen, press <strong>Shift + F10</strong> to open a Command Prompt without proceeding with installation.</span>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Identify the existing EFI partition</h4>
+              <p>EFI partition is FAT32, typically between 100 MB and 1 GB.</p>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>diskpart
+list disk
+select disk #          # Replace # with your disk number
+list partition         # Find the EFI entry (FAT32, 100–1000 MB)</pre>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Delete the old EFI partition</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>select partition #    # Replace # with the EFI partition number
+delete partition</pre>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Create a new 260 MB EFI partition</h4>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">diskpart</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>create partition efi size=260
+format quick fs=fat32 label="System"
+assign letter=S
+exit</pre>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Rebuild Windows boot files</h4>
+              <p>Replace <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">C:\Windows</code> with your actual Windows path if different.</p>
+              <div class="code-block">
+                <div class="code-header"><span class="code-lang">cmd</span><button class="copy-btn" onclick="copyCode(this)"><i class="ti ti-copy"></i> Copy</button></div>
+                <pre>bcdboot C:\Windows /s S: /f UEFI</pre>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <h4>Exit and reboot</h4>
+              <p>Type <code style="font-family:'Geist Mono',monospace;font-size:11px;background:var(--surface2);padding:2px 5px;border-radius:3px;">exit</code> to close the Command Prompt, then remove the installation media and restart.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
