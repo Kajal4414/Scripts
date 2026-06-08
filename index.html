@@ -499,6 +499,13 @@
     .text-note         { font-size: 12px; color: var(--muted); margin-top: 6px; }
     .text-desc         { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
 
+    /* Inline-link colour (applied to <a> tags inside prose text) */
+    .link-inline       { color: var(--link); }
+
+    /* Spacing modifiers */
+    .mt-xs             { margin-top: 10px; }
+    .mt-sm             { margin-top: 14px; }
+
     /* ── Registry path ─────────────────────────────────────────────── */
     .reg-path {
       font-family: 'Geist Mono', monospace;
@@ -1301,7 +1308,7 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
         <h3><i class="ti ti-battery"></i> Set Battery Charging Threshold (60%)</h3>
         <p class="text-desc">
           Requires the
-          <a href="https://www.asus.com/support/Download-Center/" target="_blank" rel="noopener noreferrer" style="color:var(--link);">ASUS System Control Interface</a>
+          <a href="https://www.asus.com/support/Download-Center/" target="_blank" rel="noopener noreferrer" class="link-inline">ASUS System Control Interface</a>
           driver. Does not need the MyASUS app.
         </p>
 
@@ -1368,7 +1375,7 @@ sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
           <span class="service-tag">ASUSSystemDiagnosis</span>
         </div>
 
-        <div class="code-block" style="margin-top: 14px;">
+        <div class="code-block mt-sm">
           <div class="code-header">
             <span class="code-lang">powershell — disable non-essential services</span>
             <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
@@ -1441,7 +1448,7 @@ dotnet --list-sdks</pre>
           <i class="ti ti-info-circle"></i>
           <span>
             Follow the
-            <a href="https://protonvpn.com/support/official-linux-vpn-mint/" target="_blank" rel="noopener noreferrer" style="color:var(--link);">official Proton VPN Linux Mint guide</a>
+            <a href="https://protonvpn.com/support/official-linux-vpn-mint/" target="_blank" rel="noopener noreferrer" class="link-inline">official Proton VPN Linux Mint guide</a>
             for the most up-to-date installation steps.
           </span>
         </div>
@@ -1624,7 +1631,7 @@ exit</pre>
           </div>
           <pre>bcdedit /export C:\BCD_Backup\bcdbackup</pre>
         </div>
-        <div class="callout callout-tip" style="margin-top: 10px;">
+        <div class="callout callout-tip mt-xs">
           <i class="ti ti-info-circle"></i>
           <span>
             Verify the file <code class="icode-dark">bcdbackup</code> exists at
@@ -1665,7 +1672,7 @@ exit</pre>
           entries without deleting the partition itself.
         </p>
         <p class="text-desc">
-          Reference: <a href="https://youtu.be/CZ17JrgFFhw" target="_blank" rel="noopener noreferrer" style="color:var(--link);">youtube.com/CZ17JrgFFhw</a>
+          Reference: <a href="https://youtu.be/CZ17JrgFFhw" target="_blank" rel="noopener noreferrer" class="link-inline">youtube.com/CZ17JrgFFhw</a>
         </p>
 
         <div class="steps">
