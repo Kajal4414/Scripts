@@ -245,12 +245,11 @@
       height: 100vh;
       overflow-y: auto;
       background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.04), transparent 45%), var(--bg);
-      padding: 40px 60px 80px;
+      padding: 36px 48px 80px;
     }
 
     .content-container {
-      max-width: 1000px;
-      margin: 0 auto;
+      max-width: 100%;
     }
 
     .section {
@@ -267,8 +266,8 @@
     }
 
     .section-header {
-      margin-bottom: 32px;
-      padding-bottom: 20px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -668,7 +667,7 @@
       font-size: 16px;
       font-weight: 600;
       color: var(--text-primary);
-      margin-bottom: 16px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -831,7 +830,6 @@
     </div>
 
     <div class="sidebar-footer">
-      <div class="dev-credit-label">Developer</div>
       <a class="dev-credit" href="https://github.com/Kajal4414" target="_blank" rel="noopener noreferrer">
         <i class="ti ti-brand-github"></i>
         <span>Kajal4414</span>
@@ -847,13 +845,11 @@
       <section id="browsers" class="section active">
         <div class="section-header">
           <h2>Browsers</h2>
-          <p>Recommended browsers with curated setups.</p>
         </div>
 
         <!-- Firefox ─────────────────────────────────────────────────── -->
         <div class="subsection">
           <h3><i class="ti ti-brand-firefox"></i> Mozilla Firefox</h3>
-          <p class="text-desc">Privacy-focused, open-source. Deep UI customization via <code class="icode">userChrome.css</code>.</p>
           <div class="chip-row">
             <a class="chip" href="https://www.mozilla.org/en-US/firefox/all/#product-desktop-release" target="_blank" rel="noopener noreferrer"><i class="ti ti-external-link"></i> Download</a>
             <a class="chip" href="https://github.com/datguypiko/Firefox-Mod-Blur" target="_blank" rel="noopener noreferrer">Mod Blur</a>
@@ -884,7 +880,6 @@
         <!-- Chrome ──────────────────────────────────────────────────── -->
         <div class="subsection">
           <h3><i class="ti ti-brand-chrome"></i> Google Chrome</h3>
-          <p class="text-desc">Standalone offline installer. Pairs well with Catppuccin Mocha dark theme.</p>
           <div class="chip-row">
             <a class="chip" href="https://www.google.com/intl/en/chrome/?standalone=1" target="_blank" rel="noopener noreferrer"><i class="ti ti-external-link"></i> Download</a>
             <a class="chip" href="https://chromewebstore.google.com/detail/catppuccin-chrome-theme-m/bkkmolkhemgaeaeggcmfbghljjjoofoh" target="_blank" rel="noopener noreferrer"><i class="ti ti-palette"></i> Theme</a>
@@ -908,7 +903,6 @@
       <section id="editors" class="section">
         <div class="section-header">
           <h2>Code Editors &amp; IDEs</h2>
-          <p>Code editors, terminal setups, and config sync scripts.</p>
         </div>
 
         <div class="card-grid">
@@ -918,7 +912,6 @@
               <span class="rec-badge">Recommended</span>
             </div>
             <h3>Visual Studio Code</h3>
-            <p>Lightweight, extensible code editor. Settings and extensions can be synced from this repo.</p>
             <div class="card-links">
               <a class="chip" href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> VS Code
@@ -934,7 +927,6 @@
               <div class="card-icon"><i class="ti ti-coffee"></i></div>
             </div>
             <h3>IntelliJ IDEA</h3>
-            <p>Full-featured Java/Kotlin IDE by JetBrains. Community edition is free; Ultimate requires a license.</p>
             <div class="card-links">
               <a class="chip" href="https://www.jetbrains.com/idea/download/?section=windows" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> Download
@@ -947,7 +939,6 @@
               <div class="card-icon"><i class="ti ti-brand-python"></i></div>
             </div>
             <h3>PyCharm</h3>
-            <p>Python-focused IDE with intelligent code completion, integrated debugger, and virtual environment support.</p>
             <div class="card-links">
               <a class="chip" href="https://www.jetbrains.com/pycharm/download/?section=windows" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> Download
@@ -960,7 +951,6 @@
               <div class="card-icon"><i class="ti ti-file-text"></i></div>
             </div>
             <h3>Notepad++</h3>
-            <p>Lightweight, portable text editor with syntax highlighting for 80+ languages. Supports the Catppuccin theme.</p>
             <div class="card-links">
               <a class="chip" href="https://github.com/notepad-plus-plus/notepad-plus-plus" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> GitHub
@@ -976,7 +966,6 @@
               <div class="card-icon"><i class="ti ti-terminal"></i></div>
             </div>
             <h3>Windows Terminal</h3>
-            <p>Microsoft's modern tabbed terminal supporting PowerShell, CMD, and WSL profiles with full customization.</p>
             <div class="card-links">
               <a class="chip" href="https://github.com/microsoft/terminal" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> GitHub
@@ -989,7 +978,6 @@
               <div class="card-icon"><i class="ti ti-prompt"></i></div>
             </div>
             <h3>Oh My Posh</h3>
-            <p>Cross-shell prompt theming engine. Adds git status, icons, and custom segments to your terminal prompt.</p>
             <div class="card-links">
               <a class="chip" href="https://ohmyposh.dev/docs/installation/windows" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> Install Guide
@@ -1025,7 +1013,6 @@
       <section id="devtools" class="section">
         <div class="section-header">
           <h2>Development Tools</h2>
-          <p>Essential version control, SDKs, and Android tooling.</p>
         </div>
 
         <div class="table-wrapper">
@@ -1041,49 +1028,49 @@
             <tbody>
               <tr>
                 <td>Git</td>
-                <td>Distributed version control system for tracking code changes.</td>
+                <td>Distributed version control</td>
                 <td><a href="https://git-scm.com" target="_blank" rel="noopener noreferrer">git-scm.com</a></td>
                 <td><span class="rec-badge">Recommended</span></td>
               </tr>
               <tr>
                 <td>Gpg4win</td>
-                <td>GNU Privacy Guard for Windows — used for signing Git commits and encrypting files.</td>
+                <td>GPG encryption for Windows</td>
                 <td><a href="https://www.gpg4win.org" target="_blank" rel="noopener noreferrer">gpg4win.org</a></td>
                 <td>-</td>
               </tr>
               <tr>
                 <td>JDK Adoptium</td>
-                <td>Eclipse Temurin — free, open-source JDK (recommended over Oracle JDK).</td>
+                <td>Free, open-source JDK (Eclipse Temurin)</td>
                 <td><a href="https://adoptium.net/" target="_blank" rel="noopener noreferrer">adoptium.net</a></td>
                 <td><span class="rec-badge">Recommended</span></td>
               </tr>
               <tr>
                 <td><s>JDK Oracle</s></td>
-                <td>Oracle JDK — free for personal use only; commercial use requires a paid license.</td>
+                <td>License restrictions — avoid for commercial use</td>
                 <td><a href="https://www.oracle.com/in/java/technologies/downloads/" target="_blank" rel="noopener noreferrer">oracle.com</a></td>
                 <td><span class="dep-badge">Avoid</span></td>
               </tr>
               <tr>
                 <td>Node.js</td>
-                <td>JavaScript runtime built on V8. Required for npm, frontend tooling, and server-side JS.</td>
+                <td>JavaScript runtime (npm, frontend tooling)</td>
                 <td><a href="https://nodejs.org/en" target="_blank" rel="noopener noreferrer">nodejs.org</a></td>
                 <td>-</td>
               </tr>
               <tr>
                 <td>Python</td>
-                <td>Python language interpreter and standard library.</td>
+                <td>Python interpreter and standard library</td>
                 <td><a href="https://www.python.org/downloads" target="_blank" rel="noopener noreferrer">python.org</a></td>
                 <td>-</td>
               </tr>
               <tr>
                 <td>Platform Tools</td>
-                <td>Official Android SDK platform tools: <code class="icode">adb</code>, <code class="icode">fastboot</code>, and <code class="icode">systrace</code>.</td>
+                <td>ADB, Fastboot, and Android CLI tools</td>
                 <td><a href="https://developer.android.com/tools/releases/platform-tools" target="_blank" rel="noopener noreferrer">developer.android.com</a></td>
                 <td>-</td>
               </tr>
               <tr>
                 <td>APK Tool</td>
-                <td>Tool for decoding and rebuilding Android APK files.</td>
+                <td>Decode and rebuild Android APK files</td>
                 <td><a href="https://github.com/iBotPeaches/Apktool" target="_blank" rel="noopener noreferrer">GitHub</a></td>
                 <td>-</td>
               </tr>
@@ -1150,7 +1137,6 @@
       <section id="runtimes" class="section">
         <div class="section-header">
           <h2>Runtimes &amp; Redistributables</h2>
-          <p>Install these before running most Windows applications. Many apps silently fail without them.</p>
         </div>
 
         <div class="table-wrapper">
@@ -1165,17 +1151,17 @@
             <tbody>
               <tr>
                 <td>Visual C++ Redist</td>
-                <td>Bundles all Visual C++ redistributable versions (2005–2022) in a single installer.</td>
+                <td>Bundles all VC++ redistributable versions in one installer</td>
                 <td><a href="https://github.com/abbodi1406/vcredist" target="_blank" rel="noopener noreferrer">GitHub</a></td>
               </tr>
               <tr>
                 <td>DirectX Redist</td>
-                <td>DirectX end-user runtime — required by older games and media software.</td>
+                <td>DirectX end-user runtime for older games</td>
                 <td><a href="https://www.microsoft.com/en-gb/download/details.aspx?id=8109" target="_blank" rel="noopener noreferrer">microsoft.com</a></td>
               </tr>
               <tr>
                 <td>WebView2</td>
-                <td>Microsoft Edge WebView2 runtime — required by many modern Windows apps (e.g., Teams, VS Code).</td>
+                <td>Required by modern Windows apps (Teams, VS Code)</td>
                 <td><a href="https://developer.microsoft.com/en-us/microsoft-edge/webview2" target="_blank" rel="noopener noreferrer">developer.microsoft.com</a></td>
               </tr>
             </tbody>
@@ -1187,7 +1173,6 @@
       <section id="downloaders" class="section">
         <div class="section-header">
           <h2>Download Managers</h2>
-          <p>Download accelerators and torrent clients.</p>
         </div>
 
         <div class="card-grid">
@@ -1196,7 +1181,6 @@
               <div class="card-icon"><i class="ti ti-download"></i></div>
             </div>
             <h3>Internet Download Manager</h3>
-            <p>Paid download accelerator with browser integration and multi-threaded downloads.</p>
             <div class="card-links">
               <a class="chip" href="https://www.internetdownloadmanager.com" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> Site
@@ -1213,7 +1197,6 @@
               <span class="rec-badge">Free</span>
             </div>
             <h3>Free Download Manager</h3>
-            <p>Free, ad-free download manager. Supports torrents, FTP, and HTTP/S downloads.</p>
             <div class="card-links">
               <a class="chip" href="https://www.freedownloadmanager.org" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> Site
@@ -1226,7 +1209,6 @@
               <div class="card-icon"><i class="ti ti-file-zip"></i></div>
             </div>
             <h3>qBittorrent</h3>
-            <p>Open-source BitTorrent client. Clean, ad-free, and actively maintained.</p>
             <div class="card-links">
               <a class="chip" href="https://www.qbittorrent.org" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> Site
@@ -1242,7 +1224,6 @@
       <section id="media" class="section">
         <div class="section-header">
           <h2>Media Players &amp; Viewers</h2>
-          <p>Recommended video, audio, and image viewing software for Windows.</p>
         </div>
 
         <div class="table-wrapper">
@@ -1257,27 +1238,27 @@
             <tbody>
               <tr>
                 <td>K-Lite Codec Pack</td>
-                <td>Comprehensive codec pack for Windows — enables playback of virtually any audio/video format.</td>
+                <td>All-in-one codec bundle for Windows</td>
                 <td><a href="https://codecguide.com/download_k-lite_codec_pack_full.htm" target="_blank" rel="noopener noreferrer">codecguide.com</a></td>
               </tr>
               <tr>
                 <td>VLC Media Player</td>
-                <td>Universal open-source media player. Plays almost any file format out of the box.</td>
+                <td>Universal open-source media player</td>
                 <td><a href="https://www.videolan.org" target="_blank" rel="noopener noreferrer">videolan.org</a></td>
               </tr>
               <tr>
                 <td>Screenbox</td>
-                <td>Modern Fluent Design media player built on VLC — cleaner UI than classic VLC.</td>
+                <td>Modern Fluent Design media player (VLC-based)</td>
                 <td><a href="https://github.com/huynhsontung/Screenbox" target="_blank" rel="noopener noreferrer">GitHub</a></td>
               </tr>
               <tr>
                 <td>MPV</td>
-                <td>Minimalist, GPU-accelerated video player. Highly configurable via scripts and <code class="icode">mpv.conf</code>.</td>
+                <td>Minimalist, GPU-accelerated, scriptable video player</td>
                 <td><a href="https://github.com/mpv-player/mpv" target="_blank" rel="noopener noreferrer">GitHub</a></td>
               </tr>
               <tr>
                 <td>PV Photo Viewer</td>
-                <td>Fast, keyboard-driven image viewer. Open images from the command line or file explorer.</td>
+                <td>Fast, keyboard-driven image viewer</td>
                 <td><a href="extras/pv.exe">Local Link</a></td>
               </tr>
             </tbody>
@@ -1300,7 +1281,6 @@
       <section id="office" class="section">
         <div class="section-header">
           <h2>Office Suite</h2>
-          <p>Install Microsoft Office 365 ProPlus offline and activate using the MAS Ohook method.</p>
         </div>
 
         <div class="card-grid">
@@ -1309,7 +1289,6 @@
               <div class="card-icon"><i class="ti ti-brand-office"></i></div>
             </div>
             <h3>Office 365 ProPlus</h3>
-            <p>Offline x64 installer (English US). Mount the <code class="icode">.img</code> file and run setup. Activate with MAS Ohook.</p>
             <div class="card-links">
               <a class="chip" href="https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/O365ProPlusRetail.img" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-download"></i> .img Download
@@ -1340,7 +1319,6 @@
       <section id="messaging" class="section">
         <div class="section-header">
           <h2>Messaging</h2>
-          <p>Desktop messaging clients for cross-platform communication.</p>
         </div>
 
         <div class="card-grid">
@@ -1349,7 +1327,6 @@
               <div class="card-icon"><i class="ti ti-brand-telegram"></i></div>
             </div>
             <h3>Telegram Desktop</h3>
-            <p>Official Telegram desktop client. The MaterialGram fork adds Material You dynamic theming.</p>
             <div class="card-links">
               <a class="chip" href="https://github.com/telegramdesktop/tdesktop/releases/latest" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> Official
@@ -1365,7 +1342,6 @@
               <div class="card-icon"><i class="ti ti-brand-instagram"></i></div>
             </div>
             <h3>Indirect</h3>
-            <p>Unofficial, open-source Instagram Direct Messages client for Windows.</p>
             <div class="card-links">
               <a class="chip" href="https://github.com/huynhsontung/Indirect" target="_blank" rel="noopener noreferrer">
                 <i class="ti ti-external-link"></i> GitHub
@@ -1380,7 +1356,6 @@
       <section id="misc" class="section">
         <div class="section-header">
           <h2>Utilities</h2>
-          <p>System tools, cleaners, uninstallers, and quality-of-life apps.</p>
         </div>
 
         <div class="table-wrapper">
@@ -1400,37 +1375,37 @@
               </tr>
               <tr>
                 <td>WinGet / App Installer</td>
-                <td>Windows' built-in package manager CLI — install software from the Store or winget source.</td>
+                <td>Windows package manager CLI</td>
                 <td><a href="https://apps.microsoft.com/detail/app-installer/9NBLGGH4NNS1" target="_blank" rel="noopener noreferrer">Microsoft Store</a></td>
               </tr>
               <tr>
                 <td>AMD Software</td>
-                <td>Official AMD drivers for Radeon GPUs and Ryzen integrated graphics.</td>
+                <td>GPU drivers for Radeon / Ryzen</td>
                 <td><a href="https://www.amd.com/en/support" target="_blank" rel="noopener noreferrer">amd.com</a></td>
               </tr>
               <tr>
                 <td>BleachBit</td>
-                <td>Open-source disk cleaner that removes junk files, cache, and browsing history.</td>
+                <td>Disk cleaner and privacy tool</td>
                 <td><a href="https://github.com/bleachbit/bleachbit" target="_blank" rel="noopener noreferrer">GitHub</a></td>
               </tr>
               <tr>
                 <td>CleanmgrPlus</td>
-                <td>Enhanced replacement for Windows Disk Cleanup with more categories and automation support.</td>
+                <td>Enhanced Windows Disk Cleanup replacement</td>
                 <td><a href="https://github.com/builtbybel/CleanmgrPlus" target="_blank" rel="noopener noreferrer">GitHub</a></td>
               </tr>
               <tr>
                 <td>Bulk Crap Uninstaller</td>
-                <td>Bulk uninstaller that scans for and removes leftover registry entries and files.</td>
+                <td>Bulk uninstaller with leftover registry scanner</td>
                 <td><a href="https://github.com/Klocman/Bulk-Crap-Uninstaller" target="_blank" rel="noopener noreferrer">GitHub</a></td>
               </tr>
               <tr>
                 <td>ExplorerBlurMica</td>
-                <td>Adds Windows 11 Mica/Blur acrylic effects to File Explorer.</td>
+                <td>Mica / Blur effects for File Explorer</td>
                 <td><a href="https://github.com/Maplespe/ExplorerBlurMica" target="_blank" rel="noopener noreferrer">GitHub</a></td>
               </tr>
               <tr>
                 <td>HEIF Image Extensions</td>
-                <td>Adds HEIC/HEIF image format support to the Windows Photos app.</td>
+                <td>HEIC/HEIF support for Windows Photos</td>
                 <td><a href="https://apps.microsoft.com/detail/heif-image-extensions/9PMMSR1CGPWG" target="_blank" rel="noopener noreferrer">Microsoft Store</a></td>
               </tr>
               <tr>
@@ -1440,32 +1415,32 @@
               </tr>
               <tr>
                 <td>Process Explorer</td>
-                <td>Sysinternals tool that replaces Task Manager with a process tree view and deep inspection.</td>
+                <td>Advanced Task Manager replacement (Sysinternals)</td>
                 <td><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer" target="_blank" rel="noopener noreferrer">Sysinternals</a></td>
               </tr>
               <tr>
                 <td>Proton VPN</td>
-                <td>Open-source, no-log VPN with a free tier. Based in Switzerland.</td>
+                <td>No-log VPN with free tier</td>
                 <td><a href="https://protonvpn.com/download-windows" target="_blank" rel="noopener noreferrer">protonvpn.com</a></td>
               </tr>
               <tr>
                 <td>Revo Uninstaller Pro</td>
-                <td>Deep-clean uninstaller with registry scan to remove all leftover traces.</td>
+                <td>Deep-clean uninstaller with registry scan</td>
                 <td><a href="https://www.revouninstaller.com/revo-uninstaller-free-download" target="_blank" rel="noopener noreferrer">revouninstaller.com</a></td>
               </tr>
               <tr>
                 <td>StartAllBack</td>
-                <td>Restores the classic Windows 10-style Start menu and taskbar on Windows 11.</td>
+                <td>Classic Start menu for Windows 11</td>
                 <td><a href="https://www.startallback.com" target="_blank" rel="noopener noreferrer">startallback.com</a></td>
               </tr>
               <tr>
                 <td>Winpinator</td>
-                <td>Windows companion app for Linux Mint's Warpinator — share files over LAN.</td>
+                <td>LAN file sharing (Warpinator-compatible)</td>
                 <td><a href="https://winpinator.swisz.cz/download.html" target="_blank" rel="noopener noreferrer">winpinator.swisz.cz</a></td>
               </tr>
               <tr>
                 <td>YoutubeDownloader</td>
-                <td>GUI-based YouTube downloader. Supports multiple formats and quality options.</td>
+                <td>GUI-based YouTube video/audio downloader</td>
                 <td><a href="https://github.com/Tyrrrz/YoutubeDownloader" target="_blank" rel="noopener noreferrer">GitHub</a></td>
               </tr>
             </tbody>
@@ -1475,25 +1450,13 @@
         <hr class="divider">
 
         <div class="subsection">
-          <h3><i class="ti ti-key"></i> Revo Uninstaller Pro — Activation</h3>
-          <p class="text-desc">
-            Place the license file at the path below to activate Revo Uninstaller Pro.
-          </p>
+          <h3><i class="ti ti-key"></i> Activation Files</h3>
           <div class="chip-row">
             <a class="chip" href="https://github.com/Kajal4414/Scripts/raw/main/extras/revouninstallerpro5.lic" target="_blank" rel="noopener noreferrer"><i class="ti ti-download"></i> revouninstallerpro5.lic</a>
-          </div>
-          <code class="reg-path">extras/revouninstallerpro5.lic → C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\</code>
-        </div>
-
-        <div class="subsection">
-          <h3><i class="ti ti-key"></i> StartIsBack++ — Activation</h3>
-          <p class="text-desc">
-            Place the DLL file at the path below to activate StartIsBack++.
-          </p>
-          <div class="chip-row">
             <a class="chip" href="https://github.com/Kajal4414/Scripts/raw/main/extras/msimg32.dll" target="_blank" rel="noopener noreferrer"><i class="ti ti-download"></i> msimg32.dll</a>
           </div>
-          <code class="reg-path">extras/msimg32.dll → C:\Program Files (x86)\StartIsBack\</code>
+          <code class="reg-path">revouninstallerpro5.lic → C:\ProgramData\VS Revo Group\Revo Uninstaller Pro\</code>
+          <code class="reg-path">msimg32.dll → C:\Program Files (x86)\StartIsBack\</code>
         </div>
       </section>
 
