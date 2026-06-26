@@ -867,7 +867,7 @@
               <span class="code-lang">powershell</span>
               <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
             </div>
-            <pre class="single-line">irm https://raw.githubusercontent.com/Kajal4414/Scripts/main/software/install_firefox.ps1 -theme -configs | iex</pre>
+            <pre class="single-line">$f="$env:TEMP\install_firefox.ps1"; curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/main/software/install_firefox.ps1" -o $f; & $f -theme -configs; Remove-Item $f</pre>
           </div>
           <div class="callout callout-tip">
             <i class="ti ti-info-circle"></i>
