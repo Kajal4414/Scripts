@@ -1,68 +1,133 @@
 {
   "policies": {
-    "DisableTelemetry": true,
+    "DisableAccounts": true,
     "DisableFirefoxStudies": true,
-    "DisablePocket": true,
+    "DisableRemoteImprovements": true,
+    "DisableTelemetry": true,
     "DisableFeedbackCommands": true,
-    "DisableSetDesktopBackground": true,
-    "DisableFormHistory": true,
-    "DisableFirefoxAccounts": true,
+    "DisableFirefoxScreenshots": true,
+    "DisableProfileRefresh": true,
+    "DontCheckDefaultBrowser": true,
+    "HttpsOnlyMode": "enabled",
+    "IPProtectionAvailable": false,
+    "SearchSuggestEnabled": false,
+    "SearchEngines": {
+      "PreventInstalls": true,
+      "Remove": ["Bing", "Perplexity", "Wikipedia (en)"]
+    },
     "EnableTrackingProtection": {
-      "Value": true
+      "Value": true,
+      "Locked": true,
+      "Category": "strict",
+      "Cryptomining": true,
+      "Fingerprinting": true,
+      "EmailTracking": true,
+      "SuspectedFingerprinting": true,
+      "BaselineExceptions": false,
+      "ConvenienceExceptions": false
     },
-    "Cookies": {
-      "Behavior": "reject-tracker-and-partition-foreign"
-    },
-    "PopupBlocking": {
-      "Default": true
-    },
-    "DisableSecurityBypass": {
-      "SafeBrowsing": true
+    "DNSOverHTTPS": {
+      "Enabled": true,
+      "ProviderURL": "https://dns.nextdns.io/945496",
+      "Locked": true
     },
     "SanitizeOnShutdown": {
       "Cache": true,
-      "Downloads": true,
       "FormData": true,
       "History": true,
       "Sessions": true,
       "SiteSettings": true,
-      "OfflineApps": true
-    },
-    "DisableAppUpdate": true,
-    "DNSOverHTTPS": {
-      "Enabled": false,
-      "ProviderURL": ""
+      "Locked": true
     },
     "FirefoxHome": {
+      "Search": true,
       "TopSites": true,
       "SponsoredTopSites": false,
       "Highlights": false,
       "Pocket": false,
+      "Stories": false,
       "SponsoredPocket": false,
-      "Snippets": false
+      "SponsoredStories": false,
+      "Snippets": false,
+      "Locked": true
     },
-    "OverrideFirstRunPage": "",
-    "DisableDefaultBrowserAgent": true,
-    "DontCheckDefaultBrowser": true,
-    "NetworkPrediction": false,
-    "SearchSuggestEnabled": false,
-    "Extensions": {
-      "Install": [
-        "https://addons.mozilla.org/firefox/downloads/latest/checker-plus-gmail/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/noscript/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/ghostery/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/tomato-clock/latest.xpi",
-        "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
-      ],
-      "Uninstall": [
-        "bing@search.mozilla.org",
-        "wikipedia@search.mozilla.org"
-      ]
+    "ShowHomeButton": false,
+    "UserMessaging": {
+      "ExtensionRecommendations": false,
+      "FeatureRecommendations": false,
+      "UrlbarInterventions": false,
+      "SkipOnboarding": true,
+      "MoreFromMozilla": false,
+      "FirefoxLabs": false,
+      "Locked": true
+    },
+    "GenerativeAI": {
+      "Enabled": false,
+      "Locked": true
+    },
+    "Permissions": {
+      "Notifications": {
+        "BlockNewRequests": true,
+        "Locked": true
+      }
+    },
+    "OfferToSaveLogins": true,
+    "PasswordManagerEnabled": true,
+    "PrimaryPassword": true,
+    "AutofillCreditCardEnabled": false,
+    "Preferences": {
+      "browser.shopping.experience2023.active": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.shopping.experience2023.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.discovery.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.crashReports.unsubmittedCheck.autoSubmit2": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.tabs.crashReporting.sendReport": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.translations.enable": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.sessionstore.restore_on_demand": {
+        "Value": true,
+        "Status": "default"
+      },
+      "browser.sessionstore.restore_pinned_tabs_on_demand": {
+        "Value": true,
+        "Status": "default"
+      },
+      "extensions.htmlaboutaddons.recommendations.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "layout.spellcheckDefault": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      "pdfjs.enableAltText": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "privacy.fingerprintingProtection": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "signon.firefoxRelay.feature": {
+        "Value": "disabled",
+        "Status": "locked"
+      }
     }
   }
 }
