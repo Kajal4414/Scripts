@@ -797,7 +797,7 @@
         <div class="nav-label">System</div>
         <button class="nav-item" data-target="misc"><i class="ti ti-apps"></i> Utilities</button>
         <button class="nav-item" data-target="asus"><i class="ti ti-battery"></i> ASUS Config</button>
-        <button class="nav-item" data-target="linux"><i class="ti ti-brand-ubuntu"></i> Linux Notes</button>
+
         <button class="nav-item" data-target="cleanup"><i class="ti ti-eraser"></i> Boot Cleanup</button>
         <button class="nav-item" data-target="uefi"><i class="ti ti-tool"></i> UEFI Repair</button>
       </div>
@@ -858,7 +858,7 @@
         </div>
 
         <div class="subsection">
-          <h3><i class="ti ti-terminal-2"></i> Firefox Install Script</h3>
+          <h3><i class="ti ti-terminal-2"></i> Firefox Install Script <a class="chip" href="https://github.com/Kajal4414/Scripts/blob/revise-readme/software/install_firefox.ps1" target="_blank" rel="noopener noreferrer" style="font-size:11px;vertical-align:middle;"><i class="ti ti-brand-github"></i> install_firefox.ps1</a> <a class="chip" href="https://github.com/Kajal4414/Scripts/blob/revise-readme/firefox/autoconfig.js" target="_blank" rel="noopener noreferrer" style="font-size:11px;vertical-align:middle;"><i class="ti ti-brand-github"></i> autoconfig.js</a> <a class="chip" href="https://github.com/Kajal4414/Scripts/blob/revise-readme/firefox/firefox.cfg" target="_blank" rel="noopener noreferrer" style="font-size:11px;vertical-align:middle;"><i class="ti ti-brand-github"></i> firefox.cfg</a> <a class="chip" href="https://github.com/Kajal4414/Scripts/blob/revise-readme/firefox/policies.json" target="_blank" rel="noopener noreferrer" style="font-size:11px;vertical-align:middle;"><i class="ti ti-brand-github"></i> policies.json</a></h3>
           <div class="callout callout-warn">
             <i class="ti ti-alert-triangle"></i>
             <span>Run PowerShell or Terminal as <strong>Administrator</strong>. Do not use CMD.</span>
@@ -868,7 +868,7 @@
               <span class="code-lang">powershell</span>
               <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
             </div>
-            <pre class="single-line">curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/main/Windows/software/install_firefox.ps1" -o "$env:USERPROFILE\Desktop\install_firefox.ps1"; cd "$env:USERPROFILE\Desktop"; .\install_firefox.ps1 -theme -configs; Remove-Item .\install_firefox.ps1</pre>
+            <pre class="single-line">curl.exe -LSs "https://raw.githubusercontent.com/Kajal4414/Scripts/revise-readme/software/install_firefox.ps1" -o "$env:USERPROFILE\Desktop\install_firefox.ps1"; cd "$env:USERPROFILE\Desktop"; .\install_firefox.ps1 -theme -configs; Remove-Item .\install_firefox.ps1</pre>
           </div>
           <div class="callout callout-tip">
             <i class="ti ti-info-circle"></i>
@@ -991,23 +991,7 @@
           </div>
         </div>
 
-        <div class="subsection">
-          <h3><i class="ti ti-brand-ubuntu"></i> JetBrains IDEs — Linux Install</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">sh — intellij idea</span>
-              <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
-            </div>
-            <pre class="single-line">sudo tar -xzf ideaIC-*.tar.gz -C /opt && sudo sh /opt/idea-*/bin/idea.sh</pre>
-          </div>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">sh — pycharm</span>
-              <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
-            </div>
-            <pre class="single-line">sudo tar -xzf pycharm-*.tar.gz -C /opt && sudo sh /opt/pycharm-*/bin/pycharm.sh</pre>
-          </div>
-        </div>
+
       </section>
 
       <!-- Dev Tools ─────────────────────────────────────────────────── -->
@@ -1360,16 +1344,6 @@
           </div>
         </div>
 
-        <div class="subsection">
-          <h3><i class="ti ti-brand-ubuntu"></i> Telegram Linux Install</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">sh</span>
-              <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
-            </div>
-            <pre class="single-line">sudo tar -xf tsetup*.tar.xz -C /opt</pre>
-          </div>
-        </div>
       </section>
 
       <!-- Utilities ─────────────────────────────────────────────────── -->
@@ -1578,53 +1552,6 @@
         </div>
       </section>
 
-      <!-- Linux Notes ────────────────────────────────────────────────── -->
-      <section id="linux" class="section">
-        <div class="section-header">
-          <h2>Linux Notes</h2>
-          <p>Supplementary setup steps for Linux Mint / Debian-based systems.</p>
-        </div>
-
-        <div class="subsection">
-          <h3><i class="ti ti-brand-youtube"></i> YoutubeDownloader — .NET Runtime on Linux Mint</h3>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">sh — repo setup</span>
-              <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
-            </div>
-            <pre class="single-line">wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O prod.deb && sudo dpkg -i prod.deb && rm prod.deb</pre>
-          </div>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">sh — install runtime</span>
-              <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
-            </div>
-            <pre class="single-line">sudo apt update && sudo apt install -y aspnetcore-runtime-8.0 && dotnet --list-runtimes</pre>
-          </div>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">sh — install sdk (optional)</span>
-              <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
-            </div>
-            <pre class="single-line">sudo apt update && sudo apt install -y dotnet-sdk-8.0 && dotnet --list-sdks</pre>
-          </div>
-          <div class="code-block">
-            <div class="code-header">
-              <span class="code-lang">sh — launch</span>
-              <button class="copy-btn"><i class="ti ti-copy"></i> Copy</button>
-            </div>
-            <pre class="single-line">cd YoutubeDownloader/ && ./YoutubeDownloader</pre>
-          </div>
-        </div>
-
-        <div class="subsection">
-          <h3><i class="ti ti-shield"></i> Proton VPN — Linux Mint</h3>
-          <div class="callout callout-tip">
-            <i class="ti ti-info-circle"></i>
-            <span>Follow the <a href="https://protonvpn.com/support/official-linux-vpn-mint/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline;">official Proton VPN Linux Mint guide</a> for up-to-date packages.</span>
-          </div>
-        </div>
-      </section>
 
       <!-- Boot Cleanup ────────────────────────────────────────────────── -->
       <section id="cleanup" class="section">
